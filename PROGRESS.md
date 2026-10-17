@@ -13,7 +13,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 0. Plánování | 🟢 hotovo |
 | 1. Základ webu + půdorysy | 🟢 hotovo |
 | 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
-| 3. Vrstva: Okna | 🟡 online (16 pozic), čeká na ověření FV10 |
+| 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata), čeká na ověření FV10 |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Další vrstvy a vylepšení | ⚪ nezačato |
@@ -33,12 +33,12 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.4)
+## Co web umí (v0.5)
 
 - Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
-- Vrstva **Okna**: 16 pozic (FV01–FV13) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
+- Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
@@ -97,6 +97,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | DWG D.1.2 (stavebně konstrukční řešení) | ❌ jen statika, bez dveří a místností |
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
 | `2026-009 RD Podolanka_přehled elementů-1.pdf` – HA Technik (Schüco), 1. 4. 2026 | ✅ **zdroj dat oken** a náhledů |
+| `i-516-33272_Help_RDPodolanka_LPU42_silkgrain_RAL9005_6000x2250 mm_Nkovani.pdf` – Značková okna Praha (Hörmann), 23. 9. 2026 | ✅ garážová vrata GV01; starší varianty (SPUF42, planar) nevyužity |
 | `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
 | Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
@@ -138,6 +139,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] FV02: přehled uvádí „1.03-chodba“, na plánu je to severní okno technické místnosti 1.03
 - [ ] FV08: doplnit výrobní rozměry, až budou určeny
 - [ ] Doplnit žaluzie/rolety (zatím nejsou v podkladech)
+- [x] Garážová vrata GV01: Hörmann LPU 42, 6000 × 2250, RAL 9005 Silkgrain, RC 2, SupraMatic P – 129 435 Kč bez DPH
+- [ ] GV01: ověřit, zda je to finální varianta (v Downloads jsou i starší nabídky SPUF42 a LPU42 planar)
 
 ---
 
@@ -193,3 +196,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Oprava: filtr stavu dveří skrýval nábytek (pole `stav`); přehled nábytku seřazen po místnostech; verze souborů proti cache (v0.4.1).
 - **2026-10-17:** Nábytek: doplněn vstup 1.01 a garáž 1.04A, opraveno otočení vizualizací (v0.4.2).
 - **2026-10-17:** Garáž: nábytek jen na východní stěně (N19), v0.4.3.
+- **2026-10-17:** Web v0.5: garážová vrata GV01 ve vrstvě Okna a vrata, s položkami a cenou.

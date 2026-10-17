@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.4.3'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.5.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -44,7 +44,7 @@ const LAYERS = {
   okna: {
     file: 'data/okna.json',
     key: 'okna',
-    title: 'Seznam oken a prosklených stěn',
+    title: 'Seznam oken, prosklených stěn a vrat',
     subtitle: it => it.mistnost,
     badge: it => `<span class="badge okno">${esc(it.profil)}</span>`,
     fields: it => [
@@ -53,9 +53,14 @@ const LAYERS = {
       ['Parapet', it.parapet],
       ['Zasklení', it.zaskleni],
       ['Kování', it.kovani],
+      ['Povrch', it.povrch],
       ['Zábradlí', it.zabradli],
+      ['Pohon', it.pohon],
+      ['Zabezpečení', it.zabezpeceni],
+      ['Tepelný odpor', it.tepelny_odpor],
       ['Bezp. magnet', it.magnet == null ? null : it.magnet ? 'ano' : 'ne'],
-      ['Rám', 'RAL 9005 mat (černá)'],
+      ['Rám', it.povrch ? null : 'RAL 9005 mat (černá)'],
+      ['Dodavatel', it.dodavatel],
     ],
     columns: [
       ['Pozice', it => it.id],
@@ -63,6 +68,7 @@ const LAYERS = {
       ['Typ', it => it.typ],
       ['Rozměr', it => it.rozmer],
       ['Parapet', it => it.parapet],
+      ['Cena', it => ({ html: it.celkem ? `<span class="num">${CZK.format(it.celkem)}</span>` : '' })],
     ],
   },
   povrchy: {
@@ -216,12 +222,23 @@ function tipHtml(it) {
     <p class="rooms">${esc(cfg.subtitle(it))}</p>
     ${it.nahled ? `<img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"><p class="thumb-cap">Pohled z exteriéru</p>` : ''}
     <dl>${rows}</dl>
-    ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}`;
+    ${it.polozky ? itemsTable(it, `Položky (${it.cena_pozn})`, `Celkem ${it.cena_pozn.split(' (')[0]}`) : ''}
+    ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
+    ${it.nabidka ? `<p class="src">Nabídka ${esc(it.nabidka)}</p>` : ''}`;
+}
+
+function itemsTable(it, heading, totalLabel, extraRows = '') {
+  const items = it.polozky.map(p => `<tr><td>${esc(p.popis)}</td><td class="num">${CZK.format(p.cena)}</td></tr>`).join('');
+  return `
+    <h4>${esc(heading)}</h4>
+    <table class="items"><tbody>${items}</tbody>
+      <tfoot><tr><td>${esc(totalLabel)}</td><td class="num">${CZK.format(it.celkem)}</td></tr>${extraRows}</tfoot>
+    </table>`;
 }
 
 function showTip(it, e, anchorEl) {
   tip.innerHTML = tipHtml(it);
-  tip.classList.toggle('wide', it.layer === 'nabytek');
+  tip.classList.toggle('wide', !!it.polozky);
   tip.hidden = false;
   tip.querySelector('.close').addEventListener('click', unpin);
   setActive(it.id);
@@ -418,18 +435,14 @@ function furnitureHtml(it) {
     ['Model', it.model], ['Čela / dvířka', it.cela], ['Korpus', it.korpus],
     ['Zásuvky', it.zasuvky], ['Další', it.dalsi],
   ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
-  const items = it.polozky.map(p => `<tr><td>${esc(p.popis)}</td><td class="num">${CZK.format(p.cena)}</td></tr>`).join('');
   const imgs = it.nahledy.map((src, i) => `<a href="${esc(src)}" target="_blank" rel="noopener"><img class="thumb photo" src="${esc(src)}" alt="Vizualizace ${i + 1}: ${esc(it.nazev)}" loading="lazy"></a>`).join('');
   return `
     <h3>${esc(it.nazev)} <span class="badge nab-${it.stav}">${STAV_NAB[it.stav]}</span></h3>
     <p class="rooms">${esc(it.mistnost)}</p>
     <div class="gallery">${imgs}</div>
     <dl>${rows}</dl>
-    <h4>Položky (ceny s DPH ${esc(it.dph)})</h4>
-    <table class="items"><tbody>${items}</tbody>
-      <tfoot><tr><td>Celkem s DPH</td><td class="num">${CZK.format(it.celkem)}</td></tr>
-      <tr class="sub"><td>bez DPH</td><td class="num">${CZK.format(it.bez_dph)}</td></tr></tfoot>
-    </table>
+    ${itemsTable(it, `Položky (ceny s DPH ${it.dph})`, 'Celkem s DPH',
+      `<tr class="sub"><td>bez DPH</td><td class="num">${CZK.format(it.bez_dph)}</td></tr>`)}
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
     <p class="src">${esc(it.zdroj)}, ${formatDate(it.datum)}</p>`;
 }

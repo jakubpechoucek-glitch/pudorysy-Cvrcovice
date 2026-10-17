@@ -1,6 +1,6 @@
 {
   "aktualizovano": "2026-04-01",
-  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat)",
+  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat); garážová vrata: Značková okna Praha, nabídka i-516-33272/2026",
   "okna": [
     {
       "id": "FV01",
@@ -344,6 +344,65 @@
         "h": 300
       },
       "nahled": "img/okna/FV13.png",
+      "zabradli": null
+    },
+    {
+      "id": "GV01",
+      "podlazi": "1NP",
+      "mistnost": "1.04A garáž",
+      "typ": "Sekční garážová vrata Hörmann LPU 42, motiv L-drážka, N-kování",
+      "rozmer": "6000 × 2250 mm (světlý průjezd 6000 × 2200 mm s pohonem)",
+      "parapet": "– (práh proti přívalovému dešti)",
+      "zaskleni": null,
+      "kovani": "N-kování (torzní pružina), obložky zárubní 55 mm Silkgrain RAL 9005",
+      "profil": "Hörmann LPU 42",
+      "magnet": null,
+      "povrch": "Zvenku Silkgrain RAL 9005 hluboká černá (hedvábný lesk), zevnitř Stucco RAL 9002 šedobílá",
+      "pohon": "SupraMatic P řada 4 BiSecur, 3× dálkový ovladač HSE 4 BS (černý/chrom), jištění koncové hrany SKS",
+      "zabezpeceni": "Třída odolnosti RC 2 (DIN/TS 18194), magnetický kontakt VdS třídy C",
+      "tepelny_odpor": "1,2 W/(m²·K)",
+      "dodavatel": "Značková okna Praha (Hörmann) přes HELP Stavby",
+      "polozky": [
+        {
+          "popis": "Sekční vrata LPU 42 vč. pohonu SupraMatic P, RC 2, nátěr RAL 9005",
+          "cena": 98960.0
+        },
+        {
+          "popis": "Dálkový ovladač HSE 4 868-BS, chrom/černá (3 ks)",
+          "cena": 3165.0
+        },
+        {
+          "popis": "Magnetický kontakt VdS třída C",
+          "cena": 2377.0
+        },
+        {
+          "popis": "Montážní sada VdS magnetkontakt",
+          "cena": 417.0
+        },
+        {
+          "popis": "Práh proti přívalovému dešti, 2-sada",
+          "cena": 3016.0
+        },
+        {
+          "popis": "Montáž vrat vč. pohonu",
+          "cena": 18000.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 3500.0
+        }
+      ],
+      "celkem": 129435.0,
+      "cena_pozn": "bez DPH (nabídka pro HELP Stavby s 0 % DPH)",
+      "nabidka": "i-516-33272/2026, 23. 9. 2026",
+      "poznamka": "U tmavých odstínů může sluneční záření způsobit praskliny v pěně a větší průhyb křídla (upozornění výrobce). Minimální výška stropu 2460 mm, hloubka zasunutí 2760 mm.",
+      "hotspot": {
+        "x": 549,
+        "y": 186,
+        "w": 720,
+        "h": 36
+      },
+      "nahled": "img/okna/GV01.png",
       "zabradli": null
     }
   ]
