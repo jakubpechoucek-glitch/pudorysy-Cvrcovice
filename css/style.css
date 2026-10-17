@@ -217,6 +217,9 @@ body {
 body.no-scroll { overflow: hidden; }
 .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .sum { font-size: 15px; margin: 10px 0 0; }
+.tip .gallery.small { grid-template-columns: repeat(auto-fit, minmax(110px, 160px)); }
+.tip .gallery.small .thumb { max-height: 150px; padding: 0; }
+.sv-thumb { float: left; width: 40px; height: 40px; object-fit: contain; margin-right: 8px; border-radius: 4px; background: #fff; }
 .mat { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; font-size: 13px; white-space: nowrap; }
 .mat i { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,.18); display: inline-block; }
 .mat span { font-weight: 400; color: var(--muted); white-space: normal; }

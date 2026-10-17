@@ -17,7 +17,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
-| 7. Vrstva: Svítidla | 🟢 online (36 skupin, SV01–SV19, rozpočet PAIRAM) |
+| 7. Vrstva: Svítidla | 🟢 online (36 skupin, SV01–SV19, rozpočet PAIRAM NAB-26-349) |
 | 8. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
@@ -44,7 +44,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
-- Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-303 (445 657 Kč bez DPH) s porovnáním Delta Light (502 661 Kč).
+- Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. V detailu i fotka svítidla z nabídky. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-349 (416 354 Kč bez DPH) s porovnáním Delta Light (502 661 Kč, červen).
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -63,6 +63,7 @@ img/nabytek/*.jpg   – vizualizace z nabídek Hanák
 data/ezs.json       – typy prvků EZS (model, popis, cena, barva, znak), rozpočet ZL 9, polohy prvků
 img/ezs/            – ilustrační foto kamery a kouřového detektoru
 data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa), rozpočet, skupiny po místnostech
+img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 PROGRESS.md         – tento soubor
@@ -110,7 +111,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
 | Dropbox `Interier/EZS + kamery`: nabídka `2026-05-23 Podolanka (002) 1.6.2026.pdf` (rozpočet + zakreslení prvků), `RD Podolanka ZL 9 - EZS.xlsx`, `1PP.png`/`1NP.png` (zorná pole kamer) | ✅ **zdroj EZS**; polohy prvků převzaty slícováním výkresu z nabídky s naším půdorysem |
 | `Nabídka- S_2614141.pdf` – Princ parket, 22. 9. 2026 | ✅ dřevěné podlahy P1 (prkna Dub 15×195 Rustic, 136,7 m²) a schodiště 17 stupňů – 715 982,61 Kč bez DPH |
-| Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
+| **`NAB-26-349 RD Podolanka.pdf` – PAIRAM, 31. 8. 2026 (platná nabídka, 416 354 Kč bez DPH)** | ✅ **zdroj typů, cen a fotek svítidel** |
+| Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026, nahrazena), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
@@ -188,9 +190,9 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] Případně zobrazit zorná pole kamer (podklad 1PP.png / 1NP.png)
 
 ### Fáze 7 – Vrstva Svítidla
-- [x] Typy SV01–SV19 z nabídky PAIRAM NAB-26-303 vč. parametrů a cen, alternativa Delta Light
+- [x] Typy SV01–SV19 z nabídky PAIRAM NAB-26-349 (31. 8. 2026) vč. parametrů, cen a fotek, alternativa Delta Light
 - [x] Umístění po místnostech podle štítků ve výkresech E.2 (1.PP) a E.4 (1.NP)
-- [ ] Rozdíly výkres × nabídka: SV02 27 × 28 ks, SV17 30 × 29 ks, SV12 1 × 2 ks – ověřit
+- [ ] Rozdíly výkres × nabídka NAB-26-349: SV06 8 × 6, SV08 1 × 3, SV10 28 × 15, SV19 6 × 8, SV02 27 × 28, SV17 30 × 29, SV12 1 × 2 – ověřit (výkresy E.2/E.4 jsou z 06/26, nabídka z 08/26)
 - [ ] SV13, SV14 (lampy u postele) nejsou v nabídce PAIRAM – rozhodnout dodavatele
 - [ ] Rozhodnout dodavatele PAIRAM × Delta Light
 
@@ -229,3 +231,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.6: vrstva EZS a kamery (45 prvků, legenda, rozpočet ZL 9).
 - **2026-10-17:** Povrchy: nabídka Princ parket na dřevěné podlahy a schodiště, schodiště jako plocha v plánu (v0.6.1).
 - **2026-10-17:** Web v0.7: vrstva Svítidla (SV01–SV19 po místnostech, rozpočet PAIRAM, alternativa Delta Light).
+- **2026-10-17:** Svítidla přepnuta na platnou nabídku PAIRAM NAB-26-349 (416 354 Kč), fotky svítidel v detailu (v0.7.1).

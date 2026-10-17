@@ -1,6 +1,6 @@
 {
-  "aktualizovano": "2026-07-28",
-  "zdroj": "PAIRAM Solution – rozpočet NAB-26-303 (28. 7. 2026); umístění podle výkresů E.2 a E.4 (JA Architekti 06/26); alternativa Delta Light OPT260465 (23. 6. 2026)",
+  "aktualizovano": "2026-08-31",
+  "zdroj": "PAIRAM Solution – rozpočet NAB-26-349 (31. 8. 2026); umístění podle výkresů E.2 a E.4 (JA Architekti 06/26); alternativa Delta Light OPT260465 (23. 6. 2026)",
   "druhy": {
     "vestavne": {
       "barva": "#f9a825",
@@ -38,7 +38,8 @@
       "odkaz": "https://eshop.pairam.cz/prisazena-svitidla/tiny-led2/?variantId=125430",
       "alt": "PET midi 12 LED M930 50° black – 2 230 Kč/ks",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV01.jpg"
     },
     "SV02": {
       "druh": "vestavne",
@@ -50,7 +51,8 @@
       "odkaz": "https://led2.eu/cz/product/spot-mini/",
       "alt": "HOLLOW micro LED M930 30° white – 1 361 Kč/ks",
       "barva": "#f9a825",
-      "druh_txt": "vestavné"
+      "druh_txt": "vestavné",
+      "foto": "img/svitidla/SV02.jpg"
     },
     "SV03": {
       "druh": "prisazene",
@@ -62,7 +64,8 @@
       "odkaz": "https://led2.eu/cz/product/mono-slim/",
       "alt": "Puri – 21 358 Kč",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV03.jpg"
     },
     "SV04": {
       "druh": "prisazene",
@@ -74,7 +77,8 @@
       "odkaz": "https://led2.eu/cz/product/mono-slim/",
       "alt": "Rundo62 – 10 550 Kč",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV04.jpg"
     },
     "SV05": {
       "druh": "linearni",
@@ -87,7 +91,8 @@
       "odkaz": "https://www.topmet.com/combo30-01-acde-9/",
       "alt": "FTL35 F HE – 3 ks × 19 838 Kč",
       "barva": "#00838f",
-      "druh_txt": "lineární"
+      "druh_txt": "lineární",
+      "foto": "img/svitidla/SV05.jpg"
     },
     "SV06": {
       "druh": "prisazene",
@@ -95,47 +100,51 @@
       "vyrobek": "Delta Light OBIN ON 93036",
       "param": "LED 11,6 W, 3000 K, 1524 lm, CRI>90, 36°, nestmívatelné; ø90/112 mm, černá, IP20",
       "cena": 8074,
-      "ks": 8,
+      "ks": 6,
       "odkaz": "https://deltalight.com/en/products/obin/obin-on/obin-on-93036-dim8-b-black",
       "alt": "OBIN ON 93036 DIM5 B – 7 531 Kč/ks + SPY 90 TUBE 404 Kč",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV06.jpg"
     },
     "SV07": {
       "druh": "zavesne",
-      "nazev": "Designové závěsné LED svítidlo",
-      "vyrobek": "Nova Luce BALLET (alternativa Maytoni MOD282)",
-      "param": "40 W, 3000 K, 1100 lm, 45°, stmívání TRIAC; 220 × 40 mm, pískově černá + kouřově šedé sklo",
-      "cena": 14107,
+      "nazev": "Kompozice závěsných designových svítidel",
+      "vyrobek": "5 skleněných svítidel na společném baldachýnu",
+      "param": "LED 5 × 7 W, 280 lm, 3000 K, CRI>80, 360°, nestmívatelné; 5 × ø200/281 mm, transparentní sklo, mosazná rozeta, IP20",
+      "cena": 24900,
       "ks": 1,
-      "odkaz": "https://novaluce.es/Products/Decorative/Suspension/BALLET/9416947",
+      "odkaz": null,
       "alt": "Random Solo (sestava 5 ks + 7-Lights-Round-large) – cca 37 500 Kč",
       "barva": "#8e24aa",
-      "druh_txt": "závěsné"
+      "druh_txt": "závěsné",
+      "foto": "img/svitidla/SV07.jpg"
     },
     "SV08": {
       "druh": "zavesne",
-      "nazev": "Designové závěsné LED osvětlení",
-      "vyrobek": "Vapour horizontal sleeve (alternativa GEO LED)",
-      "param": "LED 2 × 7,5 W, 2700 K, 1000 lm, CRI>90, fázové stmívání; zdroj 1076 mm, ø40 mm, závěs 3000 mm, černá",
-      "cena": 23868,
-      "ks": 1,
-      "odkaz": "https://eshop.pairam.cz/zavesna-svitidla/vapour-horizontal-sleeve-sklad/",
+      "nazev": "Závěsné kulaté LED svítidlo",
+      "vyrobek": "opálová skleněná koule na černém závěsu",
+      "param": "LED 6,2 W, 3000 K, 680 lm, CRI>90, nestmívatelné; ø150/1150 mm, ručně foukané trojvrstvé opálové sklo, černá, IP20",
+      "cena": 6840,
+      "ks": 3,
+      "odkaz": null,
       "alt": "AIM SMALL EU BLK – 4 ks × 10 350 Kč + příslušenství 7 857 Kč",
       "barva": "#8e24aa",
-      "druh_txt": "závěsné"
+      "druh_txt": "závěsné",
+      "foto": "img/svitidla/SV08.jpg"
     },
     "SV09": {
-      "druh": "vestavne",
-      "nazev": "Vestavné kruhové LED svítidlo ø870",
-      "vyrobek": "Halla 143-080K",
-      "param": "LED 57,2 W, 3000 K, 7380 lm, CRI>80, nestmívatelné; ø870/90 mm, bílá, IP40",
-      "cena": 27668,
+      "druh": "prisazene",
+      "nazev": "Přisazené designové LED svítidlo",
+      "vyrobek": "skleněné oválné svítidlo 440 mm",
+      "param": "LED 30,5 W, 3000 K, 3723 lm, CRI>90, nestmívatelné; 440/125 mm, sklo/kov, bílá lesk, IP40",
+      "cena": 12439,
       "ks": 1,
-      "odkaz": "https://www.halla.cz/143-080k-10gee-830-w",
+      "odkaz": null,
       "alt": "Puri – 39 623 Kč",
-      "barva": "#f9a825",
-      "druh_txt": "vestavné"
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV09.jpg"
     },
     "SV10": {
       "druh": "venkovni",
@@ -143,11 +152,12 @@
       "vyrobek": "TLG SLC MiniOne fixed ø25",
       "param": "LED 3 W, 12 V, 2700 K, CRI>90, 100°, stmívatelné; ø32/16 mm, černá, IP44",
       "cena": 784,
-      "ks": 28,
+      "ks": 15,
       "odkaz": "https://tlg.no/products/slc-minione-fixed-downlight-%C3%B825",
       "alt": "není předmětem nabídky Delta Light",
       "barva": "#2e7d32",
-      "druh_txt": "venkovní"
+      "druh_txt": "venkovní",
+      "foto": "img/svitidla/SV10.jpg"
     },
     "SV11": {
       "druh": "linearni",
@@ -160,7 +170,8 @@
       "odkaz": null,
       "alt": "FTL35 F HE TR – 2 ks × 11 981 Kč",
       "barva": "#00838f",
-      "druh_txt": "lineární"
+      "druh_txt": "lineární",
+      "foto": "img/svitidla/SV11.jpg"
     },
     "SV12": {
       "druh": "zavesne",
@@ -172,7 +183,8 @@
       "odkaz": "https://maytoni.de/en/catalog/decorative/pendant-lamps/mod246pl-l24bk/",
       "alt": "LASS-OH! L210-4 + Powerbox – 16 540 Kč",
       "barva": "#8e24aa",
-      "druh_txt": "závěsné"
+      "druh_txt": "závěsné",
+      "foto": "img/svitidla/SV12.jpg"
     },
     "SV13": {
       "druh": "lampa",
@@ -208,7 +220,8 @@
       "odkaz": "https://led2.eu/cz/product/loco-z/",
       "alt": "PURE-VEGA LED – 3 812 Kč/ks",
       "barva": "#8e24aa",
-      "druh_txt": "závěsné"
+      "druh_txt": "závěsné",
+      "foto": "img/svitidla/SV15.jpg"
     },
     "SV16": {
       "druh": "prisazene",
@@ -220,7 +233,12 @@
       "odkaz": "https://www.weverducre.com/en/products/p/clea-3.0~72580",
       "alt": "CLEA 3.0 13 595 Kč / CLEA 2.0 10 741 Kč",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV16-2.jpg",
+      "fotky": [
+        "img/svitidla/SV16-1.jpg",
+        "img/svitidla/SV16-2.jpg"
+      ]
     },
     "SV17": {
       "druh": "vestavne",
@@ -232,7 +250,8 @@
       "odkaz": "https://eshop.pairam.cz/vestavna-svitidla/strada-35/?variantId=141608",
       "alt": "HOLLOW 6 LED hermetic M930 IP65 – 2 981 Kč/ks",
       "barva": "#f9a825",
-      "druh_txt": "vestavné"
+      "druh_txt": "vestavné",
+      "foto": "img/svitidla/SV17.jpg"
     },
     "SV18": {
       "druh": "prisazene",
@@ -244,7 +263,8 @@
       "odkaz": "https://eshop.pairam.cz/prisazena-svitidla/focus-ceiling-flexible-led/?variantId=209422",
       "alt": "PET midi spot + Honeycomb – 3 580 Kč/ks",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV18.jpg"
     },
     "SV19": {
       "druh": "prisazene",
@@ -252,11 +272,12 @@
       "vyrobek": "Maytoni C024CL",
       "param": "LED 12 W, 3000 K, 650 lm, 120°, CRI80, nestmívatelné; ø85/80 mm, černá, IP20",
       "cena": 2417,
-      "ks": 6,
+      "ks": 8,
       "odkaz": "https://maytoni.de/en/catalog/functional/ceiling-lights-func/c024cl-l12b3k/",
       "alt": "QRLED next M930 52° – 5 406 Kč/ks",
       "barva": "#ef6c00",
-      "druh_txt": "přisazené"
+      "druh_txt": "přisazené",
+      "foto": "img/svitidla/SV19.jpg"
     }
   },
   "rozpocet": [
@@ -281,24 +302,24 @@
       "cena": 45600
     },
     {
-      "popis": "SV06 – Delta Light OBIN ON 93036 (8 ks × 8 074 Kč)",
-      "cena": 64592
+      "popis": "SV06 – Delta Light OBIN ON 93036 (6 ks × 8 074 Kč)",
+      "cena": 48444
     },
     {
-      "popis": "SV07 – Nova Luce BALLET (alternativa Maytoni MOD282) (1 ks × 14 107 Kč)",
-      "cena": 14107
+      "popis": "SV07 – 5 skleněných svítidel na společném baldachýnu (1 ks × 24 900 Kč)",
+      "cena": 24900
     },
     {
-      "popis": "SV08 – Vapour horizontal sleeve (alternativa GEO LED) (1 ks × 23 868 Kč)",
-      "cena": 23868
+      "popis": "SV08 – opálová skleněná koule na černém závěsu (3 ks × 6 840 Kč)",
+      "cena": 20520
     },
     {
-      "popis": "SV09 – Halla 143-080K (1 ks × 27 668 Kč)",
-      "cena": 27668
+      "popis": "SV09 – skleněné oválné svítidlo 440 mm (1 ks × 12 439 Kč)",
+      "cena": 12439
     },
     {
-      "popis": "SV10 – TLG SLC MiniOne fixed ø25 (28 ks × 784 Kč)",
-      "cena": 21952
+      "popis": "SV10 – TLG SLC MiniOne fixed ø25 (15 ks × 784 Kč)",
+      "cena": 11760
     },
     {
       "popis": "SV11 – LED pásek SOB + bezrámečkový profil (6 m × 1 780 Kč)",
@@ -325,8 +346,8 @@
       "cena": 6115
     },
     {
-      "popis": "SV19 – Maytoni C024CL (6 ks × 2 417 Kč)",
-      "cena": 14502
+      "popis": "SV19 – Maytoni C024CL (8 ks × 2 417 Kč)",
+      "cena": 19336
     },
     {
       "popis": "Ovládání LED pásků chodba – Casambi CBU-PWM4 (2 ks)",
@@ -342,10 +363,11 @@
     },
     {
       "popis": "Recyklační poplatky",
-      "cena": 271
+      "cena": 258
     }
   ],
-  "celkem": 445657,
+  "celkem": 416354,
+  "nabidka": "NAB-26-349",
   "alternativa": {
     "dodavatel": "Delta Light Czech",
     "cislo": "OPT260465",
@@ -353,7 +375,7 @@
     "celkem": 502661,
     "pozn": "bez SV-10 (není předmětem nabídky)"
   },
-  "poznamka": "Ceny bez DPH. Starší varianty PAIRAM NAB-26-235 a NAB-26-236 (červen 2026) jsou nahrazeny NAB-26-303.",
+  "poznamka": "Ceny bez DPH. Starší nabídky PAIRAM NAB-26-235, NAB-26-236 (červen) a NAB-26-303 (červenec 2026) jsou nahrazeny NAB-26-349. Alternativa Delta Light je z června 2026 a u SV07–SV09 se týká původně navržených svítidel. Rozdíly počtů výkres × nabídka: SV06 8 × 6, SV08 1 × 3, SV10 28 × 15, SV19 6 × 8, SV02 27 × 28, SV17 30 × 29.",
   "svitidla": [
     {
       "id": "1NP-1.01-SV01",
@@ -458,7 +480,8 @@
         "y": 1146,
         "w": 48,
         "h": 48
-      }
+      },
+      "poznamka": "V nabídce NAB-26-349 jen 6 ks (ve výkresech 6 v otevřeném prostoru + 2 v pracovně) – ověřit."
     },
     {
       "id": "1NP-1.08-SV01",
@@ -484,7 +507,8 @@
         "y": 1174,
         "w": 48,
         "h": 48
-      }
+      },
+      "poznamka": "V nabídce NAB-26-349 8 ks, ve výkresu 6 – ověřit."
     },
     {
       "id": "1NP-PERG-1NP-SV10",
@@ -497,7 +521,8 @@
         "y": 52,
         "w": 48,
         "h": 48
-      }
+      },
+      "poznamka": "V nabídce NAB-26-349 jen 15 ks (ve výkresech 13 v atriu + 15 nad příjezdem) – ověřit, která pergola."
     },
     {
       "id": "1NP-SCH-1NP-SV02",
@@ -523,7 +548,8 @@
         "y": 1651,
         "w": 48,
         "h": 48
-      }
+      },
+      "poznamka": "V nabídce NAB-26-349 jen 6 ks (ve výkresech 6 v otevřeném prostoru + 2 v pracovně) – ověřit."
     },
     {
       "id": "1PP-0.01-SV02",
@@ -563,7 +589,8 @@
         "y": 1419,
         "w": 48,
         "h": 48
-      }
+      },
+      "poznamka": "V nabídce 3 svítidla (nad jídelním stolem?), ve výkresu 1 štítek – ověřit."
     },
     {
       "id": "1PP-0.01-SV12",
@@ -828,7 +855,8 @@
         "y": 1278,
         "w": 48,
         "h": 48
-      }
+      },
+      "poznamka": "V nabídce NAB-26-349 jen 15 ks (ve výkresech 13 v atriu + 15 nad příjezdem) – ověřit, která pergola."
     }
   ]
 }

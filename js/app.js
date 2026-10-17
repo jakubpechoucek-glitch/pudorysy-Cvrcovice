@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.7.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.7.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -619,11 +619,13 @@ function lightHtml(it) {
     ['Počet zde', it.pocet != null ? `${it.pocet} ks` : null],
     ['Cena', t.cena ? `${CZK.format(t.cena)} / ${unit} bez DPH${it.pocet ? ` → zde ${CZK.format(t.cena * it.pocet)}` : ''}` : 'není v nabídce PAIRAM'],
     ['V celém domě', `${t.ks} ${unit}`],
-    ['Alternativa', `Delta Light: ${t.alt}`],
+    ['Alternativa', `Delta Light (06/2026): ${t.alt}`],
   ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  const photos = t.fotky || (t.foto ? [t.foto] : []);
   return `
     <h3><span class="ezs-dot" style="background:${t.barva}">${esc(it.typ.slice(2))}</span> ${esc(it.typ)} – ${esc(t.nazev)}</h3>
     <p class="rooms">${esc(it.mistnost)}</p>
+    ${photos.length ? `<div class="gallery small">${photos.map(src => `<a href="${esc(src)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(src)}" alt="${esc(t.nazev)}"></a>`).join('')}</div>` : ''}
     <dl>${rows}</dl>
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
     ${t.odkaz ? `<p class="src"><a href="${esc(t.odkaz)}" target="_blank" rel="noopener">Stránka výrobku ↗</a></p>` : ''}`;
@@ -634,7 +636,7 @@ function lightSummary(sec) {
   const types = Object.entries(SVT.typy).map(([k, t]) => {
     const n = items.filter(i => i.typ === k).reduce((a, i) => a + (i.pocet || 0), 0);
     return `<tr><td><span class="ezs-dot" style="background:${t.barva}">${esc(k.slice(2))}</span> ${esc(k)}</td>
-      <td>${esc(t.nazev)}<br><small>${esc(t.vyrobek)}</small></td>
+      <td>${t.foto ? `<img class="sv-thumb" src="${esc(t.foto)}" alt="" loading="lazy">` : ''}${esc(t.nazev)}<br><small>${esc(t.vyrobek)}</small></td>
       <td class="num">${n || '–'}</td><td class="num">${t.ks} ${esc(t.jednotka || 'ks')}</td>
       <td class="num">${t.cena ? CZK.format(t.cena) : '–'}</td></tr>`;
   }).join('');
@@ -646,7 +648,7 @@ function lightSummary(sec) {
       <thead><tr><th>Typ</th><th>Svítidlo</th><th class="num">Ve výkresech</th><th class="num">V nabídce</th><th class="num">Cena / ks</th></tr></thead>
       <tbody>${types}</tbody>
     </table></div>
-    <h3 class="sub-h">Rozpočet PAIRAM NAB-26-303 (bez DPH)</h3>
+    <h3 class="sub-h">Rozpočet PAIRAM ${esc(SVT.nabidka)} (${formatDate(SVT.aktualizovano)}, bez DPH)</h3>
     <div class="table-wrap"><table>
       <tbody>${budget}</tbody>
       <tfoot><tr><td><strong>Celkem bez DPH</strong></td><td class="num"><strong>${CZK.format(SVT.celkem)}</strong></td></tr>
