@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Půdorysy Cvrčovice</title>
   <meta name="description" content="Interaktivní půdorysy rodinného domu – detaily dveří, oken a dalších prvků.">
-  <link rel="stylesheet" href="css/style.css?v=0.8.0">
+  <link rel="stylesheet" href="css/style.css?v=0.8.1">
 </head>
 <body>
   <header class="top">
@@ -24,7 +24,7 @@
       <label class="chip ly-nabytek"><input type="checkbox" data-layer="nabytek"><i></i> Nábytek</label>
       <label class="chip ly-ezs"><input type="checkbox" data-layer="ezs"><i></i> EZS a kamery</label>
       <label class="chip ly-svit"><input type="checkbox" data-layer="svitidla"><i></i> Svítidla</label>
-      <label class="chip ly-fve"><input type="checkbox" data-layer="fve" checked><i></i> FVE</label>
+      <label class="chip ly-fve"><input type="checkbox" data-layer="fve"><i></i> FVE</label>
     </fieldset>
 
     <fieldset class="group" id="floor-legend" hidden>
@@ -45,7 +45,8 @@
         <label><input type="radio" name="floor" value="all" checked><span>Vše</span></label>
         <label><input type="radio" name="floor" value="1PP"><span>1.PP</span></label>
         <label><input type="radio" name="floor" value="1NP"><span>1.NP</span></label>
-        <label><input type="radio" name="floor" value="STR"><span>Střecha</span></label>
+        <label class="needs-fve" hidden><input type="radio" name="floor" value="fve"><span>1.NP + střecha</span></label>
+        <label class="needs-fve" hidden><input type="radio" name="floor" value="STR"><span>Střecha</span></label>
       </div>
     </fieldset>
 
@@ -104,6 +105,6 @@
     Náhledy oken: HA Technik, přehled elementů 2026-009; vrata: Hörmann / Značková okna Praha. Povrchy: přehled povrchů (PROCERAM, podle studie JA Architekti). Nábytek a vizualizace: Hanák Forum. EZS a kamery: nabídka a ZL 9 (HELP Stavby). Dřevěné podlahy a schody: Princ parket. Svítidla: PAIRAM / Delta Light, umístění podle výkresů E.2 a E.4. Střecha: půdorys střechy D.1.4.4 (upraveno), FVE: SEFY.
   </footer>
 
-  <script src="js/app.js?v=0.8.0"></script>
+  <script src="js/app.js?v=0.8.1"></script>
 </body>
 </html>

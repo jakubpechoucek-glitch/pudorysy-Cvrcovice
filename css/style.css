@@ -134,6 +134,7 @@ body {
 .hs[data-layer="nabytek"] { --c: var(--nabytek); }
 .hs[data-layer="fve"] { --c: #1a237e; }
 .hs[data-layer="fve"] rect.mark { fill-opacity: .85; stroke: #fff; stroke-width: 3; rx: 2; }
+.hs[data-layer="fve"]:not([data-id="FVE"]) rect.mark { rx: 6; stroke-width: 4; fill-opacity: .95; }
 .hs[data-layer="fve"]:hover rect.mark, .hs[data-layer="fve"].active rect.mark { fill: #3949ab; animation: none; }
 .hs[data-layer="ezs"] rect.mark, .hs[data-layer="svitidla"] rect.mark { rx: 50%; fill-opacity: .92; stroke: #fff; stroke-width: 4; }
 .hs[data-layer="svitidla"]:hover rect.mark, .hs[data-layer="svitidla"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }

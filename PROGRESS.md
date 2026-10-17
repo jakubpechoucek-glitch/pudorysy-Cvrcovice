@@ -38,7 +38,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ## Co web umí (v0.8)
 
-- Podlaží 1.PP, 1.NP a **Střecha** (na mobilu pod sebou), přepínač **Vše / 1.PP / 1.NP / Střecha**.
+- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. **Střecha** se zobrazí jen se zapnutou vrstvou FVE (pak přibude volba *1.NP + střecha* a *Střecha*).
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
@@ -46,7 +46,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. V detailu i fotka svítidla z nabídky. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-349 (416 354 Kč bez DPH) s porovnáním Delta Light (502 661 Kč, červen).
-- Vrstva **FVE** (na střeše): 18 panelů AIKO 550 Wp podle náhledu SEFY; detail se střídačem, bateriemi, nabíječkami aut, roční výrobou a cenou; pod půdorysy rozpis komponent a graf měsíční výroby.
+- Vrstva **FVE** (ve výchozím stavu vypnutá; po zapnutí ukáže 1.NP + střechu): 18 panelů AIKO 550 Wp na střeše podle náhledu SEFY, v 1.NP střídač, baterie (BAT1, BAT2) a rozvaděč RD v SZ rohu skladu 1.04B a 2 wallboxy na jižní stěně garáže, s fotkami z technických listů; detail se střídačem, bateriemi, nabíječkami aut, roční výrobou a cenou; pod půdorysy rozpis komponent a graf měsíční výroby.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -68,6 +68,7 @@ data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa),
 img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
+img/fve/            – fotky panelu, střídače, baterie a wallboxu z technických listů
 img/STR.png         – půdorys střechy (z výkresu D.1.4.4 hromosvod, bez barevných vrstev a staré FVE)
 data/fve.json       – FVE: komponenty, výroba, cena, polohy panelů
 PROGRESS.md         – tento soubor
@@ -205,7 +206,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 ### Fáze 8 – Střecha a FVE
 - [x] Podklad střechy z výkresu hromosvodu (vyčištěno)
 - [x] 18 panelů ve 3 řadách (6 + 7 + 5) podle náhledu SEFY, detail systému, rozpis, měsíční výroba
-- [ ] Doplnit umístění střídače, baterií a 2 wallboxů (zatím neurčeno) – pak je zakreslit do 1.NP
+- [x] Střídač, baterie BAT1/BAT2 a rozvaděč RD v SZ rohu skladu 1.04B (podle schématu), 2 wallboxy na jižní stěně garáže
+- [x] Fotky výrobků z technických listů (SEFY Dropbox)
 - [ ] Případně hromosvod jako samostatná vrstva na střeše
 
 ## Návrhy na vylepšení (k rozhodnutí)
@@ -246,3 +248,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Svítidla přepnuta na platnou nabídku PAIRAM NAB-26-349 (416 354 Kč), fotky svítidel v detailu (v0.7.1).
 - **2026-10-17:** Svítidla: odstraněn seznam skupin pod půdorysy, zůstává tabulka typů s fotkami a rozpočet (v0.7.2).
 - **2026-10-17:** Web v0.8: podlaží Střecha a vrstva FVE (SEFY, 18 × 550 Wp, 14,4 kWh, 2 wallboxy).
+- **2026-10-17:** FVE: střídač, baterie, rozvaděč a 2 wallboxy v 1.NP s fotkami; FVE ve výchozím stavu vypnutá, po zapnutí 1.NP + střecha (v0.8.1).

@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -136,6 +136,7 @@ const LAYERS = {
     title: 'Fotovoltaika',
     padding: 0,
     label: false,
+    glyph: it => it.znak || '',
     subtitle: it => it.nazev,
     render: fveHtml,
     columns: null,
@@ -213,9 +214,11 @@ function renderHotspots() {
       if (cfg.glyph) {
         const { x, y, w, h } = rects[0];
         const t = cfg.glyph(it);
+        if (t) {
         const glyph = el('text', { x: x + w / 2, y: y + h / 2, class: 'glyph', 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': t.length > 2 ? 15 : t.length > 1 ? 19 : 25 });
         glyph.textContent = t;
         g.append(glyph);
+        }
       }
       if (cfg.label !== false) {
         const { x, y, w } = rects[0];
@@ -342,7 +345,7 @@ function setActive(id) {
 
 function focusItem(it) {
   // zajistí, že je prvek viditelný (podlaží, vrstva, stav)
-  if (state.floor !== 'all' && state.floor !== it.podlazi) {
+  if (!visibleFloors().includes(it.podlazi)) {
     document.querySelector(`input[name="floor"][value="${it.podlazi}"]`).click();
   }
   if (LAYERS[it.layer].statusFilter) {
@@ -359,6 +362,11 @@ function focusItem(it) {
 function bindControls() {
   document.querySelectorAll('input[data-layer]').forEach(cb => cb.addEventListener('change', () => {
     cb.checked ? state.layers.add(cb.dataset.layer) : state.layers.delete(cb.dataset.layer);
+    // FVE: po zapnutí ukázat 1.NP (střídač, baterie, wallboxy) a střechu (panely)
+    if (cb.dataset.layer === 'fve') {
+      if (cb.checked) setFloor('fve');
+      else if (state.floor === 'fve' || state.floor === 'STR') setFloor('all');
+    }
     applyFilters();
   }));
   document.querySelectorAll('input[data-status]').forEach(cb => cb.addEventListener('change', () => {
@@ -383,12 +391,26 @@ function bindControls() {
   addEventListener('scroll', () => { if (!state.pinned) hideTip(); }, { passive: true });
 }
 
+function setFloor(f) {
+  state.floor = f;
+  const r = document.querySelector(`input[name="floor"][value="${f}"]`);
+  if (r) r.checked = true;
+}
+
+// podlaží zobrazená pro aktuální volbu; střecha jen se zapnutou FVE
+function visibleFloors() {
+  const fve = state.layers.has('fve');
+  if (state.floor === 'all') return fve ? ['1PP', '1NP', 'STR'] : ['1PP', '1NP'];
+  if (state.floor === 'fve') return ['1NP', 'STR'];
+  return [state.floor];
+}
+
 function applyFilters() {
   unpin();
-  for (const fig of document.querySelectorAll('.plan')) {
-    fig.hidden = state.floor !== 'all' && state.floor !== fig.dataset.floor;
-  }
-  plans.classList.toggle('single', state.floor !== 'all');
+  const floors = visibleFloors();
+  for (const fig of document.querySelectorAll('.plan')) fig.hidden = !floors.includes(fig.dataset.floor);
+  plans.classList.toggle('single', floors.length === 1);
+  document.querySelectorAll('.needs-fve').forEach(l => { l.hidden = !state.layers.has('fve'); });
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
   document.getElementById('ezs-legend').hidden = !state.layers.has('ezs');
@@ -399,7 +421,7 @@ function applyFilters() {
   for (const it of state.items) {
     const show = state.layers.has(it.layer) &&
       (!LAYERS[it.layer].statusFilter || state.statuses.has(it.stav)) &&
-      (state.floor === 'all' || state.floor === it.podlazi);
+      floors.includes(it.podlazi);
     hotspotEl(it.id).style.display = show ? '' : 'none';
     const row = document.querySelector(`.list tr[data-id="${CSS.escape(it.id)}"]`);
     if (row) row.hidden = !show;
@@ -617,6 +639,15 @@ function ezsSummary(sec) {
 // ---------- vrstva FVE ----------
 
 function fveHtml(it) {
+  if (it.druh !== 'panely') {
+    const rows = it.parametry.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+    return `
+    <h3><span class="ezs-dot" style="background:#1a237e">${esc(it.znak)}</span> ${esc(it.nazev)}</h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    ${it.foto ? `<a href="${esc(it.foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.foto)}" alt="${esc(it.nazev)}"></a><p class="thumb-cap">Foto z technického listu výrobce</p>` : ''}
+    <dl>${rows}</dl>
+    <p class="src">Součást FVE SEFY (smlouva VB-26-1530) – celý systém viz panely na střeše a rozpis pod půdorysy.</p>`;
+  }
   const rows = [
     ['Panely', it.komponenty[0].popis],
     ['Výkon', `${it.hotspot.length} × 550 Wp = 9,9 kWp`],
@@ -630,12 +661,13 @@ function fveHtml(it) {
   return `
     <h3>${esc(it.nazev)} <span class="badge fve">SEFY</span></h3>
     <p class="rooms">Plochá střecha nad 1.NP</p>
+    <a href="${esc(it.foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.foto)}" alt="Panel AIKO"></a><p class="thumb-cap">${esc(it.foto_pozn)}</p>
     <dl>${rows}</dl>
     <p class="note">${esc(it.poznamka)} Rozpis a měsíční výroba jsou pod půdorysy.</p>`;
 }
 
 function fveSummary(sec) {
-  const it = state.items.find(i => i.layer === 'fve');
+  const it = state.items.find(i => i.layer === 'fve' && i.druh === 'panely');
   if (!it) return;
   const max = Math.max(...it.mesice.map(m => m.kwh));
   sec.insertAdjacentHTML('beforeend', `

@@ -213,7 +213,189 @@
       "termin": "do 16 týdnů od podpisu smlouvy (31. 8. 2026)",
       "sluzby": "Jednopólové schéma, žádost o připojení k distribuční soustavě, podklady pro dotaci NZÚ, montáž, revize, žádost o první paralelní připojení.",
       "nezahrnuje": "Wi-Fi v místě střídače, zemní práce a zasekání kabelů, úpravu elektroměrového rozvaděče, přípravu kabelů pro 2 wallboxy.",
-      "poznamka": "Rozmístění panelů podle náhledu SEFY (SolarEdge Designer, 24. 9. 2026) – orientační. Umístění střídače, baterií a wallboxů zatím neurčeno."
+      "poznamka": "Rozmístění panelů podle náhledu SEFY (SolarEdge Designer, 24. 9. 2026) – orientační. Umístění střídače, baterií a wallboxů zatím neurčeno.",
+      "druh": "panely",
+      "foto": "img/fve/panel-aiko.jpg",
+      "foto_pozn": "Ilustrační foto z technického listu řady AIKO Neostar"
+    },
+    {
+      "id": "FVE-stridac",
+      "druh": "stridac",
+      "podlazi": "1NP",
+      "nazev": "Hybridní střídač Solax X3-HYB-10.0 PRO",
+      "mistnost": "1.04B sklad – severní stěna",
+      "znak": "S",
+      "foto": "img/fve/stridac-solax-x3-hyb.jpg",
+      "parametry": [
+        [
+          "Typ",
+          "třífázový asymetrický hybridní střídač, 10 kW"
+        ],
+        [
+          "Vstup FV",
+          "3 MPPT, 110–950 V, max. 20 A na MPPT, doporučené pole až 20 kWp"
+        ],
+        [
+          "Baterie",
+          "130–800 V, nabíjení/vybíjení max. 50 A (2 porty)"
+        ],
+        [
+          "Záloha (EPS)",
+          "přepnutí < 10 ms, krátkodobě až 200 % výkonu – back-up pro celý dům"
+        ],
+        [
+          "Účinnost",
+          "max. 98,0 %, evropská 97,7 %"
+        ],
+        [
+          "Rozměry, hmotnost",
+          "560 × 503 × 210 mm, 38 kg, IP66"
+        ],
+        [
+          "Záruka",
+          "10 let"
+        ]
+      ],
+      "hotspot": [
+        {
+          "x": 270,
+          "y": 231,
+          "w": 84,
+          "h": 27
+        }
+      ]
+    },
+    {
+      "id": "FVE-baterie",
+      "druh": "baterie",
+      "podlazi": "1NP",
+      "nazev": "Baterie Solax T-BAT-SYS-HV-S3.6 (BAT1 a BAT2)",
+      "mistnost": "1.04B sklad – severozápadní roh",
+      "znak": "B",
+      "foto": "img/fve/baterie-solax-t-bat.jpg",
+      "parametry": [
+        [
+          "Kapacita",
+          "4 moduly × 3,6 kWh = 14,4 kWh (využitelná cca 13 kWh při 90 % DOD)"
+        ],
+        [
+          "Technologie",
+          "LFP články, > 6000 cyklů, vyhřívání pro nízké teploty"
+        ],
+        [
+          "Modul",
+          "510 × 365 × 152 mm, 10 kg; řídicí jednotka 510 × 365 × 157 mm, 13 kg"
+        ],
+        [
+          "Krytí",
+          "IP65 (vnitřní i venkovní instalace)"
+        ],
+        [
+          "Záruka",
+          "10 let"
+        ]
+      ],
+      "hotspot": [
+        {
+          "x": 225,
+          "y": 234,
+          "w": 33,
+          "h": 57
+        }
+      ]
+    },
+    {
+      "id": "FVE-rozvadec",
+      "druh": "rozvadec",
+      "podlazi": "1NP",
+      "nazev": "Rozvaděč RD – doplnění komponent FVE",
+      "mistnost": "1.04B sklad – severní stěna",
+      "znak": "RD",
+      "foto": null,
+      "parametry": [
+        [
+          "Obsah",
+          "doplnění komponent FVE do domovního rozvaděče, back-up s automatickým přepnutím, svodiče přepětí SPD T1+T2"
+        ]
+      ],
+      "hotspot": [
+        {
+          "x": 390,
+          "y": 231,
+          "w": 63,
+          "h": 27
+        }
+      ]
+    },
+    {
+      "id": "FVE-wallbox-1",
+      "druh": "wallbox",
+      "podlazi": "1NP",
+      "nazev": "Nabíjecí stanice pro auto 1",
+      "mistnost": "1.04A garáž – jižní stěna",
+      "znak": "EV",
+      "foto": "img/fve/wallbox-solax-hac.jpg",
+      "parametry": [
+        [
+          "Typ",
+          "Solax X3-HAC Smart EV Charger G2, 11 kW, třífázová"
+        ],
+        [
+          "Kabel",
+          "pevný kabel s konektorem typ 2"
+        ],
+        [
+          "Funkce",
+          "nabíjení z přebytků FVE, automatické přepínání 1f/3f, dynamické vyvažování zátěže, ovládání aplikací"
+        ],
+        [
+          "Pozn.",
+          "příprava kabelů pro wallboxy není součástí dodávky SEFY"
+        ]
+      ],
+      "hotspot": [
+        {
+          "x": 705,
+          "y": 786,
+          "w": 48,
+          "h": 42
+        }
+      ]
+    },
+    {
+      "id": "FVE-wallbox-2",
+      "druh": "wallbox",
+      "podlazi": "1NP",
+      "nazev": "Nabíjecí stanice pro auto 2",
+      "mistnost": "1.04A garáž – jižní stěna",
+      "znak": "EV",
+      "foto": "img/fve/wallbox-solax-hac.jpg",
+      "parametry": [
+        [
+          "Typ",
+          "Solax X3-HAC Smart EV Charger G2, 11 kW, třífázová"
+        ],
+        [
+          "Kabel",
+          "pevný kabel s konektorem typ 2"
+        ],
+        [
+          "Funkce",
+          "nabíjení z přebytků FVE, automatické přepínání 1f/3f, dynamické vyvažování zátěže, ovládání aplikací"
+        ],
+        [
+          "Pozn.",
+          "příprava kabelů pro wallboxy není součástí dodávky SEFY"
+        ]
+      ],
+      "hotspot": [
+        {
+          "x": 1023,
+          "y": 786,
+          "w": 48,
+          "h": 42
+        }
+      ]
     }
   ]
 }
