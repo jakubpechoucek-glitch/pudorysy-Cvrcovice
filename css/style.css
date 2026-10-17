@@ -181,6 +181,33 @@ body {
 .tip table.items tfoot td { font-weight: 700; border-bottom: 0; padding-top: 6px; }
 .tip table.items tfoot tr.sub td { font-weight: 400; color: var(--muted); padding-top: 0; }
 .tip .src { margin: 8px 0 0; font-size: 11px; color: var(--muted); }
+.tip a.zoom { display: block; cursor: zoom-in; position: relative; }
+.tip.pinned a.zoom:hover img { outline: 2px solid var(--accent); }
+.tip:not(.pinned) a.zoom { pointer-events: none; }
+.zoom-hint { text-align: left !important; }
+.tip.pinned .when-hover, .tip:not(.pinned) .when-pinned { display: none; }
+
+/* ---------- galerie ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 50; background: rgba(10, 11, 13, .92);
+  display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px;
+}
+.lightbox[hidden] { display: none; }
+.lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 100%; max-height: 100%; min-width: 0; flex: 1; }
+.lightbox img { max-width: 100%; max-height: calc(100vh - 80px); object-fit: contain; border-radius: 6px; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+.lightbox figcaption { color: #e8e6e3; font-size: 14px; margin-top: 10px; text-align: center; }
+.lightbox button { background: rgba(255,255,255,.12); color: #fff; border: 0; border-radius: 999px; cursor: pointer; }
+.lightbox button:hover { background: rgba(255,255,255,.25); }
+.lb-close { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; font-size: 28px; line-height: 1; }
+.lb-nav { flex: none; width: 48px; height: 64px; font-size: 36px; line-height: 1; }
+.lb-nav[hidden] { display: none; }
+@media (max-width: 600px) {
+  .lightbox { padding: 8px; }
+  .lb-nav { position: absolute; bottom: 16px; width: 56px; height: 48px; }
+  .lb-prev { left: 16px; } .lb-next { right: 16px; }
+  .lightbox img { max-height: calc(100vh - 140px); }
+}
+body.no-scroll { overflow: hidden; }
 .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .sum { font-size: 15px; margin: 10px 0 0; }
 .mat { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; font-size: 13px; white-space: nowrap; }

@@ -33,7 +33,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.5)
+## Co web umí (v0.5.1)
 
 - Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
@@ -42,6 +42,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
+- **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
 
 ## Struktura repozitáře
@@ -197,3 +198,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Nábytek: doplněn vstup 1.01 a garáž 1.04A, opraveno otočení vizualizací (v0.4.2).
 - **2026-10-17:** Garáž: nábytek jen na východní stěně (N19), v0.4.3.
 - **2026-10-17:** Web v0.5: garážová vrata GV01 ve vrstvě Okna a vrata, s položkami a cenou.
+- **2026-10-17:** Galerie pro zvětšení obrázků (lightbox), vizualizace nábytku v plném rozlišení (v0.5.1).

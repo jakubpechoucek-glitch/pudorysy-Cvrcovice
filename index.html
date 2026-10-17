@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Půdorysy Cvrčovice</title>
   <meta name="description" content="Interaktivní půdorysy rodinného domu – detaily dveří, oken a dalších prvků.">
-  <link rel="stylesheet" href="css/style.css?v=0.5.0">
+  <link rel="stylesheet" href="css/style.css?v=0.5.1">
 </head>
 <body>
   <header class="top">
@@ -70,11 +70,21 @@
 
   <div class="tip" id="tip" role="dialog" aria-live="polite" hidden></div>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Zvětšený obrázek" hidden>
+    <button class="lb-close" aria-label="Zavřít">×</button>
+    <button class="lb-nav lb-prev" aria-label="Předchozí obrázek">‹</button>
+    <figure>
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" aria-label="Další obrázek">›</button>
+  </div>
+
   <footer class="wrap foot">
     Podklad půdorysů: JA Architekti, projekt interiéru RD Podolanka (C.2.1, C.2.2, 08/25).
     Náhledy oken: HA Technik, přehled elementů 2026-009; vrata: Hörmann / Značková okna Praha. Povrchy: přehled povrchů (PROCERAM, podle studie JA Architekti). Nábytek a vizualizace: Hanák Forum.
   </footer>
 
-  <script src="js/app.js?v=0.5.0"></script>
+  <script src="js/app.js?v=0.5.1"></script>
 </body>
 </html>

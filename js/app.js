@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.5.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.5.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -120,6 +120,7 @@ const state = {
 };
 
 const tip = document.getElementById('tip');
+const lightbox = document.getElementById('lightbox');
 const plans = document.getElementById('plans');
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -220,7 +221,7 @@ function tipHtml(it) {
     <button class="close" aria-label="Zavřít">×</button>
     <h3>${esc(it.id)} ${cfg.badge(it)}</h3>
     <p class="rooms">${esc(cfg.subtitle(it))}</p>
-    ${it.nahled ? `<img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"><p class="thumb-cap">Pohled z exteriéru</p>` : ''}
+    ${it.nahled ? `<a href="${esc(it.nahled)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"></a><p class="thumb-cap">Pohled z exteriéru</p>` : ''}
     <dl>${rows}</dl>
     ${it.polozky ? itemsTable(it, `Položky (${it.cena_pozn})`, `Celkem ${it.cena_pozn.split(' (')[0]}`) : ''}
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
@@ -315,8 +316,17 @@ function bindControls() {
     state.floor = r.value;
     applyFilters();
   }));
-  document.addEventListener('click', e => { if (state.pinned && !tip.contains(e.target)) unpin(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') unpin(); });
+  document.addEventListener('click', e => { if (state.pinned && !tip.contains(e.target) && !lightbox.contains(e.target)) unpin(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.hidden) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') stepLightbox(-1);
+      if (e.key === 'ArrowRight') stepLightbox(1);
+      return;
+    }
+    if (e.key === 'Escape') unpin();
+  });
+  bindLightbox();
   addEventListener('scroll', () => { if (!state.pinned) hideTip(); }, { passive: true });
 }
 
@@ -435,11 +445,12 @@ function furnitureHtml(it) {
     ['Model', it.model], ['Čela / dvířka', it.cela], ['Korpus', it.korpus],
     ['Zásuvky', it.zasuvky], ['Další', it.dalsi],
   ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
-  const imgs = it.nahledy.map((src, i) => `<a href="${esc(src)}" target="_blank" rel="noopener"><img class="thumb photo" src="${esc(src)}" alt="Vizualizace ${i + 1}: ${esc(it.nazev)}" loading="lazy"></a>`).join('');
+  const imgs = it.nahledy.map((src, i) => `<a href="${esc(src)}" target="_blank" rel="noopener" class="zoom"><img class="thumb photo" src="${esc(src)}" alt="Vizualizace ${i + 1}: ${esc(it.nazev)}" loading="lazy"></a>`).join('');
   return `
     <h3>${esc(it.nazev)} <span class="badge nab-${it.stav}">${STAV_NAB[it.stav]}</span></h3>
     <p class="rooms">${esc(it.mistnost)}</p>
     <div class="gallery">${imgs}</div>
+    <p class="thumb-cap zoom-hint"><span class="when-pinned">Klikněte na obrázek pro zvětšení</span><span class="when-hover">Klikněte na místo v plánu – pak lze obrázky zvětšit</span></p>
     <dl>${rows}</dl>
     ${itemsTable(it, `Položky (ceny s DPH ${it.dph})`, 'Celkem s DPH',
       `<tr class="sub"><td>bez DPH</td><td class="num">${CZK.format(it.bez_dph)}</td></tr>`)}
@@ -459,6 +470,65 @@ function updateFurnitureSum() {
   const total = state.items.filter(i => i.layer === 'nabytek' &&
     (state.floor === 'all' || state.floor === i.podlazi)).reduce((a, i) => a + i.celkem, 0);
   out.textContent = CZK.format(total);
+}
+
+// ---------- galerie (zvětšení obrázků) ----------
+
+const lb = { list: [], i: 0 };
+
+function bindLightbox() {
+  // kliknutí na náhled v připnutém detailu otevře galerii se všemi obrázky detailu
+  tip.addEventListener('click', e => {
+    const a = e.target.closest('a.zoom');
+    if (!a) return;
+    e.preventDefault();
+    const links = [...tip.querySelectorAll('a.zoom')];
+    lb.list = links.map(l => ({ src: l.getAttribute('href'), alt: l.querySelector('img').alt }));
+    lb.title = tip.querySelector('h3')?.firstChild?.textContent.trim() || '';
+    openLightbox(links.indexOf(a));
+  });
+  lightbox.querySelector('.lb-close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lb-prev').addEventListener('click', () => stepLightbox(-1));
+  lightbox.querySelector('.lb-next').addEventListener('click', () => stepLightbox(1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.tagName === 'FIGURE') closeLightbox(); });
+  // přejetí prstem na mobilu
+  let x0 = null;
+  lightbox.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    if (x0 == null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) stepLightbox(dx < 0 ? 1 : -1);
+    x0 = null;
+  });
+}
+
+function openLightbox(i) {
+  lb.i = i;
+  lightbox.hidden = false;
+  document.body.classList.add('no-scroll');
+  renderLightbox();
+  lightbox.querySelector('.lb-close').focus();
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.classList.remove('no-scroll');
+}
+
+function stepLightbox(d) {
+  if (lb.list.length < 2) return;
+  lb.i = (lb.i + d + lb.list.length) % lb.list.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const { src, alt } = lb.list[lb.i];
+  const img = lightbox.querySelector('img');
+  img.src = src;
+  img.alt = alt;
+  const n = lb.list.length;
+  lightbox.querySelector('figcaption').textContent = `${lb.title}${n > 1 ? ` – ${lb.i + 1} / ${n}` : ''}`;
+  lightbox.querySelectorAll('.lb-nav').forEach(b => { b.hidden = n < 2; });
 }
 
 // ---------- editor souřadnic (?edit) ----------
