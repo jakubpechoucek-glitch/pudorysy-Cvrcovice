@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.6.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.7.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -14,6 +14,7 @@ const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever n
 let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
 let ZARUKA = '';    // záruční podmínky nábytku Hanák
 let EZS = {};       // typy prvků EZS a rozpočet
+let SVT = {};       // typy svítidel, rozpočet
 const CZK = new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 });
 const STAV_NAB = { smlouva: 'Smlouva', nabidka: 'Nabídka' };
 
@@ -128,6 +129,25 @@ const LAYERS = {
       ['Model', it => EZS.typy[it.typ].model],
     ],
     extra: ezsSummary,
+  },
+  svitidla: {
+    file: 'data/svitidla.json',
+    key: 'svitidla',
+    title: 'Svítidla',
+    padding: 4,
+    label: false,
+    onLoad: data => { SVT = data; },
+    color: it => SVT.typy[it.typ].barva,
+    glyph: it => it.typ.slice(2),
+    subtitle: it => `${it.typ} – ${it.mistnost}`,
+    render: lightHtml,
+    columns: [
+      ['Typ', it => ({ html: `<span class="ezs-dot" style="background:${SVT.typy[it.typ].barva}">${esc(it.typ.slice(2))}</span> ${esc(it.typ)}` })],
+      ['Místnost', it => it.mistnost],
+      ['Počet', it => ({ html: `<span class="num">${it.pocet ?? 'lineární'}</span>` })],
+      ['Svítidlo', it => `${SVT.typy[it.typ].nazev} – ${SVT.typy[it.typ].vyrobek}`],
+    ],
+    extra: lightSummary,
   },
 };
 
@@ -366,6 +386,7 @@ function applyFilters() {
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
   document.getElementById('ezs-legend').hidden = !state.layers.has('ezs');
+  document.getElementById('svit-legend').hidden = !state.layers.has('svitidla');
   updateFurnitureSum();
 
   const counts = {};
@@ -496,6 +517,8 @@ function floorOffer() {
 }
 
 function renderLegend() {
+  document.getElementById('svit-legend').insertAdjacentHTML('beforeend', Object.values(SVT.druhy)
+    .map(d => `<span class="chip legend"><span class="ezs-dot" style="background:${d.barva}">&nbsp;</span> ${esc(d.nazev)}</span>`).join(''));
   const seen = new Set();
   document.getElementById('ezs-legend').insertAdjacentHTML('beforeend', Object.values(EZS.typy)
     .filter(t => !seen.has(t.znak + t.barva) && seen.add(t.znak + t.barva))
@@ -582,6 +605,54 @@ function ezsSummary(sec) {
       </tfoot>
     </table></div>
     <p class="meta">${esc(EZS.poznamka)}</p>`);
+}
+
+// ---------- vrstva svítidel ----------
+
+function lightHtml(it) {
+  const t = SVT.typy[it.typ];
+  const unit = t.jednotka || 'ks';
+  const rows = [
+    ['Výrobek', t.vyrobek],
+    ['Parametry', t.param],
+    ['Montáž', t.druh_txt],
+    ['Počet zde', it.pocet != null ? `${it.pocet} ks` : null],
+    ['Cena', t.cena ? `${CZK.format(t.cena)} / ${unit} bez DPH${it.pocet ? ` → zde ${CZK.format(t.cena * it.pocet)}` : ''}` : 'není v nabídce PAIRAM'],
+    ['V celém domě', `${t.ks} ${unit}`],
+    ['Alternativa', `Delta Light: ${t.alt}`],
+  ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3><span class="ezs-dot" style="background:${t.barva}">${esc(it.typ.slice(2))}</span> ${esc(it.typ)} – ${esc(t.nazev)}</h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    <dl>${rows}</dl>
+    ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
+    ${t.odkaz ? `<p class="src"><a href="${esc(t.odkaz)}" target="_blank" rel="noopener">Stránka výrobku ↗</a></p>` : ''}`;
+}
+
+function lightSummary(sec) {
+  const items = state.items.filter(i => i.layer === 'svitidla');
+  const types = Object.entries(SVT.typy).map(([k, t]) => {
+    const n = items.filter(i => i.typ === k).reduce((a, i) => a + (i.pocet || 0), 0);
+    return `<tr><td><span class="ezs-dot" style="background:${t.barva}">${esc(k.slice(2))}</span> ${esc(k)}</td>
+      <td>${esc(t.nazev)}<br><small>${esc(t.vyrobek)}</small></td>
+      <td class="num">${n || '–'}</td><td class="num">${t.ks} ${esc(t.jednotka || 'ks')}</td>
+      <td class="num">${t.cena ? CZK.format(t.cena) : '–'}</td></tr>`;
+  }).join('');
+  const budget = SVT.rozpocet.map(r => `<tr><td>${esc(r.popis)}</td><td class="num">${CZK.format(r.cena)}</td></tr>`).join('');
+  const a = SVT.alternativa;
+  sec.insertAdjacentHTML('beforeend', `
+    <h3 class="sub-h">Typy svítidel</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Typ</th><th>Svítidlo</th><th class="num">Ve výkresech</th><th class="num">V nabídce</th><th class="num">Cena / ks</th></tr></thead>
+      <tbody>${types}</tbody>
+    </table></div>
+    <h3 class="sub-h">Rozpočet PAIRAM NAB-26-303 (bez DPH)</h3>
+    <div class="table-wrap"><table>
+      <tbody>${budget}</tbody>
+      <tfoot><tr><td><strong>Celkem bez DPH</strong></td><td class="num"><strong>${CZK.format(SVT.celkem)}</strong></td></tr>
+      <tr><td>Alternativa ${esc(a.dodavatel)} ${esc(a.cislo)} (${formatDate(a.datum)}), ${esc(a.pozn)}</td><td class="num">${CZK.format(a.celkem)}</td></tr></tfoot>
+    </table></div>
+    <p class="meta">${esc(SVT.poznamka)}</p>`);
 }
 
 // ---------- galerie (zvětšení obrázků) ----------

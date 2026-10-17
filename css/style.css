@@ -85,6 +85,7 @@ body {
 .ly-povrchy i { background: linear-gradient(135deg, #c8a27a 50%, #b3aba0 50%); border-radius: 2px; }
 .ly-nabytek i { background: var(--nabytek); border-radius: 2px; }
 .ly-ezs i { background: #c62828; border-radius: 50%; }
+.ly-svit i { background: #f9a825; border-radius: 50%; }
 .chip.legend { cursor: default; font-size: 13px; padding: 3px 10px; }
 .chip.legend i { border-radius: 3px; border: 1px solid rgba(0,0,0,.15); }
 .group[hidden] { display: none; }
@@ -130,7 +131,8 @@ body {
 .hs[data-stav="akutni"] { --c: var(--akutni); }
 .hs[data-layer="okna"] { --c: var(--okno); }
 .hs[data-layer="nabytek"] { --c: var(--nabytek); }
-.hs[data-layer="ezs"] rect.mark { rx: 50%; fill-opacity: .92; stroke: #fff; stroke-width: 4; }
+.hs[data-layer="ezs"] rect.mark, .hs[data-layer="svitidla"] rect.mark { rx: 50%; fill-opacity: .92; stroke: #fff; stroke-width: 4; }
+.hs[data-layer="svitidla"]:hover rect.mark, .hs[data-layer="svitidla"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }
 .hs[data-layer="ezs"]:hover rect.mark, .hs[data-layer="ezs"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }
 .hs text.glyph { fill: #fff; font-weight: 700; font-family: system-ui, sans-serif; pointer-events: none; opacity: 1; stroke: none; }
 .ezs-dot { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 4px; border-radius: 11px; color: #fff; font-size: 11px; font-weight: 700; vertical-align: middle; }

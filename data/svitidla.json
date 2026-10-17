@@ -1,0 +1,834 @@
+{
+  "aktualizovano": "2026-07-28",
+  "zdroj": "PAIRAM Solution – rozpočet NAB-26-303 (28. 7. 2026); umístění podle výkresů E.2 a E.4 (JA Architekti 06/26); alternativa Delta Light OPT260465 (23. 6. 2026)",
+  "druhy": {
+    "vestavne": {
+      "barva": "#f9a825",
+      "nazev": "vestavné"
+    },
+    "prisazene": {
+      "barva": "#ef6c00",
+      "nazev": "přisazené"
+    },
+    "zavesne": {
+      "barva": "#8e24aa",
+      "nazev": "závěsné"
+    },
+    "linearni": {
+      "barva": "#00838f",
+      "nazev": "lineární"
+    },
+    "lampa": {
+      "barva": "#8d6e63",
+      "nazev": "stolní / nástěnné"
+    },
+    "venkovni": {
+      "barva": "#2e7d32",
+      "nazev": "venkovní"
+    }
+  },
+  "typy": {
+    "SV01": {
+      "druh": "prisazene",
+      "nazev": "Přisazené válcové LED svítidlo",
+      "vyrobek": "LED2 TINY",
+      "param": "LED 8 W, 3000 K, 510 lm, CRI>90, 60°, nestmívatelné; ø78/70 mm, hliník/PMMA, černá, IP20",
+      "cena": 1885,
+      "ks": 18,
+      "odkaz": "https://eshop.pairam.cz/prisazena-svitidla/tiny-led2/?variantId=125430",
+      "alt": "PET midi 12 LED M930 50° black – 2 230 Kč/ks",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    },
+    "SV02": {
+      "druh": "vestavne",
+      "nazev": "Vestavné kruhové LED svítidlo",
+      "vyrobek": "LED2 SPOT MINI",
+      "param": "LED 7 W, 3000/3500/4000 K, 490 lm, CRI>90, 30°, nestmívatelné; ø40/70 mm, bílá, IP20",
+      "cena": 870,
+      "ks": 28,
+      "odkaz": "https://led2.eu/cz/product/spot-mini/",
+      "alt": "HOLLOW micro LED M930 30° white – 1 361 Kč/ks",
+      "barva": "#f9a825",
+      "druh_txt": "vestavné"
+    },
+    "SV03": {
+      "druh": "prisazene",
+      "nazev": "Přisazené kruhové LED svítidlo ø600",
+      "vyrobek": "LED2 MONO SLIM 60",
+      "param": "LED 60 W, 2700/3000/4000 K, 4200 lm, CRI>90, 160°, nestmívatelné; ø600/60 mm, černá, IP20",
+      "cena": 4350,
+      "ks": 1,
+      "odkaz": "https://led2.eu/cz/product/mono-slim/",
+      "alt": "Puri – 21 358 Kč",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    },
+    "SV04": {
+      "druh": "prisazene",
+      "nazev": "Přisazené kruhové LED svítidlo ø400",
+      "vyrobek": "LED2 MONO SLIM 40",
+      "param": "LED 30 W, 2700/3000/4000 K, 2100 lm, CRI>90, 160°, nestmívatelné; ø400/60 mm, černá, IP20",
+      "cena": 2320,
+      "ks": 1,
+      "odkaz": "https://led2.eu/cz/product/mono-slim/",
+      "alt": "Rundo62 – 10 550 Kč",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    },
+    "SV05": {
+      "druh": "linearni",
+      "nazev": "Přisazené lineární LED svítidlo",
+      "vyrobek": "Topmet COMBO30 + LED pásek 24 V",
+      "param": "3000 K, 10,8 W/m, 1520 lm/m, profil 33,4 × 49,9 mm, opálový difuzor, černý hliník, nestmívatelné",
+      "cena": 2850,
+      "ks": 16,
+      "jednotka": "m",
+      "odkaz": "https://www.topmet.com/combo30-01-acde-9/",
+      "alt": "FTL35 F HE – 3 ks × 19 838 Kč",
+      "barva": "#00838f",
+      "druh_txt": "lineární"
+    },
+    "SV06": {
+      "druh": "prisazene",
+      "nazev": "Designové přisazené LED svítidlo",
+      "vyrobek": "Delta Light OBIN ON 93036",
+      "param": "LED 11,6 W, 3000 K, 1524 lm, CRI>90, 36°, nestmívatelné; ø90/112 mm, černá, IP20",
+      "cena": 8074,
+      "ks": 8,
+      "odkaz": "https://deltalight.com/en/products/obin/obin-on/obin-on-93036-dim8-b-black",
+      "alt": "OBIN ON 93036 DIM5 B – 7 531 Kč/ks + SPY 90 TUBE 404 Kč",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    },
+    "SV07": {
+      "druh": "zavesne",
+      "nazev": "Designové závěsné LED svítidlo",
+      "vyrobek": "Nova Luce BALLET (alternativa Maytoni MOD282)",
+      "param": "40 W, 3000 K, 1100 lm, 45°, stmívání TRIAC; 220 × 40 mm, pískově černá + kouřově šedé sklo",
+      "cena": 14107,
+      "ks": 1,
+      "odkaz": "https://novaluce.es/Products/Decorative/Suspension/BALLET/9416947",
+      "alt": "Random Solo (sestava 5 ks + 7-Lights-Round-large) – cca 37 500 Kč",
+      "barva": "#8e24aa",
+      "druh_txt": "závěsné"
+    },
+    "SV08": {
+      "druh": "zavesne",
+      "nazev": "Designové závěsné LED osvětlení",
+      "vyrobek": "Vapour horizontal sleeve (alternativa GEO LED)",
+      "param": "LED 2 × 7,5 W, 2700 K, 1000 lm, CRI>90, fázové stmívání; zdroj 1076 mm, ø40 mm, závěs 3000 mm, černá",
+      "cena": 23868,
+      "ks": 1,
+      "odkaz": "https://eshop.pairam.cz/zavesna-svitidla/vapour-horizontal-sleeve-sklad/",
+      "alt": "AIM SMALL EU BLK – 4 ks × 10 350 Kč + příslušenství 7 857 Kč",
+      "barva": "#8e24aa",
+      "druh_txt": "závěsné"
+    },
+    "SV09": {
+      "druh": "vestavne",
+      "nazev": "Vestavné kruhové LED svítidlo ø870",
+      "vyrobek": "Halla 143-080K",
+      "param": "LED 57,2 W, 3000 K, 7380 lm, CRI>80, nestmívatelné; ø870/90 mm, bílá, IP40",
+      "cena": 27668,
+      "ks": 1,
+      "odkaz": "https://www.halla.cz/143-080k-10gee-830-w",
+      "alt": "Puri – 39 623 Kč",
+      "barva": "#f9a825",
+      "druh_txt": "vestavné"
+    },
+    "SV10": {
+      "druh": "venkovni",
+      "nazev": "Vestavné mini LED svítidlo (pergola)",
+      "vyrobek": "TLG SLC MiniOne fixed ø25",
+      "param": "LED 3 W, 12 V, 2700 K, CRI>90, 100°, stmívatelné; ø32/16 mm, černá, IP44",
+      "cena": 784,
+      "ks": 28,
+      "odkaz": "https://tlg.no/products/slc-minione-fixed-downlight-%C3%B825",
+      "alt": "není předmětem nabídky Delta Light",
+      "barva": "#2e7d32",
+      "druh_txt": "venkovní"
+    },
+    "SV11": {
+      "druh": "linearni",
+      "nazev": "Vestavné lineární svítidlo do SDK",
+      "vyrobek": "LED pásek SOB + bezrámečkový profil",
+      "param": "3000 K, 19 W/m, 2240 lm/m, CRI90, IP54; profil 33,4 mm do SDK, difuzor, zdroj",
+      "cena": 1780,
+      "ks": 6,
+      "jednotka": "m",
+      "odkaz": null,
+      "alt": "FTL35 F HE TR – 2 ks × 11 981 Kč",
+      "barva": "#00838f",
+      "druh_txt": "lineární"
+    },
+    "SV12": {
+      "druh": "zavesne",
+      "nazev": "Designové závěsné LED svítidlo (lineární)",
+      "vyrobek": "Maytoni MOD246",
+      "param": "16 W, 800 lm, 3000–4000 K, 120°, nestmívatelné; 17 × 1200 mm, závěs 3167 mm, černá",
+      "cena": 4193,
+      "ks": 2,
+      "odkaz": "https://maytoni.de/en/catalog/decorative/pendant-lamps/mod246pl-l24bk/",
+      "alt": "LASS-OH! L210-4 + Powerbox – 16 540 Kč",
+      "barva": "#8e24aa",
+      "druh_txt": "závěsné"
+    },
+    "SV13": {
+      "druh": "lampa",
+      "nazev": "Nástěnné / stolní bodové svítidlo",
+      "vyrobek": "UNTITLED MINI SPOT (Delta Light)",
+      "param": "u postele; v nabídce PAIRAM není",
+      "cena": null,
+      "ks": 2,
+      "odkaz": null,
+      "alt": "UNTITLED MINI SPOT + Table Base – 6 770 Kč/ks",
+      "barva": "#8d6e63",
+      "druh_txt": "stolní / nástěnné"
+    },
+    "SV14": {
+      "druh": "lampa",
+      "nazev": "Stolní lampa",
+      "vyrobek": "Hello Table lamp, šedá",
+      "param": "dodáváno bez světelného zdroje; v nabídce PAIRAM není",
+      "cena": null,
+      "ks": 1,
+      "odkaz": null,
+      "alt": "Hello Table lamp – 2 625 Kč",
+      "barva": "#8d6e63",
+      "druh_txt": "stolní / nástěnné"
+    },
+    "SV15": {
+      "druh": "zavesne",
+      "nazev": "Závěsné designové LED svítidlo",
+      "vyrobek": "LED2 LOCO Z",
+      "param": "LED 10 W, 3000 K, 900 lm, CRI>90, 100°, nestmívatelné; ø100/2000 mm, černá, IP20",
+      "cena": 3335,
+      "ks": 2,
+      "odkaz": "https://led2.eu/cz/product/loco-z/",
+      "alt": "PURE-VEGA LED – 3 812 Kč/ks",
+      "barva": "#8e24aa",
+      "druh_txt": "závěsné"
+    },
+    "SV16": {
+      "druh": "prisazene",
+      "nazev": "Přisazené stropní LED svítidlo",
+      "vyrobek": "Wever & Ducré CLEA 1.0 (ø350) + CLEA 3.0 (ø700)",
+      "param": "14,1 W, 3000 K, 650 lm, CRI>90, nestmívatelné; ø350 mm krémová (8 034 Kč) a ø700 mm nefrit (15 106 Kč), opálové sklo",
+      "cena": 11570.0,
+      "ks": 4,
+      "odkaz": "https://www.weverducre.com/en/products/p/clea-3.0~72580",
+      "alt": "CLEA 3.0 13 595 Kč / CLEA 2.0 10 741 Kč",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    },
+    "SV17": {
+      "druh": "vestavne",
+      "nazev": "Vestavné kruhové LED svítidlo",
+      "vyrobek": "Strada 35",
+      "param": "LED 6 W, 3000 K, 500 lm, CRI>80, 40°, nestmívatelné; ø40/45 mm, bílá, IP44",
+      "cena": 2054,
+      "ks": 29,
+      "odkaz": "https://eshop.pairam.cz/vestavna-svitidla/strada-35/?variantId=141608",
+      "alt": "HOLLOW 6 LED hermetic M930 IP65 – 2 981 Kč/ks",
+      "barva": "#f9a825",
+      "druh_txt": "vestavné"
+    },
+    "SV18": {
+      "druh": "prisazene",
+      "nazev": "Reflektorové přisazené svítidlo",
+      "vyrobek": "Focus ceiling flexible LED",
+      "param": "LED 12 W, 3000 K, CRI>90, 50°, nestmívatelné; ø52/125 (160) mm, černá, IP20",
+      "cena": 1223,
+      "ks": 5,
+      "odkaz": "https://eshop.pairam.cz/prisazena-svitidla/focus-ceiling-flexible-led/?variantId=209422",
+      "alt": "PET midi spot + Honeycomb – 3 580 Kč/ks",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    },
+    "SV19": {
+      "druh": "prisazene",
+      "nazev": "Přisazené stropní LED svítidlo",
+      "vyrobek": "Maytoni C024CL",
+      "param": "LED 12 W, 3000 K, 650 lm, 120°, CRI80, nestmívatelné; ø85/80 mm, černá, IP20",
+      "cena": 2417,
+      "ks": 6,
+      "odkaz": "https://maytoni.de/en/catalog/functional/ceiling-lights-func/c024cl-l12b3k/",
+      "alt": "QRLED next M930 52° – 5 406 Kč/ks",
+      "barva": "#ef6c00",
+      "druh_txt": "přisazené"
+    }
+  },
+  "rozpocet": [
+    {
+      "popis": "SV01 – LED2 TINY (18 ks × 1 885 Kč)",
+      "cena": 33930
+    },
+    {
+      "popis": "SV02 – LED2 SPOT MINI (28 ks × 870 Kč)",
+      "cena": 24360
+    },
+    {
+      "popis": "SV03 – LED2 MONO SLIM 60 (1 ks × 4 350 Kč)",
+      "cena": 4350
+    },
+    {
+      "popis": "SV04 – LED2 MONO SLIM 40 (1 ks × 2 320 Kč)",
+      "cena": 2320
+    },
+    {
+      "popis": "SV05 – Topmet COMBO30 + LED pásek 24 V (16 m × 2 850 Kč)",
+      "cena": 45600
+    },
+    {
+      "popis": "SV06 – Delta Light OBIN ON 93036 (8 ks × 8 074 Kč)",
+      "cena": 64592
+    },
+    {
+      "popis": "SV07 – Nova Luce BALLET (alternativa Maytoni MOD282) (1 ks × 14 107 Kč)",
+      "cena": 14107
+    },
+    {
+      "popis": "SV08 – Vapour horizontal sleeve (alternativa GEO LED) (1 ks × 23 868 Kč)",
+      "cena": 23868
+    },
+    {
+      "popis": "SV09 – Halla 143-080K (1 ks × 27 668 Kč)",
+      "cena": 27668
+    },
+    {
+      "popis": "SV10 – TLG SLC MiniOne fixed ø25 (28 ks × 784 Kč)",
+      "cena": 21952
+    },
+    {
+      "popis": "SV11 – LED pásek SOB + bezrámečkový profil (6 m × 1 780 Kč)",
+      "cena": 10680
+    },
+    {
+      "popis": "SV12 – Maytoni MOD246 (2 ks × 4 193 Kč)",
+      "cena": 8386
+    },
+    {
+      "popis": "SV15 – LED2 LOCO Z (2 ks × 3 335 Kč)",
+      "cena": 6670
+    },
+    {
+      "popis": "SV16 – Wever & Ducré CLEA 1.0 (ø350) + CLEA 3.0 (ø700) (4 ks × 11 570 Kč)",
+      "cena": 46280
+    },
+    {
+      "popis": "SV17 – Strada 35 (29 ks × 2 054 Kč)",
+      "cena": 59566
+    },
+    {
+      "popis": "SV18 – Focus ceiling flexible LED (5 ks × 1 223 Kč)",
+      "cena": 6115
+    },
+    {
+      "popis": "SV19 – Maytoni C024CL (6 ks × 2 417 Kč)",
+      "cena": 14502
+    },
+    {
+      "popis": "Ovládání LED pásků chodba – Casambi CBU-PWM4 (2 ks)",
+      "cena": 6604
+    },
+    {
+      "popis": "Modul Casambi pro 4 tlačítka",
+      "cena": 5994
+    },
+    {
+      "popis": "Vestavné pohybové čidlo se snímačem intenzity světla (2 ks)",
+      "cena": 17842
+    },
+    {
+      "popis": "Recyklační poplatky",
+      "cena": 271
+    }
+  ],
+  "celkem": 445657,
+  "alternativa": {
+    "dodavatel": "Delta Light Czech",
+    "cislo": "OPT260465",
+    "datum": "2026-06-23",
+    "celkem": 502661,
+    "pozn": "bez SV-10 (není předmětem nabídky)"
+  },
+  "poznamka": "Ceny bez DPH. Starší varianty PAIRAM NAB-26-235 a NAB-26-236 (červen 2026) jsou nahrazeny NAB-26-303.",
+  "svitidla": [
+    {
+      "id": "1NP-1.01-SV01",
+      "typ": "SV01",
+      "podlazi": "1NP",
+      "mistnost": "1.01 Vstup / Zádveří",
+      "pocet": 4,
+      "hotspot": {
+        "x": 1868,
+        "y": 495,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.02-SV01",
+      "typ": "SV01",
+      "podlazi": "1NP",
+      "mistnost": "1.02 Chodba",
+      "pocet": 2,
+      "hotspot": {
+        "x": 1563,
+        "y": 517,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.03-SV04",
+      "typ": "SV04",
+      "podlazi": "1NP",
+      "mistnost": "1.03 Technická místnost",
+      "pocet": 1,
+      "hotspot": {
+        "x": 1554,
+        "y": 284,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.04A-SV18",
+      "typ": "SV18",
+      "podlazi": "1NP",
+      "mistnost": "1.04A Garáž",
+      "pocet": 5,
+      "hotspot": {
+        "x": 851,
+        "y": 718,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.04B-SV05",
+      "typ": "SV05",
+      "podlazi": "1NP",
+      "mistnost": "1.04B Sklad",
+      "pocet": null,
+      "hotspot": {
+        "x": 349,
+        "y": 591,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "Lineární svítidlo – v nabídce celkem 16 m."
+    },
+    {
+      "id": "1NP-1.05-SV01",
+      "typ": "SV01",
+      "podlazi": "1NP",
+      "mistnost": "1.05 Koupelna (1NP)",
+      "pocet": 4,
+      "hotspot": {
+        "x": 1519,
+        "y": 702,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.06-SV01",
+      "typ": "SV01",
+      "podlazi": "1NP",
+      "mistnost": "1.06 Chodba (vedlejší)",
+      "pocet": 4,
+      "hotspot": {
+        "x": 1668,
+        "y": 914,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.07-SV06",
+      "typ": "SV06",
+      "podlazi": "1NP",
+      "mistnost": "1.07 Pracovna",
+      "pocet": 2,
+      "hotspot": {
+        "x": 1555,
+        "y": 1146,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.08-SV01",
+      "typ": "SV01",
+      "podlazi": "1NP",
+      "mistnost": "1.08 Knihovna",
+      "pocet": 4,
+      "hotspot": {
+        "x": 1034,
+        "y": 960,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-1.09-SV19",
+      "typ": "SV19",
+      "podlazi": "1NP",
+      "mistnost": "1.09 Posilovna",
+      "pocet": 6,
+      "hotspot": {
+        "x": 371,
+        "y": 1174,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-PERG-1NP-SV10",
+      "typ": "SV10",
+      "podlazi": "1NP",
+      "mistnost": "pergola nad příjezdem (sever)",
+      "pocet": 15,
+      "hotspot": {
+        "x": 1082,
+        "y": 52,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-SCH-1NP-SV02",
+      "typ": "SV02",
+      "podlazi": "1NP",
+      "mistnost": "schodiště",
+      "pocet": 2,
+      "hotspot": {
+        "x": 1888,
+        "y": 1189,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1NP-VOID-SV06",
+      "typ": "SV06",
+      "podlazi": "1NP",
+      "mistnost": "otevřený prostor nad obývací částí (strop 1.NP)",
+      "pocet": 6,
+      "hotspot": {
+        "x": 1705,
+        "y": 1651,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.01-SV02",
+      "typ": "SV02",
+      "podlazi": "1PP",
+      "mistnost": "0.01 Obývací pokoj + KK",
+      "pocet": 8,
+      "hotspot": {
+        "x": 1624,
+        "y": 1104,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.01-SV07",
+      "typ": "SV07",
+      "podlazi": "1PP",
+      "mistnost": "0.01 Obývací pokoj + KK",
+      "pocet": 1,
+      "hotspot": {
+        "x": 1692,
+        "y": 1832,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "Jedno svítidlo zavěšené ze stropu otevřeného prostoru do obývací části (ve výkresu 1.NP i 1.PP)."
+    },
+    {
+      "id": "1PP-0.01-SV08",
+      "typ": "SV08",
+      "podlazi": "1PP",
+      "mistnost": "0.01 Obývací pokoj + KK",
+      "pocet": 1,
+      "hotspot": {
+        "x": 1654,
+        "y": 1419,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.01-SV12",
+      "typ": "SV12",
+      "podlazi": "1PP",
+      "mistnost": "0.01 Obývací pokoj + KK",
+      "pocet": 1,
+      "hotspot": {
+        "x": 1685,
+        "y": 1137,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "V nabídce PAIRAM 2 ks, ve výkresu 1 štítek – ověřit."
+    },
+    {
+      "id": "1PP-0.02-SV03",
+      "typ": "SV03",
+      "podlazi": "1PP",
+      "mistnost": "0.02 Spíž",
+      "pocet": 1,
+      "hotspot": {
+        "x": 1779,
+        "y": 604,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.03-SV11",
+      "typ": "SV11",
+      "podlazi": "1PP",
+      "mistnost": "0.03 Sklad",
+      "pocet": null,
+      "hotspot": {
+        "x": 1747,
+        "y": 388,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "Lineární svítidlo do SDK – v nabídce celkem 6 m (prádelna a sklad)."
+    },
+    {
+      "id": "1PP-0.04-SV09",
+      "typ": "SV09",
+      "podlazi": "1PP",
+      "mistnost": "0.04 Koupelna děti",
+      "pocet": 1,
+      "hotspot": {
+        "x": 1010,
+        "y": 290,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.04-SV17",
+      "typ": "SV17",
+      "podlazi": "1PP",
+      "mistnost": "0.04 Koupelna děti",
+      "pocet": 4,
+      "hotspot": {
+        "x": 1131,
+        "y": 346,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.05-SV17",
+      "typ": "SV17",
+      "podlazi": "1PP",
+      "mistnost": "0.05 Šatna děti",
+      "pocet": 9,
+      "hotspot": {
+        "x": 730,
+        "y": 300,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.06-SV11",
+      "typ": "SV11",
+      "podlazi": "1PP",
+      "mistnost": "0.06 Prádelna",
+      "pocet": null,
+      "hotspot": {
+        "x": 183,
+        "y": 327,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "Lineární svítidlo do SDK – v nabídce celkem 6 m (prádelna a sklad)."
+    },
+    {
+      "id": "1PP-0.07-SV17",
+      "typ": "SV17",
+      "podlazi": "1PP",
+      "mistnost": "0.07 Šatna (rodiče)",
+      "pocet": 3,
+      "hotspot": {
+        "x": 204,
+        "y": 619,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.08-SV15",
+      "typ": "SV15",
+      "podlazi": "1PP",
+      "mistnost": "0.08 Koupelna (rodiče)",
+      "pocet": 2,
+      "hotspot": {
+        "x": 265,
+        "y": 1031,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.08-SV17",
+      "typ": "SV17",
+      "podlazi": "1PP",
+      "mistnost": "0.08 Koupelna (rodiče)",
+      "pocet": 4,
+      "hotspot": {
+        "x": 181,
+        "y": 953,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.09A-SV02",
+      "typ": "SV02",
+      "podlazi": "1PP",
+      "mistnost": "0.09A Ložnice",
+      "pocet": 5,
+      "hotspot": {
+        "x": 279,
+        "y": 1443,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.09A-SV13",
+      "typ": "SV13",
+      "podlazi": "1PP",
+      "mistnost": "0.09A Ložnice",
+      "pocet": 2,
+      "hotspot": {
+        "x": 61,
+        "y": 1317,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.09A-SV14",
+      "typ": "SV14",
+      "podlazi": "1PP",
+      "mistnost": "0.09A Ložnice",
+      "pocet": 1,
+      "hotspot": {
+        "x": 461,
+        "y": 1548,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.09B-SV02",
+      "typ": "SV02",
+      "podlazi": "1PP",
+      "mistnost": "0.09B Chodba (u ložnice)",
+      "pocet": 4,
+      "hotspot": {
+        "x": 422,
+        "y": 796,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.10-SV02",
+      "typ": "SV02",
+      "podlazi": "1PP",
+      "mistnost": "0.10 Chodba (hlavní)",
+      "pocet": 8,
+      "hotspot": {
+        "x": 1148,
+        "y": 594,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.11-SV16",
+      "typ": "SV16",
+      "podlazi": "1PP",
+      "mistnost": "0.11 Dětský pokoj 1",
+      "pocet": 2,
+      "hotspot": {
+        "x": 600,
+        "y": 872,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "V každém pokoji jedno menší (ø350) a jedno větší (ø700) svítidlo CLEA."
+    },
+    {
+      "id": "1PP-0.11-SV17",
+      "typ": "SV17",
+      "podlazi": "1PP",
+      "mistnost": "0.11 Dětský pokoj 1",
+      "pocet": 5,
+      "hotspot": {
+        "x": 735,
+        "y": 958,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-0.12-SV16",
+      "typ": "SV16",
+      "podlazi": "1PP",
+      "mistnost": "0.12 Dětský pokoj 2",
+      "pocet": 2,
+      "hotspot": {
+        "x": 1229,
+        "y": 872,
+        "w": 48,
+        "h": 48
+      },
+      "poznamka": "V každém pokoji jedno menší (ø350) a jedno větší (ø700) svítidlo CLEA."
+    },
+    {
+      "id": "1PP-0.12-SV17",
+      "typ": "SV17",
+      "podlazi": "1PP",
+      "mistnost": "0.12 Dětský pokoj 2",
+      "pocet": 5,
+      "hotspot": {
+        "x": 1096,
+        "y": 961,
+        "w": 48,
+        "h": 48
+      }
+    },
+    {
+      "id": "1PP-PERG-1PP-SV10",
+      "typ": "SV10",
+      "podlazi": "1PP",
+      "mistnost": "pergola v atriu",
+      "pocet": 13,
+      "hotspot": {
+        "x": 1002,
+        "y": 1278,
+        "w": 48,
+        "h": 48
+      }
+    }
+  ]
+}
