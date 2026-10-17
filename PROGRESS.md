@@ -15,7 +15,8 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
 | 3. Vrstva: Okna | 🟡 online (16 pozic), čeká na ověření FV10 |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
-| 5. Další vrstvy a vylepšení | ⚪ nezačato |
+| 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (11 sestav), většina ve stavu nabídky |
+| 6. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
 
@@ -32,13 +33,14 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.3)
+## Co web umí (v0.4)
 
 - Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna**: 16 pozic (FV01–FV13) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů.
+- Vrstva **Nábytek** (ve výchozím stavu vypnutá): 11 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - Tmavý režim podle nastavení systému.
 
@@ -51,6 +53,8 @@ js/app.js           – logika (vrstvy, tooltip, filtry, editor souřadnic)
 data/dvere.json     – data dveří vč. souřadnic hotspotů
 data/okna.json      – data oken vč. souřadnic hotspotů
 img/okna/*.png      – náhledy oken z přehledu elementů HA Technik
+data/nabytek.json   – sestavy nábytku Hanák: provedení, položky, ceny, náhledy, plochy v půdorysu
+img/nabytek/*.jpg   – vizualizace z nabídek Hanák
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 PROGRESS.md         – tento soubor
@@ -92,9 +96,10 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
 | `2026-009 RD Podolanka_přehled elementů-1.pdf` – HA Technik (Schüco), 1. 4. 2026 | ✅ **zdroj dat oken** a náhledů |
 | `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
+| Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
-**Ochrana údajů na veřejném webu:** nezveřejňují se ceny ani jména a kontakty konkrétních osob, jen firmy (JAP, Hanák). Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
+**Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
 
 ---
 
@@ -143,13 +148,21 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] M9 (lamino CLEAF RENIO) nahrazeno lakem Champagne mat M11 (Hanák) – stěny 0.01 západ 2, 0.09B východ, 0.10 jih
 - [ ] Případně fotky vzorků materiálů do detailu
 
+### Fáze 5 – Vrstva Nábytek
+- [x] 11 sestav z nabídek a smlouvy Hanák vč. položek a cen (součty ověřeny proti celkovým cenám)
+- [x] Vizualizace z nabídek, plochy v půdorysu, tabulka se součtem (celkem 4 841 443 Kč s DPH)
+- [ ] Aktualizovat stav nabídka → smlouva po podpisu jednotlivých sestav
+- [ ] K 008: v nabídce chybí sleva 8 % (u ostatních je) – ověřit s Hanákem
+- [ ] Ložnice: upřesnit tvar čalounění za postelí, zásuvky a látku
+- [ ] Obývák: nabídka z 9. 4. 2026 je s DPH 21 % (ostatní 12 %) – ověřit
+- [ ] Doplnit případně pracovnu 1.07 (M15 nábytek + korek) a vstup 1.01 (vestavné skříně M13), až budou nabídky
+
 ## Návrhy na vylepšení (k rozhodnutí)
 
 1. **Elektro:** zásuvky, vypínače, světla, datové zásuvky, jističe (v Downloads je `E.4 ELEKTROINSTALACE 1NP.pdf` a poptávka zásuvek a vypínačů).
 2. **Voda / odpady / topení:** trubky ve zdech a v podlaze, okruhy podlahového topení, aby se nevrtalo do trubky. Podklady jsou v DWG ZTI a ÚT na Dropboxu.
 3. **Fotky z výstavby** připnuté ke konkrétnímu místu: stěny před omítnutím.
 5. **Sanita:** vrstva Z1–Z14 (`RD PODOLANKA - sanita tabulka`).
-6. **Nábytek (N01–N73):** vestavěný nábytek z projektu interiéru.
 7. **Dokumenty a záruky** u jednotlivých prvků.
 8. **Měření vzdáleností** v půdorysu.
 
@@ -170,3 +183,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.2: vrstva Okna (FV01–FV13, 16 pozic) s náhledy z exteriéru; JS přepracován na obecné vrstvy.
 - **2026-10-17:** Web v0.3: vrstva Povrchy (23 místností) – podlahy barevně, detail se schématem stěn, obklady koupelen s formáty a počty kusů, tabulka materiálů.
 - **2026-10-17:** M9 → M11 lak Champagne mat (Hanák) ve vrstvě Povrchy.
+- **2026-10-17:** Web v0.4: vrstva Nábytek (11 sestav Hanák) s vizualizacemi, položkami a cenami; ceny se smí zveřejňovat.

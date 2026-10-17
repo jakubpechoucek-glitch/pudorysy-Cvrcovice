@@ -1,0 +1,677 @@
+{
+  "aktualizovano": "2026-10-17",
+  "zdroj": "Hanák Forum – smlouva o dílo 2026000081 (kuchyně) a cenové nabídky 04–09/2026",
+  "zaruka": "Hanák: 60 měsíců na nábytek (korpusy, dvířka, obklady, sokly…), 24 měsíců na pracovní desky, dřezy, baterie, vnitřní vybavení a osvětlení; spotřebiče dle záručního listu výrobce.",
+  "nabytek": [
+    {
+      "id": "K1",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část – kuchyň",
+      "nazev": "Kuchyň 1 (hlavní kuchyň a ostrůvek)",
+      "model": "Elite / Line / Line MAT / Elite MAT",
+      "cela": "dub americký přírodní (DDBApr), titan star mat (S53M), black mat (S23M)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox antracit",
+      "dalsi": "Sokl 100 mm, výška pracovní desky 850/880 mm; spotřebiče Miele, sanita Blanco, pracovní deska Dekton Eter 12 mm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava",
+          "cena": 603900.64
+        },
+        {
+          "popis": "Pracovní deska a obklady Dekton Eter 12 mm (vč. dopravy, montáže, zaměření)",
+          "cena": 189085.12
+        },
+        {
+          "popis": "Osvětlení Wenzel – LED profil Diva",
+          "cena": 6596.8
+        },
+        {
+          "popis": "Kalené sklo UV FotoGlass Diamant 6 mm nad pracovní deskou (motiv upřesnit)",
+          "cena": 47768.0
+        },
+        {
+          "popis": "Miele DGC 7450 Obsidian – konvektomat",
+          "cena": 53677.12
+        },
+        {
+          "popis": "Miele M 7244 TC Obsidian – vestavná mikrovlnná trouba",
+          "cena": 40717.6
+        },
+        {
+          "popis": "Miele ESW 7010 Obsidian – nahřívač Gourmet 14 cm",
+          "cena": 27768.16
+        },
+        {
+          "popis": "Miele G 7785 SCVi XXL AutoDos – plně vestavná myčka",
+          "cena": 65710.4
+        },
+        {
+          "popis": "Miele KMDA 7676-1 FL – indukční deska s integrovaným odsavačem",
+          "cena": 78668.8
+        },
+        {
+          "popis": "Miele DFKS-UR – sada plochého potrubí (cirkulace)",
+          "cena": 11560.64
+        },
+        {
+          "popis": "Liebherr URd 3600 Pure – podstolová chladnička",
+          "cena": 18503.52
+        },
+        {
+          "popis": "Blanco ETAGON 500-U – dřez pod desku, černý Silgranit",
+          "cena": 10450.72
+        },
+        {
+          "popis": "Blanco InFino – odtoková sada, černá matná",
+          "cena": 2674.56
+        },
+        {
+          "popis": "Blanco LINUS-S – baterie, černá matná",
+          "cena": 7859.04
+        },
+        {
+          "popis": "Blanco FLEXON II 60/3 – košový systém",
+          "cena": 3702.72
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1960.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 27204.8
+        },
+        {
+          "popis": "Montáž",
+          "cena": 54096.0
+        }
+      ],
+      "celkem": 1251904.64,
+      "bez_dph": 1117772.0,
+      "dph": "12 %",
+      "datum": "2026-03-25",
+      "stav": "smlouva",
+      "zdroj": "SoD 2026000081 – příloha 1 (1 01 K1 Specifikace)",
+      "nahledy": [
+        "img/nabytek/kuchyne-k1-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1539,
+          "y": 876,
+          "w": 420,
+          "h": 63
+        },
+        {
+          "x": 1539,
+          "y": 1044,
+          "w": 285,
+          "h": 132
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "K2",
+      "podlazi": "1PP",
+      "mistnost": "0.02 spíž",
+      "nazev": "Kuchyň 2 (spíž)",
+      "model": "Elite-Optima / FRAME",
+      "cela": "cashmere (OLCAS)",
+      "korpus": "lamino cashmere (LCAS)",
+      "zasuvky": "Legrabox antracit",
+      "dalsi": "Sokl 100 mm, výška 850/880 mm; spotřebiče Liebherr, sanita Blanco, pracovní deska DeskForm Charcoal Flow (UD-K353) 4 cm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava",
+          "cena": 246871.52
+        },
+        {
+          "popis": "Pracovní deska 161 × 63,5 cm, Charcoal Flow",
+          "cena": 7297.92
+        },
+        {
+          "popis": "Pracovní deska 170 × 63,5 cm, Charcoal Flow",
+          "cena": 7255.36
+        },
+        {
+          "popis": "Dekorativní panel 231,5 × 32 cm, Charcoal Flow",
+          "cena": 4430.72
+        },
+        {
+          "popis": "Dekorativní panel 160,9 × 32 cm, Charcoal Flow",
+          "cena": 3081.12
+        },
+        {
+          "popis": "Aretační nohy 10 cm (12 ks)",
+          "cena": 670.88
+        },
+        {
+          "popis": "Liebherr XRCsd 5255 Prime BioFresh NoFrost – lednice Side-by-Side",
+          "cena": 108288.32
+        },
+        {
+          "popis": "Blanco PLEON 8 – vestavný dřez, černý Silgranit",
+          "cena": 9802.24
+        },
+        {
+          "popis": "Blanco LINUS-S – baterie, černá matná",
+          "cena": 7859.04
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1680.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 17964.8
+        },
+        {
+          "popis": "Montáž",
+          "cena": 34148.8
+        }
+      ],
+      "celkem": 449350.72,
+      "bez_dph": 401206.0,
+      "dph": "12 %",
+      "datum": "2026-03-25",
+      "stav": "smlouva",
+      "zdroj": "SoD 2026000081 – příloha 1 (1 02 K2 Specifikace)",
+      "nahledy": [
+        "img/nabytek/kuchyne-k2-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1560,
+          "y": 540,
+          "w": 399,
+          "h": 54
+        },
+        {
+          "x": 1560,
+          "y": 765,
+          "w": 399,
+          "h": 99
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-OBYV",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část",
+      "nazev": "Obývací stěna",
+      "model": "Line MAT",
+      "cela": "dub americký přírodní (DDBApr), cashmere mat (S59M)",
+      "korpus": "lamino cashmere (LCAS)",
+      "zasuvky": "Legrabox antracit",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 222672.28
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1815.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 14810.4
+        },
+        {
+          "popis": "Montáž",
+          "cena": 19481.0
+        }
+      ],
+      "celkem": 258778.68,
+      "bez_dph": 213866.68,
+      "dph": "21 %",
+      "datum": "2026-04-09",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček obyv",
+      "nahledy": [
+        "img/nabytek/obyvak-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1905,
+          "y": 1671,
+          "w": 51,
+          "h": 468
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-005",
+      "podlazi": "1PP",
+      "mistnost": "0.05 šatna děti",
+      "nazev": "Šatna děti",
+      "model": "Optima",
+      "cela": "cashmere (OLCAS)",
+      "korpus": "lamino cashmere (LCAS)",
+      "zasuvky": "Legrabox titan",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 287237.4
+        },
+        {
+          "popis": "Skladové doplňky (po slevě 8 %)",
+          "cena": 64960.54
+        },
+        {
+          "popis": "Osvětlení Wenzel Diva – zapuštěné, černý rámeček",
+          "cena": 21638.4
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1680.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 13216.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 51520.0
+        }
+      ],
+      "celkem": 440252.33,
+      "bez_dph": 393082.44,
+      "dph": "12 %",
+      "datum": "2026-08-05",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček š 005",
+      "nahledy": [
+        "img/nabytek/satna-005-1.jpg",
+        "img/nabytek/satna-005-2.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 531,
+          "y": 231,
+          "w": 393,
+          "h": 258
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-007",
+      "podlazi": "1PP",
+      "mistnost": "0.07 šatna (rodiče)",
+      "nazev": "Šatna rodiče",
+      "model": "Optima",
+      "cela": "cashmere (OLCAS)",
+      "korpus": "lamino cashmere (LCAS)",
+      "zasuvky": "Legrabox titan",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 196819.8
+        },
+        {
+          "popis": "Skladové doplňky (po slevě 8 %)",
+          "cena": 25649.75
+        },
+        {
+          "popis": "Osvětlení Wenzel Diva – zapuštěné, černý rámeček",
+          "cena": 12544.0
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1680.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 13216.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 32480.0
+        }
+      ],
+      "celkem": 282389.54,
+      "bez_dph": 252133.52,
+      "dph": "12 %",
+      "datum": "2026-04-22",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček š 007",
+      "nahledy": [
+        "img/nabytek/satna-007-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 81,
+          "y": 531,
+          "w": 243,
+          "h": 228
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-009",
+      "podlazi": "1PP",
+      "mistnost": "0.09A ložnice",
+      "nazev": "Ložnice – nábytek a čalounění za postelí",
+      "model": "Line MAT",
+      "cela": "dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": null,
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 105260.51
+        },
+        {
+          "popis": "Atypické čalounění za postelí – upřesnit tvar, zásuvky a látku",
+          "cena": 44184.0
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 560.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 8960.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 20921.6
+        }
+      ],
+      "celkem": 179886.11,
+      "bez_dph": 160612.6,
+      "dph": "12 %",
+      "datum": "2026-08-31",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček 009 loz",
+      "poznamka": "Nutno upřesnit tvar čalounění, zásuvky a látku.",
+      "nahledy": [
+        "img/nabytek/loznice-009-1.jpg",
+        "img/nabytek/loznice-009-2.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 51,
+          "y": 1194,
+          "w": 36,
+          "h": 261
+        },
+        {
+          "x": 441,
+          "y": 1410,
+          "w": 72,
+          "h": 192
+        }
+      ]
+    },
+    {
+      "id": "N-108",
+      "podlazi": "1NP",
+      "mistnost": "1.08 knihovna",
+      "nazev": "Knihovna",
+      "model": "Line MAT",
+      "cela": "cashmere mat (S59M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox titan tip-on",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 737697.36
+        },
+        {
+          "popis": "Osvětlení Wenzel – zafrézovaný LED profil SNAKE 6×6 + zdroj",
+          "cena": 15792.0
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1680.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 14560.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 53536.0
+        }
+      ],
+      "celkem": 823265.36,
+      "bez_dph": 735058.36,
+      "dph": "12 %",
+      "datum": "2026-09-16",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček knihovn",
+      "nahledy": [
+        "img/nabytek/knihovna-108-1.jpg",
+        "img/nabytek/knihovna-108-2.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 675,
+          "y": 876,
+          "w": 681,
+          "h": 42
+        },
+        {
+          "x": 675,
+          "y": 1020,
+          "w": 36,
+          "h": 96
+        },
+        {
+          "x": 1320,
+          "y": 1020,
+          "w": 36,
+          "h": 96
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-109",
+      "podlazi": "1NP",
+      "mistnost": "1.09 posilovna",
+      "nazev": "Posilovna – skříně a police",
+      "model": "Line MAT",
+      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox titan tip-on",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 313996.88
+        },
+        {
+          "popis": "Kalené sklo Diamant 6 mm – skleněný obklad mezi police, černá lesk",
+          "cena": 18011.84
+        },
+        {
+          "popis": "Osvětlení Wenzel – LED profil SNAKE 6×6 + zdroj",
+          "cena": 15456.0
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1120.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 12320.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 27552.0
+        }
+      ],
+      "celkem": 388456.72,
+      "bez_dph": 346836.36,
+      "dph": "12 %",
+      "datum": "2026-09-16",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček posilov",
+      "nahledy": [
+        "img/nabytek/posilovna-109-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 225,
+          "y": 876,
+          "w": 420,
+          "h": 90
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-K004",
+      "podlazi": "1PP",
+      "mistnost": "0.04 koupelna děti",
+      "nazev": "Koupelnový nábytek – koupelna děti",
+      "model": "Line MAT",
+      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox titan, Legrabox titan tip-on",
+      "dalsi": "Sokl 60 mm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 278852.0
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 560.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 13552.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 15456.0
+        }
+      ],
+      "celkem": 308420.0,
+      "bez_dph": 275375.0,
+      "dph": "12 %",
+      "datum": "2026-08-05",
+      "stav": "nabidka",
+      "zdroj": "Pěchouček K 004",
+      "nahledy": [
+        "img/nabytek/koupelna-004-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 978,
+          "y": 240,
+          "w": 45,
+          "h": 252
+        }
+      ],
+      "poznamka": null
+    },
+    {
+      "id": "N-K008",
+      "podlazi": "1PP",
+      "mistnost": "0.08 koupelna (rodiče)",
+      "nazev": "Koupelnový nábytek – koupelna rodiče",
+      "model": "Line MAT",
+      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI), titan star mat (S53M)",
+      "zasuvky": "Legrabox titan, Legrabox titan tip-on",
+      "dalsi": "Sokl 60 mm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava",
+          "cena": 211472.8
+        },
+        {
+          "popis": "Skladové doplňky",
+          "cena": 2078.72
+        },
+        {
+          "popis": "Doprava",
+          "cena": 13104.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 12992.0
+        }
+      ],
+      "celkem": 239647.52,
+      "bez_dph": 213971.0,
+      "dph": "12 %",
+      "datum": "2026-08-05",
+      "stav": "nabidka",
+      "zdroj": "Pěchouček K 008",
+      "poznamka": "V této nabídce není uvedena sleva 8 % (na rozdíl od ostatních).",
+      "nahledy": [
+        "img/nabytek/koupelna-008-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 57,
+          "y": 1077,
+          "w": 270,
+          "h": 54
+        }
+      ]
+    },
+    {
+      "id": "N-K105",
+      "podlazi": "1NP",
+      "mistnost": "1.05 koupelna",
+      "nazev": "Koupelnový nábytek – koupelna 1.NP",
+      "model": "Line MAT",
+      "cela": "mocca star mat (S49M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox titan",
+      "dalsi": "Sokl 60 mm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 192435.44
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 560.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 12544.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 13552.0
+        }
+      ],
+      "celkem": 219091.44,
+      "bez_dph": 195617.36,
+      "dph": "12 %",
+      "datum": "2026-08-05",
+      "stav": "nabidka",
+      "zdroj": "Pěchouček K 105",
+      "nahledy": [
+        "img/nabytek/koupelna-105-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1410,
+          "y": 630,
+          "w": 51,
+          "h": 210
+        }
+      ],
+      "poznamka": null
+    }
+  ]
+}

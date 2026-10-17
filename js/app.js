@@ -11,6 +11,9 @@ const STAV = {
 const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
 const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever nahoře
 let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
+let ZARUKA = '';    // záruční podmínky nábytku Hanák
+const CZK = new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 });
+const STAV_NAB = { smlouva: 'Smlouva', nabidka: 'Nabídka' };
 
 // Konfigurace vrstev: odkud se berou data, jak vypadá detail a seznam.
 const LAYERS = {
@@ -80,6 +83,23 @@ const LAYERS = {
       ['Strop', it => ({ html: uniq(it.strop.map(s => s.kod)).map(k => matChip(k)).join(' ') })],
     ],
     extra: materialsTable,
+  },
+  nabytek: {
+    file: 'data/nabytek.json',
+    key: 'nabytek',
+    title: 'Nábytek a kuchyně (Hanák)',
+    label: false,
+    onLoad: data => { ZARUKA = data.zaruka; },
+    subtitle: it => `${it.mistnost} – ${it.nazev}`,
+    render: furnitureHtml,
+    columns: [
+      ['Místnost', it => it.mistnost],
+      ['Sestava', it => it.nazev],
+      ['Provedení', it => it.cela],
+      ['Cena s DPH', it => ({ html: `<span class="num">${CZK.format(it.celkem)}</span>` })],
+      ['Stav', it => ({ html: `<span class="badge nab-${it.stav}">${STAV_NAB[it.stav]}</span>` })],
+    ],
+    extra: furnitureSummary,
   },
 };
 
@@ -199,6 +219,7 @@ function tipHtml(it) {
 
 function showTip(it, e, anchorEl) {
   tip.innerHTML = tipHtml(it);
+  tip.classList.toggle('wide', it.layer === 'nabytek');
   tip.hidden = false;
   tip.querySelector('.close').addEventListener('click', unpin);
   setActive(it.id);
@@ -288,6 +309,7 @@ function applyFilters() {
   plans.classList.toggle('single', state.floor !== 'all');
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
+  updateFurnitureSum();
 
   const counts = {};
   for (const it of state.items) {
@@ -385,6 +407,43 @@ function renderLegend() {
   const floors = uniq(state.items.filter(i => i.layer === 'povrchy').map(i => i.podlaha.kod)).sort();
   document.getElementById('floor-legend').insertAdjacentHTML('beforeend',
     floors.map(k => `<span class="chip legend" title="${esc(MAT[k].nazev)}"><i style="background:${MAT[k].barva}"></i>${esc(k)} ${esc(MAT[k].kratce || MAT[k].nazev)}</span>`).join(''));
+}
+
+// ---------- vrstva nábytku ----------
+
+function furnitureHtml(it) {
+  const rows = [
+    ['Model', it.model], ['Čela / dvířka', it.cela], ['Korpus', it.korpus],
+    ['Zásuvky', it.zasuvky], ['Další', it.dalsi],
+  ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  const items = it.polozky.map(p => `<tr><td>${esc(p.popis)}</td><td class="num">${CZK.format(p.cena)}</td></tr>`).join('');
+  const imgs = it.nahledy.map((src, i) => `<a href="${esc(src)}" target="_blank" rel="noopener"><img class="thumb photo" src="${esc(src)}" alt="Vizualizace ${i + 1}: ${esc(it.nazev)}" loading="lazy"></a>`).join('');
+  return `
+    <h3>${esc(it.nazev)} <span class="badge nab-${it.stav}">${STAV_NAB[it.stav]}</span></h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    <div class="gallery">${imgs}</div>
+    <dl>${rows}</dl>
+    <h4>Položky (ceny s DPH ${esc(it.dph)})</h4>
+    <table class="items"><tbody>${items}</tbody>
+      <tfoot><tr><td>Celkem s DPH</td><td class="num">${CZK.format(it.celkem)}</td></tr>
+      <tr class="sub"><td>bez DPH</td><td class="num">${CZK.format(it.bez_dph)}</td></tr></tfoot>
+    </table>
+    ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
+    <p class="src">${esc(it.zdroj)}, ${formatDate(it.datum)}</p>`;
+}
+
+function furnitureSummary(sec) {
+  sec.insertAdjacentHTML('beforeend', `
+    <p class="sum">Celkem za zobrazené položky: <strong id="nab-sum"></strong> s DPH</p>
+    <p class="meta">Záruka: ${esc(ZARUKA)}</p>`);
+}
+
+function updateFurnitureSum() {
+  const out = document.getElementById('nab-sum');
+  if (!out) return;
+  const total = state.items.filter(i => i.layer === 'nabytek' &&
+    (state.floor === 'all' || state.floor === i.podlazi)).reduce((a, i) => a + i.celkem, 0);
+  out.textContent = CZK.format(total);
 }
 
 // ---------- editor souřadnic (?edit) ----------
