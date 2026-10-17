@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -203,6 +203,7 @@ function renderHotspots() {
     const items = state.items.filter(i => i.podlazi === fig.dataset.floor).sort((a, b) => order(a) - order(b));
     for (const it of items) {
       const cfg = LAYERS[it.layer];
+      if (it.dekor) { svg.prepend(carShape(it)); continue; }   // jen kresba (auta v garáži), bez detailu
       const pad = cfg.padding ?? PAD;
       const rects = [].concat(it.hotspot);
       const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': cfg.statusFilter ? it.stav : '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
@@ -637,6 +638,22 @@ function ezsSummary(sec) {
 }
 
 // ---------- vrstva FVE ----------
+
+// Auto shora (příď nahoře) vepsané do obdélníku hotspotu.
+function carShape(it) {
+  const { x, y, w, h } = it.hotspot[0];
+  const g = el('g', { class: 'hs decor', 'data-id': it.id, 'data-layer': it.layer, 'aria-hidden': 'true' });
+  const p = (fx, fy) => `${x + fx * w},${y + fy * h}`;
+  g.append(
+    el('rect', { x, y, width: w, height: h, rx: w * 0.32, ry: w * 0.32, class: 'car-body' }),
+    el('path', { d: `M${p(0.12, 0.30)} L${p(0.88, 0.30)} L${p(0.80, 0.40)} L${p(0.20, 0.40)} Z`, class: 'car-glass' }),
+    el('rect', { x: x + 0.18 * w, y: y + 0.42 * h, width: 0.64 * w, height: 0.28 * h, rx: 10, class: 'car-roof' }),
+    el('path', { d: `M${p(0.20, 0.72)} L${p(0.80, 0.72)} L${p(0.86, 0.80)} L${p(0.14, 0.80)} Z`, class: 'car-glass' }),
+    el('ellipse', { cx: x - 0.04 * w, cy: y + 0.31 * h, rx: 0.07 * w, ry: 0.025 * h, class: 'car-body' }),
+    el('ellipse', { cx: x + 1.04 * w, cy: y + 0.31 * h, rx: 0.07 * w, ry: 0.025 * h, class: 'car-body' }),
+  );
+  return g;
+}
 
 function fveHtml(it) {
   if (it.druh !== 'panely') {

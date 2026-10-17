@@ -396,6 +396,36 @@
           "h": 42
         }
       ]
+    },
+    {
+      "id": "FVE-auto-1",
+      "druh": "auto",
+      "dekor": true,
+      "podlazi": "1NP",
+      "nazev": "Parkovací stání 1",
+      "hotspot": [
+        {
+          "x": 621,
+          "y": 246,
+          "w": 216,
+          "h": 534
+        }
+      ]
+    },
+    {
+      "id": "FVE-auto-2",
+      "druh": "auto",
+      "dekor": true,
+      "podlazi": "1NP",
+      "nazev": "Parkovací stání 2",
+      "hotspot": [
+        {
+          "x": 939,
+          "y": 246,
+          "w": 216,
+          "h": 534
+        }
+      ]
     }
   ]
 }

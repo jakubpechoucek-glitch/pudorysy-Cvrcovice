@@ -208,6 +208,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] 18 panelů ve 3 řadách (6 + 7 + 5) podle náhledu SEFY, detail systému, rozpis, měsíční výroba
 - [x] Střídač, baterie BAT1/BAT2 a rozvaděč RD v SZ rohu skladu 1.04B (podle schématu), 2 wallboxy na jižní stěně garáže
 - [x] Fotky výrobků z technických listů (SEFY Dropbox)
+- [x] Dvě auta zakreslena v garáži (jen kresba, zobrazí se s vrstvou FVE)
 - [ ] Případně hromosvod jako samostatná vrstva na střeše
 
 ## Návrhy na vylepšení (k rozhodnutí)
@@ -249,3 +250,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Svítidla: odstraněn seznam skupin pod půdorysy, zůstává tabulka typů s fotkami a rozpočet (v0.7.2).
 - **2026-10-17:** Web v0.8: podlaží Střecha a vrstva FVE (SEFY, 18 × 550 Wp, 14,4 kWh, 2 wallboxy).
 - **2026-10-17:** FVE: střídač, baterie, rozvaděč a 2 wallboxy v 1.NP s fotkami; FVE ve výchozím stavu vypnutá, po zapnutí 1.NP + střecha (v0.8.1).
+- **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).

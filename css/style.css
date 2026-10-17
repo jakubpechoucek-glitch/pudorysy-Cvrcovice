@@ -133,6 +133,9 @@ body {
 .hs[data-layer="okna"] { --c: var(--okno); }
 .hs[data-layer="nabytek"] { --c: var(--nabytek); }
 .hs[data-layer="fve"] { --c: #1a237e; }
+.hs.decor { pointer-events: none; }
+.hs.decor .car-body { fill: rgba(26, 35, 126, .08); stroke: #1a237e; stroke-width: 5; stroke-opacity: .55; }
+.hs.decor .car-glass, .hs.decor .car-roof { fill: rgba(26, 35, 126, .12); stroke: #1a237e; stroke-width: 3; stroke-opacity: .45; }
 .hs[data-layer="fve"] rect.mark { fill-opacity: .85; stroke: #fff; stroke-width: 3; rx: 2; }
 .hs[data-layer="fve"]:not([data-id="FVE"]) rect.mark { rx: 6; stroke-width: 4; fill-opacity: .95; }
 .hs[data-layer="fve"]:hover rect.mark, .hs[data-layer="fve"].active rect.mark { fill: #3949ab; animation: none; }
