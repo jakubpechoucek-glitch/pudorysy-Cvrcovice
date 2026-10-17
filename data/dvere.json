@@ -1,0 +1,474 @@
+{
+  "aktualizovano": "2026-10-15",
+  "zdroj": "Kontrola dveří (stav po schůzce 5. 10. 2026) a nabídky Hanák z 15. 10. 2026",
+  "dvere": [
+    {
+      "id": "DV001-A",
+      "cislo": "DV001",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.06 prádelna",
+        "0.09B chodba"
+      ],
+      "typ": "Otočné jednokřídlé, plné, otevírání do prádelny",
+      "rozmer": "800 × 2650 mm",
+      "otvor": "š. 980 mm",
+      "zarubne": "Skrytá ACTIVE, levá",
+      "povrch": {
+        "0.09B chodba": "M4 stěrka",
+        "0.06 prádelna": "M12 Line Cashmere mat (lak)"
+      },
+      "dodavatel": "JAP – křídlo a zárubeň · Hanák – krycí deska Cashmere",
+      "stav": "ok",
+      "poznamka": "Boční světlík zrušen. Kolem dveří pokračuje stěrka M4. Na výkresu je číslo DV001 dvakrát.",
+      "hotspot": {
+        "x": 375,
+        "y": 486,
+        "w": 114,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV001-B",
+      "cislo": "DV001",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.09B chodba"
+      ],
+      "typ": "Prosklené otočné křídlo na pivotu DIVA + prosklený boční světlík, otevírání do 0.09B",
+      "rozmer": "800 × 2650 mm",
+      "otvor": "neuveden",
+      "zarubne": "– (pivotový pant v podlaze)",
+      "povrch": {
+        "0.10 chodba": "sklo",
+        "0.09B chodba": "sklo"
+      },
+      "dodavatel": "JAP – kompletně (DIVA, sklo, světlík)",
+      "stav": "resit",
+      "poznamka": "Dořešit stranu pantu a polohu sestavy. V místě pantu vynechat podlahové topení. Ocelový U profil v podhledu – před zaklopením nafotit.",
+      "hotspot": {
+        "x": 477,
+        "y": 522,
+        "w": 36,
+        "h": 96
+      }
+    },
+    {
+      "id": "DV002",
+      "cislo": "DV002",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.05 šatna děti"
+      ],
+      "typ": "Posuvné prosklené do pouzdra",
+      "rozmer": "čistý průchod 1670 × 2650 mm",
+      "otvor": "3450 × 2735 mm",
+      "zarubne": "Pouzdro Aktive II Komfort (tl. 125 mm – k potvrzení)",
+      "povrch": {
+        "0.10 chodba": "M22 sklo",
+        "0.05 šatna děti": "M22 sklo"
+      },
+      "dodavatel": "JAP – kompletně (pouzdro + sklo)",
+      "stav": "resit",
+      "poznamka": "Pevné nadpraží (UA profil do ŽB stropu) zajišťuje stavba. Potvrdit tloušťku pouzdra.",
+      "hotspot": {
+        "x": 636,
+        "y": 486,
+        "w": 186,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV004",
+      "cislo": "DV004",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.09B chodba",
+        "0.07 šatna"
+      ],
+      "typ": "Posuvné jednokřídlé do pouzdra",
+      "rozmer": "≈ 940 × 2650 mm",
+      "otvor": "1870 × 2930 mm",
+      "zarubne": "Pouzdro Aktive II Standard, 125 mm",
+      "povrch": {
+        "0.09B chodba": "M8 dýha",
+        "0.07 šatna": "M8 dýha"
+      },
+      "dodavatel": "JAP – pouzdro · Hanák – křídlo oboustranně dýhované + obklad chodby",
+      "stav": "resit",
+      "poznamka": "Dořešit čistý průchod (odhad 935–940 mm) a zda bude stojná noha.",
+      "hotspot": {
+        "x": 336,
+        "y": 591,
+        "w": 36,
+        "h": 120
+      }
+    },
+    {
+      "id": "DV005",
+      "cislo": "DV005",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.11 pokoj"
+      ],
+      "typ": "Otočné jednokřídlé, dvoubarevné",
+      "rozmer": "800 × 2650 mm",
+      "otvor": "š. 1045 mm (ověřit)",
+      "zarubne": "Skrytá 25/15, pravá",
+      "povrch": {
+        "0.10 chodba": "lak Champagne mat (M11)",
+        "0.11 pokoj": "M8 dýha"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo dýha + lak",
+      "stav": "akutni",
+      "poznamka": "Řešit společně s obkladem stěny chodby a pokojů. Rozdíl otvor/křídlo 245 mm je větší než u ostatních.",
+      "hotspot": {
+        "x": 825,
+        "y": 633,
+        "w": 96,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV006",
+      "cislo": "DV006",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.12 pokoj"
+      ],
+      "typ": "Otočné jednokřídlé, dvoubarevné",
+      "rozmer": "800 × 2650 mm",
+      "otvor": "š. 1045 mm",
+      "zarubne": "Skrytá 25/15, levá",
+      "povrch": {
+        "0.10 chodba": "lak Champagne mat (M11)",
+        "0.12 pokoj": "M8 dýha"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo dýha + lak",
+      "stav": "akutni",
+      "poznamka": "Nutné ubourat kus stěny. Řešit společně s obkladem stěny chodby a pokojů.",
+      "hotspot": {
+        "x": 975,
+        "y": 633,
+        "w": 96,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV007-A",
+      "cislo": "DV007",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.03 sklad"
+      ],
+      "typ": "Otočné jednokřídlé",
+      "rozmer": "700 × 2650 mm",
+      "otvor": "š. 890 mm",
+      "zarubne": "Skrytá 25/15, pravá",
+      "povrch": {
+        "0.10 chodba": "M4 stěrka",
+        "0.03 sklad": "M12 Line Cashmere mat (lak)"
+      },
+      "dodavatel": "JAP – křídlo a zárubeň · Hanák – krycí deska Cashmere",
+      "stav": "ok",
+      "poznamka": "Pohledová strana z chodby. Na výkresu je číslo DV007 dvakrát.",
+      "hotspot": {
+        "x": 1407,
+        "y": 483,
+        "w": 84,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV007-B",
+      "cislo": "DV007",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.04 koupelna děti"
+      ],
+      "typ": "Otočné jednokřídlé",
+      "rozmer": "700 × 2650 mm",
+      "otvor": "š. 820 mm",
+      "zarubne": "Skrytá 25/15, levá",
+      "povrch": {
+        "0.10 chodba": "M4 stěrka",
+        "0.04 koupelna děti": "M8 dýha"
+      },
+      "dodavatel": "JAP – křídlo a zárubeň · Hanák – krycí deska dýha",
+      "stav": "overit",
+      "poznamka": "Zatím společně neprojito (podklady bez rozporu).",
+      "hotspot": {
+        "x": 1098,
+        "y": 483,
+        "w": 84,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV008",
+      "cislo": "DV008",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.09B chodba",
+        "0.08 koupelna"
+      ],
+      "typ": "Otočné jednokřídlé",
+      "rozmer": "700 × 2650 mm (čistá šířka)",
+      "otvor": "870 × 2650 mm",
+      "zarubne": "Skrytá Efekta 25/15, levá",
+      "povrch": {
+        "0.09B chodba": "M8 dýha + dřevěný obklad",
+        "0.08 koupelna": "M8 dýha"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo oboustranně dýhované + obklad chodby",
+      "stav": "ok",
+      "poznamka": "Pohledová strana z chodby.",
+      "hotspot": {
+        "x": 342,
+        "y": 891,
+        "w": 36,
+        "h": 90
+      }
+    },
+    {
+      "id": "DV009",
+      "cislo": "DV009",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.10 chodba",
+        "0.02 spíž"
+      ],
+      "typ": "Posuvné (systém Premium 22)",
+      "rozmer": "průchod ≈ 1390 × 2650 mm",
+      "otvor": "–",
+      "zarubne": "Posuvný systém Premium 22",
+      "povrch": {
+        "0.10 chodba": "Idealine Vertical dub mořený; ostění M8 dýha",
+        "0.02 spíž": "Idealine Vertical dub mořený"
+      },
+      "dodavatel": "JAP – kompletně · Hanák – případný dýhovaný obklad z chodby",
+      "stav": "resit",
+      "poznamka": "Dořešit počet křídel: výkres 1, doporučení 2 (z jedné strany 700 mm, z druhé 1060 mm).",
+      "hotspot": {
+        "x": 1512,
+        "y": 675,
+        "w": 36,
+        "h": 120
+      }
+    },
+    {
+      "id": "DV010",
+      "cislo": "DV010",
+      "podlazi": "1PP",
+      "mezi": [
+        "0.09B chodba",
+        "0.09A ložnice"
+      ],
+      "typ": "Posuvné jednokřídlé (systém Premium 22)",
+      "rozmer": "průchod ≈ 1195 × 2650 mm (výkres 1030)",
+      "otvor": "–",
+      "zarubne": "Posuvný systém Premium 22",
+      "povrch": {
+        "0.09A ložnice": "M8 dýha",
+        "0.09B chodba": "M8 dýha"
+      },
+      "dodavatel": "JAP – posuvný systém · Hanák – křídlo oboustranně dýhované",
+      "stav": "resit",
+      "poznamka": "Dořešit šířku a kompatibilitu křídla Hanák se systémem JAP. Podhled v průchodu z obou stran.",
+      "hotspot": {
+        "x": 316,
+        "y": 1131,
+        "w": 165,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV101",
+      "cislo": "DV101",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.04A garáž",
+        "1.02 chodba"
+      ],
+      "typ": "Otočné jednokřídlé, otevírání do chodby",
+      "rozmer": "800 × 2700 mm",
+      "otvor": "875 × 2682 mm",
+      "zarubne": "Skrytá 25/15, levá",
+      "povrch": {
+        "1.04A garáž": "M13 Lone Mocca Star mat (lak)",
+        "1.02 chodba": "M13 Lone Mocca Star mat (lak)"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo oboustranně lak",
+      "stav": "overit",
+      "poznamka": "Investor potvrdí spodní rozetu a zámek. Ověřit výšku (výkres 2700 × otvor 2682). Křídlo lícované se skříní.",
+      "hotspot": {
+        "x": 1287,
+        "y": 522,
+        "w": 36,
+        "h": 96
+      }
+    },
+    {
+      "id": "DV102",
+      "cislo": "DV102",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.06 chodba",
+        "1.01 vstup"
+      ],
+      "typ": "Dvoukřídlé asymetrické – aktivní křídlo plné, pasivní pevné skleněné (šedé kouřové sklo)",
+      "rozmer": "–",
+      "otvor": "1505 × 2684 mm",
+      "zarubne": "ACTIVE se stěrkou kolem (JAP MASTER)",
+      "povrch": {
+        "1.06 chodba": "M8 dýha",
+        "1.01 vstup": "M8 dýha"
+      },
+      "dodavatel": "JAP – konstrukce, sklo, zárubeň · Hanák – plášť z dubové dýhy oboustranně",
+      "stav": "ok",
+      "poznamka": "Rovné kotvy.",
+      "hotspot": {
+        "x": 1794,
+        "y": 852,
+        "w": 162,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV104",
+      "cislo": "DV104",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.02 chodba",
+        "1.01 vstup"
+      ],
+      "typ": "Otočné jednokřídlé",
+      "rozmer": "800 × 2700 mm",
+      "otvor": "885 × 2690 mm",
+      "zarubne": "Skrytá 25/15, pravá",
+      "povrch": {
+        "1.01 vstup": "M13 Lone Mocca Star mat (lak)",
+        "1.02 chodba": "M13 Lone Mocca Star mat (lak)"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo oboustranně lak",
+      "stav": "ok",
+      "poznamka": "Pohledová strana ze vstupu, křídlo lícuje s vestavnou skříní. Ověřit výšku.",
+      "hotspot": {
+        "x": 1773,
+        "y": 522,
+        "w": 36,
+        "h": 96
+      }
+    },
+    {
+      "id": "DV105-A",
+      "cislo": "DV105",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.02 chodba",
+        "1.03 technická místnost"
+      ],
+      "typ": "Otočné jednokřídlé",
+      "rozmer": "800 × 2700 mm",
+      "otvor": "885 × 2692 mm",
+      "zarubne": "Skrytá 25/15, levá (možná ACTIVE – ověřit)",
+      "povrch": {
+        "1.02 chodba": "M13 Lone Mocca Star mat (lak)",
+        "1.03 technická místnost": "M13 Lone Mocca Star mat (lak)"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo oboustranně lak",
+      "stav": "overit",
+      "poznamka": "Ověřit typ zárubně a kde z rubové strany dobíhá obklad.",
+      "hotspot": {
+        "x": 1497,
+        "y": 486,
+        "w": 96,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV105-B",
+      "cislo": "DV105",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.06 chodba",
+        "1.07 pracovna"
+      ],
+      "typ": "Otočné jednokřídlé + nadsvětlík (šikmý strop)",
+      "rozmer": "800 × 2700 mm (čistá výška ≈ 2500 + ≈ 200 nadsvětlík)",
+      "otvor": "930 × 2668 mm",
+      "zarubne": "JAP – obložková × skrytá Efekta (otevřené)",
+      "povrch": {
+        "1.06 chodba": "M8 dýha",
+        "1.07 pracovna": "M8 dýha"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo, dýhový obklad a nadsvětlík",
+      "stav": "resit",
+      "poznamka": "Chybí výkres nadsvětlíku. Typ zárubně otevřený.",
+      "hotspot": {
+        "x": 1404,
+        "y": 993,
+        "w": 102,
+        "h": 36
+      }
+    },
+    {
+      "id": "DV106",
+      "cislo": "DV106",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.08 knihovna",
+        "1.09 posilovna"
+      ],
+      "typ": "Otočné jednokřídlé, otevírání do posilovny",
+      "rozmer": "800 × 2700 mm",
+      "otvor": "900 × 2670 mm",
+      "zarubne": "JAP – skrytá 25/15 levá × Aktiv (otevřené)",
+      "povrch": {
+        "1.09 posilovna": "M4 stěrka",
+        "1.08 knihovna": "M8 dýha"
+      },
+      "dodavatel": "JAP – křídlo a zárubeň · Hanák – krycí deska dýha",
+      "stav": "resit",
+      "poznamka": "Dozdít hrany. Potvrdit typ zárubně.",
+      "hotspot": {
+        "x": 618,
+        "y": 942,
+        "w": 36,
+        "h": 96
+      }
+    },
+    {
+      "id": "DV107",
+      "cislo": "DV107",
+      "podlazi": "1NP",
+      "mezi": [
+        "1.06 chodba",
+        "1.05 koupelna"
+      ],
+      "typ": "Otočné jednokřídlé",
+      "rozmer": "700 × 2700 mm",
+      "otvor": "820 × 2671 mm",
+      "zarubne": "Skrytá 25/15, levá",
+      "povrch": {
+        "1.06 chodba": "M8 dýha",
+        "1.05 koupelna": "M8 dýha"
+      },
+      "dodavatel": "JAP – zárubeň · Hanák – křídlo oboustranně dýhované",
+      "stav": "resit",
+      "poznamka": "Dořešit, co bude na stěně v koupelně (dýha / obklad / keramika).",
+      "hotspot": {
+        "x": 1464,
+        "y": 852,
+        "w": 84,
+        "h": 36
+      }
+    }
+  ]
+}

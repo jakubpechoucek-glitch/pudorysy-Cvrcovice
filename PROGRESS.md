@@ -1,6 +1,8 @@
 # Půdorysy Cvrčovice – plán a progress
 
-Interaktivní webové půdorysy našeho nového RD (2 podlaží). Uživatel vidí obě patra, při najetí myší na prvek (dveře, okno…) se zobrazí okno s detailem. Informace jsou rozdělené do **vrstev**, které jde zapínat a vypínat zaškrtávacími tlačítky.
+Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: **1.PP** a **1.NP**). Na webu jsou obě patra. Po najetí myší na prvek (dveře, okno…) se zobrazí okno s detailem. Informace jsou rozdělené do **vrstev**, které jde zapínat a vypínat zaškrtávacími tlačítky.
+
+**Web bude veřejný** (GitHub Pages).
 
 ---
 
@@ -8,9 +10,9 @@ Interaktivní webové půdorysy našeho nového RD (2 podlaží). Uživatel vid�
 
 | Fáze | Stav |
 |---|---|
-| 0. Plánování | 🟡 probíhá |
-| 1. Základ webu + půdorysy | ⚪ nezačato |
-| 2. Vrstva: Dveře | ⚪ nezačato |
+| 0. Plánování | 🟢 hotovo |
+| 1. Základ webu + půdorysy | 🟢 hotovo |
+| 2. Vrstva: Dveře | 🟡 data a hotspoty hotové, chybí fotky a nasazení |
 | 3. Vrstva: Okna | ⚪ nezačato |
 | 4. Další vrstvy a vylepšení | ⚪ nezačato |
 
@@ -18,65 +20,71 @@ Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
 
 ---
 
-## Základní myšlenka
+## Jak web spustit lokálně
 
-- **Dvě patra:** 1. NP a 2. NP. Zobrazit vedle sebe (desktop) nebo pod sebou / přepínat záložkami (mobil).
-- **Hotspoty:** klikací nebo „najížděcí“ oblasti nad půdorysem (např. stavební otvor mezi pokoji).
-- **Tooltip / detail:** při najetí myší se objeví okno s detailem, na mobilu po klepnutí.
-- **Vrstvy:** zaškrtávací tlačítka nahoře, každá vrstva má vlastní barvu hotspotů.
-  - Vrstva 1: **Dveře** ← začínáme zde
-  - Vrstva 2: **Okna**
-  - další viz návrhy níže
+```bash
+python3 -m http.server 8123
+```
+Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže otevřít `index.html` přímo ze souboru nestačí.
+
+**Editor souřadnic:** http://localhost:8123/?edit. Kliknutím do půdorysu se pod tabulkou (a v konzoli) vypíšou souřadnice v pixelech obrázku. Slouží k zakreslení nových hotspotů.
 
 ---
 
-## Navržené technické řešení
+## Co web umí (v0.1)
 
-- **Statický web** (HTML + CSS + čistý JavaScript), bez serveru a databáze.
-- **Půdorys** jako obrázek (PNG/SVG) a nad ním **SVG vrstva s hotspoty**. Souřadnice hotspotů jsou v pixelech obrázku, takže sedí při jakémkoli zvětšení.
-- **Data v JSON souborech** (`data/dvere.json`, `data/okna.json`…). Přidání nebo úprava dveří = úprava jednoho souboru, kód se nemění.
-- **Hosting:** GitHub Pages (zdarma). ⚠️ Pozor: u veřejného webu jsou půdorysy domu vidět komukoli, viz otevřené otázky.
-- **Pomocný „editor“ režim:** kliknutím do půdorysu se vypíšou souřadnice, takže hotspoty půjde snadno zakreslit.
+- Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
+- Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
+- Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
+- Filtr podle stavu, seznam dveří pod půdorysy (kliknutím na řádek se dveře najdou v plánu).
+- Tmavý režim podle nastavení systému.
 
-### Navržená struktura repozitáře
+## Struktura repozitáře
 
 ```
-pudorysy-Cvrcovice/
-├── index.html
-├── css/style.css
-├── js/app.js
-├── img/
-│   ├── 1NP.png
-│   ├── 2NP.png
-│   └── foto/          # fotky dveří, oken…
-├── data/
-│   ├── dvere.json
-│   └── okna.json
-└── PROGRESS.md
+index.html          – stránka
+css/style.css       – vzhled
+js/app.js           – logika (vrstvy, tooltip, filtry, editor souřadnic)
+data/dvere.json     – data dveří vč. souřadnic hotspotů
+img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
+PROGRESS.md         – tento soubor
 ```
 
-### Návrh dat pro dveře (`data/dvere.json`)
+### Formát dat dveří (`data/dvere.json`)
 
 ```json
 {
-  "id": "D01",
-  "podlazi": "1NP",
-  "mezi": ["Chodba", "Obývací pokoj"],
-  "typ": "otočné / posuvné do pouzdra / bez dveří",
-  "smer": "levé / pravé",
-  "rozmer_kridla": "80 × 197 cm",
-  "stavebni_otvor": "90 × 202 cm",
-  "zarubne": "obložková",
-  "povrch": "dub CPL",
-  "kovani": "rozeta, klika XY",
-  "vyrobce": "…",
-  "cena": null,
-  "stav": "objednáno / namontováno",
-  "foto": "img/foto/D01.jpg",
-  "poznamka": "",
-  "hotspot": { "x": 412, "y": 230, "w": 30, "h": 12 }
+  "id": "DV005",
+  "cislo": "DV005",
+  "podlazi": "1PP",
+  "mezi": ["0.10 chodba", "0.11 pokoj"],
+  "typ": "Otočné jednokřídlé, dvoubarevné",
+  "rozmer": "800 × 2650 mm",
+  "otvor": "š. 1045 mm (ověřit)",
+  "zarubne": "Skrytá 25/15, pravá",
+  "povrch": { "0.10 chodba": "lak Champagne mat (M11)", "0.11 pokoj": "M8 dýha" },
+  "dodavatel": "JAP – zárubeň · Hanák – křídlo dýha + lak",
+  "stav": "ok | overit | resit | akutni",
+  "poznamka": "…",
+  "hotspot": { "x": 873, "y": 633, "w": 96, "h": 36 }
 }
 ```
+Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310).
+
+---
+
+## Podklady a rozhodnutí
+
+| Podklad | Použití |
+|---|---|
+| `C.2_OSAZOVACI PUDORYSY.pdf` – JA Architekti, projekt interiéru 08/25 (C.2.1 1.PP, C.2.2 1.NP) | ✅ **podklad půdorysů**: aktuální dispozice vč. 0.09A/B a 1.04A/B |
+| `Dvere_Podolanka_kontrola_4.xlsx` (stav po schůzce 5. 10. 2026) | ✅ hlavní zdroj dat o dveřích |
+| Nabídky Hanák „kd int. dveře + obklady“ a „kd pláště“ (15. 10. 2026) | ✅ doplnění (křídla, pláště) – **ceny se nezveřejňují** |
+| DWG D.1.2 (stavebně konstrukční řešení) | ❌ jen statika, bez dveří a místností |
+| DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
+| `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ pravděpodobně tabulka oken – pro fázi 3 |
+
+**Ochrana údajů na veřejném webu:** nezveřejňují se ceny ani jména a kontakty konkrétních osob, jen firmy (JAP, Hanák). Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
 
 ---
 
@@ -85,52 +93,55 @@ pudorysy-Cvrcovice/
 ### Fáze 0 – Plánování
 - [x] Založit GitHub repozitář
 - [x] Sepsat plán (tento soubor)
-- [ ] Dodat půdorysy obou podlaží (formát? PDF / DWG / obrázek)
-- [ ] Rozhodnout veřejný vs. neveřejný přístup
-- [ ] Odsouhlasit seznam údajů o dveřích
+- [x] Dodat půdorysy obou podlaží
+- [x] Rozhodnout veřejný vs. neveřejný přístup → **veřejný**
+- [x] Odsouhlasit seznam údajů o dveřích → podle kontrolní tabulky dveří
 
 ### Fáze 1 – Základ webu
-- [ ] Převést půdorysy do PNG/SVG ve vhodném rozlišení
-- [ ] Kostra stránky: zobrazení obou pater
-- [ ] Přepínač vrstev (zaškrtávací tlačítka)
-- [ ] Tooltip/detail okno (hover na desktopu, klepnutí na mobilu)
-- [ ] Editor režim pro zjištění souřadnic
+- [x] Převést půdorysy do PNG (výřez z PDF, 16 odstínů šedi, ~145 kB/patro)
+- [x] Kostra stránky: zobrazení obou pater
+- [x] Přepínač vrstev (zaškrtávací tlačítka)
+- [x] Tooltip/detail okno (hover na desktopu, klepnutí na mobilu)
+- [x] Editor režim pro zjištění souřadnic (`?edit`)
+- [ ] Zapnout GitHub Pages
+- [ ] Ověřit souhlas JA Architekti se zveřejněním půdorysů (na výkresu je doložka o autorských právech)
 
 ### Fáze 2 – Vrstva Dveře
-- [ ] Soupis všech dveří (ID, místnosti, rozměry…)
-- [ ] Zakreslit hotspoty všech dveří
-- [ ] Doplnit fotky
-- [ ] Otestovat na mobilu
+- [x] Soupis všech dveří (18 pozic, 1.PP: 11, 1.NP: 7)
+- [x] Zakreslit hotspoty všech dveří
+- [ ] Zkontrolovat polohy hotspotů (hlavně DV001-B, DV009, DV010, DV105-B)
+- [ ] Doplnit fotky (po montáži)
+- [ ] Průběžně aktualizovat stavy po dalších schůzkách
+- [ ] Otestovat na skutečném mobilu
 
 ### Fáze 3 – Vrstva Okna
+- [ ] Projít `POD_DPS_D_TABULKY.xlsx` a nabídku oken
 - [ ] Soupis oken (rozměr, typ otevírání, zasklení, parapety, žaluzie/rolety…)
-- [ ] Hotspoty + data
+- [ ] Hotspoty + data (`data/okna.json`)
 
 ---
 
 ## Návrhy na vylepšení (k rozhodnutí)
 
-Další vrstvy, které se u novostavby hodí:
-1. **Elektro:** zásuvky, vypínače, světla, datové zásuvky, jističe v rozvaděči (který jistič patří ke které místnosti).
-2. **Voda / odpady / topení:** kudy vedou trubky ve zdech a v podlaze, okruhy podlahového topení. *Velmi užitečné, aby se nevrtalo do trubky.*
-3. **Fotky z výstavby:** fotky stěn před omítnutím, připnuté ke konkrétnímu místu v půdorysu. Je to „rentgen“ zdí na roky dopředu.
-4. **Místnosti:** název, plocha, výška, podlahová krytina, barva výmalby (kód barvy pro pozdější opravy).
-5. **Dokumenty a záruky:** u prvku odkaz na návod, fakturu a datum konce záruky (kotel, okna, dveře…).
-6. **Kóty / měření:** kliknutím na dva body změřit vzdálenost v metrech (pro plánování nábytku).
-7. **Vyhledávání a souhrnná tabulka:** např. „všechny dveře 80 cm“, export do tabulky / tisk.
-8. **Stav prací:** barevné odlišení (objednáno / dodáno / namontováno), slouží zároveň jako checklist stavby.
+1. **Elektro:** zásuvky, vypínače, světla, datové zásuvky, jističe (v Downloads je `E.4 ELEKTROINSTALACE 1NP.pdf` a poptávka zásuvek a vypínačů).
+2. **Voda / odpady / topení:** trubky ve zdech a v podlaze, okruhy podlahového topení, aby se nevrtalo do trubky. Podklady jsou v DWG ZTI a ÚT na Dropboxu.
+3. **Fotky z výstavby** připnuté ke konkrétnímu místu: stěny před omítnutím.
+4. **Místnosti:** plocha, podlahová krytina, barva výmalby (`RD_Podolanka_Prehled_Povrchu.xlsx`).
+5. **Sanita:** vrstva Z1–Z14 (`RD PODOLANKA - sanita tabulka`).
+6. **Nábytek (N01–N73):** vestavěný nábytek z projektu interiéru.
+7. **Dokumenty a záruky** u jednotlivých prvků.
+8. **Měření vzdáleností** v půdorysu.
 
 ---
 
 ## Otevřené otázky
 
-- V jakém formátu půdorysy máš (PDF od architekta, DWG, fotka/sken)?
-- Má být web veřejný (GitHub Pages), nebo jen lokálně či chráněný heslem?
-- Které údaje o dveřích chceš evidovat? (viz návrh dat výše)
-- Mají se zobrazovat ceny?
+- Souhlasí JA Architekti se zveřejněním půdorysů na veřejném webu? Alternativa je vlastní zjednodušený obrys.
+- Mají se vůbec zobrazovat interní poznámky typu „k dořešení“, nebo jen finální stav?
 
 ---
 
 ## Deník změn
 
 - **2026-10-17:** Založen repozitář, sepsán plán projektu.
+- **2026-10-17:** Web v0.1: půdorysy 1.PP a 1.NP z projektu interiéru, vrstva Dveře (18 pozic) s detaily a stavem, filtry, seznam dveří, editor souřadnic.

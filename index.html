@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Půdorysy Cvrčovice</title>
+  <meta name="description" content="Interaktivní půdorysy rodinného domu – detaily dveří, oken a dalších prvků.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>Půdorysy Cvrčovice</h1>
+      <p class="sub">Najeďte myší (na mobilu klepněte) na zvýrazněný prvek v půdorysu.</p>
+    </div>
+  </header>
+
+  <nav class="toolbar wrap" aria-label="Ovládání">
+    <fieldset class="group">
+      <legend>Vrstvy</legend>
+      <label class="chip"><input type="checkbox" data-layer="dvere" checked> Dveře</label>
+      <label class="chip is-disabled" title="Připravujeme"><input type="checkbox" data-layer="okna" disabled> Okna <small>brzy</small></label>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Podlaží</legend>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="floor" value="all" checked><span>Obě</span></label>
+        <label><input type="radio" name="floor" value="1PP"><span>1.PP</span></label>
+        <label><input type="radio" name="floor" value="1NP"><span>1.NP</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="group">
+      <legend>Stav</legend>
+      <label class="chip st-ok"><input type="checkbox" data-status="ok" checked><i></i> OK</label>
+      <label class="chip st-overit"><input type="checkbox" data-status="overit" checked><i></i> K ověření</label>
+      <label class="chip st-resit"><input type="checkbox" data-status="resit" checked><i></i> K dořešení</label>
+      <label class="chip st-akutni"><input type="checkbox" data-status="akutni" checked><i></i> Akutní</label>
+    </fieldset>
+  </nav>
+
+  <main class="wrap">
+    <section class="plans" id="plans">
+      <figure class="plan" data-floor="1PP">
+        <figcaption>1.PP <span>– suterén (obytná část)</span></figcaption>
+        <div class="stage">
+          <img src="img/1PP.png" width="2055" height="2310" alt="Půdorys 1.PP">
+          <svg viewBox="0 0 2055 2310" preserveAspectRatio="xMidYMid meet" aria-label="Prvky 1.PP"></svg>
+        </div>
+      </figure>
+      <figure class="plan" data-floor="1NP">
+        <figcaption>1.NP <span>– přízemí (vstup, garáž)</span></figcaption>
+        <div class="stage">
+          <img src="img/1NP.png" width="2055" height="2310" alt="Půdorys 1.NP">
+          <svg viewBox="0 0 2055 2310" preserveAspectRatio="xMidYMid meet" aria-label="Prvky 1.NP"></svg>
+        </div>
+      </figure>
+    </section>
+
+    <section class="list">
+      <h2>Seznam dveří <span id="count"></span></h2>
+      <div class="table-wrap">
+        <table id="table">
+          <thead><tr><th>Pozice</th><th>Mezi místnostmi</th><th>Typ</th><th>Rozměr</th><th>Stav</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="meta" id="meta"></p>
+    </section>
+  </main>
+
+  <div class="tip" id="tip" role="dialog" aria-live="polite" hidden></div>
+
+  <footer class="wrap foot">
+    Podklad půdorysů: JA Architekti, projekt interiéru RD Podolanka (C.2.1, C.2.2, 08/25).
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
