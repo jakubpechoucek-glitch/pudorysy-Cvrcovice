@@ -81,7 +81,9 @@ PROGRESS.md         – tento soubor
 ```
 Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310). `hotspot` může být i pole obdélníků (např. rohové okno FV08).
 
-Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, kovani, profil, magnet, zabradli, poznamka, nahled, hotspot`. Nová vrstva = nový JSON + záznam v `LAYERS` v `js/app.js` + checkbox v `index.html`.
+Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, kovani, profil, magnet, zabradli, poznamka, nahled, hotspot`. Nová vrstva = nový JSON + záznam v `LAYERS` v `js/app.js` + checkbox v `index.html`. Filtr „Stav dveří“ působí jen na vrstvy s `statusFilter: true`.
+
+**Cache:** po změně dat nebo kódu zvýšit `VERSION` v `js/app.js` a stejné číslo v `index.html` (`?v=…`), jinak mohou prohlížeče načíst starou verzi.
 
 ---
 
@@ -184,3 +186,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.3: vrstva Povrchy (23 místností) – podlahy barevně, detail se schématem stěn, obklady koupelen s formáty a počty kusů, tabulka materiálů.
 - **2026-10-17:** M9 → M11 lak Champagne mat (Hanák) ve vrstvě Povrchy.
 - **2026-10-17:** Web v0.4: vrstva Nábytek (11 sestav Hanák) s vizualizacemi, položkami a cenami; ceny se smí zveřejňovat.
+- **2026-10-17:** Oprava: filtr stavu dveří skrýval nábytek (pole `stav`); přehled nábytku seřazen po místnostech; verze souborů proti cache (v0.4.1).

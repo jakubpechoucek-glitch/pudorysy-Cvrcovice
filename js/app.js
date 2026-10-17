@@ -2,6 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
+const VERSION = '0.4.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -21,6 +22,7 @@ const LAYERS = {
     file: 'data/dvere.json',
     key: 'dvere',
     title: 'Seznam dveří',
+    statusFilter: true,    // na tuto vrstvu působí filtr „Stav dveří“
     subtitle: it => it.mezi.join(' ↔ '),
     badge: it => `<span class="badge ${it.stav}">${STAV[it.stav]}</span>`,
     fields: it => [
@@ -120,7 +122,7 @@ init();
 async function init() {
   const meta = [];
   for (const [name, cfg] of Object.entries(LAYERS)) {
-    const data = await (await fetch(cfg.file)).json();
+    const data = await (await fetch(`${cfg.file}?v=${VERSION}`)).json();
     cfg.onLoad?.(data);
     state.items.push(...data[cfg.key].map(d => ({ ...d, layer: name })));
     meta.push(`${cfg.title.replace('Seznam ', '')}: stav k ${formatDate(data.aktualizovano)}, zdroj ${data.zdroj}.`);
@@ -149,7 +151,7 @@ function renderHotspots() {
       const cfg = LAYERS[it.layer];
       const pad = cfg.padding ?? PAD;
       const rects = [].concat(it.hotspot);
-      const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': it.stav || '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
+      const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': cfg.statusFilter ? it.stav : '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
       if (cfg.color) g.style.setProperty('--c', cfg.color(it));
       for (const { x, y, w, h } of rects) {
         if (pad) g.append(el('rect', { class: 'hit', x: x - pad, y: y - pad, width: w + 2 * pad, height: h + 2 * pad }));
@@ -272,7 +274,7 @@ function focusItem(it) {
   if (state.floor !== 'all' && state.floor !== it.podlazi) {
     document.querySelector(`input[name="floor"][value="${it.podlazi}"]`).click();
   }
-  if (it.stav) {
+  if (LAYERS[it.layer].statusFilter) {
     const statusBox = document.querySelector(`input[data-status="${it.stav}"]`);
     if (!statusBox.checked) statusBox.click();
   }
@@ -314,7 +316,7 @@ function applyFilters() {
   const counts = {};
   for (const it of state.items) {
     const show = state.layers.has(it.layer) &&
-      (!it.stav || state.statuses.has(it.stav)) &&
+      (!LAYERS[it.layer].statusFilter || state.statuses.has(it.stav)) &&
       (state.floor === 'all' || state.floor === it.podlazi);
     hotspotEl(it.id).style.display = show ? '' : 'none';
     document.querySelector(`.list tr[data-id="${CSS.escape(it.id)}"]`).hidden = !show;

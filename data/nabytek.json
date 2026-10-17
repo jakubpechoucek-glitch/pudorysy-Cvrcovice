@@ -4,6 +4,53 @@
   "zaruka": "Hanák: 60 měsíců na nábytek (korpusy, dvířka, obklady, sokly…), 24 měsíců na pracovní desky, dřezy, baterie, vnitřní vybavení a osvětlení; spotřebiče dle záručního listu výrobce.",
   "nabytek": [
     {
+      "id": "N-OBYV",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část",
+      "nazev": "Obývací stěna",
+      "model": "Line MAT",
+      "cela": "dub americký přírodní (DDBApr), cashmere mat (S59M)",
+      "korpus": "lamino cashmere (LCAS)",
+      "zasuvky": "Legrabox antracit",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 222672.28
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1815.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 14810.4
+        },
+        {
+          "popis": "Montáž",
+          "cena": 19481.0
+        }
+      ],
+      "celkem": 258778.68,
+      "bez_dph": 213866.68,
+      "dph": "21 %",
+      "datum": "2026-04-09",
+      "stav": "nabidka",
+      "zdroj": "CN Pěchouček obyv",
+      "nahledy": [
+        "img/nabytek/obyvak-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1905,
+          "y": 1671,
+          "w": 51,
+          "h": 468
+        }
+      ],
+      "poznamka": null
+    },
+    {
       "id": "K1",
       "podlazi": "1PP",
       "mistnost": "0.01 obývací část – kuchyň",
@@ -198,48 +245,48 @@
       "poznamka": null
     },
     {
-      "id": "N-OBYV",
+      "id": "N-K004",
       "podlazi": "1PP",
-      "mistnost": "0.01 obývací část",
-      "nazev": "Obývací stěna",
+      "mistnost": "0.04 koupelna děti",
+      "nazev": "Koupelnový nábytek – koupelna děti",
       "model": "Line MAT",
-      "cela": "dub americký přírodní (DDBApr), cashmere mat (S59M)",
-      "korpus": "lamino cashmere (LCAS)",
-      "zasuvky": "Legrabox antracit",
-      "dalsi": null,
+      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox titan, Legrabox titan tip-on",
+      "dalsi": "Sokl 60 mm",
       "polozky": [
         {
           "popis": "Nábytková sestava (po slevě 8 %)",
-          "cena": 222672.28
+          "cena": 278852.0
         },
         {
           "popis": "Likvidace odpadu",
-          "cena": 1815.0
+          "cena": 560.0
         },
         {
           "popis": "Doprava",
-          "cena": 14810.4
+          "cena": 13552.0
         },
         {
           "popis": "Montáž",
-          "cena": 19481.0
+          "cena": 15456.0
         }
       ],
-      "celkem": 258778.68,
-      "bez_dph": 213866.68,
-      "dph": "21 %",
-      "datum": "2026-04-09",
+      "celkem": 308420.0,
+      "bez_dph": 275375.0,
+      "dph": "12 %",
+      "datum": "2026-08-05",
       "stav": "nabidka",
-      "zdroj": "CN Pěchouček obyv",
+      "zdroj": "Pěchouček K 004",
       "nahledy": [
-        "img/nabytek/obyvak-1.jpg"
+        "img/nabytek/koupelna-004-1.jpg"
       ],
       "hotspot": [
         {
-          "x": 1905,
-          "y": 1671,
-          "w": 51,
-          "h": 468
+          "x": 978,
+          "y": 240,
+          "w": 45,
+          "h": 252
         }
       ],
       "poznamka": null
@@ -356,6 +403,53 @@
       "poznamka": null
     },
     {
+      "id": "N-K008",
+      "podlazi": "1PP",
+      "mistnost": "0.08 koupelna (rodiče)",
+      "nazev": "Koupelnový nábytek – koupelna rodiče",
+      "model": "Line MAT",
+      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI), titan star mat (S53M)",
+      "zasuvky": "Legrabox titan, Legrabox titan tip-on",
+      "dalsi": "Sokl 60 mm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava",
+          "cena": 211472.8
+        },
+        {
+          "popis": "Skladové doplňky",
+          "cena": 2078.72
+        },
+        {
+          "popis": "Doprava",
+          "cena": 13104.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 12992.0
+        }
+      ],
+      "celkem": 239647.52,
+      "bez_dph": 213971.0,
+      "dph": "12 %",
+      "datum": "2026-08-05",
+      "stav": "nabidka",
+      "zdroj": "Pěchouček K 008",
+      "poznamka": "V této nabídce není uvedena sleva 8 % (na rozdíl od ostatních).",
+      "nahledy": [
+        "img/nabytek/koupelna-008-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 57,
+          "y": 1077,
+          "w": 270,
+          "h": 54
+        }
+      ]
+    },
+    {
       "id": "N-009",
       "podlazi": "1PP",
       "mistnost": "0.09A ložnice",
@@ -412,6 +506,53 @@
           "h": 192
         }
       ]
+    },
+    {
+      "id": "N-K105",
+      "podlazi": "1NP",
+      "mistnost": "1.05 koupelna",
+      "nazev": "Koupelnový nábytek – koupelna 1.NP",
+      "model": "Line MAT",
+      "cela": "mocca star mat (S49M), dub americký přírodní (DDBApr)",
+      "korpus": "lamino titan (LTI)",
+      "zasuvky": "Legrabox titan",
+      "dalsi": "Sokl 60 mm",
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 192435.44
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 560.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 12544.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 13552.0
+        }
+      ],
+      "celkem": 219091.44,
+      "bez_dph": 195617.36,
+      "dph": "12 %",
+      "datum": "2026-08-05",
+      "stav": "nabidka",
+      "zdroj": "Pěchouček K 105",
+      "nahledy": [
+        "img/nabytek/koupelna-105-1.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1410,
+          "y": 630,
+          "w": 51,
+          "h": 210
+        }
+      ],
+      "poznamka": null
     },
     {
       "id": "N-108",
@@ -528,147 +669,6 @@
           "y": 876,
           "w": 420,
           "h": 90
-        }
-      ],
-      "poznamka": null
-    },
-    {
-      "id": "N-K004",
-      "podlazi": "1PP",
-      "mistnost": "0.04 koupelna děti",
-      "nazev": "Koupelnový nábytek – koupelna děti",
-      "model": "Line MAT",
-      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
-      "korpus": "lamino titan (LTI)",
-      "zasuvky": "Legrabox titan, Legrabox titan tip-on",
-      "dalsi": "Sokl 60 mm",
-      "polozky": [
-        {
-          "popis": "Nábytková sestava (po slevě 8 %)",
-          "cena": 278852.0
-        },
-        {
-          "popis": "Likvidace odpadu",
-          "cena": 560.0
-        },
-        {
-          "popis": "Doprava",
-          "cena": 13552.0
-        },
-        {
-          "popis": "Montáž",
-          "cena": 15456.0
-        }
-      ],
-      "celkem": 308420.0,
-      "bez_dph": 275375.0,
-      "dph": "12 %",
-      "datum": "2026-08-05",
-      "stav": "nabidka",
-      "zdroj": "Pěchouček K 004",
-      "nahledy": [
-        "img/nabytek/koupelna-004-1.jpg"
-      ],
-      "hotspot": [
-        {
-          "x": 978,
-          "y": 240,
-          "w": 45,
-          "h": 252
-        }
-      ],
-      "poznamka": null
-    },
-    {
-      "id": "N-K008",
-      "podlazi": "1PP",
-      "mistnost": "0.08 koupelna (rodiče)",
-      "nazev": "Koupelnový nábytek – koupelna rodiče",
-      "model": "Line MAT",
-      "cela": "titan star mat (S53M), dub americký přírodní (DDBApr)",
-      "korpus": "lamino titan (LTI), titan star mat (S53M)",
-      "zasuvky": "Legrabox titan, Legrabox titan tip-on",
-      "dalsi": "Sokl 60 mm",
-      "polozky": [
-        {
-          "popis": "Nábytková sestava",
-          "cena": 211472.8
-        },
-        {
-          "popis": "Skladové doplňky",
-          "cena": 2078.72
-        },
-        {
-          "popis": "Doprava",
-          "cena": 13104.0
-        },
-        {
-          "popis": "Montáž",
-          "cena": 12992.0
-        }
-      ],
-      "celkem": 239647.52,
-      "bez_dph": 213971.0,
-      "dph": "12 %",
-      "datum": "2026-08-05",
-      "stav": "nabidka",
-      "zdroj": "Pěchouček K 008",
-      "poznamka": "V této nabídce není uvedena sleva 8 % (na rozdíl od ostatních).",
-      "nahledy": [
-        "img/nabytek/koupelna-008-1.jpg"
-      ],
-      "hotspot": [
-        {
-          "x": 57,
-          "y": 1077,
-          "w": 270,
-          "h": 54
-        }
-      ]
-    },
-    {
-      "id": "N-K105",
-      "podlazi": "1NP",
-      "mistnost": "1.05 koupelna",
-      "nazev": "Koupelnový nábytek – koupelna 1.NP",
-      "model": "Line MAT",
-      "cela": "mocca star mat (S49M), dub americký přírodní (DDBApr)",
-      "korpus": "lamino titan (LTI)",
-      "zasuvky": "Legrabox titan",
-      "dalsi": "Sokl 60 mm",
-      "polozky": [
-        {
-          "popis": "Nábytková sestava (po slevě 8 %)",
-          "cena": 192435.44
-        },
-        {
-          "popis": "Likvidace odpadu",
-          "cena": 560.0
-        },
-        {
-          "popis": "Doprava",
-          "cena": 12544.0
-        },
-        {
-          "popis": "Montáž",
-          "cena": 13552.0
-        }
-      ],
-      "celkem": 219091.44,
-      "bez_dph": 195617.36,
-      "dph": "12 %",
-      "datum": "2026-08-05",
-      "stav": "nabidka",
-      "zdroj": "Pěchouček K 105",
-      "nahledy": [
-        "img/nabytek/koupelna-105-1.jpg"
-      ],
-      "hotspot": [
-        {
-          "x": 1410,
-          "y": 630,
-          "w": 51,
-          "h": 210
         }
       ],
       "poznamka": null
