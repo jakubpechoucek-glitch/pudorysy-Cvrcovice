@@ -9,6 +9,8 @@ const STAV = {
   akutni: 'Akutní',
 };
 const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
+const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever nahoře
+let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
 
 // Konfigurace vrstev: odkud se berou data, jak vypadá detail a seznam.
 const LAYERS = {
@@ -58,6 +60,27 @@ const LAYERS = {
       ['Parapet', it => it.parapet],
     ],
   },
+  povrchy: {
+    file: 'data/povrchy.json',
+    key: 'povrchy',
+    title: 'Povrchy místností',
+    padding: 0,
+    below: true,           // místnosti pod dveřmi a okny
+    label: false,
+    onLoad: data => { MAT = data.materialy; },
+    color: it => MAT[it.podlaha.kod].barva,
+    subtitle: it => it.nazev,
+    badge: it => `<span class="badge plocha">${fmtNum(it.plocha)} m²</span>`,
+    render: roomHtml,
+    columns: [
+      ['Místnost', it => `${it.id} ${it.nazev}`],
+      ['Plocha', it => `${fmtNum(it.plocha)} m²`],
+      ['Podlaha', it => ({ html: matChip(it.podlaha.kod, true) })],
+      ['Stěny', it => ({ html: uniq(it.steny.map(s => s.kod)).map(k => matChip(k)).join(' ') })],
+      ['Strop', it => ({ html: uniq(it.strop.map(s => s.kod)).map(k => matChip(k)).join(' ') })],
+    ],
+    extra: materialsTable,
+  },
 };
 
 const state = {
@@ -78,6 +101,7 @@ async function init() {
   const meta = [];
   for (const [name, cfg] of Object.entries(LAYERS)) {
     const data = await (await fetch(cfg.file)).json();
+    cfg.onLoad?.(data);
     state.items.push(...data[cfg.key].map(d => ({ ...d, layer: name })));
     meta.push(`${cfg.title.replace('Seznam ', '')}: stav k ${formatDate(data.aktualizovano)}, zdroj ${data.zdroj}.`);
   }
@@ -85,6 +109,7 @@ async function init() {
 
   renderHotspots();
   renderTables();
+  renderLegend();
   document.getElementById('meta').innerHTML = meta.map(esc).join('<br>');
 
   bindControls();
@@ -97,22 +122,25 @@ async function init() {
 function renderHotspots() {
   for (const fig of document.querySelectorAll('.plan')) {
     const svg = fig.querySelector('svg');
-    // okna pod dveře, aby dveře zůstaly klikací tam, kde se překrývají
-    const items = state.items.filter(i => i.podlazi === fig.dataset.floor)
-      .sort((a, b) => (b.layer === 'okna') - (a.layer === 'okna'));
+    // pořadí vykreslení: místnosti dospod, pak okna, navrch dveře (zůstanou klikací tam, kde se překrývají)
+    const order = it => LAYERS[it.layer].below ? 0 : it.layer === 'okna' ? 1 : 2;
+    const items = state.items.filter(i => i.podlazi === fig.dataset.floor).sort((a, b) => order(a) - order(b));
     for (const it of items) {
+      const cfg = LAYERS[it.layer];
+      const pad = cfg.padding ?? PAD;
       const rects = [].concat(it.hotspot);
-      const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': it.stav || '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${LAYERS[it.layer].subtitle(it)}` });
+      const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': it.stav || '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
+      if (cfg.color) g.style.setProperty('--c', cfg.color(it));
       for (const { x, y, w, h } of rects) {
-        g.append(
-          el('rect', { class: 'hit', x: x - PAD, y: y - PAD, width: w + 2 * PAD, height: h + 2 * PAD }),
-          el('rect', { class: 'mark', x, y, width: w, height: h }),
-        );
+        if (pad) g.append(el('rect', { class: 'hit', x: x - pad, y: y - pad, width: w + 2 * pad, height: h + 2 * pad }));
+        g.append(el('rect', { class: 'mark', x, y, width: w, height: h }));
       }
-      const { x, y, w } = rects[0];
-      const label = el('text', { x: x + w / 2, y: y - 12, 'text-anchor': 'middle' });
-      label.textContent = it.id;
-      g.append(label);
+      if (cfg.label !== false) {
+        const { x, y, w } = rects[0];
+        const label = el('text', { x: x + w / 2, y: y - 12, 'text-anchor': 'middle' });
+        label.textContent = it.id;
+        g.append(label);
+      }
 
       g.addEventListener('mouseenter', e => { if (finePointer && !state.pinned) showTip(it, e); });
       g.addEventListener('mousemove', e => { if (finePointer && !state.pinned) positionTip(e.clientX, e.clientY); });
@@ -148,6 +176,7 @@ function renderTables() {
       tr.addEventListener('click', () => focusItem(it));
       tbody.append(tr);
     }
+    cfg.extra?.(sec);
     host.append(sec);
   }
 }
@@ -156,6 +185,7 @@ function renderTables() {
 
 function tipHtml(it) {
   const cfg = LAYERS[it.layer];
+  if (cfg.render) return `<button class="close" aria-label="Zavřít">×</button>${cfg.render(it)}`;
   const rows = cfg.fields(it).filter(([, v]) => v != null && v !== '')
     .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
   return `
@@ -257,6 +287,7 @@ function applyFilters() {
   }
   plans.classList.toggle('single', state.floor !== 'all');
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
+  document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
 
   const counts = {};
   for (const it of state.items) {
@@ -274,6 +305,86 @@ function applyFilters() {
     sec.hidden = !state.layers.has(sec.dataset.layer);
     sec.querySelector('.count').textContent = `(${shown} z ${total})`;
   }
+}
+
+// ---------- vrstva povrchů ----------
+
+function roomHtml(it) {
+  const head = `
+    <h3>${esc(it.id)} ${esc(it.nazev)} <span class="badge plocha">${fmtNum(it.plocha)} m²</span></h3>
+    <p class="rooms">Podlaha, stěny a strop</p>`;
+  const group = (title, list, withSide) => list.length ? `
+    <h4>${title}</h4>
+    <ul class="surf">${list.map(e => `
+      <li>${matChip(e.kod)}
+        <div><strong>${esc(withSide ? `${e.orientace}${e.typ !== 'Stěna' ? ' – ' + e.typ.toLowerCase() : ''}` : (e.cast ? `Strop ${e.cast}` : MAT[e.kod]?.nazev || e.kod))}</strong>
+        ${withSide || e.cast ? `<span>${esc(MAT[e.kod]?.nazev || '')}</span>` : ''}
+        ${e.plocha ? `<em>${fmtNum(e.plocha)} m²</em>` : ''}
+        ${e.poznamka ? `<small>${esc(e.poznamka)}</small>` : ''}</div>
+      </li>`).join('')}
+    </ul>` : '';
+  return head + wallDiagram(it) + group('Podlaha', [it.podlaha]) +
+    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop);
+}
+
+function sortBySide(list) {
+  const idx = e => { const i = STRANY.findIndex(s => e.orientace.startsWith(s)); return i < 0 ? 9 : i; };
+  return [...list].sort((a, b) => idx(a) - idx(b));
+}
+
+// Schéma místnosti: čtyři stěny obarvené převažujícím materiálem, uprostřed podlaha.
+function wallDiagram(it) {
+  const side = name => {
+    const list = it.steny.filter(s => s.orientace.startsWith(name));
+    if (!list.length) return null;
+    const main = list.reduce((a, b) => ((b.plocha || 0) > (a.plocha || 0) ? b : a)).kod;
+    const more = uniq(list.map(s => s.kod)).length - 1;
+    return { kod: main, label: more ? `${main} +${more}` : main };
+  };
+  const W = 230, H = 146, T = 14, x0 = 55, y0 = 26, w = 120, h = 92;
+  const fill = k => (k && MAT[k] ? MAT[k].barva : 'transparent');
+  const wall = (sd, x, y, ww, hh, tx, ty) => `
+    <rect x="${x}" y="${y}" width="${ww}" height="${hh}" fill="${fill(sd?.kod)}" stroke="var(--line)"/>
+    <text x="${tx}" y="${ty}" text-anchor="middle">${esc(sd?.label || '–')}</text>`;
+  const [n, e, s, z] = STRANY.map(side);
+  return `
+    <svg class="diagram" viewBox="0 0 ${W} ${H}" role="img" aria-label="Schéma stěn místnosti">
+      <rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="${fill(it.podlaha.kod)}" opacity=".55"/>
+      <text x="${x0 + w / 2}" y="${y0 + h / 2 + 4}" text-anchor="middle" class="floor">${esc(it.podlaha.kod)}</text>
+      ${wall(n, x0, y0 - T / 2, w, T, x0 + w / 2, y0 - 10)}
+      ${wall(s, x0, y0 + h - T / 2, w, T, x0 + w / 2, y0 + h + 18)}
+      ${wall(z, x0 - T / 2, y0, T, h, x0 - 28, y0 + h / 2 + 4)}
+      ${wall(e, x0 + w - T / 2, y0, T, h, x0 + w + 28, y0 + h / 2 + 4)}
+      <text x="${W - 14}" y="14" text-anchor="middle" class="north">S ↑</text>
+    </svg>`;
+}
+
+function matChip(kod, withName) {
+  const m = MAT[kod];
+  if (!m) return `<span class="mat">${esc(kod)}</span>`;
+  return `<span class="mat" title="${esc(m.nazev)}"><i style="background:${m.barva}"></i>${esc(kod)}${withName ? ` <span>${esc(m.kratce || m.nazev)}</span>` : ''}</span>`;
+}
+
+function materialsTable(sec) {
+  const used = {};
+  for (const it of state.items.filter(i => i.layer === 'povrchy')) {
+    for (const e of [it.podlaha, ...it.steny, ...it.strop]) (used[e.kod] ??= new Set()).add(it.id);
+  }
+  const rows = Object.entries(MAT).filter(([k]) => used[k]).map(([k, m]) => `
+    <tr><td>${matChip(k)}</td><td>${esc(m.nazev)}${m.poznamka ? `<br><small>${esc(m.poznamka)}</small>` : ''}</td>
+    <td>${esc([...used[k]].join(', '))}</td><td>${esc(m.celkem || '')}</td></tr>`).join('');
+  sec.insertAdjacentHTML('beforeend', `
+    <h3 class="sub-h">Materiály</h3>
+    <div class="table-wrap"><table class="mats">
+      <thead><tr><th>Kód</th><th>Materiál</th><th>Místnosti</th><th>Celkem (s rezervou)</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`);
+}
+
+function renderLegend() {
+  const floors = uniq(state.items.filter(i => i.layer === 'povrchy').map(i => i.podlaha.kod)).sort();
+  document.getElementById('floor-legend').insertAdjacentHTML('beforeend',
+    floors.map(k => `<span class="chip legend" title="${esc(MAT[k].nazev)}"><i style="background:${MAT[k].barva}"></i>${esc(k)} ${esc(MAT[k].kratce || MAT[k].nazev)}</span>`).join(''));
 }
 
 // ---------- editor souřadnic (?edit) ----------
@@ -302,4 +413,6 @@ function el(tag, attrs) {
 }
 function hotspotEl(id) { return document.querySelector(`.hs[data-id="${CSS.escape(id)}"]`); }
 function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function fmtNum(n) { return n == null ? '–' : String(n).replace('.', ','); }
+function uniq(a) { return [...new Set(a)]; }
 function formatDate(iso) { const [y, m, d] = iso.split('-'); return `${+d}. ${+m}. ${y}`; }

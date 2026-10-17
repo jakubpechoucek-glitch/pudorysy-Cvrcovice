@@ -79,6 +79,9 @@ body {
 .st-resit i { background: var(--resit); }
 .st-akutni i { background: var(--akutni); }
 .ly-okna i { background: var(--okno); border-radius: 2px; }
+.ly-povrchy i { background: linear-gradient(135deg, #c8a27a 50%, #b3aba0 50%); border-radius: 2px; }
+.chip.legend { cursor: default; font-size: 13px; padding: 3px 10px; }
+.chip.legend i { border-radius: 3px; border: 1px solid rgba(0,0,0,.15); }
 .group[hidden] { display: none; }
 
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
@@ -122,13 +125,29 @@ body {
 .hs[data-stav="akutni"] { --c: var(--akutni); }
 .hs[data-layer="okna"] { --c: var(--okno); }
 .hs[data-layer="okna"] rect.mark { fill-opacity: .22; }
+.hs[data-layer="povrchy"] rect.mark { fill-opacity: .45; stroke: none; rx: 0; }
+.hs[data-layer="povrchy"]:hover rect.mark, .hs[data-layer="povrchy"].active rect.mark { fill-opacity: .7; stroke: var(--text); stroke-width: 4; animation: none; }
 
 /* ---------- tooltip ---------- */
 .tip {
   position: fixed; z-index: 20; width: min(380px, calc(100vw - 32px));
   background: var(--surface); color: var(--text); border: 1px solid var(--line);
   border-radius: 12px; box-shadow: var(--shadow); padding: 14px 16px; font-size: 14px;
+  max-height: calc(100vh - 32px); overflow: auto;
 }
+.tip h4 { margin: 12px 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.tip .surf { list-style: none; margin: 0; padding: 0; }
+.tip .surf li { display: flex; gap: 8px; align-items: flex-start; padding: 5px 0; border-top: 1px solid var(--line); }
+.tip .surf li:first-child { border-top: 0; }
+.tip .surf li > div { display: flex; flex-direction: column; min-width: 0; }
+.tip .surf span { color: var(--text); }
+.tip .surf em { font-style: normal; color: var(--muted); font-size: 12px; }
+.tip .surf small { color: var(--muted); font-size: 12px; }
+.tip .surf .mat { flex: none; min-width: 64px; }
+.tip .diagram { display: block; width: 100%; max-width: 260px; margin: 0 auto 4px; }
+.tip .diagram text { font: 600 11px system-ui, sans-serif; fill: var(--text); }
+.tip .diagram .floor { font-size: 13px; }
+.tip .diagram .north { fill: var(--muted); font-size: 10px; }
 .tip h3 { margin: 0 0 2px; font-size: 17px; display: flex; align-items: center; gap: 8px; }
 .tip .rooms { margin: 0 0 10px; color: var(--muted); }
 .tip dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; }
@@ -143,6 +162,12 @@ body {
 .badge.resit { background: var(--resit); }
 .badge.akutni { background: var(--akutni); }
 .badge.okno { background: var(--okno); }
+.badge.plocha { background: var(--muted); }
+.mat { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; font-size: 13px; white-space: nowrap; }
+.mat i { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,.18); display: inline-block; }
+.mat span { font-weight: 400; color: var(--muted); white-space: normal; }
+.sub-h { font-size: 16px; margin: 20px 0 8px; }
+table.mats small { color: var(--muted); }
 .tip .thumb { display: block; width: 100%; max-height: 200px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 6px; }
 .tip .thumb-cap { margin: 2px 0 10px; font-size: 11px; color: var(--muted); text-align: right; }
 

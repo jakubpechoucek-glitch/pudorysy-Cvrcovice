@@ -1,0 +1,1550 @@
+{
+  "aktualizovano": "2026-10-17",
+  "zdroj": "Přehled povrchů RD Podolanka (PROCERAM, list „Celkový přehled_final“; vychází ze studie JA Architekti 08/2025)",
+  "materialy": {
+    "P1": {
+      "nazev": "Dřevěná podlaha – třívrstvá lamela OAKWOOD, dub 15 × 195 Rustic",
+      "kratce": "Dřevo",
+      "barva": "#c8a27a",
+      "celkem": null
+    },
+    "P2": {
+      "nazev": "Dlažba FLORIM Authentic Luxe Stone Montpellier Matte Leather, 120 × 120 cm",
+      "kratce": "Dlažba",
+      "barva": "#b3aba0",
+      "celkem": "62 ks",
+      "poznamka": "Sokly v 0.02, 0.03 a 0.06: dlažba P2, výška 7 cm (řezy vodním paprskem), 2 ks"
+    },
+    "P3": {
+      "nazev": "Betonová stěrka teplá šedá (MAXIT / Fantazy Design)",
+      "kratce": "Betonová stěrka",
+      "barva": "#9a978f",
+      "celkem": null
+    },
+    "P4": {
+      "nazev": "Průmyslová stěrka teplá šedá (Fantazy Design)",
+      "kratce": "Průmyslová stěrka",
+      "barva": "#737975",
+      "celkem": null
+    },
+    "M2_A": {
+      "nazev": "Patinovaná výmalba / limewash (Fantazy Design)",
+      "kratce": null,
+      "barva": "#e6dac7",
+      "celkem": null
+    },
+    "M2_B": {
+      "nazev": "Standardní bílá výmalba",
+      "kratce": null,
+      "barva": "#f6f6f3",
+      "celkem": null
+    },
+    "M3": {
+      "nazev": "Výmalba tmavě šedá",
+      "kratce": null,
+      "barva": "#5b5e61",
+      "celkem": null
+    },
+    "M4": {
+      "nazev": "Stěrka světle béžová (Fantazy Design)",
+      "kratce": null,
+      "barva": "#dbc9ad",
+      "celkem": null
+    },
+    "M5": {
+      "nazev": "Stěrka světle béžová – koupelny (Fantazy Design)",
+      "kratce": null,
+      "barva": "#d4c0a1",
+      "celkem": null
+    },
+    "M6": {
+      "nazev": "Zlatohnědý metalický povrch",
+      "kratce": null,
+      "barva": "#a5814c",
+      "celkem": null
+    },
+    "M7": {
+      "nazev": "Stěrka tmavě hnědá (Fantazy Design)",
+      "kratce": null,
+      "barva": "#6a4e39",
+      "celkem": null
+    },
+    "M8": {
+      "nazev": "Dýhovaný obklad Hanák – dub americký přírodní",
+      "kratce": null,
+      "barva": "#b6855a",
+      "celkem": null
+    },
+    "M9": {
+      "nazev": "Lamino CLEAF IDEA FB80 RENIO",
+      "kratce": null,
+      "barva": "#c8b69a",
+      "celkem": null
+    },
+    "M10": {
+      "nazev": "Lamino Line Titan Star mat – antracit (Hanák)",
+      "kratce": null,
+      "barva": "#3e4144",
+      "celkem": null
+    },
+    "M11/M13": {
+      "nazev": "Šatna Hanák (Champagne / Lone Mocca)",
+      "kratce": null,
+      "barva": "#cbb99c",
+      "celkem": null
+    },
+    "M13": {
+      "nazev": "Lone Mocca Star mat (Hanák)",
+      "kratce": null,
+      "barva": "#987f64",
+      "celkem": null
+    },
+    "M14": {
+      "nazev": "Plstěný obklad stěny",
+      "kratce": null,
+      "barva": "#8d887e",
+      "celkem": null
+    },
+    "M15": {
+      "nazev": "Nábytek Hanák + korek",
+      "kratce": null,
+      "barva": "#ae8b60",
+      "celkem": null
+    },
+    "M16": {
+      "nazev": "Obklad FLORIM Authentic Montpellier Cannete, 120 × 60 cm (vroubkovaný)",
+      "kratce": null,
+      "barva": "#c0b7a9",
+      "celkem": "38 ks"
+    },
+    "M17-A": {
+      "nazev": "Obklad Iris Armonie Pietra Madrid Natural, 120 × 120 cm",
+      "kratce": null,
+      "barva": "#cec5b6",
+      "celkem": "12 ks"
+    },
+    "M17-B": {
+      "nazev": "Obklad Pamesa Erding Ash, 120 × 120 cm",
+      "kratce": null,
+      "barva": "#a7a39c",
+      "celkem": "4 ks"
+    },
+    "M18": {
+      "nazev": "Obklad Iris Ceppo Fluviale Top Lapped, 120 × 120 cm",
+      "kratce": null,
+      "barva": "#a39a8e",
+      "celkem": "10 ks"
+    },
+    "M19": {
+      "nazev": "Sprchová nika Magic Touch 790M (Fantazy Design)",
+      "kratce": null,
+      "barva": "#d8ccb7",
+      "celkem": null
+    },
+    "SKLO": {
+      "nazev": "Sklo (Hanák)",
+      "kratce": null,
+      "barva": "#cfe2e9",
+      "celkem": null
+    }
+  },
+  "povrchy": [
+    {
+      "id": "0.01",
+      "podlazi": "1PP",
+      "nazev": "Obývací pokoj + KK",
+      "plocha": 58.4,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 58.4,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "SKLO",
+          "plocha": 2.5,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_A",
+          "plocha": 9.45,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_A",
+          "plocha": 50.9,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_A",
+          "plocha": 10.1,
+          "poznamka": null,
+          "orientace": "Západ 1",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M9",
+          "plocha": 12.15,
+          "poznamka": "ověřit s Hanákem",
+          "orientace": "Západ 2",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M6",
+          "plocha": null,
+          "poznamka": "za kuchyňskou linkou / ostrůvkem",
+          "orientace": "Kuchyně – záda",
+          "typ": "Kuchyně – záda"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 33.45,
+          "poznamka": null,
+          "cast": "1 – vyšší"
+        },
+        {
+          "kod": "M4",
+          "plocha": 25.2,
+          "poznamka": null,
+          "cast": "2 – nižší"
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1410,
+          "y": 876,
+          "w": 555,
+          "h": 1278
+        }
+      ]
+    },
+    {
+      "id": "0.02",
+      "podlazi": "1PP",
+      "nazev": "Spíž",
+      "plocha": 10.2,
+      "podlaha": {
+        "kod": "P2",
+        "plocha": 10.2,
+        "poznamka": "kresba nenavazuje, baleno po 2 ks; 10 ks (12 ks s rezervou)"
+      },
+      "steny": [
+        {
+          "kod": "M2_B",
+          "plocha": 9.45,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 11,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 7.7,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 7.7,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 10.2,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1551,
+          "y": 534,
+          "w": 414,
+          "h": 330
+        }
+      ]
+    },
+    {
+      "id": "0.03",
+      "podlazi": "1PP",
+      "nazev": "Sklad",
+      "plocha": 12.1,
+      "podlaha": {
+        "kod": "P2",
+        "plocha": 12.1,
+        "poznamka": "kresba nenavazuje, baleno po 2 ks; 15 ks (16 ks s rezervou)"
+      },
+      "steny": [
+        {
+          "kod": "M2_B",
+          "plocha": 13,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 11,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.5,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 12.1,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1410,
+          "y": 225,
+          "w": 555,
+          "h": 270
+        }
+      ]
+    },
+    {
+      "id": "0.04",
+      "podlazi": "1PP",
+      "nazev": "Koupelna děti",
+      "plocha": 7.7,
+      "podlaha": {
+        "kod": "P2",
+        "plocha": 7.7,
+        "poznamka": "kresba nenavazuje, baleno po 2 ks; 11 ks (12 ks s rezervou)"
+      },
+      "steny": [
+        {
+          "kod": "M5",
+          "plocha": 4.6,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M5",
+          "plocha": 2.75,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M16",
+          "plocha": 1.25,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; 9 ks (10 ks s rezervou)",
+          "orientace": "Sever",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M18",
+          "plocha": 2.4,
+          "poznamka": "kresba nenavazuje, baleno po 2 ks; dle spárořezu; 8 ks (10 ks s rezervou)",
+          "orientace": "Sever",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M19",
+          "plocha": 0.8,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Sprchová nika"
+        },
+        {
+          "kod": "M16",
+          "plocha": 3,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; počet zahrnut u severní stěny",
+          "orientace": "Jih",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M18",
+          "plocha": 5.5,
+          "poznamka": "kresba nenavazuje, baleno po 2 ks; dle spárořezu; počet zahrnut u severní stěny",
+          "orientace": "Východ",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M8",
+          "plocha": null,
+          "poznamka": "umyvadlová skříňka",
+          "orientace": "Západ",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M5",
+          "plocha": null,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 7.7,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 975,
+          "y": 225,
+          "w": 396,
+          "h": 270
+        }
+      ]
+    },
+    {
+      "id": "0.05",
+      "podlazi": "1PP",
+      "nazev": "Šatna děti",
+      "plocha": 9,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 9,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M11/M13",
+          "plocha": 9.6,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": 5.2,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 9,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 525,
+          "y": 225,
+          "w": 405,
+          "h": 270
+        }
+      ]
+    },
+    {
+      "id": "0.06",
+      "podlazi": "1PP",
+      "nazev": "Prádelna",
+      "plocha": 8.9,
+      "podlaha": {
+        "kod": "P2",
+        "plocha": 8.9,
+        "poznamka": "kresba nenavazuje, baleno po 2 ks; 8 ks"
+      },
+      "steny": [
+        {
+          "kod": "M2_B",
+          "plocha": 4,
+          "poznamka": "+ transparentní lak",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 7.4,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 8.9,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 45,
+          "y": 225,
+          "w": 441,
+          "h": 270
+        }
+      ]
+    },
+    {
+      "id": "0.07",
+      "podlazi": "1PP",
+      "nazev": "Šatna (rodiče)",
+      "plocha": 5.2,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 5.2,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M11/M13",
+          "plocha": 6.1,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": 6.1,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": 6,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": 4,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 5.2,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 75,
+          "y": 525,
+          "w": 255,
+          "h": 240
+        }
+      ]
+    },
+    {
+      "id": "0.08",
+      "podlazi": "1PP",
+      "nazev": "Koupelna (rodiče)",
+      "plocha": 6.2,
+      "podlaha": {
+        "kod": "P2",
+        "plocha": 6.2,
+        "poznamka": "kresba nenavazuje, baleno po 2 ks; 6 ks"
+      },
+      "steny": [
+        {
+          "kod": "M5",
+          "plocha": 0.6,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M8",
+          "plocha": null,
+          "poznamka": "skříně",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M5",
+          "plocha": 5.3,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M17-A",
+          "plocha": 5.9,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; 10 ks (12 ks s rezervou)",
+          "orientace": "Sever",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M16",
+          "plocha": 3.8,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; 10 ks (12 ks s rezervou)",
+          "orientace": "Jih",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M10",
+          "plocha": null,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M17-A",
+          "plocha": 1.9,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; počet zahrnut u severní stěny",
+          "orientace": "Východ",
+          "typ": "Obklad stěny"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 6.2,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 45,
+          "y": 786,
+          "w": 285,
+          "h": 348
+        }
+      ]
+    },
+    {
+      "id": "0.09A",
+      "podlazi": "1PP",
+      "nazev": "Ložnice",
+      "plocha": 15.6,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 15.6,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M8",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M8",
+          "plocha": 3,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M7",
+          "plocha": 8.75,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M8",
+          "plocha": 3.7,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 15.6,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 51,
+          "y": 1170,
+          "w": 468,
+          "h": 444
+        }
+      ]
+    },
+    {
+      "id": "0.09B",
+      "podlazi": "1PP",
+      "nazev": "Chodba (u ložnice)",
+      "plocha": 6.5,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 6.5,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M9",
+          "plocha": 12,
+          "poznamka": "ověřit s Hanákem",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M8",
+          "plocha": 10.3,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 6.5,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 363,
+          "y": 525,
+          "w": 126,
+          "h": 615
+        }
+      ]
+    },
+    {
+      "id": "0.10",
+      "podlazi": "1PP",
+      "nazev": "Chodba (hlavní)",
+      "plocha": 9.2,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 9.2,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M4",
+          "plocha": 16,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M9",
+          "plocha": 17.3,
+          "poznamka": "ověřit s Hanákem",
+          "orientace": "Jih",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 9.2,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 501,
+          "y": 516,
+          "w": 1038,
+          "h": 126
+        },
+        {
+          "x": 1413,
+          "y": 642,
+          "w": 126,
+          "h": 228
+        }
+      ]
+    },
+    {
+      "id": "0.11",
+      "podlazi": "1PP",
+      "nazev": "Dětský pokoj 1",
+      "plocha": 15,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 15,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M8",
+          "plocha": 7.5,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 10.5,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 2,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 15,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 540,
+          "y": 666,
+          "w": 384,
+          "h": 480
+        }
+      ]
+    },
+    {
+      "id": "0.12",
+      "podlazi": "1PP",
+      "nazev": "Dětský pokoj 2",
+      "plocha": 14.9,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": 14.9,
+        "poznamka": "prkna dub 15 × 195 Rustic, vzorek máme"
+      },
+      "steny": [
+        {
+          "kod": "M8",
+          "plocha": 7.5,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M11/M13",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 10.5,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 2,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 14.9,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 984,
+          "y": 666,
+          "w": 387,
+          "h": 480
+        }
+      ]
+    },
+    {
+      "id": "1.01",
+      "podlazi": "1NP",
+      "nazev": "Vstup / Zádveří",
+      "plocha": 11.2,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 11.2,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M13",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M13",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_A",
+          "plocha": 14,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M13",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 11.2,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1794,
+          "y": 225,
+          "w": 165,
+          "h": 639
+        },
+        {
+          "x": 1716,
+          "y": 225,
+          "w": 78,
+          "h": 270
+        },
+        {
+          "x": 1716,
+          "y": 621,
+          "w": 78,
+          "h": 243
+        }
+      ]
+    },
+    {
+      "id": "1.02",
+      "podlazi": "1NP",
+      "nazev": "Chodba",
+      "plocha": 3.6,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 3.6,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M2_B",
+          "plocha": 9.5,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 11.2,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 0.3,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 0.3,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 3.6,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1311,
+          "y": 504,
+          "w": 474,
+          "h": 105
+        }
+      ]
+    },
+    {
+      "id": "1.03",
+      "podlazi": "1NP",
+      "nazev": "Technická místnost",
+      "plocha": 6.6,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 6.6,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M2_B",
+          "plocha": 4.7,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 5.2,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.6,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.6,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 6.6,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1410,
+          "y": 225,
+          "w": 285,
+          "h": 270
+        }
+      ]
+    },
+    {
+      "id": "1.04A",
+      "podlazi": "1NP",
+      "nazev": "Garáž",
+      "plocha": 40.7,
+      "podlaha": {
+        "kod": "P4",
+        "plocha": 40.7,
+        "poznamka": "odstín méně do zelena (Fantazy Design)"
+      },
+      "steny": [
+        {
+          "kod": "M3",
+          "plocha": 19,
+          "poznamka": "odstín bude vybrán před realizací",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M3",
+          "plocha": 4.6,
+          "poznamka": "odstín bude vybrán před realizací",
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M3",
+          "plocha": 3.17,
+          "poznamka": "odstín bude vybrán před realizací",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 3.8,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M3",
+          "plocha": 3.17,
+          "poznamka": "odstín bude vybrán před realizací",
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 40.7,
+          "poznamka": "zvážit M3",
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 525,
+          "y": 225,
+          "w": 765,
+          "h": 615
+        }
+      ]
+    },
+    {
+      "id": "1.04B",
+      "podlazi": "1NP",
+      "nazev": "Sklad",
+      "plocha": 13.8,
+      "podlaha": {
+        "kod": "P4",
+        "plocha": 13.8,
+        "poznamka": "odstín méně do zelena (Fantazy Design)"
+      },
+      "steny": [
+        {
+          "kod": "M2_B",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 6.5,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 7.5,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_B",
+          "plocha": 11.5,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_B",
+          "plocha": 13.8,
+          "poznamka": "zvážit M3",
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 219,
+          "y": 225,
+          "w": 291,
+          "h": 615
+        }
+      ]
+    },
+    {
+      "id": "1.05",
+      "podlazi": "1NP",
+      "nazev": "Koupelna (1NP)",
+      "plocha": 4.5,
+      "podlaha": {
+        "kod": "P2",
+        "plocha": 4.5,
+        "poznamka": "kresba nenavazuje, baleno po 2 ks; 5 ks (6 ks s rezervou)"
+      },
+      "steny": [
+        {
+          "kod": "M17-B",
+          "plocha": 2.5,
+          "poznamka": "kresba nenavazuje, baleno po 1 ks; 3 ks (4 ks s rezervou)",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M5",
+          "plocha": 1.5,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M5",
+          "plocha": 2,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M13",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Sever",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M19",
+          "plocha": 0.6,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Sprchová nika"
+        },
+        {
+          "kod": "M16",
+          "plocha": 3.75,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; 15 ks (16 ks s rezervou)",
+          "orientace": "Jih",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M16",
+          "plocha": 4.7,
+          "poznamka": "vroubky nenavazují, baleno po 2 ks; dle spárořezu; počet zahrnut u jižní stěny",
+          "orientace": "Východ",
+          "typ": "Obklad stěny"
+        },
+        {
+          "kod": "M8",
+          "plocha": null,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Západ",
+          "typ": "Obklad stěny"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 4.5,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1410,
+          "y": 621,
+          "w": 285,
+          "h": 219
+        }
+      ]
+    },
+    {
+      "id": "1.06",
+      "podlazi": "1NP",
+      "nazev": "Chodba (vedlejší)",
+      "plocha": 5.9,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 5.9,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M4",
+          "plocha": 8.1,
+          "poznamka": null,
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 7.7,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M2_A",
+          "plocha": 1,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 5.9,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1356,
+          "y": 870,
+          "w": 603,
+          "h": 135
+        }
+      ]
+    },
+    {
+      "id": "1.07",
+      "podlazi": "1NP",
+      "nazev": "Pracovna",
+      "plocha": 13.2,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 13.2,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M15",
+          "plocha": 6.3,
+          "poznamka": "bude dovzorkováno před stavbou",
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M10",
+          "plocha": 2.3,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M14",
+          "plocha": 7.7,
+          "poznamka": null,
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 10,
+          "poznamka": null,
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 3.9,
+          "poznamka": null,
+          "cast": null
+        },
+        {
+          "kod": "M2_A",
+          "plocha": 9.1,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 1404,
+          "y": 1020,
+          "w": 390,
+          "h": 441
+        }
+      ]
+    },
+    {
+      "id": "1.08",
+      "podlazi": "1NP",
+      "nazev": "Knihovna",
+      "plocha": 15,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 15,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M4",
+          "plocha": 4.3,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Sever",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 0.7,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 0.7,
+          "poznamka": "za nábytkem bez povrchové úpravy",
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 15,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 675,
+          "y": 876,
+          "w": 681,
+          "h": 240
+        }
+      ]
+    },
+    {
+      "id": "1.09",
+      "podlazi": "1NP",
+      "nazev": "Posilovna",
+      "plocha": 19,
+      "podlaha": {
+        "kod": "P3",
+        "plocha": 19,
+        "poznamka": "MAXIT nebo Fantazy Design; bude vzorkována alternativa podobného vzhledu od Fantazy Design"
+      },
+      "steny": [
+        {
+          "kod": "M4",
+          "plocha": 3,
+          "poznamka": null,
+          "orientace": "Jih",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M4",
+          "plocha": 14.3,
+          "poznamka": "včetně dveří",
+          "orientace": "Východ",
+          "typ": "Stěna"
+        },
+        {
+          "kod": "M10",
+          "plocha": null,
+          "poznamka": "pod zrcadlem bez povrchové úpravy",
+          "orientace": "Západ",
+          "typ": "Stěna"
+        }
+      ],
+      "strop": [
+        {
+          "kod": "M2_A",
+          "plocha": 19,
+          "poznamka": null,
+          "cast": null
+        }
+      ],
+      "hotspot": [
+        {
+          "x": 219,
+          "y": 876,
+          "w": 417,
+          "h": 594
+        }
+      ]
+    }
+  ]
+}
