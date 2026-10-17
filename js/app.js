@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.6.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.6.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -389,6 +389,7 @@ function applyFilters() {
 // ---------- vrstva povrchů ----------
 
 function roomHtml(it) {
+  if (it.druh === 'schodiste') return stairHtml(it);
   const head = `
     <h3>${esc(it.id)} ${esc(it.nazev)} <span class="badge plocha">${fmtNum(it.plocha)} m²</span></h3>
     <p class="rooms">Podlaha, stěny a strop</p>`;
@@ -402,8 +403,27 @@ function roomHtml(it) {
         ${e.poznamka ? `<small>${esc(e.poznamka)}</small>` : ''}</div>
       </li>`).join('')}
     </ul>` : '';
+  const nab = MAT[it.podlaha.kod]?.nabidka;
+  const supplier = nab ? `<p class="note">Podlaha: ${esc(nab.dodavatel)}, nabídka ${esc(nab.cislo)} – celá dodávka dřevěných podlah a schodiště ${CZK.format(nab.celkem)} ${esc(nab.dph.split(' – ')[0])}. Rozpis je pod půdorysy v části Povrchy.</p>` : '';
   return head + wallDiagram(it) + group('Podlaha', [it.podlaha]) +
-    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop);
+    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop) + supplier;
+}
+
+function stairHtml(it) {
+  const nab = MAT[it.material].nabidka;
+  const rows = [
+    ['Provedení', it.popis],
+    ['Materiál', MAT[it.material].nazev],
+    ['Stupně (profil SPK)', `${CZK.format(it.cena_stupne)} bez DPH`],
+    ['Materiál na schodiště', `${CZK.format(it.cena_material)} bez DPH (prkna 40 m²)`],
+    ['Montáž schodů', `${CZK.format(it.cena_montaz)} bez DPH`],
+    ['Dodavatel', `${nab.dodavatel}, nabídka ${nab.cislo}`],
+  ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3>${esc(it.titul)} ${matChip(it.material)}</h3>
+    <p class="rooms">${esc(it.nazev)} – obývací část 0.01 ↔ chodba 1.06</p>
+    <dl>${rows}</dl>
+    <p class="note">Záruka: ${esc(nab.zaruka)}.</p>`;
 }
 
 function sortBySide(list) {
@@ -453,11 +473,26 @@ function materialsTable(sec) {
     <tr><td>${matChip(k)}</td><td>${esc(m.nazev)}${m.poznamka ? `<br><small>${esc(m.poznamka)}</small>` : ''}</td>
     <td>${esc([...used[k]].join(', '))}</td><td>${esc(m.celkem || '')}</td></tr>`).join('');
   sec.insertAdjacentHTML('beforeend', `
+    ${floorOffer()}
     <h3 class="sub-h">Materiály</h3>
     <div class="table-wrap"><table class="mats">
       <thead><tr><th>Kód</th><th>Materiál</th><th>Místnosti</th><th>Celkem (s rezervou)</th></tr></thead>
       <tbody>${rows}</tbody>
     </table></div>`);
+}
+
+function floorOffer() {
+  const nab = MAT.P1?.nabidka;
+  if (!nab) return '';
+  const opt = (nab.volitelne || []).map(o => `${esc(o.popis)}: ${CZK.format(o.cena)}`).join(', ');
+  return `
+    <h3 class="sub-h">Dřevěné podlahy a schodiště – ${esc(nab.dodavatel)}, nabídka ${esc(nab.cislo)} (${formatDate(nab.datum)})</h3>
+    <div class="table-wrap"><table>
+      <tbody>${nab.polozky.map(p => `<tr><td>${esc(p.popis)}</td><td class="num">${CZK.format(p.cena)}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><td><strong>Celkem ${esc(nab.dph)}</strong></td><td class="num"><strong>${CZK.format(nab.celkem)}</strong></td></tr></tfoot>
+    </table></div>
+    <p class="meta">Dodání: ${esc(nab.dodani)}. Platnost nabídky do ${formatDate(nab.platnost)}. Záruka: ${esc(nab.zaruka)}.
+    ${opt ? `Volitelně: ${opt}.` : ''} ${esc(nab.poznamka)}</p>`;
 }
 
 function renderLegend() {

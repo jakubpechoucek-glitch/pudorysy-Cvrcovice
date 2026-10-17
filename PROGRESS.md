@@ -34,13 +34,13 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.6)
+## Co web umí (v0.6.1)
 
 - Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
-- Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů.
+- Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
@@ -106,6 +106,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
 | Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
 | Dropbox `Interier/EZS + kamery`: nabídka `2026-05-23 Podolanka (002) 1.6.2026.pdf` (rozpočet + zakreslení prvků), `RD Podolanka ZL 9 - EZS.xlsx`, `1PP.png`/`1NP.png` (zorná pole kamer) | ✅ **zdroj EZS**; polohy prvků převzaty slícováním výkresu z nabídky s naším půdorysem |
+| `Nabídka- S_2614141.pdf` – Princ parket, 22. 9. 2026 | ✅ dřevěné podlahy P1 (prkna Dub 15×195 Rustic, 136,7 m²) a schodiště 17 stupňů – 715 982,61 Kč bez DPH |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
@@ -157,7 +158,9 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Tabulka materiálů s celkovým množstvím (P2 62 ks, M16 38 ks, M17-A 12 ks, M17-B 4 ks, M18 10 ks)
 - [ ] Doplnit po vzorkování: P3 betonová stěrka (alternativa Fantazy Design), P4 odstín, M3 odstín garáže, M15 korek v pracovně
 - [x] M9 (lamino CLEAF RENIO) nahrazeno lakem Champagne mat M11 (Hanák) – stěny 0.01 západ 2, 0.09B východ, 0.10 jih
-- [ ] Případně fotky vzorků materiálů do detailu
+- [x] Dřevěné podlahy a schodiště: nabídka Princ parket S/2614141 (715 982,61 Kč bez DPH, platnost do 21. 12. 2026)
+- [ ] Schodiště: v nabídce se uvádí stupně 100/300/1300 i 40/300/1300 mm – ověřit tloušťku
+- [ ] Případně fotky vzorků materiálů do detailu (olej dle vzorku M05110)
 
 ### Fáze 5 – Vrstva Nábytek
 - [x] 11 sestav z nabídek a smlouvy Hanák vč. položek a cen (součty ověřeny proti celkovým cenám)
@@ -213,3 +216,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.5: garážová vrata GV01 ve vrstvě Okna a vrata, s položkami a cenou.
 - **2026-10-17:** Galerie pro zvětšení obrázků (lightbox), vizualizace nábytku v plném rozlišení (v0.5.1).
 - **2026-10-17:** Web v0.6: vrstva EZS a kamery (45 prvků, legenda, rozpočet ZL 9).
+- **2026-10-17:** Povrchy: nabídka Princ parket na dřevěné podlahy a schodiště, schodiště jako plocha v plánu (v0.6.1).

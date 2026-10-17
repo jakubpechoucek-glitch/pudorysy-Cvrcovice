@@ -3,10 +3,85 @@
   "zdroj": "Přehled povrchů RD Podolanka (PROCERAM, list „Celkový přehled_final“; vychází ze studie JA Architekti 08/2025)",
   "materialy": {
     "P1": {
-      "nazev": "Dřevěná podlaha – třívrstvá lamela OAKWOOD, dub 15 × 195 Rustic",
+      "nazev": "Dřevěná podlaha – prkna Dub 15 × 195 Rustic (Princ parket), olej dle vzorku M05110",
       "kratce": "Dřevo",
       "barva": "#c8a27a",
-      "celkem": null
+      "celkem": null,
+      "nabidka": {
+        "dodavatel": "Princ parket s.r.o.",
+        "cislo": "S/2614141",
+        "datum": "2026-09-22",
+        "platnost": "2026-12-21",
+        "dodani": "9 týdnů od úhrady zálohy (100 % předem)",
+        "dph": "bez DPH – přenesená daňová povinnost (nabídka pro HELP Stavby)",
+        "zaruka": "24 měsíců na produkt, 120 měsíců při realizaci celého díla",
+        "polozky": [
+          {
+            "popis": "Prkna Dub 15×195 Rustic, délka 2200 mm, tmavý tmel, 4× fáze, kartáčování, olej dle vzorku M05110 – 150 m² × 2 450 Kč",
+            "cena": 367500.0
+          },
+          {
+            "popis": "Prkna Dub 15×195 Rustic, délka 1800 mm, 2× fáze – materiál na schodiště – 40 m² × 2 400 Kč",
+            "cena": 96000.0
+          },
+          {
+            "popis": "Profil SPK schod z parket – 17 stupňů (17 m × 3 520 Kč)",
+            "cena": 59840.0
+          },
+          {
+            "popis": "Profil SPK – poslední schod, výroba na místě (1 m)",
+            "cena": 3520.0
+          },
+          {
+            "popis": "Montážní materiál (vč. spřažení dilatací UZIN RR 203, 42,7 bm)",
+            "cena": 18950.0
+          },
+          {
+            "popis": "Vysávání podkladu (136,7 m²)",
+            "cena": 2460.6
+          },
+          {
+            "popis": "Penetrace podkladu – práce (136,7 m²)",
+            "cena": 2734.0
+          },
+          {
+            "popis": "Montáž podlahy celoplošným lepením (136,7 m² × 370 Kč)",
+            "cena": 50579.0
+          },
+          {
+            "popis": "Přesný dořez vč. tmelení (30,1 m)",
+            "cena": 8428.0
+          },
+          {
+            "popis": "Montáž schodů (21 m × 1 680 Kč)",
+            "cena": 35280.0
+          },
+          {
+            "popis": "Lepidlo UZIN MK 200 (192 kg)",
+            "cena": 45312.0
+          },
+          {
+            "popis": "Penetrace UZIN PE 390 (20 kg)",
+            "cena": 5060.0
+          },
+          {
+            "popis": "Ochrana a péče – parketové mýdlo Biofa 3 l, emulze Naplana 1 l",
+            "cena": 1119.01
+          },
+          {
+            "popis": "Doprava (zaměření, měření vlhkosti, dovoz materiálu, přeprava pracovníků)",
+            "cena": 19200.0
+          }
+        ],
+        "celkem": 715982.61,
+        "volitelne": [
+          {
+            "popis": "Floorliner – ochranná fólie na podlahu (50 m²)",
+            "cena": 4500.0
+          }
+        ],
+        "poznamka": "Plocha montáže 136,7 m² odpovídá místnostem s podlahou P1. Cena se po zaměření může změnit o ±3 % množství."
+      }
     },
     "P2": {
       "nazev": "Dlažba FLORIM Authentic Luxe Stone Montpellier Matte Leather, 120 × 120 cm",
@@ -1543,6 +1618,62 @@
           "y": 876,
           "w": 417,
           "h": 594
+        }
+      ]
+    },
+    {
+      "id": "SCH-1PP",
+      "podlazi": "1PP",
+      "nazev": "Schodiště (dolní část)",
+      "plocha": null,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": null,
+        "poznamka": null
+      },
+      "steny": [],
+      "strop": [],
+      "druh": "schodiste",
+      "titul": "Schodiště 1.PP ↔ 1.NP",
+      "popis": "17 samostatných schodových stupňů 40/300/1300 mm – celoobklad kovové konstrukce dubovými parketami (profil SPK, speciální olej); poslední stupeň se vyrábí na místě",
+      "material": "P1",
+      "cena_stupne": 63360.0,
+      "cena_montaz": 35280.0,
+      "cena_material": 96000.0,
+      "hotspot": [
+        {
+          "x": 1827,
+          "y": 1014,
+          "w": 132,
+          "h": 510
+        }
+      ]
+    },
+    {
+      "id": "SCH-1NP",
+      "podlazi": "1NP",
+      "nazev": "Schodiště (horní část)",
+      "plocha": null,
+      "podlaha": {
+        "kod": "P1",
+        "plocha": null,
+        "poznamka": null
+      },
+      "steny": [],
+      "strop": [],
+      "druh": "schodiste",
+      "titul": "Schodiště 1.PP ↔ 1.NP",
+      "popis": "17 samostatných schodových stupňů 40/300/1300 mm – celoobklad kovové konstrukce dubovými parketami (profil SPK, speciální olej); poslední stupeň se vyrábí na místě",
+      "material": "P1",
+      "cena_stupne": 63360.0,
+      "cena_montaz": 35280.0,
+      "cena_material": 96000.0,
+      "hotspot": [
+        {
+          "x": 1815,
+          "y": 1014,
+          "w": 141,
+          "h": 510
         }
       ]
     }
