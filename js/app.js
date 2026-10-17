@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.7.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.7.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -141,12 +141,7 @@ const LAYERS = {
     glyph: it => it.typ.slice(2),
     subtitle: it => `${it.typ} – ${it.mistnost}`,
     render: lightHtml,
-    columns: [
-      ['Typ', it => ({ html: `<span class="ezs-dot" style="background:${SVT.typy[it.typ].barva}">${esc(it.typ.slice(2))}</span> ${esc(it.typ)}` })],
-      ['Místnost', it => it.mistnost],
-      ['Počet', it => ({ html: `<span class="num">${it.pocet ?? 'lineární'}</span>` })],
-      ['Svítidlo', it => `${SVT.typy[it.typ].nazev} – ${SVT.typy[it.typ].vyrobek}`],
-    ],
+    columns: null,         // bez seznamu skupin – přehled je v tabulce typů s fotkami
     extra: lightSummary,
   },
 };
@@ -237,12 +232,12 @@ function renderTables() {
     sec.dataset.layer = name;
     sec.innerHTML = `
       <h2>${esc(cfg.title)} <span class="count"></span></h2>
-      <div class="table-wrap"><table>
+      ${cfg.columns ? `<div class="table-wrap"><table>
         <thead><tr>${cfg.columns.map(([h]) => `<th>${esc(h)}</th>`).join('')}</tr></thead>
         <tbody></tbody>
-      </table></div>`;
+      </table></div>` : ''}`;
     const tbody = sec.querySelector('tbody');
-    for (const it of state.items.filter(i => i.layer === name)) {
+    for (const it of cfg.columns ? state.items.filter(i => i.layer === name) : []) {
       const tr = document.createElement('tr');
       tr.dataset.id = it.id;
       tr.innerHTML = cfg.columns.map(([, f]) => {
@@ -395,7 +390,8 @@ function applyFilters() {
       (!LAYERS[it.layer].statusFilter || state.statuses.has(it.stav)) &&
       (state.floor === 'all' || state.floor === it.podlazi);
     hotspotEl(it.id).style.display = show ? '' : 'none';
-    document.querySelector(`.list tr[data-id="${CSS.escape(it.id)}"]`).hidden = !show;
+    const row = document.querySelector(`.list tr[data-id="${CSS.escape(it.id)}"]`);
+    if (row) row.hidden = !show;
     counts[it.layer] ??= [0, 0];
     counts[it.layer][1]++;
     if (show) counts[it.layer][0]++;
@@ -403,7 +399,7 @@ function applyFilters() {
   for (const sec of document.querySelectorAll('.list')) {
     const [shown, total] = counts[sec.dataset.layer] || [0, 0];
     sec.hidden = !state.layers.has(sec.dataset.layer);
-    sec.querySelector('.count').textContent = `(${shown} z ${total})`;
+    sec.querySelector('.count').textContent = LAYERS[sec.dataset.layer].columns ? `(${shown} z ${total})` : '';
   }
 }
 
@@ -643,7 +639,7 @@ function lightSummary(sec) {
   const budget = SVT.rozpocet.map(r => `<tr><td>${esc(r.popis)}</td><td class="num">${CZK.format(r.cena)}</td></tr>`).join('');
   const a = SVT.alternativa;
   sec.insertAdjacentHTML('beforeend', `
-    <h3 class="sub-h">Typy svítidel</h3>
+    <h3 class="sub-h first">Typy svítidel</h3>
     <div class="table-wrap"><table>
       <thead><tr><th>Typ</th><th>Svítidlo</th><th class="num">Ve výkresech</th><th class="num">V nabídce</th><th class="num">Cena / ks</th></tr></thead>
       <tbody>${types}</tbody>

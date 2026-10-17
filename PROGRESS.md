@@ -232,3 +232,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Povrchy: nabídka Princ parket na dřevěné podlahy a schodiště, schodiště jako plocha v plánu (v0.6.1).
 - **2026-10-17:** Web v0.7: vrstva Svítidla (SV01–SV19 po místnostech, rozpočet PAIRAM, alternativa Delta Light).
 - **2026-10-17:** Svítidla přepnuta na platnou nabídku PAIRAM NAB-26-349 (416 354 Kč), fotky svítidel v detailu (v0.7.1).
+- **2026-10-17:** Svítidla: odstraněn seznam skupin pod půdorysy, zůstává tabulka typů s fotkami a rozpočet (v0.7.2).
