@@ -75,10 +75,10 @@
       "barva": "#b6855a",
       "celkem": null
     },
-    "M9": {
-      "nazev": "Lamino CLEAF IDEA FB80 RENIO",
+    "M11": {
+      "nazev": "Lak Champagne mat (Hanák, S47M)",
       "kratce": null,
-      "barva": "#c8b69a",
+      "barva": "#d9c7a6",
       "celkem": null
     },
     "M10": {
@@ -189,9 +189,9 @@
           "typ": "Stěna"
         },
         {
-          "kod": "M9",
+          "kod": "M11",
           "plocha": 12.15,
-          "poznamka": "ověřit s Hanákem",
+          "poznamka": null,
           "orientace": "Západ 2",
           "typ": "Stěna"
         },
@@ -750,9 +750,9 @@
       },
       "steny": [
         {
-          "kod": "M9",
+          "kod": "M11",
           "plocha": 12,
-          "poznamka": "ověřit s Hanákem",
+          "poznamka": null,
           "orientace": "Východ",
           "typ": "Stěna"
         },
@@ -800,9 +800,9 @@
           "typ": "Stěna"
         },
         {
-          "kod": "M9",
+          "kod": "M11",
           "plocha": 17.3,
-          "poznamka": "ověřit s Hanákem",
+          "poznamka": null,
           "orientace": "Jih",
           "typ": "Stěna"
         }

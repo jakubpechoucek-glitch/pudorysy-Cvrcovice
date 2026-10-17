@@ -140,7 +140,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Detail místnosti se schématem stěn a výpisem materiálů
 - [x] Tabulka materiálů s celkovým množstvím (P2 62 ks, M16 38 ks, M17-A 12 ks, M17-B 4 ks, M18 10 ks)
 - [ ] Doplnit po vzorkování: P3 betonová stěrka (alternativa Fantazy Design), P4 odstín, M3 odstín garáže, M15 korek v pracovně
-- [ ] Ověřit s Hanákem M9 (lamino CLEAF RENIO) – podle kontroly dveří se M9 u chodby 0.10 nahrazuje lakem Champagne
+- [x] M9 (lamino CLEAF RENIO) nahrazeno lakem Champagne mat M11 (Hanák) – stěny 0.01 západ 2, 0.09B východ, 0.10 jih
 - [ ] Případně fotky vzorků materiálů do detailu
 
 ## Návrhy na vylepšení (k rozhodnutí)
@@ -169,3 +169,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Zapnuty GitHub Pages, web je online.
 - **2026-10-17:** Web v0.2: vrstva Okna (FV01–FV13, 16 pozic) s náhledy z exteriéru; JS přepracován na obecné vrstvy.
 - **2026-10-17:** Web v0.3: vrstva Povrchy (23 místností) – podlahy barevně, detail se schématem stěn, obklady koupelen s formáty a počty kusů, tabulka materiálů.
+- **2026-10-17:** M9 → M11 lak Champagne mat (Hanák) ve vrstvě Povrchy.
