@@ -155,7 +155,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Vizualizace z nabídek, plochy v půdorysu, tabulka se součtem
 - [x] Doplněn vstup 1.01 (534 011 Kč) a garáž 1.04A (288 643 Kč), nabídky 7. 10. 2026 → celkem 5 664 096 Kč s DPH
 - [x] Opraveno otočení vizualizací (šatna 0.07, kuchyň K1, spíž K2, obývák, garáž) a oříznuty bílé okraje
-- [ ] Garáž: ověřit, které skříně nabídka zahrnuje (v plánu vyznačeny N52 a N19)
+- [x] Garáž: skříně na východní stěně směrem k chodbě 1.02 (N19)
 - [ ] Vstup: čalounění lavice je v nabídce za 1 Kč (látka neurčena) – doplnit cenu
 - [ ] Aktualizovat stav nabídka → smlouva po podpisu jednotlivých sestav
 - [ ] K 008: v nabídce chybí sleva 8 % (u ostatních je) – ověřit s Hanákem
@@ -192,3 +192,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.4: vrstva Nábytek (11 sestav Hanák) s vizualizacemi, položkami a cenami; ceny se smí zveřejňovat.
 - **2026-10-17:** Oprava: filtr stavu dveří skrýval nábytek (pole `stav`); přehled nábytku seřazen po místnostech; verze souborů proti cache (v0.4.1).
 - **2026-10-17:** Nábytek: doplněn vstup 1.01 a garáž 1.04A, opraveno otočení vizualizací (v0.4.2).
+- **2026-10-17:** Garáž: nábytek jen na východní stěně (N19), v0.4.3.

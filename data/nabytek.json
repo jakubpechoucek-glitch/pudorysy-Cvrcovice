@@ -618,14 +618,8 @@
       "nahledy": [
         "img/nabytek/garaz-104-1.jpg"
       ],
-      "poznamka": "Umístění v půdorysu odhadnuto (skříně N52 podél jižní stěny a N19 u dveří DV101) – ověřit.",
+      "poznamka": "Skříně na východní stěně garáže (směrem k chodbě 1.02, u dveří DV101).",
       "hotspot": [
-        {
-          "x": 534,
-          "y": 786,
-          "w": 741,
-          "h": 48
-        },
         {
           "x": 1296,
           "y": 234,
