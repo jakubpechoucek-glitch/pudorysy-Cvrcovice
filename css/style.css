@@ -86,6 +86,7 @@ body {
 .ly-nabytek i { background: var(--nabytek); border-radius: 2px; }
 .ly-ezs i { background: #c62828; border-radius: 50%; }
 .ly-svit i { background: #f9a825; border-radius: 50%; }
+.ly-fve i { background: #1a237e; border-radius: 2px; }
 .chip.legend { cursor: default; font-size: 13px; padding: 3px 10px; }
 .chip.legend i { border-radius: 3px; border: 1px solid rgba(0,0,0,.15); }
 .group[hidden] { display: none; }
@@ -131,6 +132,9 @@ body {
 .hs[data-stav="akutni"] { --c: var(--akutni); }
 .hs[data-layer="okna"] { --c: var(--okno); }
 .hs[data-layer="nabytek"] { --c: var(--nabytek); }
+.hs[data-layer="fve"] { --c: #1a237e; }
+.hs[data-layer="fve"] rect.mark { fill-opacity: .85; stroke: #fff; stroke-width: 3; rx: 2; }
+.hs[data-layer="fve"]:hover rect.mark, .hs[data-layer="fve"].active rect.mark { fill: #3949ab; animation: none; }
 .hs[data-layer="ezs"] rect.mark, .hs[data-layer="svitidla"] rect.mark { rx: 50%; fill-opacity: .92; stroke: #fff; stroke-width: 4; }
 .hs[data-layer="svitidla"]:hover rect.mark, .hs[data-layer="svitidla"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }
 .hs[data-layer="ezs"]:hover rect.mark, .hs[data-layer="ezs"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }
@@ -177,6 +181,12 @@ body {
 .badge.akutni { background: var(--akutni); }
 .badge.okno { background: var(--okno); }
 .badge.plocha { background: var(--muted); }
+.badge.fve { background: #1a237e; }
+.bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; align-items: end; height: 180px; padding: 8px 4px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.bar { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 0; }
+.bar i { display: block; width: 70%; background: #f9a825; border-radius: 4px 4px 0 0; }
+.bar .v { font-size: 10px; color: var(--muted); }
+.bar .m { font-size: 11px; padding: 4px 0; }
 .badge.nab-smlouva { background: var(--ok); }
 .badge.nab-nabidka { background: var(--nabytek); }
 .tip .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px; margin-bottom: 10px; }

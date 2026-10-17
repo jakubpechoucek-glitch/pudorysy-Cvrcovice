@@ -1,0 +1,219 @@
+{
+  "aktualizovano": "2026-09-24",
+  "zdroj": "SEFY Czech Republic – smlouva o dodání FVE VB-26-1530 (31. 8. 2026) a simulace SolarEdge Designer (24. 9. 2026); podklad střechy: půdorys střechy D.1.4.4 (hromosvod), upraveno",
+  "fve": [
+    {
+      "id": "FVE",
+      "podlazi": "STR",
+      "nazev": "Fotovoltaická elektrárna 9,9 kWp",
+      "hotspot": [
+        {
+          "x": 544,
+          "y": 500,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 718,
+          "y": 500,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 893,
+          "y": 500,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1067,
+          "y": 500,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1430,
+          "y": 500,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1604,
+          "y": 500,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 544,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 718,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 893,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1067,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1241,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1415,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1589,
+          "y": 659,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 899,
+          "y": 833,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1073,
+          "y": 833,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1247,
+          "y": 833,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1421,
+          "y": 833,
+          "w": 170,
+          "h": 101
+        },
+        {
+          "x": 1595,
+          "y": 833,
+          "w": 170,
+          "h": 101
+        }
+      ],
+      "komponenty": [
+        {
+          "pocet": "18 ks",
+          "popis": "FV panely AIKO 3P 550 Wp – Neostar 3P60 N-Type ABC, černý rám (1954 × 1134 × 30 mm, 23,2 kg)"
+        },
+        {
+          "pocet": "18 ks",
+          "popis": "Konstrukce Novotegra pro ploché střechy"
+        },
+        {
+          "pocet": "1 ks",
+          "popis": "Třífázový asymetrický hybridní střídač Solax X3-HYB-10.0 PRO"
+        },
+        {
+          "pocet": "4 ks",
+          "popis": "Baterie Solax T-BAT-SYS-HV-S3.6 – celkem 14,4 kWh"
+        },
+        {
+          "pocet": "1 ks",
+          "popis": "Back-up pro celý dům s automatickým přepnutím"
+        },
+        {
+          "pocet": "2 ks",
+          "popis": "Nabíjecí stanice Solax X3-HAC Smart EV G2, 11 kW, kabel typ 2"
+        },
+        {
+          "pocet": "10 ks",
+          "popis": "Bezpečnostní odpojovač Tigo TS4-A-2F"
+        },
+        {
+          "pocet": "1 ks",
+          "popis": "Svodiče přepětí SPD T1+T2 (2 stupně ochrany)"
+        },
+        {
+          "pocet": "1 ks",
+          "popis": "Elektroinstalační práce a materiál"
+        }
+      ],
+      "orientace": "azimut 156° (jihojihovýchod), sklon 15°",
+      "vyroba": 10864,
+      "co2": 5.57,
+      "mesice": [
+        {
+          "mesic": "leden",
+          "kwh": 248
+        },
+        {
+          "mesic": "únor",
+          "kwh": 452
+        },
+        {
+          "mesic": "březen",
+          "kwh": 857
+        },
+        {
+          "mesic": "duben",
+          "kwh": 1246
+        },
+        {
+          "mesic": "květen",
+          "kwh": 1503
+        },
+        {
+          "mesic": "červen",
+          "kwh": 1549
+        },
+        {
+          "mesic": "červenec",
+          "kwh": 1545
+        },
+        {
+          "mesic": "srpen",
+          "kwh": 1402
+        },
+        {
+          "mesic": "září",
+          "kwh": 1014
+        },
+        {
+          "mesic": "říjen",
+          "kwh": 604
+        },
+        {
+          "mesic": "listopad",
+          "kwh": 265
+        },
+        {
+          "mesic": "prosinec",
+          "kwh": 179
+        }
+      ],
+      "cena": 416000,
+      "cena_pozn": "vč. DPH",
+      "zaruky": "Panely: 30 let na výkon, 25 let produktová; střídač 10 let; baterie 10 let. Servisní podpora PLUS 24 měsíců.",
+      "termin": "do 16 týdnů od podpisu smlouvy (31. 8. 2026)",
+      "sluzby": "Jednopólové schéma, žádost o připojení k distribuční soustavě, podklady pro dotaci NZÚ, montáž, revize, žádost o první paralelní připojení.",
+      "nezahrnuje": "Wi-Fi v místě střídače, zemní práce a zasekání kabelů, úpravu elektroměrového rozvaděče, přípravu kabelů pro 2 wallboxy.",
+      "poznamka": "Rozmístění panelů podle náhledu SEFY (SolarEdge Designer, 24. 9. 2026) – orientační. Umístění střídače, baterií a wallboxů zatím neurčeno."
+    }
+  ]
+}

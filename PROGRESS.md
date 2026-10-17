@@ -18,7 +18,8 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
 | 7. Vrstva: Svítidla | 🟢 online (36 skupin, SV01–SV19, rozpočet PAIRAM NAB-26-349) |
-| 8. Další vrstvy a vylepšení | ⚪ nezačato |
+| 8. Střecha + vrstva FVE | 🟢 online (18 panelů, smlouva SEFY) |
+| 9. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
 
@@ -35,9 +36,9 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.7)
+## Co web umí (v0.8)
 
-- Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
+- Podlaží 1.PP, 1.NP a **Střecha** (na mobilu pod sebou), přepínač **Vše / 1.PP / 1.NP / Střecha**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
@@ -45,6 +46,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. V detailu i fotka svítidla z nabídky. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-349 (416 354 Kč bez DPH) s porovnáním Delta Light (502 661 Kč, červen).
+- Vrstva **FVE** (na střeše): 18 panelů AIKO 550 Wp podle náhledu SEFY; detail se střídačem, bateriemi, nabíječkami aut, roční výrobou a cenou; pod půdorysy rozpis komponent a graf měsíční výroby.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -66,6 +68,8 @@ data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa),
 img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
+img/STR.png         – půdorys střechy (z výkresu D.1.4.4 hromosvod, bez barevných vrstev a staré FVE)
+data/fve.json       – FVE: komponenty, výroba, cena, polohy panelů
 PROGRESS.md         – tento soubor
 ```
 
@@ -113,6 +117,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | `Nabídka- S_2614141.pdf` – Princ parket, 22. 9. 2026 | ✅ dřevěné podlahy P1 (prkna Dub 15×195 Rustic, 136,7 m²) a schodiště 17 stupňů – 715 982,61 Kč bez DPH |
 | **`NAB-26-349 RD Podolanka.pdf` – PAIRAM, 31. 8. 2026 (platná nabídka, 416 354 Kč bez DPH)** | ✅ **zdroj typů, cen a fotek svítidel** |
 | Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026, nahrazena), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
+| Dropbox `FVE/SEFY srpen 2026`: `Smlouva o dílo 31_08_26 23-16-23_Help.pdf` (SEFY VB-26-1530, 416 000 Kč vč. DPH) a `Podolanka-1.pdf` (simulace SolarEdge Designer 24. 9. 2026) | ✅ **zdroj FVE**; rozmístění panelů z leteckého náhledu |
+| `misto-d.1.4.f.06-pudorys-strechy-hromosvod-1.pdf` (D.1.4.4) | ✅ **podklad střechy** – odstraněny popisy, hromosvod a stará FVE (20 × 450 Wp) |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
@@ -196,6 +202,12 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] SV13, SV14 (lampy u postele) nejsou v nabídce PAIRAM – rozhodnout dodavatele
 - [ ] Rozhodnout dodavatele PAIRAM × Delta Light
 
+### Fáze 8 – Střecha a FVE
+- [x] Podklad střechy z výkresu hromosvodu (vyčištěno)
+- [x] 18 panelů ve 3 řadách (6 + 7 + 5) podle náhledu SEFY, detail systému, rozpis, měsíční výroba
+- [ ] Doplnit umístění střídače, baterií a 2 wallboxů (zatím neurčeno) – pak je zakreslit do 1.NP
+- [ ] Případně hromosvod jako samostatná vrstva na střeše
+
 ## Návrhy na vylepšení (k rozhodnutí)
 
 1. **Zásuvky a vypínače:** výkresy E.2/E.4 + nabídka ELEKTRO&LIGHT 263NA00168 (84 190 Kč s DPH) – vrstva by šla udělat stejným postupem jako svítidla.
@@ -233,3 +245,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.7: vrstva Svítidla (SV01–SV19 po místnostech, rozpočet PAIRAM, alternativa Delta Light).
 - **2026-10-17:** Svítidla přepnuta na platnou nabídku PAIRAM NAB-26-349 (416 354 Kč), fotky svítidel v detailu (v0.7.1).
 - **2026-10-17:** Svítidla: odstraněn seznam skupin pod půdorysy, zůstává tabulka typů s fotkami a rozpočet (v0.7.2).
+- **2026-10-17:** Web v0.8: podlaží Střecha a vrstva FVE (SEFY, 18 × 550 Wp, 14,4 kWh, 2 wallboxy).

@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.7.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -129,6 +129,17 @@ const LAYERS = {
       ['Model', it => EZS.typy[it.typ].model],
     ],
     extra: ezsSummary,
+  },
+  fve: {
+    file: 'data/fve.json',
+    key: 'fve',
+    title: 'Fotovoltaika',
+    padding: 0,
+    label: false,
+    subtitle: it => it.nazev,
+    render: fveHtml,
+    columns: null,
+    extra: fveSummary,
   },
   svitidla: {
     file: 'data/svitidla.json',
@@ -601,6 +612,44 @@ function ezsSummary(sec) {
       </tfoot>
     </table></div>
     <p class="meta">${esc(EZS.poznamka)}</p>`);
+}
+
+// ---------- vrstva FVE ----------
+
+function fveHtml(it) {
+  const rows = [
+    ['Panely', it.komponenty[0].popis],
+    ['Výkon', `${it.hotspot.length} × 550 Wp = 9,9 kWp`],
+    ['Orientace', it.orientace],
+    ['Střídač', it.komponenty[2].popis],
+    ['Baterie', it.komponenty[3].popis],
+    ['Nabíjení aut', it.komponenty[5].popis],
+    ['Roční výroba', `${it.vyroba.toLocaleString('cs-CZ')} kWh (simulace), úspora CO₂ ${String(it.co2).replace('.', ',')} t/rok`],
+    ['Cena', `${CZK.format(it.cena)} ${it.cena_pozn}`],
+  ].map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3>${esc(it.nazev)} <span class="badge fve">SEFY</span></h3>
+    <p class="rooms">Plochá střecha nad 1.NP</p>
+    <dl>${rows}</dl>
+    <p class="note">${esc(it.poznamka)} Rozpis a měsíční výroba jsou pod půdorysy.</p>`;
+}
+
+function fveSummary(sec) {
+  const it = state.items.find(i => i.layer === 'fve');
+  if (!it) return;
+  const max = Math.max(...it.mesice.map(m => m.kwh));
+  sec.insertAdjacentHTML('beforeend', `
+    <div class="table-wrap"><table>
+      <thead><tr><th class="num">Počet</th><th>Komponenta (smlouva SEFY VB-26-1530)</th></tr></thead>
+      <tbody>${it.komponenty.map(k => `<tr><td class="num">${esc(k.pocet)}</td><td>${esc(k.popis)}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><td></td><td><strong>Cena celkem ${CZK.format(it.cena)} ${esc(it.cena_pozn)}</strong></td></tr></tfoot>
+    </table></div>
+    <h3 class="sub-h">Odhad výroby po měsících (celkem ${it.vyroba.toLocaleString('cs-CZ')} kWh/rok)</h3>
+    <div class="bars">${it.mesice.map(m => `
+      <div class="bar"><span class="v">${m.kwh.toLocaleString('cs-CZ')}</span><i style="height:${Math.round(m.kwh / max * 100)}%"></i><span class="m">${esc(m.mesic.slice(0, 3))}</span></div>`).join('')}
+    </div>
+    <p class="meta">Termín: ${esc(it.termin)}. Záruky: ${esc(it.zaruky)}<br>
+    Součástí: ${esc(it.sluzby)}<br>Nezahrnuje: ${esc(it.nezahrnuje)}</p>`);
 }
 
 // ---------- vrstva svítidel ----------
