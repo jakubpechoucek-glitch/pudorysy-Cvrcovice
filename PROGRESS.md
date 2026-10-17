@@ -15,7 +15,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
 | 3. Vrstva: Okna | 🟡 online (16 pozic), čeká na ověření FV10 |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
-| 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (11 sestav), většina ve stavu nabídky |
+| 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
@@ -40,7 +40,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna**: 16 pozic (FV01–FV13) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů.
-- Vrstva **Nábytek** (ve výchozím stavu vypnutá): 11 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
+- Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - Tmavý režim podle nastavení systému.
 
@@ -152,12 +152,16 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 
 ### Fáze 5 – Vrstva Nábytek
 - [x] 11 sestav z nabídek a smlouvy Hanák vč. položek a cen (součty ověřeny proti celkovým cenám)
-- [x] Vizualizace z nabídek, plochy v půdorysu, tabulka se součtem (celkem 4 841 443 Kč s DPH)
+- [x] Vizualizace z nabídek, plochy v půdorysu, tabulka se součtem
+- [x] Doplněn vstup 1.01 (534 011 Kč) a garáž 1.04A (288 643 Kč), nabídky 7. 10. 2026 → celkem 5 664 096 Kč s DPH
+- [x] Opraveno otočení vizualizací (šatna 0.07, kuchyň K1, spíž K2, obývák, garáž) a oříznuty bílé okraje
+- [ ] Garáž: ověřit, které skříně nabídka zahrnuje (v plánu vyznačeny N52 a N19)
+- [ ] Vstup: čalounění lavice je v nabídce za 1 Kč (látka neurčena) – doplnit cenu
 - [ ] Aktualizovat stav nabídka → smlouva po podpisu jednotlivých sestav
 - [ ] K 008: v nabídce chybí sleva 8 % (u ostatních je) – ověřit s Hanákem
 - [ ] Ložnice: upřesnit tvar čalounění za postelí, zásuvky a látku
 - [ ] Obývák: nabídka z 9. 4. 2026 je s DPH 21 % (ostatní 12 %) – ověřit
-- [ ] Doplnit případně pracovnu 1.07 (M15 nábytek + korek) a vstup 1.01 (vestavné skříně M13), až budou nabídky
+- [ ] Doplnit pracovnu 1.07 (M15 nábytek + korek), až bude nabídka
 
 ## Návrhy na vylepšení (k rozhodnutí)
 
@@ -187,3 +191,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** M9 → M11 lak Champagne mat (Hanák) ve vrstvě Povrchy.
 - **2026-10-17:** Web v0.4: vrstva Nábytek (11 sestav Hanák) s vizualizacemi, položkami a cenami; ceny se smí zveřejňovat.
 - **2026-10-17:** Oprava: filtr stavu dveří skrýval nábytek (pole `stav`); přehled nábytku seřazen po místnostech; verze souborů proti cache (v0.4.1).
+- **2026-10-17:** Nábytek: doplněn vstup 1.01 a garáž 1.04A, opraveno otočení vizualizací (v0.4.2).

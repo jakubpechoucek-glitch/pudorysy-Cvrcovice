@@ -508,6 +508,139 @@
       ]
     },
     {
+      "id": "N-101",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup",
+      "nazev": "Vstup – vestavné skříně a lavice",
+      "model": "Line MAT / Line MAT 2",
+      "cela": "mocca star mat (S49M), dub americký přírodní (DDBApr), champagne mat (S47M)",
+      "korpus": "lamino titan (LTI), mocca star mat (S49M)",
+      "zasuvky": "Legrabox titan tip-on",
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 466921.64
+        },
+        {
+          "popis": "Osvětlení Wenzel – zafrézovaný LED profil SNAKE 6×6 + zdroj",
+          "cena": 9408.0
+        },
+        {
+          "popis": "Osvětlení Wenzel – zafrézovaný LED profil SNAKE 6×6 + zdroj",
+          "cena": 2352.0
+        },
+        {
+          "popis": "Atypické frézování police systému HARMONY",
+          "cena": 1568.0
+        },
+        {
+          "popis": "Atypické čalounění lavice – látka neurčena",
+          "cena": 1.12
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1680.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 10976.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 41104.0
+        }
+      ],
+      "celkem": 534010.76,
+      "bez_dph": 476795.32,
+      "dph": "12 %",
+      "datum": "2026-10-07",
+      "stav": "nabidka",
+      "zdroj": "Pěch vstup 101",
+      "poznamka": "Čalounění lavice je v nabídce za 1 Kč – látka zatím neurčena, cena se doplní.",
+      "nahledy": [
+        "img/nabytek/vstup-101-1.jpg",
+        "img/nabytek/vstup-101-2.jpg"
+      ],
+      "hotspot": [
+        {
+          "x": 1716,
+          "y": 231,
+          "w": 75,
+          "h": 258
+        },
+        {
+          "x": 1716,
+          "y": 627,
+          "w": 75,
+          "h": 231
+        }
+      ]
+    },
+    {
+      "id": "N-104",
+      "podlazi": "1NP",
+      "mistnost": "1.04A garáž",
+      "nazev": "Garáž – skříně",
+      "model": "Line MAT",
+      "cela": "mocca star mat (S49M)",
+      "korpus": "lamino titan (LTI), mocca star mat (S49M)",
+      "zasuvky": null,
+      "dalsi": null,
+      "polozky": [
+        {
+          "popis": "Nábytková sestava (po slevě 8 %)",
+          "cena": 234098.64
+        },
+        {
+          "popis": "Osvětlení Wenzel – zafrézovaný LED profil SNAKE 6×6 + zdroj",
+          "cena": 15232.0
+        },
+        {
+          "popis": "Likvidace odpadu",
+          "cena": 1680.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 9632.0
+        },
+        {
+          "popis": "Montáž",
+          "cena": 28000.0
+        }
+      ],
+      "celkem": 288642.64,
+      "bez_dph": 257716.64,
+      "dph": "12 %",
+      "datum": "2026-10-07",
+      "stav": "nabidka",
+      "zdroj": "Pěch garaz 104",
+      "nahledy": [
+        "img/nabytek/garaz-104-1.jpg"
+      ],
+      "poznamka": "Umístění v půdorysu odhadnuto (skříně N52 podél jižní stěny a N19 u dveří DV101) – ověřit.",
+      "hotspot": [
+        {
+          "x": 534,
+          "y": 786,
+          "w": 741,
+          "h": 48
+        },
+        {
+          "x": 1296,
+          "y": 234,
+          "w": 99,
+          "h": 261
+        },
+        {
+          "x": 1296,
+          "y": 630,
+          "w": 99,
+          "h": 210
+        }
+      ]
+    },
+    {
       "id": "N-K105",
       "podlazi": "1NP",
       "mistnost": "1.05 koupelna",
