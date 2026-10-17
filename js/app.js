@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.9.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -278,7 +278,7 @@ function tipHtml(it) {
     <button class="close" aria-label="Zavřít">×</button>
     <h3>${esc(it.id)} ${cfg.badge(it)}</h3>
     <p class="rooms">${esc(cfg.subtitle(it))}</p>
-    ${it.nahled ? `<a href="${esc(it.nahled)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"></a><p class="thumb-cap">Pohled z exteriéru</p>` : ''}
+    ${it.nahled ? `<a href="${esc(it.nahled)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"></a><p class="thumb-cap">${esc(it.nahled_pozn || 'Pohled z exteriéru')}</p>` : ''}
     <dl>${rows}</dl>
     ${it.polozky ? itemsTable(it, `Položky (${it.cena_pozn})`, `Celkem ${it.cena_pozn.split(' (')[0]}`) : ''}
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
@@ -364,10 +364,8 @@ function bindControls() {
   document.querySelectorAll('input[data-layer]').forEach(cb => cb.addEventListener('change', () => {
     cb.checked ? state.layers.add(cb.dataset.layer) : state.layers.delete(cb.dataset.layer);
     // FVE: po zapnutí ukázat 1.NP (střídač, baterie, wallboxy) a střechu (panely)
-    if (cb.dataset.layer === 'fve') {
-      if (cb.checked) setFloor('fve');
-      else if (state.floor === 'fve' || state.floor === 'STR') setFloor('all');
-    }
+    if (cb.dataset.layer === 'fve' && cb.checked) setFloor('fve');
+    else if (!roofLayers() && (state.floor === 'fve' || state.floor === 'STR')) setFloor('all');
     applyFilters();
   }));
   document.querySelectorAll('input[data-status]').forEach(cb => cb.addEventListener('change', () => {
@@ -398,7 +396,12 @@ function setFloor(f) {
   if (r) r.checked = true;
 }
 
-// podlaží zobrazená pro aktuální volbu; střecha jen se zapnutou FVE
+// střecha má smysl jen s vrstvou FVE (panely) nebo Okna (světlík)
+function roofLayers() {
+  return state.layers.has('fve') || state.layers.has('okna');
+}
+
+// podlaží zobrazená pro aktuální volbu; ve „Vše“ je střecha jen se zapnutou FVE
 function visibleFloors() {
   const fve = state.layers.has('fve');
   if (state.floor === 'all') return fve ? ['1PP', '1NP', 'STR'] : ['1PP', '1NP'];
@@ -411,7 +414,7 @@ function applyFilters() {
   const floors = visibleFloors();
   for (const fig of document.querySelectorAll('.plan')) fig.hidden = !floors.includes(fig.dataset.floor);
   plans.classList.toggle('single', floors.length === 1);
-  document.querySelectorAll('.needs-fve').forEach(l => { l.hidden = !state.layers.has('fve'); });
+  document.querySelectorAll('.needs-roof').forEach(l => { l.hidden = !roofLayers(); });
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
   document.getElementById('ezs-legend').hidden = !state.layers.has('ezs');

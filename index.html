@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Půdorysy Cvrčovice</title>
   <meta name="description" content="Interaktivní půdorysy rodinného domu – detaily dveří, oken a dalších prvků.">
-  <link rel="stylesheet" href="css/style.css?v=0.8.2">
+  <link rel="stylesheet" href="css/style.css?v=0.9.0">
 </head>
 <body>
   <header class="top">
@@ -45,8 +45,8 @@
         <label><input type="radio" name="floor" value="all" checked><span>Vše</span></label>
         <label><input type="radio" name="floor" value="1PP"><span>1.PP</span></label>
         <label><input type="radio" name="floor" value="1NP"><span>1.NP</span></label>
-        <label class="needs-fve" hidden><input type="radio" name="floor" value="fve"><span>1.NP + střecha</span></label>
-        <label class="needs-fve" hidden><input type="radio" name="floor" value="STR"><span>Střecha</span></label>
+        <label class="needs-roof" hidden><input type="radio" name="floor" value="fve"><span>1.NP + střecha</span></label>
+        <label class="needs-roof" hidden><input type="radio" name="floor" value="STR"><span>Střecha</span></label>
       </div>
     </fieldset>
 
@@ -76,7 +76,7 @@
         </div>
       </figure>
       <figure class="plan" data-floor="STR">
-        <figcaption>Střecha <span>– plochá střecha nad 1.NP, fotovoltaika</span></figcaption>
+        <figcaption>Střecha <span>– plochá střecha nad 1.NP, fotovoltaika, světlík</span></figcaption>
         <div class="stage">
           <img src="img/STR.png" width="2055" height="2310" alt="Půdorys střechy">
           <svg viewBox="0 0 2055 2310" preserveAspectRatio="xMidYMid meet" aria-label="Prvky střechy"></svg>
@@ -102,9 +102,9 @@
 
   <footer class="wrap foot">
     Podklad půdorysů: JA Architekti, projekt interiéru RD Podolanka (C.2.1, C.2.2, 08/25).
-    Náhledy oken: HA Technik, přehled elementů 2026-009; vrata: Hörmann / Značková okna Praha. Povrchy: přehled povrchů (PROCERAM, podle studie JA Architekti). Nábytek a vizualizace: Hanák Forum. EZS a kamery: nabídka a ZL 9 (HELP Stavby). Dřevěné podlahy a schody: Princ parket. Svítidla: PAIRAM / Delta Light, umístění podle výkresů E.2 a E.4. Střecha: půdorys střechy D.1.4.4 (upraveno), FVE: SEFY.
+    Náhledy oken: HA Technik, přehled elementů 2026-009; vrata: Hörmann / Značková okna Praha. Povrchy: přehled povrchů (PROCERAM, podle studie JA Architekti). Nábytek a vizualizace: Hanák Forum. EZS a kamery: nabídka a ZL 9 (HELP Stavby). Dřevěné podlahy a schody: Princ parket. Svítidla: PAIRAM / Delta Light, umístění podle výkresů E.2 a E.4. Střecha: půdorys střechy D.1.4.4 (upraveno), FVE: SEFY, světlík: ALLUX.
   </footer>
 
-  <script src="js/app.js?v=0.8.2"></script>
+  <script src="js/app.js?v=0.9.0"></script>
 </body>
 </html>

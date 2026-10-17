@@ -1,6 +1,6 @@
 {
   "aktualizovano": "2026-04-01",
-  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat); garážová vrata: Značková okna Praha, nabídka i-516-33272/2026",
+  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat); garážová vrata: Značková okna Praha, nabídka i-516-33272/2026; světlík: ALLUX - STAV, nabídka 60-207 B",
   "okna": [
     {
       "id": "FV01",
@@ -404,6 +404,58 @@
       },
       "nahled": "img/okna/GV01.png",
       "zabradli": null
+    },
+    {
+      "id": "SL01",
+      "podlazi": "STR",
+      "mistnost": "1.07 pracovna (světlík ve střeše)",
+      "typ": "Bodový světlík ALLUX Aluminium Glass (AAG), ploché otevírací křídlo, hliníkový rám s přerušeným tepelným mostem",
+      "rozmer": "120 × 210 cm průchod světla; stavební otvor 140 × 230 cm",
+      "parapet": "– (PVC manžeta s Fe oplechováním, výška 45 cm, šikmá)",
+      "zaskleni": "Vrstvené izolační trojsklo ESG Energy 6T-16-4-16-VSG 33.2 (vrchní kalené s termoodrazivou vrstvou, spodní bezpečnostní)",
+      "povrch": "rám antracit RAL 7021",
+      "pohon": "Elektrické denní větrání – 2 × lineární pohon SKYRO 650, 230 V, zdvih 350 mm, IP65",
+      "tepelny_odpor": "Ut/Ur/Urc = 0,5 / 1,0 / 1,3 W/m²K; manžeta Up = 0,88 W/m²K",
+      "dodavatel": "ALLUX - STAV (přes HELP Stavby)",
+      "profil": "ALLUX AAG",
+      "polozky": [
+        {
+          "popis": "Světlík AAG, ploché otevírací křídlo 120 × 210 cm, trojsklo",
+          "cena": 50260.0
+        },
+        {
+          "popis": "PVC manžeta 140 × 230 cm, výška 45 cm, šikmá (zateplení 30 mm)",
+          "cena": 16490.0
+        },
+        {
+          "popis": "El. větrání – 2 × lineární pohon SKYRO 650, 230 V",
+          "cena": 15800.0
+        },
+        {
+          "popis": "El. horizontální žaluzie 120 × 210 cm, šedá E817 (transmise 6 %), dálkové ovládání",
+          "cena": 16660.0
+        },
+        {
+          "popis": "Montáž na připravený otvor, kotevní materiál",
+          "cena": 15000.0
+        },
+        {
+          "popis": "Doprava na stavbu",
+          "cena": 6500.0
+        }
+      ],
+      "celkem": 120710.0,
+      "cena_pozn": "bez DPH (cenová nabídka, informativní)",
+      "nabidka": "ALLUX - STAV č. 60-207 B, 21. 7. 2026",
+      "poznamka": "Cena nezahrnuje zdvih na střechu, otvor a výměny ve střešním plášti, vyspádování dosedací plochy (min. 5°), zaizolování manžety a elektrozapojení pohonů a žaluzie (pod světlíkem připravit zásuvku 230 V). Alternativa: kolmá manžeta 120 × 210 cm za 14 970 Kč. Ovládání pohonu (dálkový ovladač / čidlo větru a deště) zatím nevybráno.",
+      "nahled": "img/okna/SL01-foto.jpg",
+      "nahled_pozn": "Foto ze stavby – osazený světlík na střeše",
+      "hotspot": {
+        "x": 1336,
+        "y": 1250,
+        "w": 240,
+        "h": 147
+      }
     }
   ]
 }

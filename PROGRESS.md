@@ -13,7 +13,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 0. Plánování | 🟢 hotovo |
 | 1. Základ webu + půdorysy | 🟢 hotovo |
 | 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
-| 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata), čeká na ověření FV10 |
+| 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata + světlík), čeká na ověření FV10 |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
@@ -36,12 +36,12 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.8)
+## Co web umí (v0.9)
 
-- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. **Střecha** se zobrazí jen se zapnutou vrstvou FVE (pak přibude volba *1.NP + střecha* a *Střecha*).
+- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. Se zapnutou vrstvou FVE nebo Okna přibude volba *1.NP + střecha* a *Střecha*. Ve volbě *Vše* je střecha jen se zapnutou FVE.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
-- Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
+- Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) a na střeše světlík SL01 nad pracovnou 1.07 (ALLUX AAG 120 × 210 cm, el. větrání, žaluzie, nabídka 120 710 Kč bez DPH, fotka ze stavby) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
@@ -59,7 +59,7 @@ css/style.css       – vzhled
 js/app.js           – logika (vrstvy, tooltip, filtry, editor souřadnic)
 data/dvere.json     – data dveří vč. souřadnic hotspotů
 data/okna.json      – data oken vč. souřadnic hotspotů
-img/okna/*.png      – náhledy oken z přehledu elementů HA Technik
+img/okna/*.png      – náhledy oken z přehledu elementů HA Technik (SL01-foto.jpg = foto světlíku ze stavby)
 data/nabytek.json   – sestavy nábytku Hanák: provedení, položky, ceny, náhledy, plochy v půdorysu
 img/nabytek/*.jpg   – vizualizace z nabídek Hanák
 data/ezs.json       – typy prvků EZS (model, popis, cena, barva, znak), rozpočet ZL 9, polohy prvků
@@ -119,6 +119,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | **`NAB-26-349 RD Podolanka.pdf` – PAIRAM, 31. 8. 2026 (platná nabídka, 416 354 Kč bez DPH)** | ✅ **zdroj typů, cen a fotek svítidel** |
 | Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026, nahrazena), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
 | Dropbox `FVE/SEFY srpen 2026`: `Smlouva o dílo 31_08_26 23-16-23_Help.pdf` (SEFY VB-26-1530, 416 000 Kč vč. DPH) a `Podolanka-1.pdf` (simulace SolarEdge Designer 24. 9. 2026) | ✅ **zdroj FVE**; rozmístění panelů z leteckého náhledu |
+| Dropbox `Interier/světlík`: `HELP Stavby s.r.o. 60 - 207 B.pdf` – ALLUX - STAV, 21. 7. 2026 (120 710 Kč bez DPH) + foto ze stavby | ✅ **zdroj světlíku SL01**; poloha = šrafovaný otvor nad 1.07 ve výkresu střechy (rozměr sedí na 120 × 210 cm). Snímky obrazovky ve složce zatím nevyužity |
 | `misto-d.1.4.f.06-pudorys-strechy-hromosvod-1.pdf` (D.1.4.4) | ✅ **podklad střechy** – odstraněny popisy, hromosvod a stará FVE (20 × 450 Wp) |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
@@ -161,6 +162,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] Doplnit žaluzie/rolety (zatím nejsou v podkladech)
 - [x] Garážová vrata GV01: Hörmann LPU 42, 6000 × 2250, RAL 9005 Silkgrain, RC 2, SupraMatic P – 129 435 Kč bez DPH
 - [ ] GV01: ověřit, zda je to finální varianta (v Downloads jsou i starší nabídky SPUF42 a LPU42 planar)
+- [x] Světlík SL01 na střeše nad pracovnou 1.07 (ALLUX AAG, nabídka 60-207 B)
+- [ ] SL01: potvrdit objednanou variantu (manžeta šikmá × kolmá, ovládání pohonu, čidlo V+D) a doplnit smlouvu/fakturu
 
 ---
 
@@ -251,3 +254,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.8: podlaží Střecha a vrstva FVE (SEFY, 18 × 550 Wp, 14,4 kWh, 2 wallboxy).
 - **2026-10-17:** FVE: střídač, baterie, rozvaděč a 2 wallboxy v 1.NP s fotkami; FVE ve výchozím stavu vypnutá, po zapnutí 1.NP + střecha (v0.8.1).
 - **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).
+- **2026-10-17:** Web v0.9: světlík SL01 na střeše nad pracovnou (ALLUX, 120 710 Kč bez DPH) ve vrstvě Okna, střecha dostupná i s vrstvou Okna.
