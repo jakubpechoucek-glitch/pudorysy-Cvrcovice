@@ -16,7 +16,8 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata), čeká na ověření FV10 |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
-| 6. Další vrstvy a vylepšení | ⚪ nezačato |
+| 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
+| 7. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
 
@@ -33,7 +34,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.5.1)
+## Co web umí (v0.6)
 
 - Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
@@ -41,6 +42,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
+- Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -56,6 +58,8 @@ data/okna.json      – data oken vč. souřadnic hotspotů
 img/okna/*.png      – náhledy oken z přehledu elementů HA Technik
 data/nabytek.json   – sestavy nábytku Hanák: provedení, položky, ceny, náhledy, plochy v půdorysu
 img/nabytek/*.jpg   – vizualizace z nabídek Hanák
+data/ezs.json       – typy prvků EZS (model, popis, cena, barva, znak), rozpočet ZL 9, polohy prvků
+img/ezs/            – ilustrační foto kamery a kouřového detektoru
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 PROGRESS.md         – tento soubor
@@ -101,6 +105,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | `i-516-33272_Help_RDPodolanka_LPU42_silkgrain_RAL9005_6000x2250 mm_Nkovani.pdf` – Značková okna Praha (Hörmann), 23. 9. 2026 | ✅ garážová vrata GV01; starší varianty (SPUF42, planar) nevyužity |
 | `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
 | Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
+| Dropbox `Interier/EZS + kamery`: nabídka `2026-05-23 Podolanka (002) 1.6.2026.pdf` (rozpočet + zakreslení prvků), `RD Podolanka ZL 9 - EZS.xlsx`, `1PP.png`/`1NP.png` (zorná pole kamer) | ✅ **zdroj EZS**; polohy prvků převzaty slícováním výkresu z nabídky s naším půdorysem |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
@@ -167,6 +172,14 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] Obývák: nabídka z 9. 4. 2026 je s DPH 21 % (ostatní 12 %) – ověřit
 - [ ] Doplnit pracovnu 1.07 (M15 nábytek + korek), až bude nabídka
 
+### Fáze 6 – Vrstva EZS a kamery
+- [x] 45 prvků podle zakreslení v nabídce (počty ověřeny proti rozpočtu)
+- [x] Rozpočet ZL 9: přípočet 200 363 Kč, odpočet −153 568 Kč, dopad +46 796 Kč bez DPH
+- [ ] Upřesnit, které 2 detektory v 1.NP jsou duální JA-122PW
+- [ ] Rozhodnout variantu kamery na JZ rohu (u ložnice) – v podkladech jako „varianta“
+- [ ] Umístění elektroventilu na hlavním přívodu vody (v nabídce bez polohy)
+- [ ] Případně zobrazit zorná pole kamer (podklad 1PP.png / 1NP.png)
+
 ## Návrhy na vylepšení (k rozhodnutí)
 
 1. **Elektro:** zásuvky, vypínače, světla, datové zásuvky, jističe (v Downloads je `E.4 ELEKTROINSTALACE 1NP.pdf` a poptávka zásuvek a vypínačů).
@@ -199,3 +212,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Garáž: nábytek jen na východní stěně (N19), v0.4.3.
 - **2026-10-17:** Web v0.5: garážová vrata GV01 ve vrstvě Okna a vrata, s položkami a cenou.
 - **2026-10-17:** Galerie pro zvětšení obrázků (lightbox), vizualizace nábytku v plném rozlišení (v0.5.1).
+- **2026-10-17:** Web v0.6: vrstva EZS a kamery (45 prvků, legenda, rozpočet ZL 9).

@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.5.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.6.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -13,6 +13,7 @@ const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
 const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever nahoře
 let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
 let ZARUKA = '';    // záruční podmínky nábytku Hanák
+let EZS = {};       // typy prvků EZS a rozpočet
 const CZK = new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 });
 const STAV_NAB = { smlouva: 'Smlouva', nabidka: 'Nabídka' };
 
@@ -109,6 +110,25 @@ const LAYERS = {
     ],
     extra: furnitureSummary,
   },
+  ezs: {
+    file: 'data/ezs.json',
+    key: 'ezs',
+    title: 'EZS a kamery',
+    padding: 6,
+    label: false,
+    onLoad: data => { EZS = data; },
+    color: it => EZS.typy[it.typ].barva,
+    glyph: it => EZS.typy[it.typ].znak,
+    subtitle: it => `${EZS.typy[it.typ].nazev} – ${it.mistnost}`,
+    render: ezsHtml,
+    columns: [
+      ['Prvek', it => ({ html: `<span class="ezs-dot" style="background:${EZS.typy[it.typ].barva}">${esc(EZS.typy[it.typ].znak)}</span> ${esc(EZS.typy[it.typ].nazev)}` })],
+      ['Místnost', it => it.mistnost],
+      ['Podlaží', it => it.podlazi.replace('PP', '.PP').replace('NP', '.NP')],
+      ['Model', it => EZS.typy[it.typ].model],
+    ],
+    extra: ezsSummary,
+  },
 };
 
 const state = {
@@ -163,6 +183,13 @@ function renderHotspots() {
       for (const { x, y, w, h } of rects) {
         if (pad) g.append(el('rect', { class: 'hit', x: x - pad, y: y - pad, width: w + 2 * pad, height: h + 2 * pad }));
         g.append(el('rect', { class: 'mark', x, y, width: w, height: h }));
+      }
+      if (cfg.glyph) {
+        const { x, y, w, h } = rects[0];
+        const t = cfg.glyph(it);
+        const glyph = el('text', { x: x + w / 2, y: y + h / 2, class: 'glyph', 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': t.length > 2 ? 15 : t.length > 1 ? 19 : 25 });
+        glyph.textContent = t;
+        g.append(glyph);
       }
       if (cfg.label !== false) {
         const { x, y, w } = rects[0];
@@ -338,6 +365,7 @@ function applyFilters() {
   plans.classList.toggle('single', state.floor !== 'all');
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
+  document.getElementById('ezs-legend').hidden = !state.layers.has('ezs');
   updateFurnitureSum();
 
   const counts = {};
@@ -433,6 +461,10 @@ function materialsTable(sec) {
 }
 
 function renderLegend() {
+  const seen = new Set();
+  document.getElementById('ezs-legend').insertAdjacentHTML('beforeend', Object.values(EZS.typy)
+    .filter(t => !seen.has(t.znak + t.barva) && seen.add(t.znak + t.barva))
+    .map(t => `<span class="chip legend"><span class="ezs-dot" style="background:${t.barva}">${esc(t.znak)}</span> ${esc(t.nazev.replace(' a teplot', '').replace(' vrat', '').replace(' vnitřní', '').replace(' venkovní', ''))}</span>`).join(''));
   const floors = uniq(state.items.filter(i => i.layer === 'povrchy').map(i => i.podlaha.kod)).sort();
   document.getElementById('floor-legend').insertAdjacentHTML('beforeend',
     floors.map(k => `<span class="chip legend" title="${esc(MAT[k].nazev)}"><i style="background:${MAT[k].barva}"></i>${esc(k)} ${esc(MAT[k].kratce || MAT[k].nazev)}</span>`).join(''));
@@ -470,6 +502,51 @@ function updateFurnitureSum() {
   const total = state.items.filter(i => i.layer === 'nabytek' &&
     (state.floor === 'all' || state.floor === i.podlazi)).reduce((a, i) => a + i.celkem, 0);
   out.textContent = CZK.format(total);
+}
+
+// ---------- vrstva EZS a kamer ----------
+
+function ezsHtml(it) {
+  const t = EZS.typy[it.typ];
+  const rows = [
+    ['Model', t.model],
+    ['Popis', t.popis],
+    ['Hlídá', it.okno ? `${it.okno} (vrstva Okna a vrata)` : null],
+    ['Cena za kus', t.cena ? `${CZK.format(t.cena)} bez DPH` : null],
+  ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3><span class="ezs-dot" style="background:${t.barva}">${esc(t.znak)}</span> ${esc(t.nazev)}</h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    ${t.foto ? `<a href="${esc(t.foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(t.foto)}" alt="${esc(t.model)}"></a><p class="thumb-cap">Ilustrační foto výrobku</p>` : ''}
+    <dl>${rows}</dl>
+    ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}`;
+}
+
+function ezsSummary(sec) {
+  const items = state.items.filter(i => i.layer === 'ezs');
+  const byType = Object.entries(EZS.typy).map(([k, t]) => {
+    const list = items.filter(i => i.typ === k);
+    const pp = list.filter(i => i.podlazi === '1PP').length;
+    return list.length ? `<tr><td><span class="ezs-dot" style="background:${t.barva}">${esc(t.znak)}</span> ${esc(t.nazev)}</td>
+      <td>${esc(t.model)}</td><td class="num">${list.length - pp}</td><td class="num">${pp}</td><td class="num">${list.length}</td></tr>` : '';
+  }).join('');
+  const budget = EZS.rozpocet.map(r => `<tr><td>${esc(r.popis)}</td><td class="num">${CZK.format(r.cena)}</td></tr>`).join('');
+  sec.insertAdjacentHTML('beforeend', `
+    <h3 class="sub-h">Počty prvků</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Prvek</th><th>Model</th><th class="num">1.NP</th><th class="num">1.PP</th><th class="num">Celkem</th></tr></thead>
+      <tbody>${byType}</tbody>
+    </table></div>
+    <h3 class="sub-h">Rozpočet (změnový list ZL 9, bez DPH)</h3>
+    <div class="table-wrap"><table>
+      <tbody>${budget}</tbody>
+      <tfoot>
+        <tr><td><strong>Přípočet celkem</strong></td><td class="num"><strong>${CZK.format(EZS.prirustek)}</strong></td></tr>
+        <tr><td>Odpočet původních položek EZS z rozpočtu stavby</td><td class="num">${CZK.format(EZS.odpocet)}</td></tr>
+        <tr><td><strong>Cenový dopad na stavbu</strong></td><td class="num"><strong>${CZK.format(EZS.dopad)}</strong></td></tr>
+      </tfoot>
+    </table></div>
+    <p class="meta">${esc(EZS.poznamka)}</p>`);
 }
 
 // ---------- galerie (zvětšení obrázků) ----------

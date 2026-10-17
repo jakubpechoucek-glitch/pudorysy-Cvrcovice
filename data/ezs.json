@@ -1,0 +1,693 @@
+{
+  "aktualizovano": "2026-06-01",
+  "zdroj": "Nabídka EZS + kamery (23. 5. / 1. 6. 2026) a změnový list ZL 9 – EZS (HELP Stavby)",
+  "typy": {
+    "ustredna": {
+      "nazev": "Ústředna EZS",
+      "znak": "EZS",
+      "barva": "#c62828",
+      "model": "Jablotron JA-103KR + JA-194Y",
+      "popis": "GSM ústředna s LAN a rádiovým modulem, modul LTE komunikátoru, záložní akumulátor 12 V / 7 Ah",
+      "cena": 18584
+    },
+    "magnet": {
+      "nazev": "Magnetický kontakt",
+      "znak": "M",
+      "barva": "#e53935",
+      "model": "magnet + JA-118M",
+      "popis": "Hlídá otevření okna/dveří; kontakty jsou připojené přes sběrnicové moduly JA-118M (4 ks v domě)",
+      "cena": 75
+    },
+    "magnet_vrata": {
+      "nazev": "Magnetický kontakt vrat",
+      "znak": "M",
+      "barva": "#e53935",
+      "model": "vratový kontakt N.C., pancéřový kabel",
+      "popis": "Hlídá otevření garážových vrat",
+      "cena": 566
+    },
+    "pir": {
+      "nazev": "Detektor pohybu",
+      "znak": "P",
+      "barva": "#fb8c00",
+      "model": "Jablotron JA-112P (v 1.NP 2× duální JA-122PW)",
+      "popis": "Sběrnicový PIR detektor pohybu; v 1.NP jsou dva z detektorů duální PIR + MW (JA-122PW) – které, upřesní montážní firma",
+      "cena": 894
+    },
+    "kour": {
+      "nazev": "Detektor kouře",
+      "znak": "K",
+      "barva": "#6d4c41",
+      "model": "CT 3001 O bílá + patice SDB 3000-EZS + JA-111H",
+      "popis": "Designový opticko-kouřový detektor připojený do EZS",
+      "cena": 2467,
+      "foto": "img/ezs/detektor-CT3001.jpg"
+    },
+    "kour_teplo": {
+      "nazev": "Detektor kouře a teplot",
+      "znak": "K",
+      "barva": "#6d4c41",
+      "model": "Jablotron JA-111ST-A",
+      "popis": "Sběrnicový kombinovaný detektor kouře a teplot",
+      "cena": 1511
+    },
+    "sirena_in": {
+      "nazev": "Siréna vnitřní",
+      "znak": "S",
+      "barva": "#8e24aa",
+      "model": "Jablotron JA-110A",
+      "popis": "Sběrnicová vnitřní siréna",
+      "cena": 1070
+    },
+    "sirena_out": {
+      "nazev": "Siréna venkovní",
+      "znak": "S",
+      "barva": "#8e24aa",
+      "model": "Jablotron JA-113A",
+      "popis": "Venkovní sběrnicová siréna",
+      "cena": 2739
+    },
+    "klavesnice": {
+      "nazev": "Klávesnice",
+      "znak": "⌨",
+      "barva": "#3949ab",
+      "model": "Jablotron JA-116E",
+      "popis": "Sběrnicová dotyková klávesnice se čtečkou RFID (ovládání i čipem JA-192J a dálkovým ovladačem JA-154J)",
+      "cena": 4620
+    },
+    "voda": {
+      "nazev": "Záplavový detektor",
+      "znak": "H₂O",
+      "barva": "#1e88e5",
+      "model": "Jablotron JA-111F",
+      "popis": "Sběrnicový záplavový detektor; při úniku vody může EZS zavřít elektroventil na hlavním přívodu (kulový kohout s elektropohonem, bez proudu otevřeno)",
+      "cena": 600
+    },
+    "kamera": {
+      "nazev": "Kamera",
+      "znak": "◉",
+      "barva": "#00897b",
+      "model": "Hikvision DS-2CD2043G2-LI2U (2,8 mm)",
+      "popis": "4 Mpx, objektiv 2,8 mm (104°), AcuSense, Smart Hybrid Light, mikrofon; zadní kryt DS-1280ZJ-XS; záznam NVR DS-7608NXI-K2/8P + 2 TB disk",
+      "cena": 6249.1,
+      "foto": "img/ezs/kamera-DS-2CD2043G2.jpg"
+    }
+  },
+  "rozpocet": [
+    {
+      "popis": "Kabelové rozvody EZS (CAT5e 760 m, trubky, práce)",
+      "cena": 28617.0
+    },
+    {
+      "popis": "Osazení EZS (Jablotron – ústředna, čidla, klávesnice, sirény, montáž)",
+      "cena": 83802.0
+    },
+    {
+      "popis": "Kabelové rozvody kamer (CAT5e 210 m, práce)",
+      "cena": 6136.75
+    },
+    {
+      "popis": "Osazení kamer (NVR 8 kanálů, 2 TB disk, 5× kamera 4 Mpx, montáž)",
+      "cena": 54645.7
+    },
+    {
+      "popis": "Elektroventil na hlavním přívodu vody (dodávka + montáž)",
+      "cena": 6916.75
+    },
+    {
+      "popis": "Koordinační přirážka 8 %",
+      "cena": 14409.46
+    },
+    {
+      "popis": "VRN 3 %",
+      "cena": 5835.83
+    }
+  ],
+  "prirustek": 200363.49,
+  "odpocet": -153567.79,
+  "dopad": 46795.7,
+  "poznamka": "Ceny bez DPH. Odpočet = položky EZS a domácího telefonu z původního rozpočtu stavby. V podkladech je ještě varianta kamery na JZ rohu (u ložnice), do plánu nezakreslena.",
+  "ezs": [
+    {
+      "id": "1PP-kour-1",
+      "typ": "kour",
+      "podlazi": "1PP",
+      "mistnost": "0.06 prádelna",
+      "hotspot": {
+        "x": 254,
+        "y": 352,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-kour-2",
+      "typ": "kour",
+      "podlazi": "1PP",
+      "mistnost": "0.10 chodba",
+      "hotspot": {
+        "x": 1618,
+        "y": 554,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-sirena_in-1",
+      "typ": "sirena_in",
+      "podlazi": "1PP",
+      "mistnost": "0.10 chodba",
+      "hotspot": {
+        "x": 1672,
+        "y": 548,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-pir-1",
+      "typ": "pir",
+      "podlazi": "1PP",
+      "mistnost": "0.11 pokoj",
+      "hotspot": {
+        "x": 848,
+        "y": 686,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-pir-2",
+      "typ": "pir",
+      "podlazi": "1PP",
+      "mistnost": "0.12 pokoj",
+      "hotspot": {
+        "x": 982,
+        "y": 686,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-pir-3",
+      "typ": "pir",
+      "podlazi": "1PP",
+      "mistnost": "0.09A ložnice",
+      "hotspot": {
+        "x": 118,
+        "y": 1168,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-pir-4",
+      "typ": "pir",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část",
+      "hotspot": {
+        "x": 1882,
+        "y": 2054,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-kour-3",
+      "typ": "kour",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část – kuchyň",
+      "hotspot": {
+        "x": 1582,
+        "y": 968,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-voda-1",
+      "typ": "voda",
+      "podlazi": "1PP",
+      "mistnost": "0.01 kuchyň – dřez",
+      "hotspot": {
+        "x": 1744,
+        "y": 892,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1PP-magnet-1",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.08 koupelna – okno FV07",
+      "hotspot": {
+        "x": 44,
+        "y": 824,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV07"
+    },
+    {
+      "id": "1PP-magnet-2",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.09A ložnice – FV09",
+      "hotspot": {
+        "x": 490,
+        "y": 1222,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV09"
+    },
+    {
+      "id": "1PP-magnet-3",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.11 pokoj – FV10",
+      "hotspot": {
+        "x": 824,
+        "y": 1088,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV10"
+    },
+    {
+      "id": "1PP-magnet-4",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.12 pokoj – FV11",
+      "hotspot": {
+        "x": 1046,
+        "y": 1088,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV11"
+    },
+    {
+      "id": "1PP-magnet-5",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.01 – posuvné dveře FV12A",
+      "hotspot": {
+        "x": 1358,
+        "y": 1490,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV12A"
+    },
+    {
+      "id": "1PP-magnet-6",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.01 – okno FV13",
+      "hotspot": {
+        "x": 1964,
+        "y": 1070,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV13"
+    },
+    {
+      "id": "1PP-magnet-7",
+      "typ": "magnet",
+      "podlazi": "1PP",
+      "mistnost": "0.01 – okno FV06-C",
+      "hotspot": {
+        "x": 1964,
+        "y": 1586,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV06-C"
+    },
+    {
+      "id": "1PP-kamera-1",
+      "typ": "kamera",
+      "podlazi": "1PP",
+      "mistnost": "atrium (u terasy 0.11)",
+      "hotspot": {
+        "x": 1234,
+        "y": 2084,
+        "w": 45,
+        "h": 45
+      },
+      "poznamka": "Kamera v atriu, míří k terase a vstupu do 0.01."
+    },
+    {
+      "id": "1PP-kamera-2",
+      "typ": "kamera",
+      "podlazi": "1PP",
+      "mistnost": "zahrada – jihovýchodní roh",
+      "hotspot": {
+        "x": 1958,
+        "y": 2242,
+        "w": 45,
+        "h": 45
+      },
+      "poznamka": "Kamera na JV rohu domu, hlídá zahradu před obývacím pokojem."
+    },
+    {
+      "id": "1NP-ustredna-1",
+      "typ": "ustredna",
+      "podlazi": "1NP",
+      "mistnost": "1.04B sklad",
+      "hotspot": {
+        "x": 404,
+        "y": 268,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-voda-2",
+      "typ": "voda",
+      "podlazi": "1NP",
+      "mistnost": "1.04B sklad",
+      "hotspot": {
+        "x": 404,
+        "y": 356,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-pir-5",
+      "typ": "pir",
+      "podlazi": "1NP",
+      "mistnost": "1.04B sklad",
+      "hotspot": {
+        "x": 248,
+        "y": 254,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet-8",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.04B sklad – okno FV03",
+      "hotspot": {
+        "x": 172,
+        "y": 364,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV03"
+    },
+    {
+      "id": "1NP-kour_teplo-1",
+      "typ": "kour_teplo",
+      "podlazi": "1NP",
+      "mistnost": "1.04A garáž",
+      "hotspot": {
+        "x": 524,
+        "y": 530,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-pir-6",
+      "typ": "pir",
+      "podlazi": "1NP",
+      "mistnost": "1.04A garáž",
+      "hotspot": {
+        "x": 562,
+        "y": 758,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-klavesnice-1",
+      "typ": "klavesnice",
+      "podlazi": "1NP",
+      "mistnost": "1.04A garáž – u dveří DV101",
+      "hotspot": {
+        "x": 1228,
+        "y": 478,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet_vrata-1",
+      "typ": "magnet_vrata",
+      "podlazi": "1NP",
+      "mistnost": "1.04A garáž – vrata GV01",
+      "hotspot": {
+        "x": 562,
+        "y": 164,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "GV01"
+    },
+    {
+      "id": "1NP-kour_teplo-2",
+      "typ": "kour_teplo",
+      "podlazi": "1NP",
+      "mistnost": "1.03 technická místnost",
+      "hotspot": {
+        "x": 1522,
+        "y": 278,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-voda-3",
+      "typ": "voda",
+      "podlazi": "1NP",
+      "mistnost": "1.03 technická místnost",
+      "hotspot": {
+        "x": 1646,
+        "y": 320,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-pir-7",
+      "typ": "pir",
+      "podlazi": "1NP",
+      "mistnost": "1.03 technická místnost",
+      "hotspot": {
+        "x": 1574,
+        "y": 412,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet-9",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.03 – okno FV02",
+      "hotspot": {
+        "x": 1528,
+        "y": 164,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV02"
+    },
+    {
+      "id": "1NP-magnet-10",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup – vstupní dveře FV01",
+      "hotspot": {
+        "x": 1838,
+        "y": 164,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV01"
+    },
+    {
+      "id": "1NP-klavesnice-2",
+      "typ": "klavesnice",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup",
+      "hotspot": {
+        "x": 1882,
+        "y": 314,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-kour-4",
+      "typ": "kour",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup",
+      "hotspot": {
+        "x": 1864,
+        "y": 584,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet-11",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup – okno FV06-B",
+      "hotspot": {
+        "x": 1958,
+        "y": 548,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV06-B"
+    },
+    {
+      "id": "1NP-sirena_out-1",
+      "typ": "sirena_out",
+      "podlazi": "1NP",
+      "mistnost": "fasáda u vstupu (sever)",
+      "hotspot": {
+        "x": 1678,
+        "y": 104,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-pir-8",
+      "typ": "pir",
+      "podlazi": "1NP",
+      "mistnost": "1.06 chodba / vstup",
+      "hotspot": {
+        "x": 1882,
+        "y": 794,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet-12",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.06 chodba – okno FV06-A",
+      "hotspot": {
+        "x": 1964,
+        "y": 920,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV06-A"
+    },
+    {
+      "id": "1NP-pir-9",
+      "typ": "pir",
+      "podlazi": "1NP",
+      "mistnost": "1.08 knihovna",
+      "hotspot": {
+        "x": 682,
+        "y": 922,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet-13",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.08 knihovna – FV05 (levé křídlo)",
+      "hotspot": {
+        "x": 748,
+        "y": 1124,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV05"
+    },
+    {
+      "id": "1NP-magnet-14",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.08 knihovna – FV05 (pravé křídlo)",
+      "hotspot": {
+        "x": 1258,
+        "y": 1120,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV05"
+    },
+    {
+      "id": "1NP-pir-10",
+      "typ": "pir",
+      "podlazi": "1NP",
+      "mistnost": "1.09 posilovna",
+      "hotspot": {
+        "x": 554,
+        "y": 1394,
+        "w": 45,
+        "h": 45
+      }
+    },
+    {
+      "id": "1NP-magnet-15",
+      "typ": "magnet",
+      "podlazi": "1NP",
+      "mistnost": "1.09 posilovna – FV04",
+      "hotspot": {
+        "x": 298,
+        "y": 1466,
+        "w": 45,
+        "h": 45
+      },
+      "okno": "FV04"
+    },
+    {
+      "id": "1NP-kamera-3",
+      "typ": "kamera",
+      "podlazi": "1NP",
+      "mistnost": "severozápadní roh – pergola",
+      "hotspot": {
+        "x": 194,
+        "y": 58,
+        "w": 45,
+        "h": 45
+      },
+      "poznamka": "Kamera na pergole nad garáží, hlídá příjezd ze severu."
+    },
+    {
+      "id": "1NP-kamera-4",
+      "typ": "kamera",
+      "podlazi": "1NP",
+      "mistnost": "severozápadní roh",
+      "hotspot": {
+        "x": 58,
+        "y": 202,
+        "w": 45,
+        "h": 45
+      },
+      "poznamka": "Kamera na SZ rohu, hlídá západní stranu domu."
+    },
+    {
+      "id": "1NP-kamera-5",
+      "typ": "kamera",
+      "podlazi": "1NP",
+      "mistnost": "severovýchodní roh – u vstupu",
+      "hotspot": {
+        "x": 2008,
+        "y": 256,
+        "w": 45,
+        "h": 45
+      },
+      "poznamka": "Kamera na SV rohu u vstupu, hlídá vstup a východní stranu (v plánu je kousek za okrajem výřezu)."
+    }
+  ]
+}
