@@ -2,7 +2,7 @@
 
 Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: **1.PP** a **1.NP**). Na webu jsou obě patra. Po najetí myší na prvek (dveře, okno…) se zobrazí okno s detailem. Informace jsou rozdělené do **vrstev**, které jde zapínat a vypínat zaškrtávacími tlačítky.
 
-**Web bude veřejný** (GitHub Pages).
+**Web je veřejný:** https://jakubpechoucek-glitch.github.io/pudorysy-Cvrcovice/
 
 ---
 
@@ -103,7 +103,7 @@ Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310)
 - [x] Přepínač vrstev (zaškrtávací tlačítka)
 - [x] Tooltip/detail okno (hover na desktopu, klepnutí na mobilu)
 - [x] Editor režim pro zjištění souřadnic (`?edit`)
-- [ ] Zapnout GitHub Pages
+- [x] Zapnout GitHub Pages → https://jakubpechoucek-glitch.github.io/pudorysy-Cvrcovice/
 - [ ] Ověřit souhlas JA Architekti se zveřejněním půdorysů (na výkresu je doložka o autorských právech)
 
 ### Fáze 2 – Vrstva Dveře
@@ -145,3 +145,4 @@ Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310)
 
 - **2026-10-17:** Založen repozitář, sepsán plán projektu.
 - **2026-10-17:** Web v0.1: půdorysy 1.PP a 1.NP z projektu interiéru, vrstva Dveře (18 pozic) s detaily a stavem, filtry, seznam dveří, editor souřadnic.
+- **2026-10-17:** Zapnuty GitHub Pages, web je online.
