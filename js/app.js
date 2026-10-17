@@ -10,9 +10,59 @@ const STAV = {
 };
 const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
 
+// Konfigurace vrstev: odkud se berou data, jak vypadá detail a seznam.
+const LAYERS = {
+  dvere: {
+    file: 'data/dvere.json',
+    key: 'dvere',
+    title: 'Seznam dveří',
+    subtitle: it => it.mezi.join(' ↔ '),
+    badge: it => `<span class="badge ${it.stav}">${STAV[it.stav]}</span>`,
+    fields: it => [
+      ['Typ', it.typ],
+      ['Rozměr', it.rozmer],
+      ['Stav. otvor', it.otvor],
+      ['Zárubeň', it.zarubne],
+      ...Object.entries(it.povrch).map(([room, p]) => [`Povrch ${room.split(' ')[0]}`, p]),
+      ['Dodavatel', it.dodavatel],
+    ],
+    columns: [
+      ['Pozice', it => it.id],
+      ['Mezi místnostmi', it => it.mezi.join(' ↔ ')],
+      ['Typ', it => it.typ],
+      ['Rozměr', it => it.rozmer],
+      ['Stav', it => ({ html: `<span class="badge ${it.stav}">${STAV[it.stav]}</span>` })],
+    ],
+  },
+  okna: {
+    file: 'data/okna.json',
+    key: 'okna',
+    title: 'Seznam oken a prosklených stěn',
+    subtitle: it => it.mistnost,
+    badge: it => `<span class="badge okno">${esc(it.profil)}</span>`,
+    fields: it => [
+      ['Typ', it.typ],
+      ['Výrobní rozměr', it.rozmer],
+      ['Parapet', it.parapet],
+      ['Zasklení', it.zaskleni],
+      ['Kování', it.kovani],
+      ['Zábradlí', it.zabradli],
+      ['Bezp. magnet', it.magnet == null ? null : it.magnet ? 'ano' : 'ne'],
+      ['Rám', 'RAL 9005 mat (černá)'],
+    ],
+    columns: [
+      ['Pozice', it => it.id],
+      ['Místnost', it => it.mistnost],
+      ['Typ', it => it.typ],
+      ['Rozměr', it => it.rozmer],
+      ['Parapet', it => it.parapet],
+    ],
+  },
+};
+
 const state = {
   items: [],            // všechny prvky všech vrstev
-  layers: new Set(['dvere']),
+  layers: new Set(),
   statuses: new Set(Object.keys(STAV)),
   floor: 'all',
   pinned: null,
@@ -25,14 +75,17 @@ const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 init();
 
 async function init() {
-  const res = await fetch('data/dvere.json');
-  const data = await res.json();
-  state.items = data.dvere.map(d => ({ ...d, layer: 'dvere' }));
+  const meta = [];
+  for (const [name, cfg] of Object.entries(LAYERS)) {
+    const data = await (await fetch(cfg.file)).json();
+    state.items.push(...data[cfg.key].map(d => ({ ...d, layer: name })));
+    meta.push(`${cfg.title.replace('Seznam ', '')}: stav k ${formatDate(data.aktualizovano)}, zdroj ${data.zdroj}.`);
+  }
+  document.querySelectorAll('input[data-layer]:checked').forEach(cb => state.layers.add(cb.dataset.layer));
 
   renderHotspots();
-  renderTable();
-  document.getElementById('meta').textContent =
-    `Stav k ${formatDate(data.aktualizovano)}. Zdroj: ${data.zdroj}.`;
+  renderTables();
+  document.getElementById('meta').innerHTML = meta.map(esc).join('<br>');
 
   bindControls();
   applyFilters();
@@ -44,13 +97,19 @@ async function init() {
 function renderHotspots() {
   for (const fig of document.querySelectorAll('.plan')) {
     const svg = fig.querySelector('svg');
-    for (const it of state.items.filter(i => i.podlazi === fig.dataset.floor)) {
-      const { x, y, w, h } = it.hotspot;
-      const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': it.stav, 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${it.mezi.join(' – ')}` });
-      g.append(
-        el('rect', { class: 'hit', x: x - PAD, y: y - PAD, width: w + 2 * PAD, height: h + 2 * PAD }),
-        el('rect', { class: 'mark', x, y, width: w, height: h }),
-      );
+    // okna pod dveře, aby dveře zůstaly klikací tam, kde se překrývají
+    const items = state.items.filter(i => i.podlazi === fig.dataset.floor)
+      .sort((a, b) => (b.layer === 'okna') - (a.layer === 'okna'));
+    for (const it of items) {
+      const rects = [].concat(it.hotspot);
+      const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': it.stav || '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${LAYERS[it.layer].subtitle(it)}` });
+      for (const { x, y, w, h } of rects) {
+        g.append(
+          el('rect', { class: 'hit', x: x - PAD, y: y - PAD, width: w + 2 * PAD, height: h + 2 * PAD }),
+          el('rect', { class: 'mark', x, y, width: w, height: h }),
+        );
+      }
+      const { x, y, w } = rects[0];
       const label = el('text', { x: x + w / 2, y: y - 12, 'text-anchor': 'middle' });
       label.textContent = it.id;
       g.append(label);
@@ -65,40 +124,46 @@ function renderHotspots() {
   }
 }
 
-function renderTable() {
-  const tbody = document.querySelector('#table tbody');
-  tbody.innerHTML = '';
-  for (const it of state.items) {
-    const tr = document.createElement('tr');
-    tr.dataset.id = it.id;
-    tr.innerHTML = `
-      <td>${esc(it.id)}</td>
-      <td>${esc(it.mezi.join(' ↔ '))}</td>
-      <td>${esc(it.typ)}</td>
-      <td>${esc(it.rozmer)}</td>
-      <td><span class="badge ${it.stav}">${STAV[it.stav]}</span></td>`;
-    tr.addEventListener('click', () => focusItem(it));
-    tbody.append(tr);
+function renderTables() {
+  const host = document.getElementById('lists');
+  host.innerHTML = '';
+  for (const [name, cfg] of Object.entries(LAYERS)) {
+    const sec = document.createElement('section');
+    sec.className = 'list';
+    sec.dataset.layer = name;
+    sec.innerHTML = `
+      <h2>${esc(cfg.title)} <span class="count"></span></h2>
+      <div class="table-wrap"><table>
+        <thead><tr>${cfg.columns.map(([h]) => `<th>${esc(h)}</th>`).join('')}</tr></thead>
+        <tbody></tbody>
+      </table></div>`;
+    const tbody = sec.querySelector('tbody');
+    for (const it of state.items.filter(i => i.layer === name)) {
+      const tr = document.createElement('tr');
+      tr.dataset.id = it.id;
+      tr.innerHTML = cfg.columns.map(([, f]) => {
+        const v = f(it);
+        return `<td>${v && v.html ? v.html : esc(v)}</td>`;
+      }).join('');
+      tr.addEventListener('click', () => focusItem(it));
+      tbody.append(tr);
+    }
+    host.append(sec);
   }
 }
 
 // ---------- tooltip ----------
 
 function tipHtml(it) {
-  const povrch = Object.entries(it.povrch)
-    .map(([room, p]) => `<dt>Povrch ${esc(room.split(' ')[0])}</dt><dd>${esc(p)}</dd>`).join('');
+  const cfg = LAYERS[it.layer];
+  const rows = cfg.fields(it).filter(([, v]) => v != null && v !== '')
+    .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
   return `
     <button class="close" aria-label="Zavřít">×</button>
-    <h3>${esc(it.id)} <span class="badge ${it.stav}">${STAV[it.stav]}</span></h3>
-    <p class="rooms">${esc(it.mezi.join(' ↔ '))}</p>
-    <dl>
-      <dt>Typ</dt><dd>${esc(it.typ)}</dd>
-      <dt>Rozměr</dt><dd>${esc(it.rozmer)}</dd>
-      <dt>Stav. otvor</dt><dd>${esc(it.otvor)}</dd>
-      <dt>Zárubeň</dt><dd>${esc(it.zarubne)}</dd>
-      ${povrch}
-      <dt>Dodavatel</dt><dd>${esc(it.dodavatel)}</dd>
-    </dl>
+    <h3>${esc(it.id)} ${cfg.badge(it)}</h3>
+    <p class="rooms">${esc(cfg.subtitle(it))}</p>
+    ${it.nahled ? `<img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"><p class="thumb-cap">Pohled z exteriéru</p>` : ''}
+    <dl>${rows}</dl>
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}`;
 }
 
@@ -107,11 +172,16 @@ function showTip(it, e, anchorEl) {
   tip.hidden = false;
   tip.querySelector('.close').addEventListener('click', unpin);
   setActive(it.id);
-  if (e && e.clientX) positionTip(e.clientX, e.clientY);
-  else {
-    const r = (anchorEl || hotspotEl(it.id)).getBoundingClientRect();
-    positionTip(r.right, r.top + r.height / 2);
-  }
+  const place = () => {
+    if (e && e.clientX) positionTip(e.clientX, e.clientY);
+    else {
+      const r = (anchorEl || hotspotEl(it.id)).getBoundingClientRect();
+      positionTip(r.right, r.top + r.height / 2);
+    }
+  };
+  place();
+  // po načtení náhledu se tooltip zvětší – přepočítat pozici
+  tip.querySelector('img')?.addEventListener('load', place);
 }
 
 function positionTip(cx, cy) {
@@ -151,8 +221,10 @@ function focusItem(it) {
   if (state.floor !== 'all' && state.floor !== it.podlazi) {
     document.querySelector(`input[name="floor"][value="${it.podlazi}"]`).click();
   }
-  const statusBox = document.querySelector(`input[data-status="${it.stav}"]`);
-  if (!statusBox.checked) statusBox.click();
+  if (it.stav) {
+    const statusBox = document.querySelector(`input[data-status="${it.stav}"]`);
+    if (!statusBox.checked) statusBox.click();
+  }
   const g = hotspotEl(it.id);
   g.scrollIntoView({ behavior: 'smooth', block: 'center' });
   setTimeout(() => { state.pinned = null; togglePin(it, null, g); }, 450);
@@ -184,16 +256,24 @@ function applyFilters() {
     fig.hidden = state.floor !== 'all' && state.floor !== fig.dataset.floor;
   }
   plans.classList.toggle('single', state.floor !== 'all');
+  document.getElementById('status-filter').hidden = !state.layers.has('dvere');
 
-  let visible = 0;
+  const counts = {};
   for (const it of state.items) {
-    const show = state.layers.has(it.layer) && state.statuses.has(it.stav) &&
+    const show = state.layers.has(it.layer) &&
+      (!it.stav || state.statuses.has(it.stav)) &&
       (state.floor === 'all' || state.floor === it.podlazi);
     hotspotEl(it.id).style.display = show ? '' : 'none';
-    document.querySelector(`#table tr[data-id="${it.id}"]`).hidden = !show;
-    if (show) visible++;
+    document.querySelector(`.list tr[data-id="${CSS.escape(it.id)}"]`).hidden = !show;
+    counts[it.layer] ??= [0, 0];
+    counts[it.layer][1]++;
+    if (show) counts[it.layer][0]++;
   }
-  document.getElementById('count').textContent = `(${visible} z ${state.items.length})`;
+  for (const sec of document.querySelectorAll('.list')) {
+    const [shown, total] = counts[sec.dataset.layer] || [0, 0];
+    sec.hidden = !state.layers.has(sec.dataset.layer);
+    sec.querySelector('.count').textContent = `(${shown} z ${total})`;
+  }
 }
 
 // ---------- editor souřadnic (?edit) ----------

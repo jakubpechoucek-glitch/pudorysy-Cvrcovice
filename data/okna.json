@@ -1,0 +1,350 @@
+{
+  "aktualizovano": "2026-04-01",
+  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat)",
+  "okna": [
+    {
+      "id": "FV01",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup",
+      "typ": "Vstupní dveře – jednokřídlé prosklené s přísvětlíkem, otevírání dovnitř, pravé",
+      "rozmer": "1475 × 2685 mm (+ Compacfoam 100 mm pod pozicí)",
+      "parapet": "– (práh 20 mm)",
+      "zaskleni": "Izolační trojsklo mléčné (satinato), jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Trubkové madlo Ø 40 mm přes celou výšku křídla (černé), rozety oboustranně černé, vícebodový elektromechanický zámek s A-otvíračem, válečkové panty RAL 9005",
+      "profil": "Schüco AD UP 75",
+      "magnet": true,
+      "poznamka": "Světlý průchod při otevření křídla na 90°: 900 mm.",
+      "hotspot": {
+        "x": 1788,
+        "y": 177,
+        "w": 156,
+        "h": 36
+      },
+      "nahled": "img/okna/FV01.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV02",
+      "podlazi": "1NP",
+      "mistnost": "1.03 technická místnost",
+      "typ": "Sklopné okno, klika vpravo (pohled z interiéru)",
+      "rozmer": "1170 × 2685 mm (+ Compacfoam 100 mm pod pozicí)",
+      "parapet": "– (k podlaze)",
+      "zaskleni": "Izolační trojsklo mléčné (satinato), jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "V přehledu elementů uvedeno jako „1.NP-1.03-chodba“.",
+      "hotspot": {
+        "x": 1479,
+        "y": 180,
+        "w": 132,
+        "h": 36
+      },
+      "nahled": "img/okna/FV02.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV03",
+      "podlazi": "1NP",
+      "mistnost": "1.04B sklad",
+      "typ": "Dvoudílné – fix + sklopné okno Tiptronic, elektricky ovládané",
+      "rozmer": "4170 × 840 mm (+ 30 mm podkladní profil)",
+      "parapet": "1500 mm",
+      "zaskleni": "Izolační trojsklo čiré, jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Elektrický pohon Tiptronic",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 177,
+        "y": 298,
+        "w": 36,
+        "h": 471
+      },
+      "nahled": "img/okna/FV03.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV04",
+      "podlazi": "1NP",
+      "mistnost": "1.09 posilovna",
+      "typ": "Dvoudílná stěna – fix + otevíravo-sklopné okno, levé",
+      "rozmer": "3615 × 2416 mm",
+      "parapet": "– (prosklené zábradlí)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 90 SI",
+      "magnet": true,
+      "zabradli": "Prosklené čiré, bezpečnostní sklo, výška 1,1 m od parapetu",
+      "poznamka": "",
+      "hotspot": {
+        "x": 216,
+        "y": 1458,
+        "w": 414,
+        "h": 36
+      },
+      "nahled": "img/okna/FV04.png"
+    },
+    {
+      "id": "FV05",
+      "podlazi": "1NP",
+      "mistnost": "1.08 knihovna",
+      "typ": "Třídílná stěna – otevíravo-sklopné okno pravé + fix + otevíravo-sklopné okno levé",
+      "rozmer": "5925 × 2777 mm",
+      "parapet": "– (prosklené zábradlí)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 90 SI",
+      "magnet": true,
+      "zabradli": "Prosklené čiré, bezpečnostní sklo, výška 1,1 m od čisté podlahy",
+      "poznamka": "",
+      "hotspot": {
+        "x": 666,
+        "y": 1119,
+        "w": 690,
+        "h": 36
+      },
+      "nahled": "img/okna/FV05.png"
+    },
+    {
+      "id": "FV06-A",
+      "podlazi": "1NP",
+      "mistnost": "1.06 chodba",
+      "typ": "Otevíravo-sklopné okno, levé",
+      "rozmer": "1170 × 1740 mm (+ 30 mm podkladní profil)",
+      "parapet": "900 mm",
+      "zaskleni": "Izolační trojsklo čiré, jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 1956,
+        "y": 870,
+        "w": 36,
+        "h": 138
+      },
+      "nahled": "img/okna/FV06-A.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV06-B",
+      "podlazi": "1NP",
+      "mistnost": "1.01 vstup",
+      "typ": "Otevíravo-sklopné okno, levé",
+      "rozmer": "1170 × 1740 mm (+ 30 mm podkladní profil)",
+      "parapet": "900 mm",
+      "zaskleni": "Izolační trojsklo čiré, jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 1956,
+        "y": 498,
+        "w": 36,
+        "h": 138
+      },
+      "nahled": "img/okna/FV06-B.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV06-C",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část – u schodiště",
+      "typ": "Otevíravo-sklopné okno, levé",
+      "rozmer": "1170 × 1740 mm (+ 30 mm podkladní profil)",
+      "parapet": "400 mm",
+      "zaskleni": "Izolační trojsklo čiré, jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 1980,
+        "y": 1515,
+        "w": 36,
+        "h": 138
+      },
+      "nahled": "img/okna/FV06-C.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV07",
+      "podlazi": "1PP",
+      "mistnost": "0.08 koupelna",
+      "typ": "Dvoudílné – fix + sklopné okno Tiptronic, elektricky ovládané",
+      "rozmer": "2970 × 840 mm (+ 30 mm podkladní profil)",
+      "parapet": "1770 mm",
+      "zaskleni": "Izolační trojsklo čiré, jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Elektrický pohon Tiptronic",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 36,
+        "y": 789,
+        "w": 36,
+        "h": 336
+      },
+      "nahled": "img/okna/FV07.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV08",
+      "podlazi": "1PP",
+      "mistnost": "0.09A ložnice",
+      "typ": "Dvoudílná rohová fixní pozice se strukturálním rohem",
+      "rozmer": "1030 + 2930 mm, výška 2765 mm (výrobní rozměry zatím neurčeny)",
+      "parapet": "– (k podlaze)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru); přesazené sklo z terasy T0.01",
+      "kovani": "– (fixní)",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": false,
+      "poznamka": "Výrobní rozměry zatím neurčeny.",
+      "hotspot": [
+        {
+          "x": 33,
+          "y": 1494,
+          "w": 36,
+          "h": 126
+        },
+        {
+          "x": 44,
+          "y": 1593,
+          "w": 345,
+          "h": 36
+        }
+      ],
+      "nahled": "img/okna/FV08.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV09",
+      "podlazi": "1PP",
+      "mistnost": "0.09A ložnice",
+      "typ": "Dvoudílná stěna – fix + otevíravo-sklopné balkonové dveře, levé",
+      "rozmer": "2370 × 2765 mm (fix 1370, dveře 1000 × 2699)",
+      "parapet": "– (práh 20 mm)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru)",
+      "kovani": "Klika + madlo lakované do barvy rámu RAL 9005",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 507,
+        "y": 1161,
+        "w": 36,
+        "h": 264
+      },
+      "nahled": "img/okna/FV09.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV10",
+      "podlazi": "1PP",
+      "mistnost": "0.11 pokoj (ověřit)",
+      "typ": "Dvoudílná stěna – fix + otevíravo-sklopné balkonové dveře, levé",
+      "rozmer": "3250 × 2765 mm (fix 2250, dveře 1000 × 2699)",
+      "parapet": "– (práh 20 mm)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru)",
+      "kovani": "Klika + madlo lakované do barvy rámu RAL 9005",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "V přehledu elementů uvedeno „0.09-ložnice“. Podle rozměru a zrcadlové shody s FV11 jde nejspíš o pokoj 0.11 – ověřit s HA Technik.",
+      "hotspot": {
+        "x": 538,
+        "y": 1140,
+        "w": 369,
+        "h": 36
+      },
+      "nahled": "img/okna/FV10.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV11",
+      "podlazi": "1PP",
+      "mistnost": "0.12 pokoj",
+      "typ": "Dvoudílná stěna – otevíravo-sklopné balkonové dveře levé + fix",
+      "rozmer": "3250 × 2765 mm (fix 2250, dveře 1000 × 2699)",
+      "parapet": "– (práh 20 mm)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru)",
+      "kovani": "Klika + madlo lakované do barvy rámu RAL 9005",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 986,
+        "y": 1140,
+        "w": 369,
+        "h": 36
+      },
+      "nahled": "img/okna/FV11.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV12A",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část",
+      "typ": "Dvoudílné zdvižně-posuvné dveře, varianta design (úzký sloupek); posuvné křídlo levé (pohled z exteriéru)",
+      "rozmer": "8820 × 2738 mm",
+      "parapet": "– (spodní rám zapuštěný do podlahy, bezbariérový přechod 48 mm)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru)",
+      "kovani": "Klika / vnější zapuštěné madlo RAL 9005 černé",
+      "profil": "Schüco ASE 80.HI",
+      "magnet": true,
+      "poznamka": "Z pravé strany spojeno přes strukturální roh s FV12B.",
+      "hotspot": {
+        "x": 1362,
+        "y": 1168,
+        "w": 36,
+        "h": 999
+      },
+      "nahled": "img/okna/FV12A.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV12B",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část",
+      "typ": "Jednodílné fixní pole, strukturální roh s FV12A",
+      "rozmer": "3880 × 2754 mm",
+      "parapet": "– (k podlaze)",
+      "zaskleni": "Izolační trojsklo čiré, oboustranně bezpečnostní (kalené z exteriéru, lepené z interiéru); přesazené sklo ze strany zahrady",
+      "kovani": "– (fixní)",
+      "profil": "Schüco ASE 80.HI",
+      "magnet": null,
+      "poznamka": "",
+      "hotspot": {
+        "x": 1376,
+        "y": 2151,
+        "w": 441,
+        "h": 36
+      },
+      "nahled": "img/okna/FV12B.png",
+      "zabradli": null
+    },
+    {
+      "id": "FV13",
+      "podlazi": "1PP",
+      "mistnost": "0.01 obývací část",
+      "typ": "Dvoudílné – fix + otevíravo-sklopné okno",
+      "rozmer": "2670 × 840 mm (+ 30 mm podkladní profil)",
+      "parapet": "950 mm",
+      "zaskleni": "Izolační trojsklo čiré, jednostranně bezpečnostní (lepené z interiéru)",
+      "kovani": "Okenní klika RAL 9005 černá",
+      "profil": "Schüco AWS 75 SI+",
+      "magnet": true,
+      "poznamka": "",
+      "hotspot": {
+        "x": 1980,
+        "y": 879,
+        "w": 36,
+        "h": 300
+      },
+      "nahled": "img/okna/FV13.png",
+      "zabradli": null
+    }
+  ]
+}

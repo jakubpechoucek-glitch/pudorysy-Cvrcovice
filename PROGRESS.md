@@ -12,8 +12,8 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 |---|---|
 | 0. Plánování | 🟢 hotovo |
 | 1. Základ webu + půdorysy | 🟢 hotovo |
-| 2. Vrstva: Dveře | 🟡 data a hotspoty hotové, chybí fotky a nasazení |
-| 3. Vrstva: Okna | ⚪ nezačato |
+| 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
+| 3. Vrstva: Okna | 🟡 online (16 pozic), čeká na ověření FV10 |
 | 4. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
@@ -31,12 +31,13 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.1)
+## Co web umí (v0.2)
 
 - Obě podlaží vedle sebe (na mobilu pod sebou), přepínač **Obě / 1.PP / 1.NP**.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
-- Filtr podle stavu, seznam dveří pod půdorysy (kliknutím na řádek se dveře najdou v plánu).
+- Vrstva **Okna**: 16 pozic (FV01–FV13) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
+- Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - Tmavý režim podle nastavení systému.
 
 ## Struktura repozitáře
@@ -46,6 +47,8 @@ index.html          – stránka
 css/style.css       – vzhled
 js/app.js           – logika (vrstvy, tooltip, filtry, editor souřadnic)
 data/dvere.json     – data dveří vč. souřadnic hotspotů
+data/okna.json      – data oken vč. souřadnic hotspotů
+img/okna/*.png      – náhledy oken z přehledu elementů HA Technik
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 PROGRESS.md         – tento soubor
 ```
@@ -69,7 +72,9 @@ PROGRESS.md         – tento soubor
   "hotspot": { "x": 873, "y": 633, "w": 96, "h": 36 }
 }
 ```
-Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310).
+Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310). `hotspot` může být i pole obdélníků (např. rohové okno FV08).
+
+Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, kovani, profil, magnet, zabradli, poznamka, nahled, hotspot`. Nová vrstva = nový JSON + záznam v `LAYERS` v `js/app.js` + checkbox v `index.html`.
 
 ---
 
@@ -82,7 +87,8 @@ Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310)
 | Nabídky Hanák „kd int. dveře + obklady“ a „kd pláště“ (15. 10. 2026) | ✅ doplnění (křídla, pláště) – **ceny se nezveřejňují** |
 | DWG D.1.2 (stavebně konstrukční řešení) | ❌ jen statika, bez dveří a místností |
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
-| `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ pravděpodobně tabulka oken – pro fázi 3 |
+| `2026-009 RD Podolanka_přehled elementů-1.pdf` – HA Technik (Schüco), 1. 4. 2026 | ✅ **zdroj dat oken** a náhledů |
+| `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se ceny ani jména a kontakty konkrétních osob, jen firmy (JAP, Hanák). Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
 
@@ -115,9 +121,12 @@ Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310)
 - [ ] Otestovat na skutečném mobilu
 
 ### Fáze 3 – Vrstva Okna
-- [ ] Projít `POD_DPS_D_TABULKY.xlsx` a nabídku oken
-- [ ] Soupis oken (rozměr, typ otevírání, zasklení, parapety, žaluzie/rolety…)
-- [ ] Hotspoty + data (`data/okna.json`)
+- [x] Soupis oken z přehledu elementů HA Technik (16 pozic, 1.PP: 9, 1.NP: 7)
+- [x] Hotspoty + data (`data/okna.json`), náhledy z exteriéru
+- [ ] Ověřit FV10: přehled elementů uvádí „0.09 ložnice“, podle rozměru a zrcadlení s FV11 jde nejspíš o pokoj 0.11
+- [ ] FV02: přehled uvádí „1.03-chodba“, na plánu je to severní okno technické místnosti 1.03
+- [ ] FV08: doplnit výrobní rozměry, až budou určeny
+- [ ] Doplnit žaluzie/rolety (zatím nejsou v podkladech)
 
 ---
 
@@ -146,3 +155,4 @@ Souřadnice hotspotu jsou v pixelech obrázku `img/<podlazi>.png` (2055 × 2310)
 - **2026-10-17:** Založen repozitář, sepsán plán projektu.
 - **2026-10-17:** Web v0.1: půdorysy 1.PP a 1.NP z projektu interiéru, vrstva Dveře (18 pozic) s detaily a stavem, filtry, seznam dveří, editor souřadnic.
 - **2026-10-17:** Zapnuty GitHub Pages, web je online.
+- **2026-10-17:** Web v0.2: vrstva Okna (FV01–FV13, 16 pozic) s náhledy z exteriéru; JS přepracován na obecné vrstvy.
