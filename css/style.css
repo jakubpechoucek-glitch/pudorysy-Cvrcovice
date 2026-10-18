@@ -237,6 +237,7 @@ body {
 body.no-scroll { overflow: hidden; }
 .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .sum { font-size: 15px; margin: 10px 0 0; }
+.muted { color: var(--muted); font-size: 12px; }
 .tip .gallery.small { grid-template-columns: repeat(auto-fit, minmax(110px, 160px)); }
 .tip .gallery.small .thumb { max-height: 150px; padding: 0; }
 .sv-thumb { float: left; width: 40px; height: 40px; object-fit: contain; margin-right: 8px; border-radius: 4px; background: #fff; }

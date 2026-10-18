@@ -1,6 +1,6 @@
 {
   "aktualizovano": "2026-10-15",
-  "zdroj": "Kontrola dveří (stav po schůzce 5. 10. 2026) a nabídky Hanák z 15. 10. 2026",
+  "zdroj": "Kontrola dveří (stav po schůzce 5. 10. 2026) a nabídky Hanák Forum z 15. 10. 2026 (dveře + obklady, pláště)",
   "dvere": [
     {
       "id": "DV001-A",
@@ -26,7 +26,15 @@
         "y": 486,
         "w": 114,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Krycí deska (plášť) lak Cashmere mat 90 × 270 cm",
+          "cena_bez": 12783,
+          "dph": "21 %",
+          "cena_s": 15467.43
+        }
+      ]
     },
     {
       "id": "DV001-B",
@@ -52,7 +60,8 @@
         "y": 522,
         "w": 36,
         "h": 96
-      }
+      },
+      "cena_pozn": "Dodává kompletně JAP – cenová nabídka JAP zatím není k dispozici."
     },
     {
       "id": "DV002",
@@ -78,7 +87,8 @@
         "y": 486,
         "w": 186,
         "h": 36
-      }
+      },
+      "cena_pozn": "Dodává kompletně JAP – cenová nabídka JAP zatím není k dispozici."
     },
     {
       "id": "DV004",
@@ -104,7 +114,15 @@
         "y": 591,
         "w": 36,
         "h": 120
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 270 cm dýha oboustranně + obklad dýha chodby",
+          "cena_bez": 38763,
+          "dph": "12 %",
+          "cena_s": 43414.56
+        }
+      ]
     },
     {
       "id": "DV005",
@@ -130,7 +148,21 @@
         "y": 633,
         "w": 96,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Dveře 82 × 270 cm, skrytá zárubeň, dvoubarevné (pokoj dýha, chodba lak Champagne) + obklad",
+          "cena_bez": 38763,
+          "dph": "12 %",
+          "cena_s": 43414.56
+        },
+        {
+          "popis": "Příplatek za dvoubarevné provedení (1 z 2 ks)",
+          "cena_bez": 3850,
+          "dph": "12 %",
+          "cena_s": 4312.0
+        }
+      ]
     },
     {
       "id": "DV006",
@@ -156,7 +188,21 @@
         "y": 633,
         "w": 96,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Dveře 82 × 270 cm, skrytá zárubeň, dvoubarevné (pokoj dýha, chodba lak Champagne) + obklad",
+          "cena_bez": 38763,
+          "dph": "12 %",
+          "cena_s": 43414.56
+        },
+        {
+          "popis": "Příplatek za dvoubarevné provedení (1 z 2 ks)",
+          "cena_bez": 3850,
+          "dph": "12 %",
+          "cena_s": 4312.0
+        }
+      ]
     },
     {
       "id": "DV007-A",
@@ -182,7 +228,15 @@
         "y": 483,
         "w": 84,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Krycí deska (plášť) lak Cashmere mat 80 × 270 cm",
+          "cena_bez": 12166,
+          "dph": "21 %",
+          "cena_s": 14720.86
+        }
+      ]
     },
     {
       "id": "DV007-B",
@@ -208,7 +262,15 @@
         "y": 483,
         "w": 84,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Krycí deska (plášť) dýha dub americký 85 × 270 cm",
+          "cena_bez": 14990,
+          "dph": "21 %",
+          "cena_s": 18137.9
+        }
+      ]
     },
     {
       "id": "DV008",
@@ -234,7 +296,15 @@
         "y": 891,
         "w": 36,
         "h": 90
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 72 × 270 cm dýha oboustranně + obklad dýha chodby",
+          "cena_bez": 37971,
+          "dph": "12 %",
+          "cena_s": 42527.52
+        }
+      ]
     },
     {
       "id": "DV009",
@@ -260,7 +330,8 @@
         "y": 675,
         "w": 36,
         "h": 120
-      }
+      },
+      "cena_pozn": "Dodává kompletně JAP – cenová nabídka JAP zatím není k dispozici."
     },
     {
       "id": "DV010",
@@ -286,7 +357,15 @@
         "y": 1131,
         "w": 165,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 265 cm dýha oboustranně do obkladu ložnice",
+          "cena_bez": 43034,
+          "dph": "12 %",
+          "cena_s": 48198.08
+        }
+      ]
     },
     {
       "id": "DV101",
@@ -306,13 +385,21 @@
       },
       "dodavatel": "JAP – zárubeň · Hanák – křídlo oboustranně lak",
       "stav": "overit",
-      "poznamka": "Investor potvrdí spodní rozetu a zámek. Ověřit výšku (výkres 2700 × otvor 2682). Křídlo lícované se skříní.",
+      "poznamka": "Investor potvrdí spodní rozetu a zámek. Ověřit výšku (výkres 2700 × otvor 2682). Křídlo lícované se skříní. V nabídce Hanák jsou dvě položky „1.03“ – druhá odpovídá těmto dveřím (garáž).",
       "hotspot": {
         "x": 1287,
         "y": 522,
         "w": 36,
         "h": 96
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 270 cm lak Mocca Star mat oboustranně do zárubně JAP (v nabídce jako druhé „1.03“)",
+          "cena_bez": 35909,
+          "dph": "12 %",
+          "cena_s": 40218.08
+        }
+      ]
     },
     {
       "id": "DV102",
@@ -332,13 +419,21 @@
       },
       "dodavatel": "JAP – konstrukce, sklo, zárubeň · Hanák – plášť z dubové dýhy oboustranně",
       "stav": "ok",
-      "poznamka": "Rovné kotvy.",
+      "poznamka": "Rovné kotvy. Nabídka Hanák uvádí u „1.01“ skrytou zárubeň – ověřit proti řešení JAP MASTER se zárubní ACTIVE.",
       "hotspot": {
         "x": 1794,
         "y": 852,
         "w": 162,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Dveře dýha, skrytá zárubeň („1.01“)",
+          "cena_bez": 38763,
+          "dph": "12 %",
+          "cena_s": 43414.56
+        }
+      ]
     },
     {
       "id": "DV104",
@@ -364,7 +459,15 @@
         "y": 522,
         "w": 36,
         "h": 96
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 270 cm lak Mocca Star mat oboustranně do zárubně JAP",
+          "cena_bez": 35909,
+          "dph": "12 %",
+          "cena_s": 40218.08
+        }
+      ]
     },
     {
       "id": "DV105-A",
@@ -390,7 +493,15 @@
         "y": 486,
         "w": 96,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 270 cm lak Mocca Star mat oboustranně do zárubně JAP",
+          "cena_bez": 35909,
+          "dph": "12 %",
+          "cena_s": 40218.08
+        }
+      ]
     },
     {
       "id": "DV105-B",
@@ -416,7 +527,15 @@
         "y": 993,
         "w": 102,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 270 cm dýha oboustranně do zárubně JAP + nadsvětlík",
+          "cena_bez": 38763,
+          "dph": "12 %",
+          "cena_s": 43414.56
+        }
+      ]
     },
     {
       "id": "DV106",
@@ -442,7 +561,15 @@
         "y": 942,
         "w": 36,
         "h": 96
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Krycí deska (plášť) dýha dub americký 90 × 270 cm",
+          "cena_bez": 15759,
+          "dph": "21 %",
+          "cena_s": 19068.39
+        }
+      ]
     },
     {
       "id": "DV107",
@@ -468,7 +595,139 @@
         "y": 852,
         "w": 84,
         "h": 36
-      }
+      },
+      "cena_hanak": [
+        {
+          "popis": "Křídlo 82 × 270 cm dýha oboustranně do zárubně JAP",
+          "cena_bez": 38763,
+          "dph": "12 %",
+          "cena_s": 43414.56
+        }
+      ]
+    }
+  ],
+  "nabidky": [
+    {
+      "nazev": "Interiérové dveře + obklady a konstrukce",
+      "cislo": "kd int. dveře + obklady a kce",
+      "datum": "2026-10-15",
+      "dodavatel": "Hanák Forum (model SPACE PREMIUM; dýha dub americký přírodní, lak Mocca / Champagne / Cashmere mat; skryté panty, magnetický zámek)",
+      "polozky": [
+        [
+          "Dekorativní panel dýha dub americký – obklad 0.02 (chodba), 0.09 (ložnice), 0.11 a 0.12 (pokoje)",
+          245000
+        ],
+        [
+          "Dekorativní panel lak Champagne mat – obklad chodby 0.10 u pokojů 0.11 a 0.12",
+          72500
+        ],
+        [
+          "DV005 – 0.11 dveře skrytá zárubeň, dvoubarevné, 82 × 270",
+          38763
+        ],
+        [
+          "DV004 – 0.07 dveře dýha + obklad chodby, 82 × 270",
+          38763
+        ],
+        [
+          "DV008 – 0.08 dveře dýha + obklad chodby, 72 × 270",
+          37971
+        ],
+        [
+          "DV006 – 0.12 dveře skrytá zárubeň, dvoubarevné, 82 × 270",
+          38763
+        ],
+        [
+          "DV105-B – 1.07 dveře dýha do zárubně JAP + nadsvětlík",
+          38763
+        ],
+        [
+          "DV104 – 1.02/1.01 dveře lak Mocca do zárubně JAP",
+          35909
+        ],
+        [
+          "DV105-A – 1.03 dveře lak Mocca do zárubně JAP",
+          35909
+        ],
+        [
+          "DV101 – „1.03“ (garáž) dveře lak Mocca do zárubně JAP",
+          35909
+        ],
+        [
+          "DV107 – 1.05 dveře dýha do zárubně JAP",
+          38763
+        ],
+        [
+          "DV102 – 1.01 dveře dýha, skrytá zárubeň",
+          38763
+        ],
+        [
+          "DV010 – 0.09 ložnice dveře dýha do obkladu, 82 × 265",
+          43034
+        ],
+        [
+          "Dvoubarevné provedení dveří (2 ks)",
+          7700
+        ],
+        [
+          "Napínací kování (11 ks)",
+          20350
+        ],
+        [
+          "Vrtání pro panty – skrytá zárubeň (11 ks)",
+          13750
+        ],
+        [
+          "Doprava, manipulace, likvidace, zaměření",
+          28500
+        ],
+        [
+          "Montáž obkladu – lepení na zeď",
+          68000
+        ],
+        [
+          "Montáž dveří (11 ks)",
+          53350
+        ]
+      ],
+      "bez_dph": 930460,
+      "s_dph": 1042115.2,
+      "dph": "12 %"
+    },
+    {
+      "nazev": "Krycí desky (pláště) na dveře JAP",
+      "cislo": "kd pláště",
+      "datum": "2026-10-15",
+      "dodavatel": "Hanák Forum (dýha dub americký přírodní, lak Cashmere mat)",
+      "polozky": [
+        [
+          "DV007-B – 0.04 koupelna, plášť dýha 85 × 270",
+          14990
+        ],
+        [
+          "DV007-A – 0.03 sklad, plášť Cashmere 80 × 270",
+          12166
+        ],
+        [
+          "DV001-A – 0.06 prádelna, plášť Cashmere 90 × 270",
+          12783
+        ],
+        [
+          "DV106 – 1.09 posilovna, plášť dýha (strana knihovny) 90 × 270",
+          15759
+        ],
+        [
+          "Doprava do expedice JAP",
+          7500
+        ],
+        [
+          "Výrobní příplatky (4 ks)",
+          9200
+        ]
+      ],
+      "bez_dph": 72398,
+      "s_dph": 87601.58,
+      "dph": "21 %"
     }
   ]
 }

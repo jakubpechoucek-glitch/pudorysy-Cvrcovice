@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.5'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.6'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -11,6 +11,7 @@ const STAV = {
 };
 const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
 const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever nahoře
+let DOOR_OFFERS = []; // nabídky Hanák na dveře a obklady
 let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
 let ZARUKA = '';    // záruční podmínky nábytku Hanák
 let EZS = {};       // typy prvků EZS a rozpočet
@@ -34,14 +35,19 @@ const LAYERS = {
       ['Zárubeň', it.zarubne],
       ...Object.entries(it.povrch).map(([room, p]) => [`Povrch ${room.split(' ')[0]}`, p]),
       ['Dodavatel', it.dodavatel],
+      ['Cena Hanák', it.cena_hanak ? it.cena_hanak.map(c => `${c.popis}: ${CZK.format(c.cena_bez)} bez DPH (${CZK.format(c.cena_s)} s DPH ${c.dph})`).join('; ') : null],
+      ['Cena', it.cena_pozn],
     ],
     columns: [
       ['Pozice', it => it.id],
       ['Mezi místnostmi', it => it.mezi.join(' ↔ ')],
       ['Typ', it => it.typ],
       ['Rozměr', it => it.rozmer],
+      ['Hanák s DPH', it => ({ html: it.cena_hanak ? `<span class="num">${CZK.format(it.cena_hanak.reduce((a, c) => a + c.cena_s, 0))}</span>` : '<span class="muted">JAP</span>' })],
       ['Stav', it => ({ html: `<span class="badge ${it.stav}">${STAV[it.stav]}</span>` })],
     ],
+    onLoad: data => { DOOR_OFFERS = data.nabidky || []; },
+    extra: doorOffers,
   },
   okna: {
     file: 'data/okna.json',
@@ -454,6 +460,20 @@ function applyFilters() {
     sec.hidden = !state.layers.has(sec.dataset.layer);
     sec.querySelector('.count').textContent = LAYERS[sec.dataset.layer].columns ? `(${shown} z ${total})` : '';
   }
+}
+
+// ---------- nabídky ke dveřím ----------
+
+function doorOffers(sec) {
+  sec.insertAdjacentHTML('beforeend', DOOR_OFFERS.map(n => `
+    <h3 class="sub-h">${esc(n.nazev)} – ${esc(n.dodavatel.split(' (')[0])}, ${formatDate(n.datum)}</h3>
+    <div class="table-wrap"><table>
+      <tbody>${n.polozky.map(([p, c]) => `<tr><td>${esc(p)}</td><td class="num">${CZK.format(c)}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><td><strong>Celkem bez DPH</strong></td><td class="num"><strong>${CZK.format(n.bez_dph)}</strong></td></tr>
+      <tr><td>Celkem s DPH ${esc(n.dph)}</td><td class="num">${CZK.format(n.s_dph)}</td></tr></tfoot>
+    </table></div>
+    <p class="meta">${esc(n.dodavatel)}</p>`).join('') +
+    `<p class="meta">Dveře DV001-B, DV002 a DV009 dodává kompletně JAP, stejně jako zárubně a pouzdra u ostatních dveří – nabídka JAP zatím není v podkladech.</p>`);
 }
 
 // ---------- vrstva povrchů ----------

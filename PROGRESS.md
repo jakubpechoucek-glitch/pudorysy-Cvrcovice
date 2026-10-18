@@ -110,7 +110,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 |---|---|
 | `C.2_OSAZOVACI PUDORYSY.pdf` – JA Architekti, projekt interiéru 08/25 (C.2.1 1.PP, C.2.2 1.NP) | ✅ **podklad půdorysů**: aktuální dispozice vč. 0.09A/B a 1.04A/B |
 | `Dvere_Podolanka_kontrola_4.xlsx` (stav po schůzce 5. 10. 2026) | ✅ hlavní zdroj dat o dveřích |
-| Nabídky Hanák „kd int. dveře + obklady“ a „kd pláště“ (15. 10. 2026) | ✅ doplnění (křídla, pláště) – **ceny se nezveřejňují** |
+| Nabídky Hanák „kd int. dveře + obklady a kce“ a „kd pláště“ (15. 10. 2026) | ✅ křídla, pláště a obklady vč. **cen** (930 460 + 72 398 Kč bez DPH) |
 | DWG D.1.2 (stavebně konstrukční řešení) | ❌ jen statika, bez dveří a místností |
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
 | `2026-009 RD Podolanka_přehled elementů-1.pdf` – HA Technik (Schüco), 1. 4. 2026 | ✅ **zdroj dat oken** a náhledů |
@@ -153,6 +153,9 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Soupis všech dveří (18 pozic, 1.PP: 11, 1.NP: 7)
 - [x] Zakreslit hotspoty všech dveří
 - [ ] Zkontrolovat polohy hotspotů (hlavně DV001-B, DV009, DV010, DV105-B)
+- [x] Ceny Hanák u dveří (detail, sloupec v seznamu, rozpis obou nabídek pod seznamem)
+- [ ] Nabídka JAP (zárubně, pouzdra, DV001-B, DV002, DV009) – zatím chybí
+- [ ] DV101: v nabídce Hanák jako druhé „1.03“; DV102: Hanák uvádí skrytou zárubeň × JAP MASTER/ACTIVE – ověřit
 - [ ] Doplnit fotky (po montáži)
 - [ ] Průběžně aktualizovat stavy po dalších schůzkách
 - [ ] Otestovat na skutečném mobilu
@@ -265,3 +268,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-18:** Světlík SL01 (ALLUX AAG) ve vrstvě Okna a vrata – střecha + strop pracovny, foto, rozpočet (v0.8.3).
 - **2026-10-18:** Web v0.8.4: vrstva Stínění – markýza Sundrape Dakota v atriu.
 - **2026-10-18:** Markýza: výrobce ISOTRA, vizualizace v detailu (v0.8.5).
+- **2026-10-18:** Dveře: ceny z nabídek Hanák (15. 10. 2026) u jednotlivých dveří a rozpis nabídek (v0.8.6).
