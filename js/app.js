@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.6'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.7'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -495,8 +495,12 @@ function roomHtml(it) {
     </ul>` : '';
   const nab = MAT[it.podlaha.kod]?.nabidka;
   const supplier = nab ? `<p class="note">Podlaha: ${esc(nab.dodavatel)}, nabídka ${esc(nab.cislo)} – celá dodávka dřevěných podlah a schodiště ${CZK.format(nab.celkem)} ${esc(nab.dph.split(' – ')[0])}. Rozpis je pod půdorysy v části Povrchy.</p>` : '';
+  const samples = uniq([it.podlaha, ...it.steny, ...it.strop].map(e => e.kod)).filter(k => MAT[k]?.foto);
+  const gallery = samples.length ? `<h4>Vzorky materiálů</h4><div class="gallery small">${samples.map(k => `
+    <a href="${esc(MAT[k].foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb photo" src="${esc(MAT[k].foto)}" alt="${esc(k)}: ${esc(MAT[k].foto_pozn || MAT[k].nazev)}"></a>`).join('')}</div>
+    <p class="thumb-cap">${samples.map(k => `${esc(k)} – ${esc(MAT[k].foto_pozn || MAT[k].nazev)}`).join('<br>')}</p>` : '';
   return head + wallDiagram(it) + group('Podlaha', [it.podlaha]) +
-    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop) + supplier;
+    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop) + gallery + supplier;
 }
 
 function stairHtml(it) {
@@ -560,7 +564,7 @@ function materialsTable(sec) {
     for (const e of [it.podlaha, ...it.steny, ...it.strop]) (used[e.kod] ??= new Set()).add(it.id);
   }
   const rows = Object.entries(MAT).filter(([k]) => used[k]).map(([k, m]) => `
-    <tr><td>${matChip(k)}</td><td>${esc(m.nazev)}${m.poznamka ? `<br><small>${esc(m.poznamka)}</small>` : ''}</td>
+    <tr><td>${matChip(k)}</td><td>${m.foto ? `<img class="sv-thumb" src="${esc(m.foto)}" alt="" loading="lazy">` : ''}${esc(m.nazev)}${m.poznamka ? `<br><small>${esc(m.poznamka)}</small>` : ''}</td>
     <td>${esc([...used[k]].join(', '))}</td><td>${esc(m.celkem || '')}</td></tr>`).join('');
   sec.insertAdjacentHTML('beforeend', `
     ${floorOffer()}

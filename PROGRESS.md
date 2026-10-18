@@ -72,6 +72,7 @@ data/stineni.json   – stínění (markýza): parametry, položky, cena, plocha
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 img/fve/            – fotky panelu, střídače, baterie a wallboxu z technických listů
+img/materialy/      – fotky vzorků materiálů (podlaha P1, dýha M8)
 img/STR.png         – půdorys střechy (z výkresu D.1.4.4 hromosvod, bez barevných vrstev a staré FVE)
 data/fve.json       – FVE: komponenty, výroba, cena, polohy panelů
 PROGRESS.md         – tento soubor
@@ -269,3 +270,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-18:** Web v0.8.4: vrstva Stínění – markýza Sundrape Dakota v atriu.
 - **2026-10-18:** Markýza: výrobce ISOTRA, vizualizace v detailu (v0.8.5).
 - **2026-10-18:** Dveře: ceny z nabídek Hanák (15. 10. 2026) u jednotlivých dveří a rozpis nabídek (v0.8.6).
+- **2026-10-18:** Opravy: nábytek u severní stěny koupelen 0.04 a 0.08, spíž ve tvaru J bez lednice, nová vizualizace kuchyně, vzorky podlahy (P1) a dýhy Hanák (M8) v detailu místností (v0.8.7).

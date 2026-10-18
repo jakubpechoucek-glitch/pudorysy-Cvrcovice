@@ -157,7 +157,7 @@
           "h": 132
         }
       ],
-      "poznamka": null
+      "poznamka": "Vizualizace: poslední verze od Hanáku (foto obrazovky)."
     },
     {
       "id": "K2",
@@ -233,16 +233,22 @@
           "x": 1560,
           "y": 540,
           "w": 399,
-          "h": 54
+          "h": 51
         },
         {
-          "x": 1560,
-          "y": 765,
-          "w": 399,
-          "h": 99
+          "x": 1911,
+          "y": 591,
+          "w": 48,
+          "h": 180
+        },
+        {
+          "x": 1776,
+          "y": 771,
+          "w": 183,
+          "h": 93
         }
       ],
-      "poznamka": null
+      "poznamka": "Nábytek ve tvaru J (severní stěna, východní stěna a linka se dřezem); lednice Side-by-Side stojí vlevo u jižní stěny."
     },
     {
       "id": "N-K004",
@@ -287,6 +293,12 @@
           "y": 240,
           "w": 45,
           "h": 252
+        },
+        {
+          "x": 1026,
+          "y": 222,
+          "w": 249,
+          "h": 30
         }
       ],
       "poznamka": null
@@ -446,6 +458,12 @@
           "y": 1077,
           "w": 270,
           "h": 54
+        },
+        {
+          "x": 60,
+          "y": 780,
+          "w": 264,
+          "h": 30
         }
       ]
     },
