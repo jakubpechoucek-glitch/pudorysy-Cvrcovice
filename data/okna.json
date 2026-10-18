@@ -1,6 +1,6 @@
 {
   "aktualizovano": "2026-04-01",
-  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat); garážová vrata: Značková okna Praha, nabídka i-516-33272/2026",
+  "zdroj": "HA Technik – přehled elementů 2026-009 RD Podolanka (Schüco, rámy RAL 9005 mat); garážová vrata: Značková okna Praha, nabídka i-516-33272/2026; světlík: ALLUX-STAV, nabídka 60-207 B",
   "okna": [
     {
       "id": "FV01",
@@ -404,6 +404,112 @@
       },
       "nahled": "img/okna/GV01.png",
       "zabradli": null
+    },
+    {
+      "id": "SL01",
+      "podlazi": "STR",
+      "mistnost": "střecha nad pracovnou 1.07",
+      "typ": "Bodový světlík ALLUX Aluminium Glass (AAG) – ploché otevírací křídlo",
+      "rozmer": "průchod světla 120 × 210 cm; stavební otvor 2450 × 1450 mm (upraven manžetou a opláštěním)",
+      "parapet": "– (ve střeše nad pracovnou, šikmá PVC manžeta výšky 45 cm)",
+      "zaskleni": "Vrstvené izolační trojsklo ESG Energy 6T-16-4-16-VSG 33.2 – vrchní kalené sklo s termoodrazivou vrstvou, spodní bezpečnostní; Ug 0,5 W/m²K",
+      "kovani": "Elektrické otevírání pro denní větrání – lineární pohon 2× SKYRO 650 (230 V, zdvih 350 mm); elektrická horizontální žaluzie šedá, transmise 6 %, ovládání PowerView",
+      "povrch": "Hliníkový rám s přerušeným tepelným mostem, antracit RAL 7021",
+      "profil": "ALLUX AAG",
+      "magnet": null,
+      "zabradli": null,
+      "dodavatel": "ALLUX-STAV s.r.o. přes HELP Stavby",
+      "polozky": [
+        {
+          "popis": "Světlík AAG, ploché otevírací křídlo 120 × 210 cm, trojsklo, RAL 7021",
+          "cena": 50260.0
+        },
+        {
+          "popis": "PVC manžeta šikmá 140 × 230 cm, výška 45 cm (Up 0,88 W/m²K)",
+          "cena": 16490.0
+        },
+        {
+          "popis": "Elektrický lineární pohon 2× SKYRO 650 – denní větrání",
+          "cena": 15800.0
+        },
+        {
+          "popis": "Elektrická horizontální žaluzie 120 × 210 cm, dálkové ovládání",
+          "cena": 16660.0
+        },
+        {
+          "popis": "Montáž na připravený otvor, kotevní materiál",
+          "cena": 15000.0
+        },
+        {
+          "popis": "Doprava na stavbu",
+          "cena": 6500.0
+        }
+      ],
+      "celkem": 120710.0,
+      "cena_pozn": "bez DPH",
+      "nabidka": "ALLUX-STAV 60-207 B, 21. 7. 2026",
+      "poznamka": "Cena nezahrnuje zdvih na střechu, otvor ve střešním plášti, vyspádování pod manžetou (min. 5°) a elektrozapojení pohonů a žaluzie. Pod světlík je třeba připravit zásuvku 230 V. Foto: hotový světlík zevnitř.",
+      "nahled": "img/okna/SL01.jpg",
+      "hotspot": {
+        "x": 1336,
+        "y": 1252,
+        "w": 236,
+        "h": 145
+      },
+      "nahled_pozn": "Hotový světlík zevnitř (foto ze stavby)"
+    },
+    {
+      "id": "SL01-1NP",
+      "podlazi": "1NP",
+      "mistnost": "1.07 pracovna – ve stropě (jižní část místnosti)",
+      "typ": "Bodový světlík ALLUX Aluminium Glass (AAG) – ploché otevírací křídlo",
+      "rozmer": "průchod světla 120 × 210 cm; stavební otvor 2450 × 1450 mm (upraven manžetou a opláštěním)",
+      "parapet": "– (ve střeše nad pracovnou, šikmá PVC manžeta výšky 45 cm)",
+      "zaskleni": "Vrstvené izolační trojsklo ESG Energy 6T-16-4-16-VSG 33.2 – vrchní kalené sklo s termoodrazivou vrstvou, spodní bezpečnostní; Ug 0,5 W/m²K",
+      "kovani": "Elektrické otevírání pro denní větrání – lineární pohon 2× SKYRO 650 (230 V, zdvih 350 mm); elektrická horizontální žaluzie šedá, transmise 6 %, ovládání PowerView",
+      "povrch": "Hliníkový rám s přerušeným tepelným mostem, antracit RAL 7021",
+      "profil": "ALLUX AAG",
+      "magnet": null,
+      "zabradli": null,
+      "dodavatel": "ALLUX-STAV s.r.o. přes HELP Stavby",
+      "polozky": [
+        {
+          "popis": "Světlík AAG, ploché otevírací křídlo 120 × 210 cm, trojsklo, RAL 7021",
+          "cena": 50260.0
+        },
+        {
+          "popis": "PVC manžeta šikmá 140 × 230 cm, výška 45 cm (Up 0,88 W/m²K)",
+          "cena": 16490.0
+        },
+        {
+          "popis": "Elektrický lineární pohon 2× SKYRO 650 – denní větrání",
+          "cena": 15800.0
+        },
+        {
+          "popis": "Elektrická horizontální žaluzie 120 × 210 cm, dálkové ovládání",
+          "cena": 16660.0
+        },
+        {
+          "popis": "Montáž na připravený otvor, kotevní materiál",
+          "cena": 15000.0
+        },
+        {
+          "popis": "Doprava na stavbu",
+          "cena": 6500.0
+        }
+      ],
+      "celkem": 120710.0,
+      "cena_pozn": "bez DPH",
+      "nabidka": "ALLUX-STAV 60-207 B, 21. 7. 2026",
+      "poznamka": "Cena nezahrnuje zdvih na střechu, otvor ve střešním plášti, vyspádování pod manžetou (min. 5°) a elektrozapojení pohonů a žaluzie. Pod světlík je třeba připravit zásuvku 230 V. Foto: hotový světlík zevnitř.",
+      "nahled": "img/okna/SL01.jpg",
+      "hotspot": {
+        "x": 1410,
+        "y": 1296,
+        "w": 276,
+        "h": 165
+      },
+      "nahled_pozn": "Hotový světlík zevnitř (foto ze stavby)"
     }
   ]
 }

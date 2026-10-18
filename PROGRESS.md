@@ -13,7 +13,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 0. Plánování | 🟢 hotovo |
 | 1. Základ webu + půdorysy | 🟢 hotovo |
 | 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
-| 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata), čeká na ověření FV10 |
+| 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata + světlík), čeká na ověření FV10 |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
@@ -112,6 +112,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
 | `2026-009 RD Podolanka_přehled elementů-1.pdf` – HA Technik (Schüco), 1. 4. 2026 | ✅ **zdroj dat oken** a náhledů |
 | `i-516-33272_Help_RDPodolanka_LPU42_silkgrain_RAL9005_6000x2250 mm_Nkovani.pdf` – Značková okna Praha (Hörmann), 23. 9. 2026 | ✅ garážová vrata GV01; starší varianty (SPUF42, planar) nevyužity |
+| Dropbox `Interier/světlík`: `HELP Stavby s.r.o. 60 - 207 B.pdf` (ALLUX-STAV, 21. 7. 2026) + schémata umístění; `Downloads/svetlik int_01.jpeg` (foto) | ✅ světlík SL01 |
 | `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
 | Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
 | Dropbox `Interier/EZS + kamery`: nabídka `2026-05-23 Podolanka (002) 1.6.2026.pdf` (rozpočet + zakreslení prvků), `RD Podolanka ZL 9 - EZS.xlsx`, `1PP.png`/`1NP.png` (zorná pole kamer) | ✅ **zdroj EZS**; polohy prvků převzaty slícováním výkresu z nabídky s naším půdorysem |
@@ -160,6 +161,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] FV08: doplnit výrobní rozměry, až budou určeny
 - [ ] Doplnit žaluzie/rolety (zatím nejsou v podkladech)
 - [x] Garážová vrata GV01: Hörmann LPU 42, 6000 × 2250, RAL 9005 Silkgrain, RC 2, SupraMatic P – 129 435 Kč bez DPH
+- [x] Světlík SL01: ALLUX AAG 120 × 210 cm, el. otevírání + žaluzie, 120 710 Kč bez DPH (nabídka 60-207 B) – na střeše a ve stropě pracovny 1.07, s fotkou ze stavby
 - [ ] GV01: ověřit, zda je to finální varianta (v Downloads jsou i starší nabídky SPUF42 a LPU42 planar)
 
 ---
@@ -251,3 +253,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.8: podlaží Střecha a vrstva FVE (SEFY, 18 × 550 Wp, 14,4 kWh, 2 wallboxy).
 - **2026-10-17:** FVE: střídač, baterie, rozvaděč a 2 wallboxy v 1.NP s fotkami; FVE ve výchozím stavu vypnutá, po zapnutí 1.NP + střecha (v0.8.1).
 - **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).
+- **2026-10-18:** Světlík SL01 (ALLUX AAG) ve vrstvě Okna a vrata – střecha + strop pracovny, foto, rozpočet (v0.8.3).

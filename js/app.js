@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.3'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -278,7 +278,7 @@ function tipHtml(it) {
     <button class="close" aria-label="Zavřít">×</button>
     <h3>${esc(it.id)} ${cfg.badge(it)}</h3>
     <p class="rooms">${esc(cfg.subtitle(it))}</p>
-    ${it.nahled ? `<a href="${esc(it.nahled)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"></a><p class="thumb-cap">Pohled z exteriéru</p>` : ''}
+    ${it.nahled ? `<a href="${esc(it.nahled)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.nahled)}" alt="Pohled na ${esc(it.id)} z exteriéru"></a><p class="thumb-cap">${esc(it.nahled_pozn || 'Pohled z exteriéru')}</p>` : ''}
     <dl>${rows}</dl>
     ${it.polozky ? itemsTable(it, `Položky (${it.cena_pozn})`, `Celkem ${it.cena_pozn.split(' (')[0]}`) : ''}
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
