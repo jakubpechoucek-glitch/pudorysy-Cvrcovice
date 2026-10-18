@@ -218,7 +218,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] Případně hromosvod jako samostatná vrstva na střeše
 
 ### Fáze 9 – Stínění
-- [x] Markýza Dakota 5780 × 3500 mm v atriu před pokoji 0.11/0.12
+- [x] Markýza Dakota 5780 × 3500 mm v atriu před pokoji 0.11/0.12 – výrobce ISOTRA, dodavatel Sundrape; vizualizace na fotce stavby (Dropbox `Markýza/Markýza AI.png`)
 - [ ] Vybrat barvu konstrukce a látky; elektro příprava pro motor a LED (není v ceně)
 - [ ] Případně doplnit žaluzie/rolety oken a žaluzii světlíku do této vrstvy
 
@@ -264,3 +264,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).
 - **2026-10-18:** Světlík SL01 (ALLUX AAG) ve vrstvě Okna a vrata – střecha + strop pracovny, foto, rozpočet (v0.8.3).
 - **2026-10-18:** Web v0.8.4: vrstva Stínění – markýza Sundrape Dakota v atriu.
+- **2026-10-18:** Markýza: výrobce ISOTRA, vizualizace v detailu (v0.8.5).

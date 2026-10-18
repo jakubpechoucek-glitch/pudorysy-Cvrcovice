@@ -1,14 +1,18 @@
 {
   "aktualizovano": "2026-09-18",
-  "zdroj": "Sundrape – cenová nabídka kazetové markýzy Dakota (18. 9. 2026)",
+  "zdroj": "Sundrape – cenová nabídka kazetové markýzy Dakota, výrobce ISOTRA (18. 9. 2026)",
   "stineni": [
     {
       "id": "MK01",
       "podlazi": "1PP",
       "nazev": "Kazetová markýza Dakota",
-      "mistnost": "atrium – terasa před pokoji 0.11 a 0.12",
+      "mistnost": "atrium – fasáda nad balkonovými dveřmi pokojů 0.11 a 0.12 (FV10, FV11)",
       "rozmer": "šířka 5780 mm × výsun 3500 mm",
       "parametry": [
+        [
+          "Výrobce",
+          "ISOTRA (dodavatel a montáž Sundrape)"
+        ],
         [
           "Typ",
           "elektrická kazetová markýza (látka v uzavřené kazetě)"
@@ -69,7 +73,11 @@
         "y": 1170,
         "w": 654,
         "h": 396
-      }
+      },
+      "vyrobce": "ISOTRA",
+      "dodavatel": "Sundrape, spol. s r.o.",
+      "foto": "img/stineni/markyza-dakota.jpg",
+      "foto_pozn": "Vizualizace markýzy na fasádě nad pokoji 0.11 a 0.12 (AI úprava fotky ze stavby)"
     }
   ]
 }
