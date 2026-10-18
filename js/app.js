@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.8.3'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.8.4'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -142,6 +142,22 @@ const LAYERS = {
     columns: null,
     extra: fveSummary,
   },
+  stineni: {
+    file: 'data/stineni.json',
+    key: 'stineni',
+    title: 'Stínění',
+    padding: 0,
+    label: false,
+    glyph: () => 'MARKÝZA',
+    subtitle: it => `${it.nazev} – ${it.mistnost}`,
+    render: shadeHtml,
+    columns: [
+      ['Prvek', it => it.nazev],
+      ['Umístění', it => it.mistnost],
+      ['Rozměr', it => it.rozmer],
+      ['Cena s DPH', it => ({ html: `<span class="num">${CZK.format(it.s_dph)}</span>` })],
+    ],
+  },
   svitidla: {
     file: 'data/svitidla.json',
     key: 'svitidla',
@@ -198,6 +214,8 @@ async function init() {
 function renderHotspots() {
   for (const fig of document.querySelectorAll('.plan')) {
     const svg = fig.querySelector('svg');
+    // šrafa pro plochy stínění (markýza)
+    svg.insertAdjacentHTML('afterbegin', `<defs><pattern id="stripes-${fig.dataset.floor}" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="rgba(230,126,34,.12)"/><rect width="10" height="28" fill="rgba(230,126,34,.38)"/></pattern></defs>`);
     // pořadí vykreslení: místnosti dospod, pak okna, navrch dveře (zůstanou klikací tam, kde se překrývají)
     const order = it => LAYERS[it.layer].below ? 0 : it.layer === 'okna' ? 1 : 2;
     const items = state.items.filter(i => i.podlazi === fig.dataset.floor).sort((a, b) => order(a) - order(b));
@@ -208,6 +226,7 @@ function renderHotspots() {
       const rects = [].concat(it.hotspot);
       const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': cfg.statusFilter ? it.stav : '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
       if (cfg.color) g.style.setProperty('--c', cfg.color(it));
+      if (it.layer === 'stineni') g.style.setProperty('--fill', `url(#stripes-${fig.dataset.floor})`);
       for (const { x, y, w, h } of rects) {
         if (pad) g.append(el('rect', { class: 'hit', x: x - pad, y: y - pad, width: w + 2 * pad, height: h + 2 * pad }));
         g.append(el('rect', { class: 'mark', x, y, width: w, height: h }));
@@ -699,6 +718,19 @@ function fveSummary(sec) {
     </div>
     <p class="meta">Termín: ${esc(it.termin)}. Záruky: ${esc(it.zaruky)}<br>
     Součástí: ${esc(it.sluzby)}<br>Nezahrnuje: ${esc(it.nezahrnuje)}</p>`);
+}
+
+// ---------- vrstva stínění ----------
+
+function shadeHtml(it) {
+  const rows = it.parametry.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3>${esc(it.nazev)} <span class="badge stin">Sundrape</span></h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    <dl>${rows}</dl>
+    ${itemsTable(it, 'Položky (bez DPH)', 'Celkem bez DPH',
+      `<tr><td>Celkem s DPH ${esc(it.dph)}</td><td class="num">${CZK.format(it.s_dph)}</td></tr>`)}
+    <p class="note">${esc(it.poznamka)}</p>`;
 }
 
 // ---------- vrstva svítidel ----------

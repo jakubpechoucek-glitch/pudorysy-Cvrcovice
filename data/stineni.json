@@ -1,0 +1,75 @@
+{
+  "aktualizovano": "2026-09-18",
+  "zdroj": "Sundrape – cenová nabídka kazetové markýzy Dakota (18. 9. 2026)",
+  "stineni": [
+    {
+      "id": "MK01",
+      "podlazi": "1PP",
+      "nazev": "Kazetová markýza Dakota",
+      "mistnost": "atrium – terasa před pokoji 0.11 a 0.12",
+      "rozmer": "šířka 5780 mm × výsun 3500 mm",
+      "parametry": [
+        [
+          "Typ",
+          "elektrická kazetová markýza (látka v uzavřené kazetě)"
+        ],
+        [
+          "Rozměr",
+          "šířka 5780 mm × výsun 3500 mm"
+        ],
+        [
+          "Pohon",
+          "motor Somfy Sunea iO, dálkový ovladač Somfy Situo 5 iO"
+        ],
+        [
+          "Výbava",
+          "otřesové (větrné) čidlo – při větru markýzu zatáhne; LED pásek po délce"
+        ],
+        [
+          "Barvy",
+          "konstrukce RAL standard, látka standard (k výběru)"
+        ],
+        [
+          "Termín",
+          "přibližně 12 týdnů od objednávky, záloha 50 %"
+        ],
+        [
+          "Záruka",
+          "24 měsíců na montážní práce"
+        ]
+      ],
+      "polozky": [
+        {
+          "popis": "Markýza Dakota 5780 × 3500 mm vč. motoru Somfy Sunea iO",
+          "cena": 101320
+        },
+        {
+          "popis": "Dálkový ovladač Somfy Situo 5 iO",
+          "cena": 2850
+        },
+        {
+          "popis": "Otřesové čidlo",
+          "cena": 3000
+        },
+        {
+          "popis": "Montáž",
+          "cena": 20000
+        },
+        {
+          "popis": "Doprava",
+          "cena": 660
+        }
+      ],
+      "celkem": 127830,
+      "s_dph": 143170,
+      "dph": "12 %",
+      "poznamka": "Konečná cena po zaměření. Elektro příprava (přívod k motoru a LED) není v ceně – účtuje se jako vícepráce. Plocha v plánu ukazuje výsun markýzy z fasády pokojů do atria.",
+      "hotspot": {
+        "x": 627,
+        "y": 1170,
+        "w": 654,
+        "h": 396
+      }
+    }
+  ]
+}

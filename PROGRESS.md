@@ -19,7 +19,8 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
 | 7. Vrstva: Svítidla | 🟢 online (36 skupin, SV01–SV19, rozpočet PAIRAM NAB-26-349) |
 | 8. Střecha + vrstva FVE | 🟢 online (18 panelů, smlouva SEFY) |
-| 9. Další vrstvy a vylepšení | ⚪ nezačato |
+| 9. Vrstva: Stínění | 🟢 online (markýza Dakota v atriu) |
+| 10. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
 
@@ -47,6 +48,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. V detailu i fotka svítidla z nabídky. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-349 (416 354 Kč bez DPH) s porovnáním Delta Light (502 661 Kč, červen).
 - Vrstva **FVE** (ve výchozím stavu vypnutá; po zapnutí ukáže 1.NP + střechu): 18 panelů AIKO 550 Wp na střeše podle náhledu SEFY, v 1.NP střídač, baterie (BAT1, BAT2) a rozvaděč RD v SZ rohu skladu 1.04B a 2 wallboxy na jižní stěně garáže, s fotkami z technických listů; detail se střídačem, bateriemi, nabíječkami aut, roční výrobou a cenou; pod půdorysy rozpis komponent a graf měsíční výroby.
+- Vrstva **Stínění** (ve výchozím stavu vypnutá): kazetová markýza Sundrape Dakota 5,78 × 3,5 m v atriu před pokoji 0.11/0.12 – šrafovaná plocha výsunu, detail s pohonem, výbavou a cenou.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -66,6 +68,7 @@ data/ezs.json       – typy prvků EZS (model, popis, cena, barva, znak), rozpo
 img/ezs/            – ilustrační foto kamery a kouřového detektoru
 data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa), rozpočet, skupiny po místnostech
 img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
+data/stineni.json   – stínění (markýza): parametry, položky, cena, plocha výsunu
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 img/fve/            – fotky panelu, střídače, baterie a wallboxu z technických listů
@@ -121,6 +124,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026, nahrazena), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
 | Dropbox `FVE/SEFY srpen 2026`: `Smlouva o dílo 31_08_26 23-16-23_Help.pdf` (SEFY VB-26-1530, 416 000 Kč vč. DPH) a `Podolanka-1.pdf` (simulace SolarEdge Designer 24. 9. 2026) | ✅ **zdroj FVE**; rozmístění panelů z leteckého náhledu |
 | `misto-d.1.4.f.06-pudorys-strechy-hromosvod-1.pdf` (D.1.4.4) | ✅ **podklad střechy** – odstraněny popisy, hromosvod a stará FVE (20 × 450 Wp) |
+| `Pěchouček_Kazetová-markýza-Dakota_18-09-2026-1.pdf` – Sundrape, 18. 9. 2026 | ✅ markýza MK01 (127 830 Kč bez DPH / 143 170 Kč s DPH); umístění: atrium u pokojů 0.11/0.12 (dle investora) |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
@@ -213,6 +217,11 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Dvě auta zakreslena v garáži (jen kresba, zobrazí se s vrstvou FVE)
 - [ ] Případně hromosvod jako samostatná vrstva na střeše
 
+### Fáze 9 – Stínění
+- [x] Markýza Dakota 5780 × 3500 mm v atriu před pokoji 0.11/0.12
+- [ ] Vybrat barvu konstrukce a látky; elektro příprava pro motor a LED (není v ceně)
+- [ ] Případně doplnit žaluzie/rolety oken a žaluzii světlíku do této vrstvy
+
 ## Návrhy na vylepšení (k rozhodnutí)
 
 1. **Zásuvky a vypínače:** výkresy E.2/E.4 + nabídka ELEKTRO&LIGHT 263NA00168 (84 190 Kč s DPH) – vrstva by šla udělat stejným postupem jako svítidla.
@@ -254,3 +263,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** FVE: střídač, baterie, rozvaděč a 2 wallboxy v 1.NP s fotkami; FVE ve výchozím stavu vypnutá, po zapnutí 1.NP + střecha (v0.8.1).
 - **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).
 - **2026-10-18:** Světlík SL01 (ALLUX AAG) ve vrstvě Okna a vrata – střecha + strop pracovny, foto, rozpočet (v0.8.3).
+- **2026-10-18:** Web v0.8.4: vrstva Stínění – markýza Sundrape Dakota v atriu.
