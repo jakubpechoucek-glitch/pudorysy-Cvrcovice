@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.9.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.10.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -15,6 +15,7 @@ let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množ
 let ZARUKA = '';    // záruční podmínky nábytku Hanák
 let EZS = {};       // typy prvků EZS a rozpočet
 let SVT = {};       // typy svítidel, rozpočet
+let TC = {};        // tepelné čerpadlo: rozpočet strojovny
 const CZK = new Intl.NumberFormat('cs-CZ', { style: 'currency', currency: 'CZK', maximumFractionDigits: 0 });
 const STAV_NAB = { smlouva: 'Smlouva', nabidka: 'Nabídka' };
 
@@ -155,6 +156,23 @@ const LAYERS = {
     render: lightHtml,
     columns: null,         // bez seznamu skupin – přehled je v tabulce typů s fotkami
     extra: lightSummary,
+  },
+  tc: {
+    file: 'data/tc.json',
+    key: 'tc',
+    title: 'Tepelné čerpadlo',
+    padding: 4,
+    label: false,
+    onLoad: data => { TC = data; },
+    glyph: it => it.znak,
+    subtitle: it => `${it.nazev} – ${it.mistnost}`,
+    render: tcHtml,
+    columns: [
+      ['Prvek', it => ({ html: `<span class="ezs-dot tc-dot">${esc(it.znak)}</span> ${esc(it.nazev)}` })],
+      ['Umístění', it => it.mistnost],
+      ['Cena bez DPH', it => ({ html: `<span class="num">${CZK.format(it.cena)}</span>` })],
+    ],
+    extra: tcSummary,
   },
 };
 
@@ -752,6 +770,32 @@ function lightSummary(sec) {
       <tr><td>Alternativa ${esc(a.dodavatel)} ${esc(a.cislo)} (${formatDate(a.datum)}), ${esc(a.pozn)}</td><td class="num">${CZK.format(a.celkem)}</td></tr></tfoot>
     </table></div>
     <p class="meta">${esc(SVT.poznamka)}</p>`);
+}
+
+// ---------- vrstva tepelného čerpadla ----------
+
+function tcHtml(it) {
+  const rows = [...it.parametry, ['Cena', `${CZK.format(it.cena)} bez DPH`]]
+    .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3><span class="ezs-dot tc-dot">${esc(it.znak)}</span> ${esc(it.nazev)}</h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    <dl>${rows}</dl>
+    <p class="src">Součást strojovny TČ – nabídka ${esc(TC.nabidka)}, celkem ${CZK.format(TC.celkem)} bez DPH (rozpis pod půdorysy).</p>`;
+}
+
+function tcSummary(sec) {
+  const rows = TC.rozpocet.map(r => `<tr><td>${esc(r.popis)}</td><td class="num">${r.ks}</td><td class="num">${r.cena ? CZK.format(r.cena) : 'dodávka stavby'}</td></tr>`).join('');
+  sec.insertAdjacentHTML('beforeend', `
+    <h3 class="sub-h">Rozpočet strojovny – nabídka ${esc(TC.nabidka)}</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Položka</th><th class="num">ks</th><th class="num">Cena bez DPH</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr><td colspan="2"><strong>Celkem bez DPH</strong></td><td class="num"><strong>${CZK.format(TC.celkem)}</strong></td></tr>
+      <tr><td colspan="2">Celkem vč. DPH ${esc(TC.dph)}</td><td class="num">${CZK.format(TC.celkem_dph)}</td></tr></tfoot>
+    </table></div>
+    <p class="meta">Požadavky na elektroinstalaci: ${esc(TC.elektro.join('; '))}.<br>
+    Záruka: ${esc(TC.zaruka)}<br>${esc(TC.poznamka)}</p>`);
 }
 
 // ---------- galerie (zvětšení obrázků) ----------

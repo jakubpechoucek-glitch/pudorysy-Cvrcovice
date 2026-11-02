@@ -1,0 +1,235 @@
+{
+  "aktualizovano": "2026-10-12",
+  "zdroj": "alpha innotec – nabídka na kompletní strojovnu s TČ země/voda SWC 102K3 (12. 10. 2026); umístění podle značek v technické místnosti 1.03 (C.2.2)",
+  "nabidka": "alpha innotec, 12. 10. 2026",
+  "celkem": 467788.0,
+  "celkem_dph": 523922.56,
+  "dph": "12 %",
+  "rozpocet": [
+    {
+      "popis": "Tepelné čerpadlo alpha innotec SWC 102K3",
+      "ks": 1,
+      "cena": 239900
+    },
+    {
+      "popis": "Zásobník TUV WWS 405.2",
+      "ks": 1,
+      "cena": 36990
+    },
+    {
+      "popis": "Akumulační zásobník TPS 200",
+      "ks": 1,
+      "cena": 12290
+    },
+    {
+      "popis": "Náplň primárního okruhu nemrznoucí směsí",
+      "ks": 1,
+      "cena": null
+    },
+    {
+      "popis": "Primární okruh",
+      "ks": 1,
+      "cena": null
+    },
+    {
+      "popis": "Dopojení primárního okruhu do TČ",
+      "ks": 1,
+      "cena": 7500
+    },
+    {
+      "popis": "Pojistná sada SPP 18 pro primární okruh",
+      "ks": 1,
+      "cena": 4890
+    },
+    {
+      "popis": "Izolace primárního okruhu v TM",
+      "ks": 1,
+      "cena": 8000
+    },
+    {
+      "popis": "Materiál – hydraulické připojení strojovny",
+      "ks": 1,
+      "cena": 35900
+    },
+    {
+      "popis": "Rozdělovač/sběrač 4 topných okruhů",
+      "ks": 1,
+      "cena": 12900
+    },
+    {
+      "popis": "Topný okruh mixovaný 25/60",
+      "ks": 2,
+      "cena": 27800
+    },
+    {
+      "popis": "Topný okruh přímý 25/60",
+      "ks": 2,
+      "cena": 17800
+    },
+    {
+      "popis": "Elektroinstalace v TM",
+      "ks": 1,
+      "cena": 17500
+    },
+    {
+      "popis": "Rozšiřující deska Luxtronik 2.1",
+      "ks": 1,
+      "cena": 9490
+    },
+    {
+      "popis": "Teplotní čidlo FSW",
+      "ks": 3,
+      "cena": 2328
+    },
+    {
+      "popis": "Montáž strojovny, regulace",
+      "ks": 1,
+      "cena": 29500
+    },
+    {
+      "popis": "Spuštění, zaškolení, vyregulování",
+      "ks": 1,
+      "cena": 5000
+    }
+  ],
+  "elektro": [
+    "hlavní přívod pro podružný rozvaděč CYKY 5Cx4",
+    "kabel HDO CYKY 2Ax1,5",
+    "kabel venkovního čidla na severní fasádu SYKFY 2x2x0,5 mm²",
+    "jistič 3f C16A pro kompresor",
+    "jistič 3f B16A pro el. dotop",
+    "jistič 1f B10A pro regulátor"
+  ],
+  "zaruka": "5 let na TČ při uvedení do provozu autorizovaným technikem (5 000 Kč bez DPH, už v nabídce), prodloužená materiálová záruka 10 let na kompresor.",
+  "poznamka": "Vrty, vedení mimo dům a prostup do domu jsou podle nabídky „již hotovo“; náplň a primární okruh jsou dodávkou stavby. Otopná soustava má mít spád max. 55/45 °C.",
+  "tc": [
+    {
+      "id": "TC01",
+      "podlazi": "1NP",
+      "znak": "TČ",
+      "nazev": "Tepelné čerpadlo alpha innotec SWC 102K3",
+      "mistnost": "1.03 technická místnost – severovýchodní roh",
+      "foto": null,
+      "cena": 239900,
+      "parametry": [
+        [
+          "Typ",
+          "země – voda (zemní vrt), kompresor Scroll"
+        ],
+        [
+          "Výkon",
+          "9,3 kW, COP 5,05 (B0/W35)"
+        ],
+        [
+          "Pokrytí",
+          "99,2 % roční potřeby tepla na vytápění, bod bivalence −14 °C (výpočtová teplota −15 °C)"
+        ],
+        [
+          "Dotop",
+          "vestavěné el. topné těleso max. 9 kW"
+        ],
+        [
+          "Chlazení",
+          "pasivní chlazení vestavěné (SWC 102K3 ho už obsahuje)"
+        ],
+        [
+          "Regulace",
+          "Luxtronik 2.1, ekvitermní, vzdálená správa přes internet; rozšiřující deska + 3 čidla FSW"
+        ],
+        [
+          "Vestavěno",
+          "oběhová čerpadla topení, TUV a vrtu, přepouštěcí a pojistný ventil, expanzní nádoba primáru"
+        ],
+        [
+          "Primár",
+          "Cu Ø 35×1,5 mm, izolace Armaflex, nemrznoucí směs 30 %"
+        ],
+        [
+          "Elektro",
+          "jističe 3f C16A (kompresor), 3f B16A (dotop), 1f B10A (regulátor)"
+        ]
+      ],
+      "hotspot": {
+        "x": 1618,
+        "y": 250,
+        "w": 76,
+        "h": 68
+      }
+    },
+    {
+      "id": "TC02",
+      "podlazi": "1NP",
+      "znak": "TV",
+      "nazev": "Zásobník teplé vody WWS 405.2 (400 l)",
+      "mistnost": "1.03 technická místnost – severozápadní roh",
+      "foto": null,
+      "cena": 36990,
+      "parametry": [
+        [
+          "Objem",
+          "400 l"
+        ],
+        [
+          "Ohřev",
+          "tepelným čerpadlem; termická dezinfekce 65 °C po dobu 4 h"
+        ]
+      ],
+      "hotspot": {
+        "x": 1415,
+        "y": 250,
+        "w": 68,
+        "h": 68
+      }
+    },
+    {
+      "id": "TC03",
+      "podlazi": "1NP",
+      "znak": "AK",
+      "nazev": "Akumulační zásobník TPS 200",
+      "mistnost": "1.03 technická místnost – východní stěna",
+      "foto": null,
+      "cena": 12290,
+      "parametry": [
+        [
+          "Objem",
+          "200 l"
+        ],
+        [
+          "Účel",
+          "akumulace topné vody mezi TČ a topnými okruhy"
+        ]
+      ],
+      "hotspot": {
+        "x": 1621,
+        "y": 347,
+        "w": 68,
+        "h": 68
+      }
+    },
+    {
+      "id": "TC04",
+      "podlazi": "1NP",
+      "znak": "R",
+      "nazev": "Rozdělovač/sběrač 4 topných okruhů",
+      "mistnost": "1.03 technická místnost – západní stěna",
+      "foto": null,
+      "cena": 12900,
+      "parametry": [
+        [
+          "Okruhy",
+          "2 × směšovaný 25/60 (27 800 Kč), 2 × přímý 25/60 (17 800 Kč)"
+        ],
+        [
+          "Pozn.",
+          "ve výkresu deska na západní stěně – přiřazení ověřit"
+        ]
+      ],
+      "hotspot": {
+        "x": 1398,
+        "y": 348,
+        "w": 32,
+        "h": 99
+      }
+    }
+  ]
+}
