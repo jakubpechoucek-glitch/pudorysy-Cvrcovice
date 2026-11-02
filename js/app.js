@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.10.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.10.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -170,7 +170,7 @@ const LAYERS = {
     columns: [
       ['Prvek', it => ({ html: `<span class="ezs-dot tc-dot">${esc(it.znak)}</span> ${esc(it.nazev)}` })],
       ['Umístění', it => it.mistnost],
-      ['Cena bez DPH', it => ({ html: `<span class="num">${CZK.format(it.cena)}</span>` })],
+      ['Cena bez DPH', it => ({ html: it.cena ? `<span class="num">${CZK.format(it.cena)}</span>` : 'hotovo (mimo nabídku)' })],
     ],
     extra: tcSummary,
   },
@@ -775,13 +775,16 @@ function lightSummary(sec) {
 // ---------- vrstva tepelného čerpadla ----------
 
 function tcHtml(it) {
-  const rows = [...it.parametry, ['Cena', `${CZK.format(it.cena)} bez DPH`]]
+  const rows = [...it.parametry, ...(it.cena ? [['Cena', `${CZK.format(it.cena)} bez DPH`]] : [])]
     .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
   return `
     <h3><span class="ezs-dot tc-dot">${esc(it.znak)}</span> ${esc(it.nazev)}</h3>
     <p class="rooms">${esc(it.mistnost)}</p>
+    ${it.foto ? `<a href="${esc(it.foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.foto)}" alt="${esc(it.nazev)}"></a><p class="thumb-cap">${esc(it.foto_pozn)}</p>` : ''}
     <dl>${rows}</dl>
-    <p class="src">Součást strojovny TČ – nabídka ${esc(TC.nabidka)}, celkem ${CZK.format(TC.celkem)} bez DPH (rozpis pod půdorysy).</p>`;
+    ${it.cena
+      ? `<p class="src">Součást strojovny TČ – nabídka ${esc(TC.nabidka)}, celkem ${CZK.format(TC.celkem)} bez DPH (rozpis pod půdorysy).</p>`
+      : '<p class="note">Vrty a venkovní rozvody jsou podle nabídky TČ už hotové, nejsou v rozpočtu strojovny. Značka je u horního okraje plánu – skutečná poloha je dál od fasády, viz výřez ze situace.</p>'}`;
 }
 
 function tcSummary(sec) {

@@ -137,6 +137,7 @@ body {
 .hs[data-layer="tc"] { --c: #bf360c; }
 .hs[data-layer="tc"] rect.mark { rx: 6; fill-opacity: .92; stroke: #fff; stroke-width: 4; }
 .hs[data-id="TC02"] rect.mark, .hs[data-id="TC03"] rect.mark { rx: 50%; }   /* válcové zásobníky */
+.hs[data-id^="TC-"] rect.mark { rx: 50%; fill: #5d4037; }   /* vrty a šachta před domem */
 .hs[data-layer="tc"]:hover rect.mark, .hs[data-layer="tc"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }
 .tc-dot { background: #bf360c; }
 .hs.decor { pointer-events: none; }

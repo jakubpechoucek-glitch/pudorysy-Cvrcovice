@@ -1,6 +1,6 @@
 {
   "aktualizovano": "2026-10-12",
-  "zdroj": "alpha innotec – nabídka na kompletní strojovnu s TČ země/voda SWC 102K3 (12. 10. 2026); umístění podle značek v technické místnosti 1.03 (C.2.2)",
+  "zdroj": "alpha innotec – nabídka na kompletní strojovnu s TČ země/voda SWC 102K3 (12. 10. 2026); vrty: ARTEG s.r.o., Vrty pro TČ na p.č. 22/21 v k.ú. Podolanka, příloha C3 (19. 4. 2024) s ručně zakresleným návrhem posunu V1, V2; umístění strojovny podle značek v technické místnosti 1.03 (C.2.2)",
   "nabidka": "alpha innotec, 12. 10. 2026",
   "celkem": 467788.0,
   "celkem_dph": 523922.56,
@@ -101,7 +101,7 @@
     "jistič 1f B10A pro regulátor"
   ],
   "zaruka": "5 let na TČ při uvedení do provozu autorizovaným technikem (5 000 Kč bez DPH, už v nabídce), prodloužená materiálová záruka 10 let na kompresor.",
-  "poznamka": "Vrty, vedení mimo dům a prostup do domu jsou podle nabídky „již hotovo“; náplň a primární okruh jsou dodávkou stavby. Otopná soustava má mít spád max. 55/45 °C.",
+  "poznamka": "Vrty, vedení mimo dům a prostup do domu jsou podle nabídky „již hotovo“ (projekt vrtů ARTEG, 04/2024); náplň a primární okruh jsou dodávkou stavby. Otopná soustava má mít spád max. 55/45 °C.",
   "tc": [
     {
       "id": "TC01",
@@ -229,6 +229,128 @@
         "y": 348,
         "w": 32,
         "h": 99
+      }
+    },
+    {
+      "id": "TC-V1",
+      "podlazi": "1NP",
+      "znak": "V1",
+      "nazev": "Geotermální vrt V1",
+      "mistnost": "Před severní fasádou, cca 2,3 m od SZ rohu domu a cca 2 m od fasády (mimo výřez půdorysu)",
+      "foto": "img/tc/vrty-situace.jpg",
+      "foto_pozn": "Výřez ze situace ARTEG (C3) – původní polohy V1, V2 a ručně zakreslený návrh posunu (červeně)",
+      "cena": null,
+      "parametry": [
+        [
+          "Vystrojení",
+          "PE-RC GEOTWIN 4 × d32 × 2,9 mm, dvojitá U-sonda, hlava z jednoho kusu PN22"
+        ],
+        [
+          "Hloubka",
+          "110 m (oba vrty celkem 220 m)"
+        ],
+        [
+          "Injektáž",
+          "po celé délce směsí Creteolnject CC 856 HS, tepelná vodivost 2,0 W/m·K"
+        ],
+        [
+          "Souřadnice S-JTSK",
+          "X 1 036 206,98 · Y 728 053,56 (projekt, před posunem)"
+        ],
+        [
+          "Napojení",
+          "HDV – PE-RC STRONG EXTRA d40, v hloubce 1,2–1,3 m, izolace KAIFLEX, v chráničce KABUFLEX d110, do sběrné šachty Š"
+        ],
+        [
+          "Poloha",
+          "značka podle ručně zakresleného návrhu posunu; původní poloha v projektu u samého SZ rohu domu"
+        ]
+      ],
+      "hotspot": {
+        "x": 408,
+        "y": 16,
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "id": "TC-V2",
+      "podlazi": "1NP",
+      "znak": "V2",
+      "nazev": "Geotermální vrt V2",
+      "mistnost": "Před severní fasádou u technické místnosti 1.03, cca 2,3 m od fasády (mimo výřez půdorysu)",
+      "foto": "img/tc/vrty-situace.jpg",
+      "foto_pozn": "Výřez ze situace ARTEG (C3) – původní polohy V1, V2 a ručně zakreslený návrh posunu (červeně)",
+      "cena": null,
+      "parametry": [
+        [
+          "Vystrojení",
+          "PE-RC GEOTWIN 4 × d32 × 2,9 mm, dvojitá U-sonda, hlava z jednoho kusu PN22"
+        ],
+        [
+          "Hloubka",
+          "110 m (oba vrty celkem 220 m)"
+        ],
+        [
+          "Injektáž",
+          "po celé délce směsí Creteolnject CC 856 HS, tepelná vodivost 2,0 W/m·K"
+        ],
+        [
+          "Souřadnice S-JTSK",
+          "X 1 036 204,16 · Y 728 043,97 (projekt, před posunem)"
+        ],
+        [
+          "Vzdálenost V1–V2",
+          "cca 10 m (podle souřadnic)"
+        ],
+        [
+          "Napojení",
+          "HDV – PE-RC STRONG EXTRA d40 do sběrné šachty Š"
+        ],
+        [
+          "Poloha",
+          "značka podle ručně zakresleného návrhu posunu (cca 2–3 m na východ od projektu)"
+        ]
+      ],
+      "hotspot": {
+        "x": 1625,
+        "y": 16,
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "id": "TC-S",
+      "podlazi": "1NP",
+      "znak": "Š",
+      "nazev": "Sběrná šachta GT400-V pro 2 okruhy",
+      "mistnost": "Před severní fasádou mezi vrty, cca 3,5 m od fasády (mimo výřez půdorysu)",
+      "foto": "img/tc/vrty-situace.jpg",
+      "foto_pozn": "Výřez ze situace ARTEG (C3) – původní polohy V1, V2 a ručně zakreslený návrh posunu (červeně)",
+      "cena": null,
+      "parametry": [
+        [
+          "Šachta",
+          "ID 400 mm, výška 750 mm, šroubovatelné výškově nastavitelné víko (pojízdnost 1,5 t)"
+        ],
+        [
+          "Rozdělovač/sběrač",
+          "d75 svisle, 1\" kulové kohouty pro napouštění/odvzdušnění, 2 × výstup d40 s kulovými kohouty, 2 × vstup s průtokovými regulátory 8–38 l/min"
+        ],
+        [
+          "Do domu",
+          "páteřní vedení PV – PE-RC STRONG d50, hloubka 1,2–1,3 m, izolace KAIFLEX EF, v chráničce KABUFLEX d110"
+        ],
+        [
+          "Prostupy",
+          "P1 stěnou pod stropem 1.PP, P2 podlahou 1.NP v technické místnosti; v 1.03 ukončeno cca 1 m nad podlahou kulovými kohouty DN25 (UPV)"
+        ]
+      ],
+      "hotspot": {
+        "x": 1280,
+        "y": 16,
+        "w": 44,
+        "h": 44
       }
     }
   ]

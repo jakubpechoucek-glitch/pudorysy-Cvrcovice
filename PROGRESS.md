@@ -19,7 +19,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
 | 7. Vrstva: Svítidla | 🟢 online (36 skupin, SV01–SV19, rozpočet PAIRAM NAB-26-349) |
 | 8. Střecha + vrstva FVE | 🟢 online (18 panelů, smlouva SEFY) |
-| 9. Vrstva: Tepelné čerpadlo | 🟡 online (strojovna v 1.03, nabídka alpha innotec), čeká na potvrzení nabídky |
+| 9. Vrstva: Tepelné čerpadlo | 🟡 online (strojovna v 1.03, vrty V1/V2 a šachta), čeká na ověření polohy vrtů |
 | 10. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
@@ -48,7 +48,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. V detailu i fotka svítidla z nabídky. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-349 (416 354 Kč bez DPH) s porovnáním Delta Light (502 661 Kč, červen).
 - Vrstva **FVE** (ve výchozím stavu vypnutá; po zapnutí ukáže 1.NP + střechu): 18 panelů AIKO 550 Wp na střeše podle náhledu SEFY, v 1.NP střídač, baterie (BAT1, BAT2) a rozvaděč RD v SZ rohu skladu 1.04B a 2 wallboxy na jižní stěně garáže, s fotkami z technických listů; detail se střídačem, bateriemi, nabíječkami aut, roční výrobou a cenou; pod půdorysy rozpis komponent a graf měsíční výroby.
-- Vrstva **Tepelné čerpadlo** (ve výchozím stavu vypnutá): strojovna v technické místnosti 1.03 – TČ země/voda alpha innotec SWC 102K3 (9,3 kW), zásobník TUV 400 l, akumulační zásobník 200 l a rozdělovač 4 topných okruhů. Detail s parametry a cenou, pod půdorysy rozpočet strojovny (467 788 Kč bez DPH), požadavky na elektro a záruka.
+- Vrstva **Tepelné čerpadlo** (ve výchozím stavu vypnutá): strojovna v technické místnosti 1.03 – TČ země/voda alpha innotec SWC 102K3 (9,3 kW), zásobník TUV 400 l, akumulační zásobník 200 l a rozdělovač 4 topných okruhů; před severní fasádou vrty V1, V2 (2 × 110 m) a sběrná šachta Š – značky jsou u horního okraje plánu, přesná poloha ve výřezu ze situace v detailu. Detail s parametry a cenou, pod půdorysy rozpočet strojovny (467 788 Kč bez DPH), požadavky na elektro a záruka.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -70,6 +70,7 @@ data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa),
 img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
+img/tc/vrty-situace.jpg – výřez ze situace vrtů ARTEG (bez razítka a jmen)
 img/fve/            – fotky panelu, střídače, baterie a wallboxu z technických listů
 img/STR.png         – půdorys střechy (z výkresu D.1.4.4 hromosvod, bez barevných vrstev a staré FVE)
 data/fve.json       – FVE: komponenty, výroba, cena, polohy panelů
@@ -123,7 +124,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026, nahrazena), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
 | Dropbox `FVE/SEFY srpen 2026`: `Smlouva o dílo 31_08_26 23-16-23_Help.pdf` (SEFY VB-26-1530, 416 000 Kč vč. DPH) a `Podolanka-1.pdf` (simulace SolarEdge Designer 24. 9. 2026) | ✅ **zdroj FVE**; rozmístění panelů z leteckého náhledu |
 | Dropbox `Interier/světlík`: `HELP Stavby s.r.o. 60 - 207 B.pdf` – ALLUX - STAV, 21. 7. 2026 (120 710 Kč bez DPH) + foto ze stavby | ✅ **zdroj světlíku SL01**; poloha = šrafovaný otvor nad 1.07 ve výkresu střechy (rozměr sedí na 120 × 210 cm). Snímky obrazovky ve složce zatím nevyužity |
-| `Nabidka-TC-SWC-102K3_-_Vinor_1.pdf` – alpha innotec, 12. 10. 2026 (467 788 Kč bez DPH) | ✅ **zdroj TČ**; umístění podle značek v 1.03 na půdorysu C.2.2 (čtverec = TČ, válce = zásobníky, deska na západní stěně = rozdělovač). ⚠ Nabídka je adresovaná jinému zákazníkovi a v názvu souboru je „Vinoř“ – ověřit, že platí pro tento dům |
+| `Nabidka-TC-SWC-102K3_-_Vinor_1.pdf` – alpha innotec, 12. 10. 2026 (467 788 Kč bez DPH) | ✅ **zdroj TČ**; umístění podle značek v 1.03 na půdorysu C.2.2 (čtverec = TČ, válce = zásobníky, deska na západní stěně = rozdělovač). Investor potvrdil, že platí pro tento dům (2. 11. 2026) |
+| `Návrh posunu vrtů V1 V2-1.pdf` – ARTEG s.r.o., Vrty pro TČ na p.č. 22/21, příloha C3 (19. 4. 2024), s ručně zakresleným návrhem posunu | ✅ **zdroj vrtů V1, V2, šachty Š a páteřního vedení**; polohy přepočteny ze situace (1:300) na půdorys 1.NP podle severní fasády. Vrty leží cca 2–3,5 m před fasádou, tj. mimo výřez půdorysu |
 | `misto-d.1.4.f.06-pudorys-strechy-hromosvod-1.pdf` (D.1.4.4) | ✅ **podklad střechy** – odstraněny popisy, hromosvod a stará FVE (20 × 450 Wp) |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
@@ -220,9 +222,11 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 
 ### Fáze 9 – Vrstva Tepelné čerpadlo
 - [x] Strojovna v 1.03: TČ SWC 102K3, zásobník TUV WWS 405.2, akumulace TPS 200, rozdělovač 4 okruhů; rozpočet 467 788 Kč bez DPH
-- [ ] Ověřit, že nabídka (adresát a „Vinoř“ v názvu souboru) platí pro RD Podolanka, příp. doplnit nabídku přímo na tento dům
+- [x] Nabídka platí pro RD Podolanka (potvrzeno investorem)
+- [x] Vrty V1, V2 a sběrná šachta Š podle situace ARTEG C3, výřez situace v detailu
+- [ ] Ověřit skutečnou polohu vrtů: značky jsou podle ručně zakresleného návrhu posunu (červené křížky), ne podle souřadnic v tabulce – doplnit zaměření skutečného provedení
 - [ ] Ověřit přiřazení značek v 1.03 (který válec je TUV a který akumulace, rozdělovač na západní stěně) a expanzní nádobu (malý kruh u dveří)
-- [ ] Doplnit vrty / vstup primárního okruhu do domu („již hotovo“), venkovní čidlo na severní fasádě
+- [ ] Doplnit venkovní čidlo na severní fasádě, příp. trasu HDV/PV
 - [ ] Případně fotky výrobků z technických listů
 
 ## Návrhy na vylepšení (k rozhodnutí)
@@ -267,3 +271,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).
 - **2026-10-17:** Web v0.9: světlík SL01 na střeše nad pracovnou (ALLUX, 120 710 Kč bez DPH) ve vrstvě Okna, střecha dostupná i s vrstvou Okna.
 - **2026-11-02:** Web v0.10: vrstva Tepelné čerpadlo – strojovna alpha innotec SWC 102K3 v technické místnosti 1.03 s rozpočtem 467 788 Kč bez DPH.
+- **2026-11-02:** Tepelné čerpadlo: vrty V1, V2 a sběrná šachta před severní fasádou podle situace ARTEG (v0.10.1).
