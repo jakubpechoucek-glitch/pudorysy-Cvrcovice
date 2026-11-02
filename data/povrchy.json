@@ -81,7 +81,9 @@
           }
         ],
         "poznamka": "Plocha montáže 136,7 m² odpovídá místnostem s podlahou P1. Cena se po zaměření může změnit o ±3 % množství."
-      }
+      },
+      "foto": "img/materialy/podlaha-dub-rustic.jpg",
+      "foto_pozn": "Vzorek podlahy – prkna Dub 15 × 195 Rustic (Princ parket); dole vzorky dlažeb"
     },
     "P2": {
       "nazev": "Dlažba FLORIM Authentic Luxe Stone Montpellier Matte Leather, 120 × 120 cm",
@@ -148,7 +150,9 @@
       "nazev": "Dýhovaný obklad Hanák – dub americký přírodní",
       "kratce": null,
       "barva": "#b6855a",
-      "celkem": null
+      "celkem": null,
+      "foto": "img/materialy/dyha-hanak-dub-americky.jpg",
+      "foto_pozn": "Vzorek dýhy Hanák LINE – dub americký přírodní (DDBApr), řádková dýha bez suků"
     },
     "M11": {
       "nazev": "Lak Champagne mat (Hanák, S47M)",

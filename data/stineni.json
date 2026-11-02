@@ -1,0 +1,83 @@
+{
+  "aktualizovano": "2026-09-18",
+  "zdroj": "Sundrape – cenová nabídka kazetové markýzy Dakota, výrobce ISOTRA (18. 9. 2026)",
+  "stineni": [
+    {
+      "id": "MK01",
+      "podlazi": "1PP",
+      "nazev": "Kazetová markýza Dakota",
+      "mistnost": "atrium – fasáda nad balkonovými dveřmi pokojů 0.11 a 0.12 (FV10, FV11)",
+      "rozmer": "šířka 5780 mm × výsun 3500 mm",
+      "parametry": [
+        [
+          "Výrobce",
+          "ISOTRA (dodavatel a montáž Sundrape)"
+        ],
+        [
+          "Typ",
+          "elektrická kazetová markýza (látka v uzavřené kazetě)"
+        ],
+        [
+          "Rozměr",
+          "šířka 5780 mm × výsun 3500 mm"
+        ],
+        [
+          "Pohon",
+          "motor Somfy Sunea iO, dálkový ovladač Somfy Situo 5 iO"
+        ],
+        [
+          "Výbava",
+          "otřesové (větrné) čidlo – při větru markýzu zatáhne; LED pásek po délce"
+        ],
+        [
+          "Barvy",
+          "konstrukce RAL standard, látka standard (k výběru)"
+        ],
+        [
+          "Termín",
+          "přibližně 12 týdnů od objednávky, záloha 50 %"
+        ],
+        [
+          "Záruka",
+          "24 měsíců na montážní práce"
+        ]
+      ],
+      "polozky": [
+        {
+          "popis": "Markýza Dakota 5780 × 3500 mm vč. motoru Somfy Sunea iO",
+          "cena": 101320
+        },
+        {
+          "popis": "Dálkový ovladač Somfy Situo 5 iO",
+          "cena": 2850
+        },
+        {
+          "popis": "Otřesové čidlo",
+          "cena": 3000
+        },
+        {
+          "popis": "Montáž",
+          "cena": 20000
+        },
+        {
+          "popis": "Doprava",
+          "cena": 660
+        }
+      ],
+      "celkem": 127830,
+      "s_dph": 143170,
+      "dph": "12 %",
+      "poznamka": "Konečná cena po zaměření. Elektro příprava (přívod k motoru a LED) není v ceně – účtuje se jako vícepráce. Plocha v plánu ukazuje výsun markýzy z fasády pokojů do atria.",
+      "hotspot": {
+        "x": 627,
+        "y": 1170,
+        "w": 654,
+        "h": 396
+      },
+      "vyrobce": "ISOTRA",
+      "dodavatel": "Sundrape, spol. s r.o.",
+      "foto": "img/stineni/markyza-dakota.jpg",
+      "foto_pozn": "Vizualizace markýzy na fasádě nad pokoji 0.11 a 0.12 (AI úprava fotky ze stavby)"
+    }
+  ]
+}

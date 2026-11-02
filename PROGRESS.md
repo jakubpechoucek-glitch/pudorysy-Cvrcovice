@@ -19,8 +19,9 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
 | 7. Vrstva: Svítidla | 🟢 online (36 skupin, SV01–SV19, rozpočet PAIRAM NAB-26-349) |
 | 8. Střecha + vrstva FVE | 🟢 online (18 panelů, smlouva SEFY) |
-| 9. Vrstva: Tepelné čerpadlo | 🟡 online (strojovna v 1.03, vrty V1/V2 a šachta), čeká na ověření polohy vrtů |
-| 10. Další vrstvy a vylepšení | ⚪ nezačato |
+| 9. Vrstva: Stínění | 🟢 online (markýza Dakota v atriu) |
+| 10. Vrstva: Tepelné čerpadlo | 🟡 online (strojovna v 1.03, vrty V1/V2 a šachta), čeká na ověření polohy vrtů |
+| 11. Další vrstvy a vylepšení | ⚪ nezačato |
 
 Legenda: ⚪ nezačato · 🟡 probíhá · 🟢 hotovo
 
@@ -37,12 +38,12 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.10)
+## Co web umí (v0.9)
 
-- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. Se zapnutou vrstvou FVE nebo Okna přibude volba *1.NP + střecha* a *Střecha*. Ve volbě *Vše* je střecha jen se zapnutou FVE.
+- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. **Střecha** se zobrazí jen se zapnutou vrstvou FVE (pak přibude volba *1.NP + střecha* a *Střecha*).
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
-- Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) a na střeše světlík SL01 nad pracovnou 1.07 (ALLUX AAG 120 × 210 cm, el. větrání, žaluzie, nabídka 120 710 Kč bez DPH, fotka ze stavby) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
+- Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
@@ -61,17 +62,19 @@ css/style.css       – vzhled
 js/app.js           – logika (vrstvy, tooltip, filtry, editor souřadnic)
 data/dvere.json     – data dveří vč. souřadnic hotspotů
 data/okna.json      – data oken vč. souřadnic hotspotů
-img/okna/*.png      – náhledy oken z přehledu elementů HA Technik (SL01-foto.jpg = foto světlíku ze stavby)
+img/okna/*.png      – náhledy oken z přehledu elementů HA Technik
 data/nabytek.json   – sestavy nábytku Hanák: provedení, položky, ceny, náhledy, plochy v půdorysu
 img/nabytek/*.jpg   – vizualizace z nabídek Hanák
 data/ezs.json       – typy prvků EZS (model, popis, cena, barva, znak), rozpočet ZL 9, polohy prvků
 img/ezs/            – ilustrační foto kamery a kouřového detektoru
 data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa), rozpočet, skupiny po místnostech
 img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
+data/stineni.json   – stínění (markýza): parametry, položky, cena, plocha výsunu
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
 img/tc/vrty-situace.jpg – výřez ze situace vrtů ARTEG (bez razítka a jmen)
 img/fve/            – fotky panelu, střídače, baterie a wallboxu z technických listů
+img/materialy/      – fotky vzorků materiálů (podlaha P1, dýha M8)
 img/STR.png         – půdorys střechy (z výkresu D.1.4.4 hromosvod, bez barevných vrstev a staré FVE)
 data/fve.json       – FVE: komponenty, výroba, cena, polohy panelů
 data/tc.json        – tepelné čerpadlo: prvky strojovny, rozpočet, požadavky na elektro
@@ -111,11 +114,12 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 |---|---|
 | `C.2_OSAZOVACI PUDORYSY.pdf` – JA Architekti, projekt interiéru 08/25 (C.2.1 1.PP, C.2.2 1.NP) | ✅ **podklad půdorysů**: aktuální dispozice vč. 0.09A/B a 1.04A/B |
 | `Dvere_Podolanka_kontrola_4.xlsx` (stav po schůzce 5. 10. 2026) | ✅ hlavní zdroj dat o dveřích |
-| Nabídky Hanák „kd int. dveře + obklady“ a „kd pláště“ (15. 10. 2026) | ✅ doplnění (křídla, pláště) – **ceny se nezveřejňují** |
+| Nabídky Hanák „kd int. dveře + obklady a kce“ a „kd pláště“ (15. 10. 2026) | ✅ křídla, pláště a obklady vč. **cen** (930 460 + 72 398 Kč bez DPH) |
 | DWG D.1.2 (stavebně konstrukční řešení) | ❌ jen statika, bez dveří a místností |
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
 | `2026-009 RD Podolanka_přehled elementů-1.pdf` – HA Technik (Schüco), 1. 4. 2026 | ✅ **zdroj dat oken** a náhledů |
 | `i-516-33272_Help_RDPodolanka_LPU42_silkgrain_RAL9005_6000x2250 mm_Nkovani.pdf` – Značková okna Praha (Hörmann), 23. 9. 2026 | ✅ garážová vrata GV01; starší varianty (SPUF42, planar) nevyužity |
+| Dropbox `Interier/světlík`: `HELP Stavby s.r.o. 60 - 207 B.pdf` (ALLUX-STAV, 21. 7. 2026) + schémata umístění; `Downloads/svetlik int_01.jpeg` (foto) | ✅ světlík SL01 |
 | `POD_DPS_D_TABULKY.xlsx` (Dropbox) | ⏸ nevyužito (okna jsou z přehledu elementů) |
 | Dropbox `Interier/Kuchyň a nábytek v pokojích`: SoD 2026000081 (kuchyně K1 + K2), CN obyv, š 005, š 007, 009 loz, knihovn, posilov, K 004, K 008, K 105 | ✅ **zdroj nábytku**; `NAB 075_2026` (HELP stavby, opravy bytu) nesouvisí |
 | Dropbox `Interier/EZS + kamery`: nabídka `2026-05-23 Podolanka (002) 1.6.2026.pdf` (rozpočet + zakreslení prvků), `RD Podolanka ZL 9 - EZS.xlsx`, `1PP.png`/`1NP.png` (zorná pole kamer) | ✅ **zdroj EZS**; polohy prvků převzaty slícováním výkresu z nabídky s naším půdorysem |
@@ -123,10 +127,10 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 | **`NAB-26-349 RD Podolanka.pdf` – PAIRAM, 31. 8. 2026 (platná nabídka, 416 354 Kč bez DPH)** | ✅ **zdroj typů, cen a fotek svítidel** |
 | Dropbox `Interier/Osvětlení`: PAIRAM `NAB-26-303` (28. 7. 2026, nahrazena), Delta Light `OPT260465` (23. 6. 2026), `Náhled svítidel.pdf` (odkazy na výrobky), výkresy `E.2`/`E.4 ELEKTROINSTALACE` | ✅ **zdroj svítidel**; umístění ze štítků SV-xx ve výkresech E.2/E.4 (slícováno s půdorysem). Starší NAB-26-235/236 nahrazeny. `Nabídka_263NA00168` (ELEKTRO&LIGHT) = zásuvky a vypínače – zatím nevyužito |
 | Dropbox `FVE/SEFY srpen 2026`: `Smlouva o dílo 31_08_26 23-16-23_Help.pdf` (SEFY VB-26-1530, 416 000 Kč vč. DPH) a `Podolanka-1.pdf` (simulace SolarEdge Designer 24. 9. 2026) | ✅ **zdroj FVE**; rozmístění panelů z leteckého náhledu |
-| Dropbox `Interier/světlík`: `HELP Stavby s.r.o. 60 - 207 B.pdf` – ALLUX - STAV, 21. 7. 2026 (120 710 Kč bez DPH) + foto ze stavby | ✅ **zdroj světlíku SL01**; poloha = šrafovaný otvor nad 1.07 ve výkresu střechy (rozměr sedí na 120 × 210 cm). Snímky obrazovky ve složce zatím nevyužity |
 | `Nabidka-TC-SWC-102K3_-_Vinor_1.pdf` – alpha innotec, 12. 10. 2026 (467 788 Kč bez DPH) | ✅ **zdroj TČ**; umístění podle značek v 1.03 na půdorysu C.2.2 (čtverec = TČ, válce = zásobníky, deska na západní stěně = rozdělovač). Investor potvrdil, že platí pro tento dům (2. 11. 2026) |
 | `Návrh posunu vrtů V1 V2-1.pdf` – ARTEG s.r.o., Vrty pro TČ na p.č. 22/21, příloha C3 (19. 4. 2024), s ručně zakresleným návrhem posunu | ✅ **zdroj vrtů V1, V2, šachty Š a páteřního vedení**; polohy přepočteny ze situace (1:300) na půdorys 1.NP podle severní fasády. Vrty leží cca 2–3,5 m před fasádou, tj. mimo výřez půdorysu |
 | `misto-d.1.4.f.06-pudorys-strechy-hromosvod-1.pdf` (D.1.4.4) | ✅ **podklad střechy** – odstraněny popisy, hromosvod a stará FVE (20 × 450 Wp) |
+| `Pěchouček_Kazetová-markýza-Dakota_18-09-2026-1.pdf` – Sundrape, 18. 9. 2026 | ✅ markýza MK01 (127 830 Kč bez DPH / 143 170 Kč s DPH); umístění: atrium u pokojů 0.11/0.12 (dle investora) |
 | `RD_Podolanka_Help dlažby obklady - PROCERAM.xlsx`, list „Celkový přehled_final“ | ✅ **zdroj povrchů**; orientace stěn S/J/V/Z odpovídá půdorysu se severem nahoře |
 
 **Ochrana údajů na veřejném webu:** nezveřejňují se jména a kontakty konkrétních osob ani adresy, jen firmy (JAP, Hanák, HA Technik). **Ceny se od 17. 10. 2026 zveřejňovat smí** (rozhodnutí investora), zatím jsou jen u nábytku. Duplicitní čísla z výkresu (DV001, DV007, DV105) jsou rozlišená jako `-A` / `-B`.
@@ -155,6 +159,9 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Soupis všech dveří (18 pozic, 1.PP: 11, 1.NP: 7)
 - [x] Zakreslit hotspoty všech dveří
 - [ ] Zkontrolovat polohy hotspotů (hlavně DV001-B, DV009, DV010, DV105-B)
+- [x] Ceny Hanák u dveří (detail, sloupec v seznamu, rozpis obou nabídek pod seznamem)
+- [ ] Nabídka JAP (zárubně, pouzdra, DV001-B, DV002, DV009) – zatím chybí
+- [ ] DV101: v nabídce Hanák jako druhé „1.03“; DV102: Hanák uvádí skrytou zárubeň × JAP MASTER/ACTIVE – ověřit
 - [ ] Doplnit fotky (po montáži)
 - [ ] Průběžně aktualizovat stavy po dalších schůzkách
 - [ ] Otestovat na skutečném mobilu
@@ -167,9 +174,8 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [ ] FV08: doplnit výrobní rozměry, až budou určeny
 - [ ] Doplnit žaluzie/rolety (zatím nejsou v podkladech)
 - [x] Garážová vrata GV01: Hörmann LPU 42, 6000 × 2250, RAL 9005 Silkgrain, RC 2, SupraMatic P – 129 435 Kč bez DPH
+- [x] Světlík SL01: ALLUX AAG 120 × 210 cm, el. otevírání + žaluzie, 120 710 Kč bez DPH (nabídka 60-207 B) – na střeše a ve stropě pracovny 1.07, s fotkou ze stavby
 - [ ] GV01: ověřit, zda je to finální varianta (v Downloads jsou i starší nabídky SPUF42 a LPU42 planar)
-- [x] Světlík SL01 na střeše nad pracovnou 1.07 (ALLUX AAG, nabídka 60-207 B)
-- [ ] SL01: potvrdit objednanou variantu (manžeta šikmá × kolmá, ovládání pohonu, čidlo V+D) a doplnit smlouvu/fakturu
 
 ---
 
@@ -220,7 +226,12 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Dvě auta zakreslena v garáži (jen kresba, zobrazí se s vrstvou FVE)
 - [ ] Případně hromosvod jako samostatná vrstva na střeše
 
-### Fáze 9 – Vrstva Tepelné čerpadlo
+### Fáze 9 – Stínění
+- [x] Markýza Dakota 5780 × 3500 mm v atriu před pokoji 0.11/0.12 – výrobce ISOTRA, dodavatel Sundrape; vizualizace na fotce stavby (Dropbox `Markýza/Markýza AI.png`)
+- [ ] Vybrat barvu konstrukce a látky; elektro příprava pro motor a LED (není v ceně)
+- [ ] Případně doplnit žaluzie/rolety oken a žaluzii světlíku do této vrstvy
+
+### Fáze 10 – Vrstva Tepelné čerpadlo
 - [x] Strojovna v 1.03: TČ SWC 102K3, zásobník TUV WWS 405.2, akumulace TPS 200, rozdělovač 4 okruhů; rozpočet 467 788 Kč bez DPH
 - [x] Nabídka platí pro RD Podolanka (potvrzeno investorem)
 - [x] Vrty V1, V2 a sběrná šachta Š podle situace ARTEG C3, výřez situace v detailu
@@ -269,6 +280,10 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-17:** Web v0.8: podlaží Střecha a vrstva FVE (SEFY, 18 × 550 Wp, 14,4 kWh, 2 wallboxy).
 - **2026-10-17:** FVE: střídač, baterie, rozvaděč a 2 wallboxy v 1.NP s fotkami; FVE ve výchozím stavu vypnutá, po zapnutí 1.NP + střecha (v0.8.1).
 - **2026-10-17:** FVE: dokreslena 2 auta v garáži u wallboxů (v0.8.2).
-- **2026-10-17:** Web v0.9: světlík SL01 na střeše nad pracovnou (ALLUX, 120 710 Kč bez DPH) ve vrstvě Okna, střecha dostupná i s vrstvou Okna.
-- **2026-11-02:** Web v0.10: vrstva Tepelné čerpadlo – strojovna alpha innotec SWC 102K3 v technické místnosti 1.03 s rozpočtem 467 788 Kč bez DPH.
-- **2026-11-02:** Tepelné čerpadlo: vrty V1, V2 a sběrná šachta před severní fasádou podle situace ARTEG (v0.10.1).
+- **2026-10-18:** Světlík SL01 (ALLUX AAG) ve vrstvě Okna a vrata – střecha + strop pracovny, foto, rozpočet (v0.8.3).
+- **2026-10-18:** Web v0.8.4: vrstva Stínění – markýza Sundrape Dakota v atriu.
+- **2026-10-18:** Markýza: výrobce ISOTRA, vizualizace v detailu (v0.8.5).
+- **2026-10-18:** Dveře: ceny z nabídek Hanák (15. 10. 2026) u jednotlivých dveří a rozpis nabídek (v0.8.6).
+- **2026-10-18:** Opravy: nábytek u severní stěny koupelen 0.04 a 0.08, spíž ve tvaru J bez lednice, nová vizualizace kuchyně, vzorky podlahy (P1) a dýhy Hanák (M8) v detailu místností (v0.8.7).
+- **2026-11-02:** Web v0.9: vrstva Tepelné čerpadlo – strojovna alpha innotec SWC 102K3 v technické místnosti 1.03 s rozpočtem 467 788 Kč bez DPH.
+- **2026-11-02:** Tepelné čerpadlo: vrty V1, V2 a sběrná šachta před severní fasádou podle situace ARTEG (v0.9.1).

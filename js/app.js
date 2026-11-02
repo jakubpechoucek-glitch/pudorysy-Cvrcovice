@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.10.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.9.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -11,6 +11,7 @@ const STAV = {
 };
 const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
 const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever nahoře
+let DOOR_OFFERS = []; // nabídky Hanák na dveře a obklady
 let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
 let ZARUKA = '';    // záruční podmínky nábytku Hanák
 let EZS = {};       // typy prvků EZS a rozpočet
@@ -35,14 +36,19 @@ const LAYERS = {
       ['Zárubeň', it.zarubne],
       ...Object.entries(it.povrch).map(([room, p]) => [`Povrch ${room.split(' ')[0]}`, p]),
       ['Dodavatel', it.dodavatel],
+      ['Cena Hanák', it.cena_hanak ? it.cena_hanak.map(c => `${c.popis}: ${CZK.format(c.cena_bez)} bez DPH (${CZK.format(c.cena_s)} s DPH ${c.dph})`).join('; ') : null],
+      ['Cena', it.cena_pozn],
     ],
     columns: [
       ['Pozice', it => it.id],
       ['Mezi místnostmi', it => it.mezi.join(' ↔ ')],
       ['Typ', it => it.typ],
       ['Rozměr', it => it.rozmer],
+      ['Hanák s DPH', it => ({ html: it.cena_hanak ? `<span class="num">${CZK.format(it.cena_hanak.reduce((a, c) => a + c.cena_s, 0))}</span>` : '<span class="muted">JAP</span>' })],
       ['Stav', it => ({ html: `<span class="badge ${it.stav}">${STAV[it.stav]}</span>` })],
     ],
+    onLoad: data => { DOOR_OFFERS = data.nabidky || []; },
+    extra: doorOffers,
   },
   okna: {
     file: 'data/okna.json',
@@ -143,6 +149,22 @@ const LAYERS = {
     columns: null,
     extra: fveSummary,
   },
+  stineni: {
+    file: 'data/stineni.json',
+    key: 'stineni',
+    title: 'Stínění',
+    padding: 0,
+    label: false,
+    glyph: () => 'MARKÝZA',
+    subtitle: it => `${it.nazev} – ${it.mistnost}`,
+    render: shadeHtml,
+    columns: [
+      ['Prvek', it => `${it.nazev}${it.vyrobce ? ` (${it.vyrobce})` : ''}`],
+      ['Umístění', it => it.mistnost],
+      ['Rozměr', it => it.rozmer],
+      ['Cena s DPH', it => ({ html: `<span class="num">${CZK.format(it.s_dph)}</span>` })],
+    ],
+  },
   svitidla: {
     file: 'data/svitidla.json',
     key: 'svitidla',
@@ -216,6 +238,8 @@ async function init() {
 function renderHotspots() {
   for (const fig of document.querySelectorAll('.plan')) {
     const svg = fig.querySelector('svg');
+    // šrafa pro plochy stínění (markýza)
+    svg.insertAdjacentHTML('afterbegin', `<defs><pattern id="stripes-${fig.dataset.floor}" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="rgba(230,126,34,.12)"/><rect width="10" height="28" fill="rgba(230,126,34,.38)"/></pattern></defs>`);
     // pořadí vykreslení: místnosti dospod, pak okna, navrch dveře (zůstanou klikací tam, kde se překrývají)
     const order = it => LAYERS[it.layer].below ? 0 : it.layer === 'okna' ? 1 : 2;
     const items = state.items.filter(i => i.podlazi === fig.dataset.floor).sort((a, b) => order(a) - order(b));
@@ -226,6 +250,7 @@ function renderHotspots() {
       const rects = [].concat(it.hotspot);
       const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': cfg.statusFilter ? it.stav : '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
       if (cfg.color) g.style.setProperty('--c', cfg.color(it));
+      if (it.layer === 'stineni') g.style.setProperty('--fill', `url(#stripes-${fig.dataset.floor})`);
       for (const { x, y, w, h } of rects) {
         if (pad) g.append(el('rect', { class: 'hit', x: x - pad, y: y - pad, width: w + 2 * pad, height: h + 2 * pad }));
         g.append(el('rect', { class: 'mark', x, y, width: w, height: h }));
@@ -382,8 +407,10 @@ function bindControls() {
   document.querySelectorAll('input[data-layer]').forEach(cb => cb.addEventListener('change', () => {
     cb.checked ? state.layers.add(cb.dataset.layer) : state.layers.delete(cb.dataset.layer);
     // FVE: po zapnutí ukázat 1.NP (střídač, baterie, wallboxy) a střechu (panely)
-    if (cb.dataset.layer === 'fve' && cb.checked) setFloor('fve');
-    else if (!roofLayers() && (state.floor === 'fve' || state.floor === 'STR')) setFloor('all');
+    if (cb.dataset.layer === 'fve') {
+      if (cb.checked) setFloor('fve');
+      else if (state.floor === 'fve' || state.floor === 'STR') setFloor('all');
+    }
     applyFilters();
   }));
   document.querySelectorAll('input[data-status]').forEach(cb => cb.addEventListener('change', () => {
@@ -414,12 +441,7 @@ function setFloor(f) {
   if (r) r.checked = true;
 }
 
-// střecha má smysl jen s vrstvou FVE (panely) nebo Okna (světlík)
-function roofLayers() {
-  return state.layers.has('fve') || state.layers.has('okna');
-}
-
-// podlaží zobrazená pro aktuální volbu; ve „Vše“ je střecha jen se zapnutou FVE
+// podlaží zobrazená pro aktuální volbu; střecha jen se zapnutou FVE
 function visibleFloors() {
   const fve = state.layers.has('fve');
   if (state.floor === 'all') return fve ? ['1PP', '1NP', 'STR'] : ['1PP', '1NP'];
@@ -432,7 +454,7 @@ function applyFilters() {
   const floors = visibleFloors();
   for (const fig of document.querySelectorAll('.plan')) fig.hidden = !floors.includes(fig.dataset.floor);
   plans.classList.toggle('single', floors.length === 1);
-  document.querySelectorAll('.needs-roof').forEach(l => { l.hidden = !roofLayers(); });
+  document.querySelectorAll('.needs-fve').forEach(l => { l.hidden = !state.layers.has('fve'); });
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
   document.getElementById('ezs-legend').hidden = !state.layers.has('ezs');
@@ -458,6 +480,20 @@ function applyFilters() {
   }
 }
 
+// ---------- nabídky ke dveřím ----------
+
+function doorOffers(sec) {
+  sec.insertAdjacentHTML('beforeend', DOOR_OFFERS.map(n => `
+    <h3 class="sub-h">${esc(n.nazev)} – ${esc(n.dodavatel.split(' (')[0])}, ${formatDate(n.datum)}</h3>
+    <div class="table-wrap"><table>
+      <tbody>${n.polozky.map(([p, c]) => `<tr><td>${esc(p)}</td><td class="num">${CZK.format(c)}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><td><strong>Celkem bez DPH</strong></td><td class="num"><strong>${CZK.format(n.bez_dph)}</strong></td></tr>
+      <tr><td>Celkem s DPH ${esc(n.dph)}</td><td class="num">${CZK.format(n.s_dph)}</td></tr></tfoot>
+    </table></div>
+    <p class="meta">${esc(n.dodavatel)}</p>`).join('') +
+    `<p class="meta">Dveře DV001-B, DV002 a DV009 dodává kompletně JAP, stejně jako zárubně a pouzdra u ostatních dveří – nabídka JAP zatím není v podkladech.</p>`);
+}
+
 // ---------- vrstva povrchů ----------
 
 function roomHtml(it) {
@@ -477,8 +513,12 @@ function roomHtml(it) {
     </ul>` : '';
   const nab = MAT[it.podlaha.kod]?.nabidka;
   const supplier = nab ? `<p class="note">Podlaha: ${esc(nab.dodavatel)}, nabídka ${esc(nab.cislo)} – celá dodávka dřevěných podlah a schodiště ${CZK.format(nab.celkem)} ${esc(nab.dph.split(' – ')[0])}. Rozpis je pod půdorysy v části Povrchy.</p>` : '';
+  const samples = uniq([it.podlaha, ...it.steny, ...it.strop].map(e => e.kod)).filter(k => MAT[k]?.foto);
+  const gallery = samples.length ? `<h4>Vzorky materiálů</h4><div class="gallery small">${samples.map(k => `
+    <a href="${esc(MAT[k].foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb photo" src="${esc(MAT[k].foto)}" alt="${esc(k)}: ${esc(MAT[k].foto_pozn || MAT[k].nazev)}"></a>`).join('')}</div>
+    <p class="thumb-cap">${samples.map(k => `${esc(k)} – ${esc(MAT[k].foto_pozn || MAT[k].nazev)}`).join('<br>')}</p>` : '';
   return head + wallDiagram(it) + group('Podlaha', [it.podlaha]) +
-    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop) + supplier;
+    group('Stěny', sortBySide(it.steny), true) + group('Strop', it.strop) + gallery + supplier;
 }
 
 function stairHtml(it) {
@@ -542,7 +582,7 @@ function materialsTable(sec) {
     for (const e of [it.podlaha, ...it.steny, ...it.strop]) (used[e.kod] ??= new Set()).add(it.id);
   }
   const rows = Object.entries(MAT).filter(([k]) => used[k]).map(([k, m]) => `
-    <tr><td>${matChip(k)}</td><td>${esc(m.nazev)}${m.poznamka ? `<br><small>${esc(m.poznamka)}</small>` : ''}</td>
+    <tr><td>${matChip(k)}</td><td>${m.foto ? `<img class="sv-thumb" src="${esc(m.foto)}" alt="" loading="lazy">` : ''}${esc(m.nazev)}${m.poznamka ? `<br><small>${esc(m.poznamka)}</small>` : ''}</td>
     <td>${esc([...used[k]].join(', '))}</td><td>${esc(m.celkem || '')}</td></tr>`).join('');
   sec.insertAdjacentHTML('beforeend', `
     ${floorOffer()}
@@ -720,6 +760,20 @@ function fveSummary(sec) {
     </div>
     <p class="meta">Termín: ${esc(it.termin)}. Záruky: ${esc(it.zaruky)}<br>
     Součástí: ${esc(it.sluzby)}<br>Nezahrnuje: ${esc(it.nezahrnuje)}</p>`);
+}
+
+// ---------- vrstva stínění ----------
+
+function shadeHtml(it) {
+  const rows = it.parametry.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3>${esc(it.nazev)} <span class="badge stin">${esc(it.vyrobce || 'Sundrape')}</span></h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    ${it.foto ? `<a href="${esc(it.foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb photo" src="${esc(it.foto)}" alt="${esc(it.nazev)}"></a><p class="thumb-cap">${esc(it.foto_pozn || '')}</p>` : ''}
+    <dl>${rows}</dl>
+    ${itemsTable(it, 'Položky (bez DPH)', 'Celkem bez DPH',
+      `<tr><td>Celkem s DPH ${esc(it.dph)}</td><td class="num">${CZK.format(it.s_dph)}</td></tr>`)}
+    <p class="note">${esc(it.poznamka)}</p>`;
 }
 
 // ---------- vrstva svítidel ----------
