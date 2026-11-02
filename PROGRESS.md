@@ -40,7 +40,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ## Co web umí (v0.9)
 
-- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. **Střecha** se zobrazí jen se zapnutou vrstvou FVE (pak přibude volba *1.NP + střecha* a *Střecha*).
+- Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. Se zapnutou vrstvou FVE nebo Okna přibude volba *1.NP + střecha* a *Střecha* (světlík SL01 je na střeše i jako průmět ve stropě pracovny 1.07). Ve volbě *Vše* je střecha jen se zapnutou FVE.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
@@ -287,3 +287,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-10-18:** Opravy: nábytek u severní stěny koupelen 0.04 a 0.08, spíž ve tvaru J bez lednice, nová vizualizace kuchyně, vzorky podlahy (P1) a dýhy Hanák (M8) v detailu místností (v0.8.7).
 - **2026-11-02:** Web v0.9: vrstva Tepelné čerpadlo – strojovna alpha innotec SWC 102K3 v technické místnosti 1.03 s rozpočtem 467 788 Kč bez DPH.
 - **2026-11-02:** Tepelné čerpadlo: vrty V1, V2 a sběrná šachta před severní fasádou podle situace ARTEG (v0.9.1).
+- **2026-11-02:** Střecha (se světlíkem) dostupná i se zapnutou vrstvou Okna, ne jen s FVE; v hlavičce odkaz zpět na Rozcestník (v0.9.2).

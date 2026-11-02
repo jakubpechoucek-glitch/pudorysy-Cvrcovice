@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.9.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.9.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -407,10 +407,8 @@ function bindControls() {
   document.querySelectorAll('input[data-layer]').forEach(cb => cb.addEventListener('change', () => {
     cb.checked ? state.layers.add(cb.dataset.layer) : state.layers.delete(cb.dataset.layer);
     // FVE: po zapnutí ukázat 1.NP (střídač, baterie, wallboxy) a střechu (panely)
-    if (cb.dataset.layer === 'fve') {
-      if (cb.checked) setFloor('fve');
-      else if (state.floor === 'fve' || state.floor === 'STR') setFloor('all');
-    }
+    if (cb.dataset.layer === 'fve' && cb.checked) setFloor('fve');
+    else if (!roofLayers() && (state.floor === 'fve' || state.floor === 'STR')) setFloor('all');
     applyFilters();
   }));
   document.querySelectorAll('input[data-status]').forEach(cb => cb.addEventListener('change', () => {
@@ -442,6 +440,11 @@ function setFloor(f) {
 }
 
 // podlaží zobrazená pro aktuální volbu; střecha jen se zapnutou FVE
+// střecha má smysl jen s vrstvou FVE (panely) nebo Okna (světlík)
+function roofLayers() {
+  return state.layers.has('fve') || state.layers.has('okna');
+}
+
 function visibleFloors() {
   const fve = state.layers.has('fve');
   if (state.floor === 'all') return fve ? ['1PP', '1NP', 'STR'] : ['1PP', '1NP'];
@@ -454,7 +457,7 @@ function applyFilters() {
   const floors = visibleFloors();
   for (const fig of document.querySelectorAll('.plan')) fig.hidden = !floors.includes(fig.dataset.floor);
   plans.classList.toggle('single', floors.length === 1);
-  document.querySelectorAll('.needs-fve').forEach(l => { l.hidden = !state.layers.has('fve'); });
+  document.querySelectorAll('.needs-roof').forEach(l => { l.hidden = !roofLayers(); });
   document.getElementById('status-filter').hidden = !state.layers.has('dvere');
   document.getElementById('floor-legend').hidden = !state.layers.has('povrchy');
   document.getElementById('ezs-legend').hidden = !state.layers.has('ezs');

@@ -56,6 +56,8 @@ body {
 
 /* ---------- header ---------- */
 .top { padding: 28px 0 12px; }
+.back { display: inline-block; margin-bottom: 6px; color: var(--accent); font-size: 14px; text-decoration: none; }
+.back:hover { text-decoration: underline; }
 .top h1 { margin: 0; font-size: 28px; letter-spacing: -.01em; }
 .sub { margin: 4px 0 0; color: var(--muted); }
 
