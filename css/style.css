@@ -89,6 +89,7 @@ body {
 .ly-ezs i { background: #c62828; border-radius: 50%; }
 .ly-svit i { background: #f9a825; border-radius: 50%; }
 .ly-fve i { background: #1a237e; border-radius: 2px; }
+.ly-vrata i { background: #37474f; border-radius: 2px; }
 .ly-stin i { background: repeating-linear-gradient(45deg, #e67e22 0 3px, #f6d3b0 3px 6px); border-radius: 2px; }
 .ly-tc i { background: #bf360c; border-radius: 2px; }
 .chip.legend { cursor: default; font-size: 13px; padding: 3px 10px; }
@@ -144,6 +145,10 @@ body {
 .hs[data-layer="tc"]:hover rect.mark, .hs[data-layer="tc"].active rect.mark { fill-opacity: 1; stroke: var(--text); stroke-width: 6; }
 .tc-dot { background: #bf360c; }
 .hs.decor { pointer-events: none; }
+.hs[data-layer="vrata"] { --c: #37474f; }
+.hs[data-layer="vrata"][data-id="RAM01"] rect.mark { fill: none; stroke: #78909c; stroke-width: 14; rx: 2; }
+.hs[data-layer="vrata"][data-id="GV01"] rect.mark { fill-opacity: .85; stroke: #fff; stroke-width: 3; }
+.hs[data-layer="vrata"]:hover rect.mark, .hs[data-layer="vrata"].active rect.mark { stroke: #e67e22; animation: none; }
 .hs[data-layer="stineni"] { --c: #e67e22; }
 .hs[data-layer="stineni"] rect.mark { fill: var(--fill); fill-opacity: 1; stroke: #e67e22; stroke-width: 6; stroke-dasharray: 22 10; rx: 4; }
 .hs[data-layer="stineni"]:hover rect.mark, .hs[data-layer="stineni"].active rect.mark { stroke-width: 10; animation: none; }
@@ -200,6 +205,7 @@ body {
 .badge.okno { background: var(--okno); }
 .badge.plocha { background: var(--muted); }
 .badge.fve { background: #1a237e; }
+.badge.vrata { background: #37474f; }
 .badge.stin { background: #e67e22; }
 .bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; align-items: end; height: 180px; padding: 8px 4px 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
 .bar { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; min-width: 0; }

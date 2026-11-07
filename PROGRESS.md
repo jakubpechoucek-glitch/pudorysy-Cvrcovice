@@ -13,7 +13,8 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 | 0. Plánování | 🟢 hotovo |
 | 1. Základ webu + půdorysy | 🟢 hotovo |
 | 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
-| 3. Vrstva: Okna a vrata | 🟡 online (16 oken + garážová vrata + světlík), čeká na ověření FV10 |
+| 3. Vrstva: Okna | 🟡 online (16 oken + světlík), čeká na ověření FV10 |
+| 3b. Vrstva: Garážová vrata a rám | 🟢 online (GV01 Hörmann + ocelový rám) |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
 | 5. Vrstva: Nábytek a kuchyně (Hanák) | 🟡 online (13 sestav), většina ve stavu nabídky |
 | 6. Vrstva: EZS a kamery | 🟢 online (45 prvků, rozpočet ZL 9) |
@@ -43,13 +44,15 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 - Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. Se zapnutou vrstvou FVE nebo Okna přibude volba *1.NP + střecha* a *Střecha* (světlík SL01 je na střeše i jako průmět ve stropě pracovny 1.07). Ve volbě *Vše* je střecha jen se zapnutou FVE.
 - Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
-- Vrstva **Okna a vrata**: 16 oken (FV01–FV13) a garážová vrata GV01 (Hörmann LPU 42 s položkami a cenou) modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
+- Vrstva **Okna**: 16 oken (FV01–FV13) a světlík SL01 modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
 - Vrstva **Nábytek** (ve výchozím stavu vypnutá): 13 sestav Hanák (kuchyň K1 a spíž K2 podle smlouvy, obývák, šatny 0.05 a 0.07, ložnice, knihovna, posilovna, koupelny 0.04, 0.08 a 1.05, vstup 1.01, garáž 1.04A). V detailu jsou vizualizace, provedení (čela, korpus, zásuvky), položky s cenami s DPH a celková cena. Pod půdorysy je tabulka se součtem.
 - Vrstva **EZS a kamery** (ve výchozím stavu vypnutá): 45 prvků – ústředna Jablotron, 16 magnetických kontaktů, 10 detektorů pohybu, 6 detektorů kouře, 2 sirény, 2 klávesnice, 3 záplavová čidla, 5 kamer Hikvision. Barevné kulaté značky s písmenem, legenda, detail s modelem a cenou za kus, tabulka počtů po podlažích a rozpočet ze ZL 9.
 - Vrstva **Svítidla** (ve výchozím stavu vypnutá): svítidla SV01–SV19 seskupená po místnostech (značka s číslem typu, barva podle montáže – vestavné, přisazené, závěsné, lineární, stolní, venkovní). Detail s výrobkem, parametry, počtem a cenou zde, alternativou Delta Light a odkazem na výrobek. V detailu i fotka svítidla z nabídky. Pod půdorysy tabulka typů a rozpočet PAIRAM NAB-26-349 (416 354 Kč bez DPH) s porovnáním Delta Light (502 661 Kč, červen).
 - Vrstva **FVE** (ve výchozím stavu vypnutá; po zapnutí ukáže 1.NP + střechu): 18 panelů AIKO 550 Wp na střeše podle náhledu SEFY, v 1.NP střídač, baterie (BAT1, BAT2) a rozvaděč RD v SZ rohu skladu 1.04B a 2 wallboxy na jižní stěně garáže, s fotkami z technických listů; detail se střídačem, bateriemi, nabíječkami aut, roční výrobou a cenou; pod půdorysy rozpis komponent a graf měsíční výroby.
 - Vrstva **Tepelné čerpadlo** (ve výchozím stavu vypnutá): strojovna v technické místnosti 1.03 – TČ země/voda alpha innotec SWC 102K3 (9,3 kW), zásobník TUV 400 l, akumulační zásobník 200 l a rozdělovač 4 topných okruhů; před severní fasádou vrty V1, V2 (2 × 110 m) a sběrná šachta Š – značky jsou u horního okraje plánu, přesná poloha ve výřezu ze situace v detailu. Detail s parametry a cenou, pod půdorysy rozpočet strojovny (467 788 Kč bez DPH), požadavky na elektro a záruka.
+- Vrstva **Garážová vrata a rám** (ve výchozím stavu vypnutá): sekční vrata Hörmann LPU 42 (GV01, položky a cena) a ocelový rám otvoru (jekly 100×40×3 a 60×40×3, světlý otvor 6090 × 2415 mm) s výkresem.
+- Vrstva **Stínění** (ve výchozím stavu vypnutá): kazetová markýza Sundrape Dakota 5,78 × 3,5 m v atriu před pokoji 0.11/0.12 – šrafovaná plocha výsunu, detail s pohonem, výbavou a cenou.
 - Filtr podle stavu dveří, seznamy dveří a oken pod půdorysy (kliknutím na řádek se prvek najde v plánu).
 - **Zvětšení obrázků:** v připnutém detailu se kliknutím na vizualizaci nebo náhled okna otevře galerie přes celou obrazovku (šipky / klávesy ← →, přejetí prstem, Esc). Vizualizace nábytku jsou v plném rozlišení z PDF (~1600 px).
 - Tmavý režim podle nastavení systému.
@@ -69,6 +72,8 @@ data/ezs.json       – typy prvků EZS (model, popis, cena, barva, znak), rozpo
 img/ezs/            – ilustrační foto kamery a kouřového detektoru
 data/svitidla.json  – typy svítidel (výrobek, parametry, cena, alternativa), rozpočet, skupiny po místnostech
 img/svitidla/       – fotky svítidel z nabídky PAIRAM NAB-26-349
+data/vrata.json     – garážová vrata GV01 a ocelový rám RAM01
+img/vrata/          – vnější pohled vrat a výkres rámu
 data/stineni.json   – stínění (markýza): parametry, položky, cena, plocha výsunu
 data/povrchy.json   – materiály (kód, název, barva, množství) a povrchy místností vč. obdélníků místností
 img/1PP.png, 1NP.png – půdorysy (výřez z PDF C.2.1 / C.2.2)
@@ -288,3 +293,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-11-02:** Web v0.9: vrstva Tepelné čerpadlo – strojovna alpha innotec SWC 102K3 v technické místnosti 1.03 s rozpočtem 467 788 Kč bez DPH.
 - **2026-11-02:** Tepelné čerpadlo: vrty V1, V2 a sběrná šachta před severní fasádou podle situace ARTEG (v0.9.1).
 - **2026-11-02:** Střecha (se světlíkem) dostupná i se zapnutou vrstvou Okna, ne jen s FVE; v hlavičce odkaz zpět na Rozcestník (v0.9.2).
+- **2026-11-07:** Web v0.9: vrstva Garážová vrata a rám (GV01 přesunuta z Oken, nový ocelový rám s výkresem); vrstva Okna přejmenována.

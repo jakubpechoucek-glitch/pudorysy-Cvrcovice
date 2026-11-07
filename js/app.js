@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.9.2'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.9.3'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -53,7 +53,7 @@ const LAYERS = {
   okna: {
     file: 'data/okna.json',
     key: 'okna',
-    title: 'Seznam oken, prosklených stěn a vrat',
+    title: 'Seznam oken a prosklených stěn',
     subtitle: it => it.mistnost,
     badge: it => `<span class="badge okno">${esc(it.profil)}</span>`,
     fields: it => [
@@ -148,6 +148,20 @@ const LAYERS = {
     render: fveHtml,
     columns: null,
     extra: fveSummary,
+  },
+  vrata: {
+    file: 'data/vrata.json',
+    key: 'vrata',
+    title: 'Garážová vrata a rám',
+    padding: 10,
+    label: false,
+    subtitle: it => it.nazev,
+    render: gateHtml,
+    columns: [
+      ['Prvek', it => it.nazev],
+      ['Umístění', it => it.mistnost],
+      ['Cena', it => ({ html: it.celkem ? `<span class="num">${CZK.format(it.celkem)}</span> <span class="muted">${esc(it.cena_pozn.split(' (')[0])}</span>` : '<span class="muted">zatím neuvedena</span>' })],
+    ],
   },
   stineni: {
     file: 'data/stineni.json',
@@ -663,7 +677,7 @@ function ezsHtml(it) {
   const rows = [
     ['Model', t.model],
     ['Popis', t.popis],
-    ['Hlídá', it.okno ? `${it.okno} (vrstva Okna a vrata)` : null],
+    ['Hlídá', it.okno ? `${it.okno} (vrstva ${it.okno === 'GV01' ? 'Garážová vrata a rám' : 'Okna'})` : null],
     ['Cena za kus', t.cena ? `${CZK.format(t.cena)} bez DPH` : null],
   ].filter(([, v]) => v).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
   return `
@@ -763,6 +777,19 @@ function fveSummary(sec) {
     </div>
     <p class="meta">Termín: ${esc(it.termin)}. Záruky: ${esc(it.zaruky)}<br>
     Součástí: ${esc(it.sluzby)}<br>Nezahrnuje: ${esc(it.nezahrnuje)}</p>`);
+}
+
+// ---------- vrstva garážových vrat ----------
+
+function gateHtml(it) {
+  const rows = it.parametry.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  return `
+    <h3>${esc(it.nazev)} <span class="badge vrata">${it.druh === 'ram' ? 'rám' : 'Hörmann'}</span></h3>
+    <p class="rooms">${esc(it.mistnost)}</p>
+    ${it.foto ? `<a href="${esc(it.foto)}" target="_blank" rel="noopener" class="zoom"><img class="thumb" src="${esc(it.foto)}" alt="${esc(it.nazev)}"></a><p class="thumb-cap">${esc(it.foto_pozn || '')}</p>` : ''}
+    <dl>${rows}</dl>
+    ${it.polozky ? itemsTable(it, `Položky (${it.cena_pozn})`, `Celkem ${it.cena_pozn.split(' (')[0]}`) : ''}
+    ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}`;
 }
 
 // ---------- vrstva stínění ----------

@@ -1,0 +1,141 @@
+{
+  "aktualizovano": "2026-11-07",
+  "zdroj": "Hörmann LPU 42 – nabídka Značková okna Praha i-516-33272/2026 (23. 9. 2026); ocelový rám – výkres (jekly 100×40×3, 60×40×3)",
+  "vrata": [
+    {
+      "id": "RAM01",
+      "druh": "ram",
+      "podlazi": "1NP",
+      "nazev": "Ocelový rám otvoru garážových vrat",
+      "mistnost": "1.04A garáž – severní stěna (vjezd)",
+      "foto": "img/vrata/ram-vykres.jpg",
+      "foto_pozn": "Výkres rámu – pohled",
+      "parametry": [
+        [
+          "Konstrukce",
+          "svařovaný rám z uzavřených profilů (jeklů): 4× 100 × 40 × 3 mm, 2× 60 × 40 × 3 mm"
+        ],
+        [
+          "Světlý otvor",
+          "šířka 6090 mm × výška 2415 mm"
+        ],
+        [
+          "Stojky",
+          "po stranách 100 + 60 mm (celková šířka rámu cca 6410 mm)"
+        ],
+        [
+          "Nadpraží",
+          "dva profily 100 mm nad otvorem, na horní hraně 7 kotevních pásků"
+        ],
+        [
+          "Kotvení",
+          "po 6 kotvách na každé stojce"
+        ],
+        [
+          "Účel",
+          "osazení sekčních vrat GV01 (otvor 6000 × 2250 mm) a obložek zárubní"
+        ]
+      ],
+      "polozky": null,
+      "celkem": null,
+      "cena_pozn": null,
+      "poznamka": "Cena rámu zatím není v podkladech.",
+      "hotspot": {
+        "x": 519,
+        "y": 172,
+        "w": 780,
+        "h": 64
+      }
+    },
+    {
+      "id": "GV01",
+      "druh": "vrata",
+      "podlazi": "1NP",
+      "nazev": "Sekční garážová vrata Hörmann LPU 42",
+      "mistnost": "1.04A garáž – severní stěna (vjezd)",
+      "foto": "img/vrata/GV01.png",
+      "foto_pozn": "Vnější pohled z nabídky (RAL 9005, L-drážka)",
+      "parametry": [
+        [
+          "Typ",
+          "sekční vrata, motiv L-drážka, N-kování (torzní pružina)"
+        ],
+        [
+          "Rozměr",
+          "6000 × 2250 mm (světlý průjezd 6000 × 2200 mm s pohonem)"
+        ],
+        [
+          "Povrch",
+          "Zvenku Silkgrain RAL 9005 hluboká černá (hedvábný lesk), zevnitř Stucco RAL 9002 šedobílá"
+        ],
+        [
+          "Pohon",
+          "SupraMatic P řada 4 BiSecur, 3× dálkový ovladač HSE 4 BS (černý/chrom), jištění koncové hrany SKS"
+        ],
+        [
+          "Zabezpečení",
+          "Třída odolnosti RC 2 (DIN/TS 18194), magnetický kontakt VdS třídy C"
+        ],
+        [
+          "Tepelný odpor",
+          "1,2 W/(m²·K)"
+        ],
+        [
+          "Práh",
+          "proti přívalovému dešti"
+        ],
+        [
+          "Obložky",
+          "zárubní 55 mm, Silkgrain RAL 9005"
+        ],
+        [
+          "Dodavatel",
+          "Značková okna Praha (Hörmann) přes HELP Stavby"
+        ],
+        [
+          "Nabídka",
+          "i-516-33272/2026, 23. 9. 2026"
+        ]
+      ],
+      "polozky": [
+        {
+          "popis": "Sekční vrata LPU 42 vč. pohonu SupraMatic P, RC 2, nátěr RAL 9005",
+          "cena": 98960.0
+        },
+        {
+          "popis": "Dálkový ovladač HSE 4 868-BS, chrom/černá (3 ks)",
+          "cena": 3165.0
+        },
+        {
+          "popis": "Magnetický kontakt VdS třída C",
+          "cena": 2377.0
+        },
+        {
+          "popis": "Montážní sada VdS magnetkontakt",
+          "cena": 417.0
+        },
+        {
+          "popis": "Práh proti přívalovému dešti, 2-sada",
+          "cena": 3016.0
+        },
+        {
+          "popis": "Montáž vrat vč. pohonu",
+          "cena": 18000.0
+        },
+        {
+          "popis": "Doprava",
+          "cena": 3500.0
+        }
+      ],
+      "celkem": 129435.0,
+      "cena_pozn": "bez DPH (nabídka pro HELP Stavby s 0 % DPH)",
+      "poznamka": "U tmavých odstínů může sluneční záření způsobit praskliny v pěně a větší průhyb křídla (upozornění výrobce). Minimální výška stropu 2460 mm, hloubka zasunutí 2760 mm.",
+      "hotspot": {
+        "x": 549,
+        "y": 186,
+        "w": 720,
+        "h": 36
+      }
+    }
+  ]
+}
