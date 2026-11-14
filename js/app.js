@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.9.3'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.10.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -12,6 +12,7 @@ const STAV = {
 const PAD = 14; // zvětšení klikací plochy kolem hotspotu (px obrázku)
 const STRANY = ['Sever', 'Východ', 'Jih', 'Západ']; // půdorysy mají sever nahoře
 let DOOR_OFFERS = []; // nabídky Hanák na dveře a obklady
+let ZAR = {};       // specifikace zárubní JAP (součet, ostatní položky)
 let MAT = {};       // materiály vrstvy povrchů (kód → název, barva, množství)
 let ZARUKA = '';    // záruční podmínky nábytku Hanák
 let EZS = {};       // typy prvků EZS a rozpočet
@@ -25,15 +26,13 @@ const LAYERS = {
   dvere: {
     file: 'data/dvere.json',
     key: 'dvere',
-    title: 'Seznam dveří',
+    title: 'Dveřní křídla',
     statusFilter: true,    // na tuto vrstvu působí filtr „Stav dveří“
     subtitle: it => it.mezi.join(' ↔ '),
     badge: it => `<span class="badge ${it.stav}">${STAV[it.stav]}</span>`,
     fields: it => [
       ['Typ', it.typ],
       ['Rozměr', it.rozmer],
-      ['Stav. otvor', it.otvor],
-      ['Zárubeň', it.zarubne],
       ...Object.entries(it.povrch).map(([room, p]) => [`Povrch ${room.split(' ')[0]}`, p]),
       ['Dodavatel', it.dodavatel],
       ['Cena Hanák', it.cena_hanak ? it.cena_hanak.map(c => `${c.popis}: ${CZK.format(c.cena_bez)} bez DPH (${CZK.format(c.cena_s)} s DPH ${c.dph})`).join('; ') : null],
@@ -49,6 +48,41 @@ const LAYERS = {
     ],
     onLoad: data => { DOOR_OFFERS = data.nabidky || []; },
     extra: doorOffers,
+  },
+  zarubne: {
+    file: 'data/zarubne.json',
+    key: 'zarubne',
+    title: 'Skryté zárubně, pouzdra a posuvné systémy (JAP)',
+    grow: 12,              // rámeček kolem hotspotu dveří – při zapnutých křídlech zůstane klikací okraj
+    onLoad: data => { ZAR = data; },
+    subtitle: it => `${it.dvere} – ${it.mistnost}`,
+    badge: it => `<span class="badge zarubne">RAL 9005</span>`,
+    fields: it => [
+      ['Výrobek', it.vyrobek],
+      ['Čistý průchod', it.pruchod],
+      ['Stav. otvor', it.otvor],
+      ['Křídla', it.kridla],
+      ['Orientace', it.orientace],
+      ['Závěsy', it.zavesy],
+      ['Protiplech', it.protiplech],
+      ['Těsnění', it.tesneni],
+      ['Typ dveří', it.dvere_typ],
+      ['Kotvy', it.kotvy],
+      ['Obklad', it.obklad],
+      ['Příčka', it.pricka || 'zděná'],
+      ['Povrch', it.povrch],
+      ['Pozice JAP', it.pozice_jap === it.dvere ? null : it.pozice_jap],
+      ['Cena', `${CZK.format(it.cena)} bez DPH`],
+    ],
+    columns: [
+      ['Dveře', it => it.dvere],
+      ['Místnost', it => it.mistnost],
+      ['Výrobek', it => it.vyrobek.split(',')[0]],
+      ['Průchod', it => it.pruchod],
+      ['Stav. otvor', it => it.otvor],
+      ['Cena bez DPH', it => ({ html: `<span class="num">${CZK.format(it.cena)}</span>` })],
+    ],
+    extra: frameSummary,
   },
   okna: {
     file: 'data/okna.json',
@@ -255,13 +289,14 @@ function renderHotspots() {
     // šrafa pro plochy stínění (markýza)
     svg.insertAdjacentHTML('afterbegin', `<defs><pattern id="stripes-${fig.dataset.floor}" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="rgba(230,126,34,.12)"/><rect width="10" height="28" fill="rgba(230,126,34,.38)"/></pattern></defs>`);
     // pořadí vykreslení: místnosti dospod, pak okna, navrch dveře (zůstanou klikací tam, kde se překrývají)
-    const order = it => LAYERS[it.layer].below ? 0 : it.layer === 'okna' ? 1 : 2;
+    const order = it => LAYERS[it.layer].below ? 0 : it.layer === 'okna' ? 1 : it.layer === 'zarubne' ? 1.5 : 2;
     const items = state.items.filter(i => i.podlazi === fig.dataset.floor).sort((a, b) => order(a) - order(b));
     for (const it of items) {
       const cfg = LAYERS[it.layer];
       if (it.dekor) { svg.prepend(carShape(it)); continue; }   // jen kresba (auta v garáži), bez detailu
       const pad = cfg.padding ?? PAD;
-      const rects = [].concat(it.hotspot);
+      const grow = cfg.grow || 0;
+      const rects = [].concat(it.hotspot).map(r => ({ x: r.x - grow, y: r.y - grow, w: r.w + 2 * grow, h: r.h + 2 * grow }));
       const g = el('g', { class: 'hs', 'data-id': it.id, 'data-stav': cfg.statusFilter ? it.stav : '', 'data-layer': it.layer, tabindex: 0, role: 'button', 'aria-label': `${it.id}: ${cfg.subtitle(it)}` });
       if (cfg.color) g.style.setProperty('--c', cfg.color(it));
       if (it.layer === 'stineni') g.style.setProperty('--fill', `url(#stripes-${fig.dataset.floor})`);
@@ -508,7 +543,22 @@ function doorOffers(sec) {
       <tr><td>Celkem s DPH ${esc(n.dph)}</td><td class="num">${CZK.format(n.s_dph)}</td></tr></tfoot>
     </table></div>
     <p class="meta">${esc(n.dodavatel)}</p>`).join('') +
-    `<p class="meta">Dveře DV001-B, DV002 a DV009 dodává kompletně JAP, stejně jako zárubně a pouzdra u ostatních dveří – nabídka JAP zatím není v podkladech.</p>`);
+    `<p class="meta">Zárubně, pouzdra a posuvné systémy JAP jsou ve vrstvě Skryté zárubně. Celoskleněné DV001-B (pivot DIVA) a skleněné křídlo DV002 dodává JAP – nabídka zatím není v podkladech.</p>`);
+}
+
+function frameSummary(sec) {
+  const items = state.items.filter(i => i.layer === 'zarubne');
+  const sum = items.reduce((a, i) => a + i.cena, 0);
+  sec.insertAdjacentHTML('beforeend', `
+    <h3 class="sub-h">Specifikace objednávky ${esc(ZAR.nabidka)}</h3>
+    <div class="table-wrap"><table>
+      <tbody>
+        <tr><td>Zárubně, pouzdra a posuvné systémy (${items.length} pozic)</td><td class="num">${CZK.format(sum)}</td></tr>
+        ${ZAR.ostatni.map(([p, c]) => `<tr><td>${esc(p)}</td><td class="num">${CZK.format(c)}</td></tr>`).join('')}
+      </tbody>
+      <tfoot><tr><td><strong>Celkem ${esc(ZAR.dph_pozn)}</strong></td><td class="num"><strong>${CZK.format(ZAR.celkem)}</strong></td></tr></tfoot>
+    </table></div>
+    <p class="meta">${esc(ZAR.poznamka)}</p>`);
 }
 
 // ---------- vrstva povrchů ----------

@@ -12,7 +12,7 @@ Interaktivní webové půdorysy našeho nového RD (RD Podolanka, 2 podlaží: *
 |---|---|
 | 0. Plánování | 🟢 hotovo |
 | 1. Základ webu + půdorysy | 🟢 hotovo |
-| 2. Vrstva: Dveře | 🟡 online, chybí fotky a kontrola poloh |
+| 2. Vrstvy: Dveřní křídla + Skryté zárubně | 🟡 online (zárubně podle specifikace JAP 120/26/00465), chybí fotky a kontrola poloh |
 | 3. Vrstva: Okna | 🟡 online (16 oken + světlík), čeká na ověření FV10 |
 | 3b. Vrstva: Garážová vrata a rám | 🟢 online (GV01 Hörmann + ocelový rám) |
 | 4. Vrstva: Povrchy (podlahy, stěny, stropy) | 🟡 online (23 místností), materiály částečně ve vzorkování |
@@ -39,10 +39,11 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 ---
 
-## Co web umí (v0.9)
+## Co web umí (v0.10)
 
 - Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. Se zapnutou vrstvou FVE nebo Okna přibude volba *1.NP + střecha* a *Střecha* (světlík SL01 je na střeše i jako průmět ve stropě pracovny 1.07). Ve volbě *Vše* je střecha jen se zapnutou FVE.
-- Vrstva **Dveře**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní).
+- Vrstva **Dveřní křídla**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní), typ, povrchy, ceny Hanák.
+- Vrstva **Skryté zárubně** (ve výchozím stavu vypnutá): 17 zárubní, pouzder a posuvných systémů JAP jako čárkovaný rámeček kolem dveří – výrobek, čistý průchod, stavební otvor, orientace, závěsy, protiplech, cena; pod půdorysy tabulka a rekapitulace specifikace objednávky JAP 120/26/00465 (591 548,55 Kč bez DPH).
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna**: 16 oken (FV01–FV13) a světlík SL01 modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
@@ -63,7 +64,8 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 index.html          – stránka
 css/style.css       – vzhled
 js/app.js           – logika (vrstvy, tooltip, filtry, editor souřadnic)
-data/dvere.json     – data dveří vč. souřadnic hotspotů
+data/dvere.json     – dveřní křídla vč. souřadnic hotspotů
+data/zarubne.json   – zárubně JAP (vazba na dveře přes pole `dvere`, hotspot převzatý z dveří)
 data/okna.json      – data oken vč. souřadnic hotspotů
 img/okna/*.png      – náhledy oken z přehledu elementů HA Technik
 data/nabytek.json   – sestavy nábytku Hanák: provedení, položky, ceny, náhledy, plochy v půdorysu
@@ -119,6 +121,7 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 |---|---|
 | `C.2_OSAZOVACI PUDORYSY.pdf` – JA Architekti, projekt interiéru 08/25 (C.2.1 1.PP, C.2.2 1.NP) | ✅ **podklad půdorysů**: aktuální dispozice vč. 0.09A/B a 1.04A/B |
 | `Dvere_Podolanka_kontrola_4.xlsx` (stav po schůzce 5. 10. 2026) | ✅ hlavní zdroj dat o dveřích |
+| `Specifikace_objednavky_120_2026_465.pdf` – JAP FUTURE, 11. 11. 2026 (nabídka N120/2026/653-1, 591 548,55 Kč bez DPH) | ✅ **zdroj zárubní**; pozice JAP přiřazeny k našim číslům (DV005 0.12 → DV006, DV007 0.06/0.03/0.04 → DV001-A/DV007-A/DV007-B, DV105 1.07/1.03 → DV105-B/DV105-A); jména osob se nezveřejňují |
 | Nabídky Hanák „kd int. dveře + obklady a kce“ a „kd pláště“ (15. 10. 2026) | ✅ křídla, pláště a obklady vč. **cen** (930 460 + 72 398 Kč bez DPH) |
 | DWG D.1.2 (stavebně konstrukční řešení) | ❌ jen statika, bez dveří a místností |
 | DWG D.1.1 DPS (`POD_DPS_303_1pp`, `POD_DPS_304_1np`, Dropbox) | ⏸ starší dispozice (2024); možná se hodí pro okna |
@@ -164,6 +167,9 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - [x] Soupis všech dveří (18 pozic, 1.PP: 11, 1.NP: 7)
 - [x] Zakreslit hotspoty všech dveří
 - [ ] Zkontrolovat polohy hotspotů (hlavně DV001-B, DV009, DV010, DV105-B)
+- [x] Rozdělení na vrstvy Dveřní křídla a Skryté zárubně, zárubně podle specifikace JAP 120/26/00465
+- [ ] DV107: specifikace JAP uvádí „koupelna 1.09“ – podle čísla jde o koupelnu 1.05, ověřit
+- [ ] Doplnit cenu skleněných křídel DV001-B a DV002 (JAP)
 - [x] Ceny Hanák u dveří (detail, sloupec v seznamu, rozpis obou nabídek pod seznamem)
 - [ ] Nabídka JAP (zárubně, pouzdra, DV001-B, DV002, DV009) – zatím chybí
 - [ ] DV101: v nabídce Hanák jako druhé „1.03“; DV102: Hanák uvádí skrytou zárubeň × JAP MASTER/ACTIVE – ověřit
@@ -294,3 +300,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-11-02:** Tepelné čerpadlo: vrty V1, V2 a sběrná šachta před severní fasádou podle situace ARTEG (v0.9.1).
 - **2026-11-02:** Střecha (se světlíkem) dostupná i se zapnutou vrstvou Okna, ne jen s FVE; v hlavičce odkaz zpět na Rozcestník (v0.9.2).
 - **2026-11-07:** Web v0.9: vrstva Garážová vrata a rám (GV01 přesunuta z Oken, nový ocelový rám s výkresem); vrstva Okna přejmenována.
+- **2026-11-14:** Web v0.10: vrstva Dveře rozdělena na Dveřní křídla a Skryté zárubně (specifikace JAP 120/26/00465, 591 548,55 Kč bez DPH).

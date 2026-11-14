@@ -131,6 +131,11 @@ body {
 .hs:hover text, .hs.active text, .plans.labels .hs text { opacity: 1; }
 .hs.active rect.mark { animation: pulse 1.2s ease-in-out 2; }
 @keyframes pulse { 50% { stroke-width: 14; } }
+.hs[data-layer="zarubne"] { --c: var(--text); }
+.hs[data-layer="zarubne"] rect.mark { fill-opacity: .06; stroke-width: 6; stroke-dasharray: 16 6; rx: 4; }
+.hs[data-layer="zarubne"]:hover rect.mark, .hs[data-layer="zarubne"].active rect.mark { fill-opacity: .25; stroke-dasharray: none; }
+.ly-zar i { border: 2px dashed var(--text); border-radius: 2px; background: transparent; }
+.badge.zarubne { background: #212121; color: #fff; }
 .hs[data-stav="ok"] { --c: var(--ok); }
 .hs[data-stav="overit"] { --c: var(--overit); }
 .hs[data-stav="resit"] { --c: var(--resit); }
