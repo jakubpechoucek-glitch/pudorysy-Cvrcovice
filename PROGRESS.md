@@ -43,7 +43,7 @@ Pak otevřít http://localhost:8123. Data se načítají přes `fetch`, takže o
 
 - Podlaží 1.PP a 1.NP, přepínač **Vše / 1.PP / 1.NP**. Se zapnutou vrstvou FVE nebo Okna přibude volba *1.NP + střecha* a *Střecha* (světlík SL01 je na střeše i jako průmět ve stropě pracovny 1.07). Ve volbě *Vše* je střecha jen se zapnutou FVE.
 - Vrstva **Dveřní křídla**: 18 pozic, barevně podle stavu (OK / k ověření / k dořešení / akutní), typ, povrchy, ceny Hanák.
-- Vrstva **Skryté zárubně** (ve výchozím stavu vypnutá): 17 zárubní, pouzder a posuvných systémů JAP jako čárkovaný rámeček kolem dveří – výrobek, čistý průchod, stavební otvor, orientace, závěsy, protiplech, cena; pod půdorysy tabulka a rekapitulace specifikace objednávky JAP 120/26/00465 (591 548,55 Kč bez DPH).
+- Vrstva **Skryté zárubně** (ve výchozím stavu vypnutá): 17 zárubní, pouzder a posuvných systémů JAP jako čárkovaný rámeček kolem dveří – výrobek, čistý průchod, stavební otvor, orientace, závěsy, protiplech, cena; pod půdorysy tabulka a rekapitulace specifikace objednávky JAP 120/26/00465 (591 548,55 Kč bez DPH). Detail křídla obsahuje souhrn jeho zárubně a tlačítko na celý detail zárubně (a obráceně) – vrstvy se v plánu překrývají.
 - Najetí myší ukáže detail, kliknutí ho připne. Na mobilu se detail otevře klepnutím jako panel ze spodu obrazovky.
 - Vrstva **Okna**: 16 oken (FV01–FV13) a světlík SL01 modře, v detailu náhled pozice z exteriéru, rozměr, parapet, zasklení, kování, profil Schüco.
 - Vrstva **Povrchy** (ve výchozím stavu vypnutá): 23 místností obarvených podle podlahy (P1 dřevo, P2 dlažba, P3 betonová stěrka, P4 průmyslová stěrka). V detailu je schéma stěn S/V/J/Z s kódy materiálů, výpis podlahy, stěn (vč. obkladů, formátů a počtu kusů) a stropu. Pod půdorysy je tabulka místností a materiálů s celkovým množstvím dlažeb a obkladů. Dřevěná podlaha P1 a schodiště mají nabídku Princ parket (rozpis položek pod půdorysy), schodiště má vlastní plochu v plánu obou podlaží.
@@ -301,3 +301,4 @@ Okna (`data/okna.json`) mají pole `mistnost, typ, rozmer, parapet, zaskleni, ko
 - **2026-11-02:** Střecha (se světlíkem) dostupná i se zapnutou vrstvou Okna, ne jen s FVE; v hlavičce odkaz zpět na Rozcestník (v0.9.2).
 - **2026-11-07:** Web v0.9: vrstva Garážová vrata a rám (GV01 přesunuta z Oken, nový ocelový rám s výkresem); vrstva Okna přejmenována.
 - **2026-11-14:** Web v0.10: vrstva Dveře rozdělena na Dveřní křídla a Skryté zárubně (specifikace JAP 120/26/00465, 591 548,55 Kč bez DPH).
+- **2026-11-14:** Propojení detailů křídlo ↔ zárubeň, aby byl detail zárubně dostupný i se zapnutými oběma vrstvami (v0.10.1).

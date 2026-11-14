@@ -136,6 +136,8 @@ body {
 .hs[data-layer="zarubne"]:hover rect.mark, .hs[data-layer="zarubne"].active rect.mark { fill-opacity: .25; stroke-dasharray: none; }
 .ly-zar i { border: 2px dashed var(--text); border-radius: 2px; background: transparent; }
 .badge.zarubne { background: #212121; color: #fff; }
+.tip .goto { margin-top: 10px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--accent); font: inherit; font-size: 13px; cursor: pointer; }
+.tip .goto:hover { border-color: var(--accent); }
 .hs[data-stav="ok"] { --c: var(--ok); }
 .hs[data-stav="overit"] { --c: var(--overit); }
 .hs[data-stav="resit"] { --c: var(--resit); }

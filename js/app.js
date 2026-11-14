@@ -2,7 +2,7 @@
 // Data vrstev jsou v data/*.json, souřadnice hotspotů v pixelech obrázků img/*.png.
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const VERSION = '0.10.0'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
+const VERSION = '0.10.1'; // zvýšit při změně dat – obchází cache prohlížeče (stejné číslo v index.html)
 const STAV = {
   ok: 'OK',
   overit: 'K ověření',
@@ -48,6 +48,14 @@ const LAYERS = {
     ],
     onLoad: data => { DOOR_OFFERS = data.nabidky || []; },
     extra: doorOffers,
+    linked: it => {         // zárubeň těchto dveří (vrstvy se v plánu překrývají)
+      const z = state.items.find(i => i.layer === 'zarubne' && i.dvere === it.id);
+      if (!z) return '';
+      return `<h4>Zárubeň (JAP)</h4>
+        <dl><dt>Výrobek</dt><dd>${esc(z.vyrobek)}</dd><dt>Čistý průchod</dt><dd>${esc(z.pruchod)}</dd>
+        <dt>Stav. otvor</dt><dd>${esc(z.otvor)}</dd><dt>Cena</dt><dd>${esc(CZK.format(z.cena))} bez DPH</dd></dl>
+        ${state.layers.has('zarubne') ? `<button class="goto" data-goto="${esc(z.id)}">Celý detail zárubně →</button>` : ''}`;
+    },
   },
   zarubne: {
     file: 'data/zarubne.json',
@@ -83,6 +91,7 @@ const LAYERS = {
       ['Cena bez DPH', it => ({ html: `<span class="num">${CZK.format(it.cena)}</span>` })],
     ],
     extra: frameSummary,
+    linked: it => state.layers.has('dvere') ? `<button class="goto" data-goto="${esc(it.dvere)}">Detail dveřního křídla ${esc(it.dvere)} →</button>` : '',
   },
   okna: {
     file: 'data/okna.json',
@@ -374,7 +383,8 @@ function tipHtml(it) {
     <dl>${rows}</dl>
     ${it.polozky ? itemsTable(it, `Položky (${it.cena_pozn})`, `Celkem ${it.cena_pozn.split(' (')[0]}`) : ''}
     ${it.poznamka ? `<p class="note">${esc(it.poznamka)}</p>` : ''}
-    ${it.nabidka ? `<p class="src">Nabídka ${esc(it.nabidka)}</p>` : ''}`;
+    ${it.nabidka ? `<p class="src">Nabídka ${esc(it.nabidka)}</p>` : ''}
+    ${cfg.linked?.(it) || ''}`;
 }
 
 function itemsTable(it, heading, totalLabel, extraRows = '') {
@@ -391,6 +401,13 @@ function showTip(it, e, anchorEl) {
   tip.classList.toggle('wide', !!it.polozky);
   tip.hidden = false;
   tip.querySelector('.close').addEventListener('click', unpin);
+  // přechod na propojený prvek (křídlo ↔ zárubeň) – připne jeho detail
+  tip.querySelectorAll('[data-goto]').forEach(b => b.addEventListener('click', ev => {
+    ev.stopPropagation();
+    const target = state.items.find(i => i.id === b.dataset.goto);
+    state.pinned = null;
+    togglePin(target, null, hotspotEl(target.id));
+  }));
   setActive(it.id);
   const place = () => {
     if (e && e.clientX) positionTip(e.clientX, e.clientY);
